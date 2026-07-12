@@ -153,7 +153,7 @@ export function Header() {
         </nav>
 
         <Link
-          className="absolute left-1/2 flex -translate-x-1/2 items-center lg:static lg:translate-x-0"
+          className="absolute left-1/2 flex -translate-x-1/2 items-center"
           href="/"
           aria-label="Muuhu home"
         >
