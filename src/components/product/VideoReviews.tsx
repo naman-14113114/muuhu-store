@@ -19,7 +19,7 @@ function ReviewVideoCard({
   const shouldPlayRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
-  const [shouldLoad, setShouldLoad] = useState(index < reviewVideos.length);
+  const [shouldLoad, setShouldLoad] = useState(index < 4);
 
   const playWhenReady = useCallback(() => {
     if (!shouldPlayRef.current) return;
@@ -65,7 +65,7 @@ function ReviewVideoCard({
       }}
     >
       <video
-        aria-label={`Buudy customer video review ${index + 1}`}
+        aria-label={`Muuhu customer video review ${index + 1}`}
         className="h-full w-full object-cover"
         disablePictureInPicture
         loop
@@ -96,7 +96,7 @@ function ReviewVideoCard({
 
 export function VideoReviews() {
   return (
-    <section className="buudy-section bg-[#f6ede2] pt-14 md:pt-24 pb-4 md:pb-6 overflow-hidden">
+    <section className="buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden">
       <style>{`
         @keyframes vr-css-auto-scroll {
           0% { transform: translateX(0); }
@@ -109,7 +109,7 @@ export function VideoReviews() {
           eyebrow="Real Customers"
           title={
             <>
-              Buudy Mask <span className="buudy-italic text-[var(--gold)]">reviews</span> <span className="font-playfair italic text-[var(--plum)]">&</span> real results
+              Muuhu <span className="buudy-italic text-[var(--gold)]">reviews</span> <span className="font-playfair italic text-[var(--plum)]">&</span> real results
             </>
           }
         />

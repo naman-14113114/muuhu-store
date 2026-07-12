@@ -13,6 +13,9 @@ import { FeatureGrid } from "./FeatureGrid";
 import { HairDryerAttachmentBadges } from "./HairDryerAttachmentBadges";
 import { BeforeAfterCarousel } from "./BeforeAfterCarousel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { VideoReviews } from "./VideoReviews";
+import { BeforeAfterGrid } from "./BeforeAfterGrid";
+import { MuuhuProductFocus, MuuhuAppPromo } from "./MuuhuFeatureSections";
 
 function HairDryerHeroVideo() {
   return (
@@ -57,7 +60,7 @@ function HairDryerBeforeAfterSection() {
   ];
 
   return (
-    <section className="buudy-section bg-[var(--cream)] py-16 md:py-24 border-y border-[var(--border)]">
+    <section className="buudy-section bg-[var(--cream)] py-16 md:py-24">
       <div className="buudy-wrap flex flex-col items-center text-center">
         <SectionHeading
           eyebrow="Real Results"
@@ -119,7 +122,7 @@ function HairDryerBeforeAfterSection() {
 
 function HairDryerDescriptionBanners() {
   return (
-    <section className="bg-[var(--plum)] w-full py-16 md:py-24 border-y border-[var(--border)]">
+    <section className="bg-[var(--plum)] w-full py-16 md:py-24">
       <div className="w-full max-w-[1000px] mx-auto flex flex-col gap-8 md:gap-12 px-4 md:px-6">
         <div className="flex flex-col items-center text-center mb-4">
            <SectionHeading
@@ -159,21 +162,25 @@ export function HairDryerProductPage({ product }: { product: Product }) {
   return (
     <>
       <ProductHero product={product} />
+      <VideoReviews />
       <TrustBadges />
       <HairDryerAttachmentBadges />
       <HairDryerHeroVideo />
-      <FeatureGrid 
+      {/* <FeatureGrid 
         eyebrow="Why Muuhu"
         title={
           <>
             What makes our styler <em className="buudy-italic text-[var(--gold)]">unique</em>?
           </>
         }
-      />
+      /> */}
 
+      <BeforeAfterGrid />
       <BeforeAfterCarousel />
-      <HairDryerDescriptionBanners />
+      {/* <HairDryerDescriptionBanners /> */}
 
+      <MuuhuProductFocus />
+      <MuuhuAppPromo />
       <ProductReviewsSection productHandle={product.id} />
       <ComparisonTable />
       <FAQSection faqs={product.faqs} productHandle={product.id} />

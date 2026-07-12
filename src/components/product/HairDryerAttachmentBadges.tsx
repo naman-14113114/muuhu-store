@@ -12,7 +12,7 @@ export function HairDryerAttachmentBadges() {
   ];
 
   return (
-    <section className="bg-[#f6ede2] pt-8 md:pt-12 pb-14 md:pb-24 border-t border-[var(--border)]">
+    <section className="bg-[#f6ede2] py-14 md:py-24">
       <div className="buudy-wrap">
         <div className="text-center mb-10">
           <p className="buudy-mono text-[var(--gold)] mb-2 uppercase tracking-widest text-sm">Included in the box</p>

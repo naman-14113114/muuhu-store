@@ -148,7 +148,7 @@ export function BeforeAfterCarousel() {
   };
 
   return (
-    <section className="bg-[var(--plum)] py-16 md:py-24 border-y border-[var(--border)] overflow-hidden">
+    <section className="bg-[var(--plum)] py-14 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-6">
         <div className="text-center mb-10">
           <p className="buudy-mono text-[var(--gold)] mb-2 uppercase tracking-widest text-sm">
