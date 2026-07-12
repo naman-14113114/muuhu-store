@@ -261,7 +261,7 @@ function HomeVideoHero() {
         muted
         playsInline
         className="block h-auto w-full"
-        src="/images/products/muuhu-hair-dryer/muuhu-hero-video-cropped.mp4"
+        src="/images/products/muuhu-hair-dryer/Hair%20Dryer%20video%20-%202.webm"
       />
     </section>
   );

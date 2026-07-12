@@ -36,7 +36,7 @@ function HairDryerHeroVideo() {
             muted
             playsInline
             className="w-full h-full object-cover"
-            src="/images/products/muuhu-hair-dryer/muuhu-hero-video-cropped.mp4"
+            src="/images/products/muuhu-hair-dryer/Hair%20Dryer%20video%20-%202.webm"
           />
         </div>
       </div>
