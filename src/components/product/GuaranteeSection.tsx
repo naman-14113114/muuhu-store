@@ -1,0 +1,17 @@
+export function GuaranteeSection() {
+  return (
+    <section className="buudy-section relative overflow-hidden bg-[var(--plum)] py-14 pb-24 text-center md:py-24 md:pb-36">
+      <div className="buudy-wrap relative z-20 max-w-5xl">
+        <p className="buudy-eyebrow">Promise</p>
+        <h2 className="buudy-display mx-auto mt-3 max-w-4xl text-[2rem] leading-[1.05] text-[var(--cream)] sm:text-[2.35rem] md:mt-4 md:text-6xl">
+          Our <em className="buudy-italic text-[var(--gold)]">Muuhu</em>
+          <br />
+          money back guarantee.
+        </h2>
+        <p className="mx-auto mt-6 hidden max-w-xl text-sm font-medium leading-7 text-white md:block md:text-base">
+          Bring salon-inspired hair styling into your daily routine with Muuhu. Designed for ultra-fast drying, frizz-free shine, and effortless at-home use, Muuhu gives you a premium styling experience you can trust every time.
+        </p>
+      </div>
+    </section>
+  );
+}
