@@ -41,6 +41,7 @@ const PLUSBASE_PRODUCTS: Record<string, { productId: string; variantId: string }
 export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {
   const url = new URL(getPlusbaseCheckoutBridgeUrl());
   const quantity = Math.max(1, Math.round(options.quantity ?? 1));
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const giftQuantity = Math.max(
     1,
     Math.round(options.giftQuantity ?? options.quantity ?? 1),

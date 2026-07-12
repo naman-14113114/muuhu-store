@@ -12,7 +12,6 @@ import { ComparisonTable } from "./ComparisonTable";
 import { FeatureGrid } from "./FeatureGrid";
 import { HairDryerAttachmentBadges } from "./HairDryerAttachmentBadges";
 import { BeforeAfterCarousel } from "./BeforeAfterCarousel";
-import { DeferredBeforeAfterGrid } from "./DeferredClientSections";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 function HairDryerHeroVideo() {
@@ -45,6 +44,7 @@ function HairDryerHeroVideo() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function HairDryerBeforeAfterSection() {
   const attachments = [
     { num: 1, title: "L-Shape Base", desc: "Fast pre-drying from wet to styled-ready." },
@@ -141,6 +141,7 @@ function HairDryerDescriptionBanners() {
           { src: "/images/products/muuhu-hair-dryer/08-curling-wand.jpg", alt: "Curling wand attachment" },
         ].map((banner, index) => (
           <div key={index} className="w-full overflow-hidden rounded-[25px] shadow-sm">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={banner.src}
               alt={banner.alt}

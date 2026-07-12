@@ -10,10 +10,8 @@ import {
   homeTechnologySpotlight,
   homeTorchSpotlight,
   homeYoungerYou,
-  homeHero,
 } from "@/data/home";
 import { Button } from "@/components/ui/Button";
-import { Price } from "@/components/ui/Price";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 function TorchSpotlight() {
@@ -163,6 +161,7 @@ function HomeFeatureGrid() {
               className="overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)]"
               key={feature.title}
             >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 alt={feature.title}
                 className="block h-auto w-full bg-[var(--blush)]"
@@ -184,6 +183,7 @@ function HomeFeatureGrid() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function LightTherapyStory() {
   return (
     <section
@@ -216,6 +216,7 @@ function LightTherapyStory() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function RevealYoungerYou() {
   return null;
 }

@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const TOTAL_REVIEWS = 2000;
 const RATING_DISTR = {
   1: 2,
@@ -75,6 +76,7 @@ function getRandomDate(start: Date, end: Date) {
   return new Date(start.getTime() + Math.random() * (end.getTime() - start.getTime()));
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 const reviews: any[] = [];
 let currentIndex = 4275; // Start index
 

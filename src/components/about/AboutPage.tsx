@@ -65,6 +65,7 @@ export function AboutPage() {
                     isRight ? "lg:order-2" : ""
                   }`}
                 >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt={section.image.alt}
                     src={section.image.src}

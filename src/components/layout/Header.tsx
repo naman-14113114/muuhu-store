@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import { createPortal } from "react-dom";
 import {
@@ -158,6 +157,7 @@ export function Header() {
           href="/"
           aria-label="Muuhu home"
         >
+          {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             alt="Muuhu Logo"
             className="object-contain"
@@ -290,6 +290,7 @@ export function Header() {
                 role="dialog"
               >
                 <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     alt="Muuhu Logo"
                     className="object-contain"

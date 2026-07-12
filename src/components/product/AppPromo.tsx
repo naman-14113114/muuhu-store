@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Play, Smartphone } from "lucide-react";
 import { touchTech } from "@/data/productSections";
-import { productAsset, productMediaAsset } from "@/lib/media";
+import { productAsset } from "@/lib/media";
 import { Button } from "@/components/ui/Button";
 import { LazyAutoplayVideo } from "@/components/ui/LazyAutoplayVideo";
 

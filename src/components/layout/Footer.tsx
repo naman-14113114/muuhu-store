@@ -1,7 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { footerMenus, paymentIcons } from "@/data/footer";
-import { productMediaAsset } from "@/lib/media";
 
 export function Footer() {
   return (

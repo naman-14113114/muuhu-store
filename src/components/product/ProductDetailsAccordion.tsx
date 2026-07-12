@@ -12,12 +12,6 @@ import {
   Zap,
   Sun,
   Activity,
-  Smartphone,
-  ScanFace,
-  BatteryCharging,
-  Timer,
-  Hand,
-  ShieldCheck,
   Snowflake,
   Sparkles,
   Plug,
@@ -33,7 +27,6 @@ import {
   IconBatteryCharging,
   IconShieldCheck,
   IconDeviceMobile,
-  IconBulb,
 } from "@tabler/icons-react";
 
 const featureIcons = [
@@ -69,16 +62,6 @@ function getSpecIcon(label: string) {
   if (normLabel.includes("lamp")) return Lightbulb;
   return Zap;
 }
-
-const keyBenefitIcons = [
-  Smartphone,
-  Palette,
-  ScanFace,
-  BatteryCharging,
-  Timer,
-  Hand,
-  ShieldCheck,
-];
 
 function AccordionPanel({
   item,

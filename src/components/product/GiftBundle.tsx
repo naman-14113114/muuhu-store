@@ -6,10 +6,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import {
-  BatteryCharging,
   ShieldCheck,
   Sparkles,
-  Truck,
   Waves,
   RotateCcw,
   Sun,
@@ -69,6 +67,7 @@ function useDeliveryDate(daysFromToday: number) {
   return dateLabel;
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function FaceNeckIcon({ size = 22 }: { size?: number }) {
   return (
     <svg
@@ -120,6 +119,7 @@ export function GiftBundle({ product }: { product: Product }) {
   }, []);
 
   const giftValue = product.gifts?.reduce(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (total: number, gift: any) => total + gift.valueCents,
     0,
   );
@@ -202,7 +202,9 @@ export function GiftBundle({ product }: { product: Product }) {
 
       {/* Premium Compact Bullet Points List */}
       <ul className="mt-4 mb-4 flex flex-col gap-1.5 pl-1.5">
-        {(product.keyBenefits ?? product.highlights)?.map((benefit: any, index: number) => {
+        {(product.keyBenefits ?? product.highlights)?.map(
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          (benefit: any, index: number) => {
           const Icon = keyBenefitIcons[index % keyBenefitIcons.length];
           return (
             <li
@@ -340,7 +342,9 @@ export function GiftBundle({ product }: { product: Product }) {
             </p>
           </div>
           <div className="grid grid-cols-3 gap-2 md:gap-4">
-            {product.gifts?.map((gift: any) => (
+            {product.gifts?.map(
+              // eslint-disable-next-line @typescript-eslint/no-explicit-any
+              (gift: any) => (
               <Link
                 aria-label={`Learn more about ${gift.name}`}
                 className="group relative flex min-h-[180px] flex-col justify-start rounded-[24px] border border-[rgba(58,31,61,.18)] bg-[var(--card)] p-2 pt-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[rgba(184,149,86,.72)] hover:shadow-[0_18px_32px_-24px_rgba(58,31,61,.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:min-h-[220px] md:p-3 md:pt-6"

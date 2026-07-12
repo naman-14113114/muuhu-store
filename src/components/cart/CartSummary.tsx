@@ -15,7 +15,6 @@ type CartSummaryProps = {
 export function CartSummary({ action = "summary", children }: CartSummaryProps) {
   const { totals, closeCart } = useCart();
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const hasItems = totals.itemCount > 0;
   const totalSavingsCents = totals.savingsCents + totals.giftValueCents;
 
   return (

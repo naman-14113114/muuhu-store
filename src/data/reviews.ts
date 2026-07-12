@@ -32,7 +32,7 @@ function normalizeStaticReview(r: ProductReview) {
 }
 
 const reviewCollections = {
-  "muuhu-hair-dryer": hairDryerReviews.map((r) => normalizeStaticReview(r as any)) as ProductReview[],
+  "muuhu-hair-dryer": hairDryerReviews.map((r) => normalizeStaticReview(r as unknown as ProductReview)) as ProductReview[],
 } as const;
 
 export type ReviewProductHandle = keyof typeof reviewCollections;

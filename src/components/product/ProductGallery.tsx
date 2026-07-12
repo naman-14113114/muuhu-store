@@ -236,17 +236,19 @@ export function ProductGallery({
 
             />
           ) : (
-            <img
-              src={currentImage.src}
-              id="buudyLED-23435t23-MainImg"
-              className="buudyLED-23435t23-main_img"
-              alt={currentImage.alt}
-              decoding="async"
-              fetchPriority="high"
-              loading="eager"
-              onClick={() => openLightbox()}
-
-            />
+            <>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={currentImage.src}
+                id="buudyLED-23435t23-MainImg"
+                className="buudyLED-23435t23-main_img"
+                alt={currentImage.alt}
+                decoding="async"
+                fetchPriority="high"
+                loading="eager"
+                onClick={() => openLightbox()}
+              />
+            </>
           )}
 
           {/* Overlaid Badges */}
@@ -340,14 +342,17 @@ export function ProductGallery({
                   playsInline
                 />
               ) : (
-                <img
-                  src={image.src}
-                  className="buudyLED-23435t23-thumb_img"
-                  alt={image.alt}
-                  decoding="async"
-                  fetchPriority="low"
-                  loading="lazy"
-                />
+                <>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={image.src}
+                    className="buudyLED-23435t23-thumb_img"
+                    alt={image.alt}
+                    decoding="async"
+                    fetchPriority="low"
+                    loading="lazy"
+                  />
+                </>
               )}
               <span aria-hidden="true" className="buudyLED-23435t23-thumb_zoom">
                 <Search size={14} strokeWidth={2.2} />
@@ -413,13 +418,16 @@ export function ProductGallery({
                     playsInline
                   />
                 ) : (
-                  <img
-                    className="buudyLED-23435t23-lightbox_img"
-                    id="buudyLED-23435t23-ModalImg"
-                    src={images[currentIndex]?.src}
-                    alt="Expanded Product View"
-                    decoding="async"
-                  />
+                  <>
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      className="buudyLED-23435t23-lightbox_img"
+                      id="buudyLED-23435t23-ModalImg"
+                      src={images[currentIndex]?.src}
+                      alt="Expanded Product View"
+                      decoding="async"
+                    />
+                  </>
                 )}
                 <button
                   className="buudyLED-23435t23-arrow buudyLED-23435t23-modal_nav buudyLED-23435t23-next"
