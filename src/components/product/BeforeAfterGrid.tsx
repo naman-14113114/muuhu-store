@@ -18,6 +18,50 @@ export function BeforeAfterGrid() {
   const animationRef = useRef<number | null>(null);
   const [selectedStory, setSelectedStory] = useState<typeof transformations[0] | null>(null);
 
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleNextStory = useCallback(() => {
+    if (!selectedStory) return;
+    const currentIndex = transformations.findIndex(t => t.id === selectedStory.id);
+    if (currentIndex === -1) return;
+    const nextIndex = (currentIndex + 1) % transformations.length;
+    setSelectedStory(transformations[nextIndex]);
+  }, [selectedStory]);
+
+  const handlePrevStory = useCallback(() => {
+    if (!selectedStory) return;
+    const currentIndex = transformations.findIndex(t => t.id === selectedStory.id);
+    if (currentIndex === -1) return;
+    const prevIndex = (currentIndex - 1 + transformations.length) % transformations.length;
+    setSelectedStory(transformations[prevIndex]);
+  }, [selectedStory]);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    
+    const distance = touchStartX.current - touchEndX.current;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      handleNextStory();
+    } else if (isRightSwipe) {
+      handlePrevStory();
+    }
+
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   const getStep = useCallback(() => {
     const track = trackRef.current;
     const card = track?.querySelector<HTMLElement>("[data-story-card]");
@@ -262,9 +306,21 @@ export function BeforeAfterGrid() {
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
           onClick={() => setSelectedStory(null)}
         >
+          {/* Previous Arrow (Desktop Only) */}
+          <button 
+            className="hidden md:flex absolute left-4 xl:left-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 items-center justify-center rounded-full bg-[var(--cream)]/10 border border-[var(--cream)]/30 text-[var(--cream)] hover:bg-[var(--cream)] hover:text-[var(--plum)] transition-all duration-300"
+            onClick={(e) => { e.stopPropagation(); handlePrevStory(); }}
+            aria-label="Previous story"
+          >
+            <ChevronLeft size={28} />
+          </button>
+
           <div 
             className="relative w-full max-w-4xl bg-[var(--cream)] rounded-[18px] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
             onClick={(e) => e.stopPropagation()}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
           >
             <button 
               className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 transition text-[var(--plum)]"
@@ -327,6 +383,15 @@ export function BeforeAfterGrid() {
               )}
             </div>
           </div>
+
+          {/* Next Arrow (Desktop Only) */}
+          <button 
+            className="hidden md:flex absolute right-4 xl:right-8 top-1/2 -translate-y-1/2 z-10 w-14 h-14 items-center justify-center rounded-full bg-[var(--cream)]/10 border border-[var(--cream)]/30 text-[var(--cream)] hover:bg-[var(--cream)] hover:text-[var(--plum)] transition-all duration-300"
+            onClick={(e) => { e.stopPropagation(); handleNextStory(); }}
+            aria-label="Next story"
+          >
+            <ChevronRight size={28} />
+          </button>
         </div>
       )}
     </section>
