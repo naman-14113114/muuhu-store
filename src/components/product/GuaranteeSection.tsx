@@ -1,4 +1,5 @@
-export function GuaranteeSection() {
+export function GuaranteeSection({ productHandle }: { productHandle?: string }) {
+  const isComb = productHandle === "muuhu-comb";
   return (
     <section className="buudy-section relative overflow-hidden bg-[var(--plum)] py-14 pb-24 text-center md:py-24 md:pb-36">
       <div className="buudy-wrap relative z-20 max-w-5xl">
@@ -9,7 +10,9 @@ export function GuaranteeSection() {
           money back guarantee.
         </h2>
         <p className="mx-auto mt-6 hidden max-w-xl text-sm font-medium leading-7 text-white md:block md:text-base">
-          Bring salon-inspired hair styling into your daily routine with Muuhu. Designed for ultra-fast drying, frizz-free shine, and effortless at-home use, Muuhu gives you a premium styling experience you can trust every time.
+          {isComb 
+            ? "Bring premium hair and scalp care into your daily routine with Muuhu. Designed for targeted therapy, deep relaxation, and effortless at-home use, Muuhu gives you a premium experience you can trust every time."
+            : "Bring salon-inspired hair styling into your daily routine with Muuhu. Designed for ultra-fast drying, frizz-free shine, and effortless at-home use, Muuhu gives you a premium styling experience you can trust every time."}
         </p>
       </div>
     </section>

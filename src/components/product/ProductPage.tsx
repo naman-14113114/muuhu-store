@@ -13,6 +13,7 @@ import {
   DeferredWavelengthSelector,
 } from "./DeferredClientSections";
 import { TrustBadges } from "./TrustBadges";
+import { CombFeatureSections } from "./CombFeatureSections";
 
 import { HairDryerProductPage } from "./HairDryerProductPage";
 
@@ -20,6 +21,20 @@ import { HairDryerProductPage } from "./HairDryerProductPage";
 export function ProductPage({ product, variant }: { product: Product; variant?: string }) {
   if (product.id === "muuhu-hair-dryer" || product.template === "hair-dryer") {
     return <HairDryerProductPage product={product} />;
+  }
+
+  if (product.id === "muuhu-comb") {
+    return (
+      <>
+        <ProductHero product={product} />
+        <TrustBadges />
+        <CombFeatureSections />
+        <ProductReviewsSection productHandle={product.slug} />
+        <FAQSection faqs={product.faqs} productHandle={product.id} />
+        <GuaranteeSection productHandle={product.id} />
+        <StickyAddToCart product={product} />
+      </>
+    );
   }
 
   return (
@@ -33,11 +48,11 @@ export function ProductPage({ product, variant }: { product: Product; variant?: 
       <DeferredExpertSection />
       {/* <TouchTechSection /> */}
       <AppPromo />
-      <ProductReviewsSection />
+      <ProductReviewsSection productHandle={product.slug} />
       <BlueLightSection />
       <ComparisonTable />
-      <FAQSection faqs={product.faqs} />
-      <GuaranteeSection />
+      <FAQSection faqs={product.faqs} productHandle={product.id} />
+      <GuaranteeSection productHandle={product.id} />
       <StickyAddToCart product={product} />
     </>
   );

@@ -77,6 +77,19 @@ export const muuhuHairDryer: Product = {
       name: "Luxury Travel Case",
       valueCents: 4500,
       image: productAsset("00-travel-friendly-styler.jpg")
+    },
+    {
+      id: "muuhu-comb",
+      name: "Muuhu Comb",
+      valueCents: 8900,
+      link: "/products/muuhu-comb",
+      image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png"
+    },
+    {
+      id: "skincare-guide",
+      name: "Muuhu Haircare Masterclass E-book",
+      valueCents: 2900,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png"
     }
   ],
   included: [
@@ -93,7 +106,78 @@ export const muuhuHairDryer: Product = {
   badges: ["CE Certified", "UKCA Approved", "RoHS Compliant", "1-Year Warranty"],
 };
 
-export const products: Product[] = [muuhuHairDryer];
+export const muuhuComb: Product = {
+  id: "muuhu-comb",
+  sku: "MUUHU-COMB-01",
+  slug: "muuhu-comb",
+  template: "torch", 
+  name: "Muuhu Comb",
+  heroTitle: "Muuhu",
+  heroEmphasis: "Comb",
+  shortDescription: "A revolutionary 3-in-1 Scalp Hair Growth Therapy Comb featuring targeted red light therapy, micro-vibration massage, and an integrated liquid applicator.",
+  description: "Unlock thicker, healthier hair with the Muuhu Comb. This intelligent therapy brush delivers 650nm red light to stimulate follicles, soothing micro-vibrations to boost circulation, and a precise oil applicator for maximum serum absorption without the greasy finish.",
+  seoTitle: "Muuhu Scalp & Hair Growth Therapy Comb | Red Light & Massage",
+  seoDescription: "Revitalize your hair with the Muuhu Hair Growth Therapy Comb. Features red light therapy, micro-vibrations, and essential oil applicator for optimal scalp health.",
+  currency: market.currency,
+  priceCents: 8900,
+  compareAtCents: 12900,
+  rating: 4.8,
+  reviewCount: 420,
+  customerCount: "400+",
+  promoCode: "FREEGIFT",
+  promoLabel: "Free with Hair Dryer",
+  cartImage: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png",
+  gallery: [
+    { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png", alt: "Muuhu Hair Growth Therapy Comb" },
+    { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.png", alt: "Scalp Massager Red Light Therapy" },
+    { src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.png", alt: "Essential Oil Applicator Comb" },
+    { src: "/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.png", alt: "Vibrating Scalp Therapy" },
+    { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.png", alt: "Waterproof Design" },
+    { src: "/images/products/muuhu-comb/muuhu-red-light-follicle-stimulation.png", alt: "Red Light Follicle Stimulation" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.png", alt: "Liquid Tank Applicator" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.png", alt: "USB Charging" },
+    { src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.png", alt: "Therapy Brush Results" },
+    { src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.png", alt: "Premium Scalp Massage Brush" },
+    { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-features.png", alt: "Hair Growth Comb Features" },
+    { src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.png", alt: "Therapy Comb Lifestyle" },
+    { src: "/images/products/muuhu-comb/muuhu-scalp-care-routine.png", alt: "Scalp Care Routine" },
+    { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-close-up.png", alt: "Hair Growth Comb Close Up" },
+    { src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.png", alt: "Red Light Therapy Benefits" },
+    { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.png", alt: "Premium Haircare Tool" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.png", alt: "Comb Before After Results" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.png", alt: "Comb Packaging Box" }
+  ],
+  specs: [
+    { label: "Therapy Type", value: "650nm Red Light & Micro-vibration" },
+    { label: "Applicator", value: "Integrated Liquid Tank with Roller Teeth" },
+    { label: "Waterproof Rating", value: "IPX5" },
+    { label: "Battery", value: "USB Rechargeable" },
+    { label: "Usage", value: "Suitable for all hair types" },
+  ],
+  faqs: [
+    {
+      question: "Can I use it with any hair serum or oil?",
+      answer: "Yes, the integrated liquid tank is designed to work with most essential oils, minoxidil, and hair serums. The roller teeth distribute the liquid evenly without greasing the hair.",
+    },
+    {
+      question: "How often should I use the red light therapy?",
+      answer: "We recommend using the Muuhu Comb for 10-15 minutes a day, 3-4 times a week for optimal follicle stimulation and scalp health.",
+    },
+    {
+      question: "Is it waterproof?",
+      answer: "The comb features an IPX5 waterproof design, meaning you can easily rinse the comb teeth and liquid tank under running water after use. Do not submerge the entire device.",
+    },
+  ],
+  gifts: [],
+  included: [
+    { label: "Muuhu Comb Device", quantity: 1, image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png" },
+    { label: "USB Charging Cable", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-charging-usb.png" },
+    { label: "User Manual", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-packaging-box.png" },
+  ],
+  badges: ["CE Certified", "Red Light Therapy", "Micro-Vibration"],
+};
+
+export const products: Product[] = [muuhuHairDryer, muuhuComb];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);

@@ -68,6 +68,34 @@ export const features: Feature[] = [
   },
 ];
 
+export const combFeatures: Feature[] = [
+  {
+    title: "Targeted Red Light Therapy",
+    kicker: "650nm Follicle Stimulation",
+    body: "Delivers medical-grade 650nm red light directly to the scalp, penetrating deep into the follicles to stimulate cellular energy, encourage hair growth, and combat thinning at the source.",
+  },
+  {
+    title: "Micro-Vibration Massage",
+    kicker: "Deep Scalp Relaxation",
+    body: "Enjoy thousands of soothing micro-vibrations per minute. This gentle massage boosts blood circulation, relaxes tense scalp muscles, and prepares your roots for maximum nutrient absorption.",
+  },
+  {
+    title: "Precision Liquid Applicator",
+    kicker: "Zero-Mess Essential Oil Infusion",
+    body: "Features an integrated 6ml liquid tank with specialized rolling ball teeth. It evenly distributes minoxidil, essential oils, or hair serums directly to the roots without leaving your hair greasy.",
+  },
+  {
+    title: "100% Waterproof Design",
+    kicker: "IPX5 Certified",
+    body: "Designed for real life. The fully waterproof body means you can easily detach the tank and rinse the comb teeth directly under running water after your daily routine.",
+  },
+  {
+    title: "USB Rechargeable & Portable",
+    kicker: "Take Your Routine Anywhere",
+    body: "Features a long-lasting battery with fast Type-C charging. Its lightweight, travel-friendly design ensures you never have to skip a treatment, whether at home or on the go.",
+  },
+];
+
 export const realLifeImages = [
   {
     src: productAsset("04-muuhu-hair-dryer-lifestyle.webp"),

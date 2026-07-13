@@ -19,7 +19,7 @@ import {
 } from "lucide-react";
 import type { Product } from "@/data/products";
 import type { ReactNode } from "react";
-import { features } from "@/data/productSections";
+import { features as defaultFeatures, combFeatures } from "@/data/productSections";
 import {
   IconGrid4x4,
   IconShieldHeart,
@@ -129,10 +129,10 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
     {
       id: "unique",
       eyebrow: "Features",
-      title: "What makes our styler unique?",
+      title: product.id === "muuhu-comb" ? "What makes our comb unique?" : "What makes our styler unique?",
       content: (
         <ul className="grid gap-3">
-          {features.map((feature, index) => {
+          {(product.id === "muuhu-comb" ? combFeatures : defaultFeatures).map((feature, index) => {
             const Icon = featureIcons[index % featureIcons.length];
             return (
             <li

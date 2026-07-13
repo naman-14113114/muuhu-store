@@ -1,4 +1,5 @@
 import hairDryerReviews from "./reviews/muuhu-hair-dryer-reviews.json";
+import combReviews from "./reviews/muuhu-comb-reviews.json";
 import { market } from "@/lib/market";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseAdminConfigured } from "@/lib/supabase/config";
@@ -33,6 +34,7 @@ function normalizeStaticReview(r: ProductReview) {
 
 const reviewCollections = {
   "muuhu-hair-dryer": hairDryerReviews.map((r) => normalizeStaticReview(r as unknown as ProductReview)) as ProductReview[],
+  "muuhu-comb": combReviews.map((r) => normalizeStaticReview(r as unknown as ProductReview)) as ProductReview[],
 } as const;
 
 export type ReviewProductHandle = keyof typeof reviewCollections;

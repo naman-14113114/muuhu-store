@@ -18,10 +18,10 @@ export function FAQSection({ faqs = maskFaqs, productHandle = "buudy-led-mask" }
               Frequently asked <em className="buudy-italic">questions</em>.
             </>
           }
-          copy="Everything you might want to know before bringing Buudy home."
+          copy={`Everything you might want to know before bringing ${productHandle?.includes("muuhu") ? "Muuhu" : "Buudy"} home.`}
         />
         <div className="grid gap-8">
-          {productHandle !== "muuhu-hair-dryer" && (
+          {productHandle === "buudy-led-mask" && (
             <article className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_50px_rgba(39,20,42,.08)] md:p-7">
               <p className="buudy-mono text-[var(--gold)]">UK LED mask answer</p>
               <h2 className="buudy-display mt-3 text-3xl leading-tight text-[var(--plum)] md:text-4xl">
