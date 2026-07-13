@@ -120,7 +120,7 @@ export function VideoReviews() {
           <div 
             className="flex gap-4 w-max hover:[animation-play-state:paused]"
             style={{ 
-              animation: 'vr-css-auto-scroll 33s linear infinite',
+              animation: 'vr-css-auto-scroll 30s linear infinite',
               willChange: 'transform' 
             }}
           >
