@@ -58,24 +58,15 @@ function ContactHero() {
         <div className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] border border-[var(--border)] bg-[var(--blush)] shadow-[0_30px_70px_-44px_rgba(58,31,61,.45)]">
             <Image
-              alt="Buudy LED light therapy support"
+              alt="Muuhu Ionic Hair Dryer"
               className="object-cover"
               fill
               priority
               sizes="(min-width: 1024px) 44vw, 92vw"
-              src={homeAsset("01-home-led-mask-hero.png")}
+              src={homeAsset("muuhu-hair-dryer-v2.png")}
             />
           </div>
-          <div className="absolute bottom-5 left-5 right-5 rounded-2xl bg-[rgba(58,31,61,.9)] p-5 text-[var(--cream)] shadow-[0_20px_55px_-30px_rgba(0,0,0,.6)]">
-            <div className="flex items-center gap-3">
-              <Sparkles className="text-[var(--gold)]" size={18} />
-              <p className="buudy-mono text-[var(--gold)]">Support desk</p>
-            </div>
-            <p className="mt-3 text-sm leading-6 text-[rgba(247,241,232,.78)]">
-              Product guidance, order updates, and routine support for your
-              Buudy light therapy devices.
-            </p>
-          </div>
+
         </div>
       </div>
     </section>
