@@ -16,6 +16,7 @@ export function BeforeAfterGrid() {
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isAutoScrollingRef = useRef(false);
   const animationRef = useRef<number | null>(null);
+  const [selectedStory, setSelectedStory] = useState<typeof transformations[0] | null>(null);
 
   const getStep = useCallback(() => {
     const track = trackRef.current;
@@ -172,7 +173,7 @@ export function BeforeAfterGrid() {
             eyebrow="Real users / Real results"
             title={
               <>
-                Eight stories, <em className="buudy-italic">one device</em>.
+                Seven styles, <em className="buudy-italic">one device</em>.
               </>
             }
           />
@@ -199,9 +200,10 @@ export function BeforeAfterGrid() {
         >
           {loopedStories.map((story, index) => (
             <article
-              className="w-[min(82vw,21rem)] flex-none snap-start overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)] transition duration-300 hover:-translate-y-1"
+              className="w-[min(82vw,21rem)] flex-none snap-start overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)] transition duration-300 hover:-translate-y-1 cursor-pointer"
               data-story-card
               key={`${story.id}-${index}`}
+              onClick={() => setSelectedStory(story)}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-[var(--blush)]">
                 <Image
@@ -254,6 +256,79 @@ export function BeforeAfterGrid() {
           </button>
         </div>
       </div>
+
+      {selectedStory && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedStory(null)}
+        >
+          <div 
+            className="relative w-full max-w-4xl bg-[var(--cream)] rounded-[18px] overflow-hidden shadow-2xl flex flex-col md:flex-row max-h-[90vh]"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="absolute top-4 right-4 z-10 w-10 h-10 flex items-center justify-center rounded-full bg-black/10 hover:bg-black/20 transition text-[var(--plum)]"
+              onClick={() => setSelectedStory(null)}
+              aria-label="Close details"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Left Image Side */}
+            <div className="relative w-full md:w-1/2 aspect-square md:aspect-auto md:min-h-[500px] overflow-hidden bg-[var(--blush)]">
+              <Image
+                alt={selectedStory.concern}
+                className="object-cover"
+                fill
+                sizes="(min-width: 768px) 50vw, 100vw"
+                src={selectedStory.image}
+              />
+            </div>
+
+            {/* Right Data Side */}
+            <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-[var(--card)]">
+              <p className="buudy-mono text-[var(--gold)] text-sm tracking-widest uppercase mb-2">
+                {selectedStory.concern}
+              </p>
+              <h3 className="buudy-display text-2xl md:text-3xl text-[var(--plum)] mb-4 leading-tight">
+                {selectedStory.title}
+              </h3>
+              
+              <div className="flex items-center gap-2 mb-6 pb-6 border-b border-[var(--border)]">
+                <span className="buudy-display text-lg text-[var(--plum)]">
+                  {selectedStory.fullName ? `${selectedStory.fullName}, ${selectedStory.age}` : selectedStory.name}
+                </span>
+                <span className="buudy-mono text-[var(--plum-soft)] ml-auto text-xs bg-[var(--cream)] px-2 py-1 rounded">
+                  Verified
+                </span>
+              </div>
+
+              {selectedStory.hairType && (
+                <div className="mb-5">
+                  <h4 className="buudy-mono text-[var(--plum)] text-xs font-bold mb-1.5 uppercase tracking-wider">Hair Type</h4>
+                  <p className="text-sm text-[var(--muted)]">{selectedStory.hairType}</p>
+                </div>
+              )}
+
+              {selectedStory.routine && (
+                <div className="mb-5">
+                  <h4 className="buudy-mono text-[var(--plum)] text-xs font-bold mb-1.5 uppercase tracking-wider">Styling Routine</h4>
+                  <p className="text-sm text-[var(--muted)] leading-relaxed">{selectedStory.routine}</p>
+                </div>
+              )}
+
+              {selectedStory.experience && (
+                <div>
+                  <h4 className="buudy-mono text-[var(--plum)] text-xs font-bold mb-1.5 uppercase tracking-wider">Experience</h4>
+                  <p className="text-sm text-[var(--muted)] leading-relaxed">{selectedStory.experience}</p>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 }

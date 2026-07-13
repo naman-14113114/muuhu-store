@@ -13,6 +13,11 @@ export type Transformation = {
   title: string;
   quote: string;
   name: string;
+  fullName?: string;
+  age?: number;
+  routine?: string;
+  experience?: string;
+  hairType?: string;
 };
 
 export type ReviewVideo = {
@@ -77,76 +82,95 @@ export const realLifeImages = [
 export const transformations: Transformation[] = [
   {
     id: "result-01",
-    image: productAsset("01-sagging-cheeks.webp"),
-    concern: "Sagging Cheeks",
-    title: "Best investment ever",
-    quote:
-      '"I have noticed a significant reduction in the sagging around my cheeks and jawline."',
-    name: "Donna P.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_1.png",
+    concern: "Fast Drying",
+    title: "Cuts drying time in half",
+    quote: '"I have thick hair and it usually takes 40 minutes to dry. With the Muuhu dryer, I am done in 15 minutes with zero heat damage."',
+    name: "Sarah M.",
+    fullName: "Sarah Mitchell",
+    age: 28,
+    routine: "L-Shape Base on medium heat and high airflow for 10 mins.",
+    experience: "The 110,000 RPM motor is incredibly powerful yet quiet. My hair feels noticeably softer and healthier because it's not being fried by extreme heat.",
+    hairType: "Thick & Wavy"
   },
   {
     id: "result-02",
-    image: productAsset("02-fine-lines.webp"),
-    concern: "Fine Lines",
-    title: "IT REALLY WORKS!!",
-    quote:
-      '"After using for 1 month, I cannot believe the difference! Fine lines are much less noticeable."',
-    name: "Jane P.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_2.png",
+    concern: "Frizz Control",
+    title: "Sleek and perfectly straight",
+    quote: '"The smoothing brush is a miracle worker. It tames my morning frizz completely and leaves a salon-quality shine."',
+    name: "Jessica T.",
+    fullName: "Jessica Taylor",
+    age: 34,
+    routine: "Glide the Smoothing Brush through sections on high heat.",
+    experience: "This brush smooths and straightens while drying, eliminating the need for flat irons. The bristles perfectly tension the hair for a flawless, sleek finish.",
+    hairType: "Frizzy & Coarse"
   },
   {
     id: "result-03",
-    image: productAsset("03-neck-firming.webp"),
-    concern: "Neck Firming",
-    title: "Incredible results",
-    quote:
-      '"In less than 2 months, noticed the fine lines around my eyes and mouth are much less noticeable."',
-    name: "Sarah K.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_3.png",
+    concern: "Flat, Lifeless Hair",
+    title: "Incredible bounce & volume",
+    quote: '"I finally achieved that 90s blowout look! It gives my roots so much lift and makes my hair look incredibly thick."',
+    name: "Elena R.",
+    fullName: "Elena Rodriguez",
+    age: 26,
+    routine: "Round Volumising Brush at the roots, lifting upwards.",
+    experience: "Wrapping it around this volumising brush creates incredible body and bounce. I literally look like I just stepped out of a professional salon every single day.",
+    hairType: "Fine & Flat"
   },
   {
     id: "result-04",
-    image: productAsset("04-forehead-lines.webp"),
-    concern: "Forehead Lines",
-    title: "Better than Botox",
-    quote:
-      '"Within just a few weeks, my skin started to clear up and the scars began to fade."',
-    name: "Michelle L.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_5.png",
+    concern: "Perfect Bouncy Curls",
+    title: "Effortless Hollywood waves",
+    quote: '"The Coanda technology wraps my hair automatically! I have never been able to curl my hair this easily."',
+    name: "Chloe B.",
+    fullName: "Chloe Bennett",
+    age: 24,
+    routine: "Left Curling Barrel on damp hair for 10s, then cool shot.",
+    experience: "The aerodynamic airflow automatically wraps my hair around the barrel perfectly every time. It creates gorgeous, face-framing curls that hold for days.",
+    hairType: "Medium & Straight"
   },
   {
     id: "result-05",
-    image: productAsset("05-jawline-sculpting.webp"),
-    concern: "Jawline Sculpting",
-    title: "Defined my face!",
-    quote:
-      '"I never thought I would see my jawline again without surgery. This device is a total game changer."',
-    name: "James D.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_7.png",
+    concern: "Symmetrical Styling",
+    title: "Flawless uniform curls",
+    quote: '"Having both left and right barrels means my curls are perfectly balanced. The bounce is simply unreal."',
+    name: "Rachel W.",
+    fullName: "Rachel Williams",
+    age: 31,
+    routine: "Right Curling Barrel for the right side to ensure outward flow.",
+    experience: "The transition from drying to curling is seamless. The right curling barrel finishes off my look, creating symmetrical, bouncy waves without heat damage.",
+    hairType: "Long & Fine"
   },
   {
     id: "result-06",
-    image: productAsset("06-skin-radiance.webp"),
-    concern: "Skin Radiance",
-    title: "Literal Glow Up",
-    quote:
-      '"My skin looks so much more radiant and healthy. I have even stopped wearing heavy foundation!"',
-    name: "Karen W.",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_8.png",
+    concern: "Defined Natural Curls",
+    title: "Embraces my natural texture",
+    quote: '"This diffuser completely eliminated my frizz and defined my natural curl pattern beautifully without blowing it apart."',
+    name: "Maya L.",
+    fullName: "Maya Lewis",
+    age: 27,
+    routine: "Cup hair into the Diffuser on the lowest airflow and heat setting.",
+    experience: "It simulates natural air drying but is so much faster. My curls have never looked this defined, hydrated, and bouncy. An absolute essential.",
+    hairType: "Curly (3B)"
   },
   {
     id: "result-07",
-    image: productAsset("07-under-eye-bags.webp"),
-    concern: "Under Eye Bags",
-    title: "Eyes look refreshed",
-    quote:
-      '"The puffiness under my eyes has vanished. I look like I have actually had 8 hours of sleep!"',
-    name: "Linda S.",
-  },
-  {
-    id: "result-08",
-    image: productAsset("08-skin-texture.webp"),
-    concern: "Skin Texture",
-    title: "Smooth as silk",
-    quote:
-      '"The overall texture of my skin has improved immensely. It feels incredibly soft and looks smooth."',
-    name: "Jennifer H.",
-  },
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_9.png",
+    concern: "Precision Styling",
+    title: "Smooth, controlled finish",
+    quote: '"The concentrator nozzle gives me total control over where the air goes. Perfect for finishing touches."',
+    name: "Olivia H.",
+    fullName: "Olivia Harris",
+    age: 29,
+    routine: "Concentrator Nozzle pointed downwards over a round brush.",
+    experience: "When I want a truly sleek blowout, this nozzle is my go-to. It directs the high-velocity airflow exactly where I need it, leaving a glass-like shine.",
+    hairType: "Medium & Wavy"
+  }
 ];
 
 export const reviewVideos: ReviewVideo[] = [
