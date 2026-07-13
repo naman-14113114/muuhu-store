@@ -10,8 +10,8 @@ export const secondaryNavigation = [
 ];
 
 export const announcementItems = [
-  "Free shipping on all UK orders",
+  "Free shipping on all US orders",
   "110,000 RPM Brushless Motor",
-  "Sign up and enjoy £10 off",
+  "Sign up and enjoy $10 off",
   "4.9 stars from 2,400+ customers",
 ];

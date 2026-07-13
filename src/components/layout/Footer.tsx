@@ -13,16 +13,16 @@ export function Footer() {
                 alt="Muuhu"
                 className="h-auto w-44"
                 height={58}
-                src="/images/products/muuhu-hair-dryer/muuhu-logo.png"
+                src="/images/layout/muuhu_footer_logo.png"
                 width={174}
               />
             </Link>
             <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(247,241,232,.62)]">
-              Professional high-speed hair styler. Designed for the United Kingdom.
+              Professional high-speed hair styler. Designed for the United States.
             </p>
-            <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(247,241,232,.62)]">
+            {/* <p className="mt-5 max-w-sm text-sm leading-7 text-[rgba(247,241,232,.62)]">
               13 Harefield Rd, Rickmansworth, England, WD3 1LY, UK
-            </p>
+            </p> */}
           </div>
 
           {footerMenus.map((menu) => (

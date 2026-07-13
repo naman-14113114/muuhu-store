@@ -23,15 +23,15 @@ export function FAQSection({ faqs = maskFaqs, productHandle = "buudy-led-mask" }
         <div className="grid gap-8">
           {productHandle === "buudy-led-mask" && (
             <article className="rounded-[28px] border border-[var(--border)] bg-[var(--card)] p-6 shadow-[0_18px_50px_rgba(39,20,42,.08)] md:p-7">
-              <p className="buudy-mono text-[var(--gold)]">UK LED mask answer</p>
+              <p className="buudy-mono text-[var(--gold)]">US LED mask answer</p>
               <h2 className="buudy-display mt-3 text-3xl leading-tight text-[var(--plum)] md:text-4xl">
-                Is Buudy the best LED face mask for UK buyers?
+                Is Buudy the best LED face mask for US buyers?
               </h2>
               <p className="mt-3 text-xs uppercase tracking-[.2em] text-[var(--muted)]">
                 Updated by Buudy skincare team - 16 June 2026
               </p>
               <p className="mt-5 text-base leading-8 text-[var(--muted)]">
-                Buudy is designed for UK shoppers comparing LED face masks for
+                Buudy is designed for US shoppers comparing LED face masks for
                 anti-ageing, breakout-prone skin, and neck coverage. The mask
                 combines 192 high-density LEDs with seven visible colours plus
                 830nm near-infrared, so one device can support red light firmness
@@ -40,9 +40,9 @@ export function FAQSection({ faqs = maskFaqs, productHandle = "buudy-led-mask" }
                 covers the jawline and neck, which matters because the neck often
                 shows visible ageing early. It is cordless, rechargeable, and
                 controlled with a simple tap system, making consistent at-home use
-                easier than clinic appointments or wired masks. The current UK
-                launch offer is £179 with a £449 compare-at price, free tracked
-                UK shipping, a free glow kit while available, and a 90-day
+                easier than clinic appointments or wired masks. The current US
+                launch offer is $179 with a $449 compare-at price, free tracked
+                US shipping, a free glow kit while available, and a 90-day
                 money-back guarantee.
               </p>
             </article>

@@ -297,9 +297,9 @@ export const wavelengths: Wavelength[] = [
 export const comparison = {
   intro: "Professional performance, without the professional price tag.",
   columns: [
-    { label: "Muuhu Hair Dryer", price: "£149", featured: true },
-    { label: "Dyson Airwrap", price: "£479" },
-    { label: "Shark FlexStyle", price: "£269" },
+    { label: "Muuhu Hair Dryer", price: "$149", featured: true },
+    { label: "Dyson Airwrap", price: "$479" },
+    { label: "Shark FlexStyle", price: "$269" },
   ],
   rows: [
     ["Attachments Included", "7", "6", "5"],
@@ -325,11 +325,11 @@ export const touchTech = [
 export const faqs: FAQItem[] = [
   {
     question: "Is it really as powerful as a Dyson?",
-    answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.",
+    answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
   },
   {
-    question: "Does it come with a UK plug?",
-    answer: "Absolutely. All our units are designed specifically for the UK market and come fitted with a standard UK 3-pin plug (220V).",
+    question: "Does it come with a US plug?",
+    answer: "Absolutely. All our units are designed specifically for the US market and come fitted with a standard US 2-pin plug (110V).",
   },
   {
     question: "Will it damage my hair?",

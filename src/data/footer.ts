@@ -4,7 +4,7 @@ export const footerMenus = [
     links: [
       { label: "Home", href: "/" },
       { label: "Muuhu Hair Dryer", href: "/products/muuhu-hair-dryer" },
-      { label: "Best Hair Dryer UK Guide", href: "/pages/best-hair-dryer-uk" },
+      { label: "Best Hair Dryer US Guide", href: "/pages/best-hair-dryer-us" },
       { label: "Privacy Policy", href: "/policies/privacy-policy" },
       { label: "Return Policy", href: "/policies/return-policy" },
       { label: "Shipping Policy", href: "/policies/shipping-policy" },
