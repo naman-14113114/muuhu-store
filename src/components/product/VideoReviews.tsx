@@ -10,9 +10,11 @@ const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
 function ReviewVideoCard({
   index,
   video,
+  onClick,
 }: {
   index: number;
   video: ReviewVideo;
+  onClick: (video: ReviewVideo) => void;
 }) {
   const cardRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -60,9 +62,7 @@ function ReviewVideoCard({
     <article
       className="relative aspect-[9/16] w-40 flex-none overflow-hidden rounded-[18px] bg-[var(--ink)] transition hover:-translate-y-1 md:w-52 cursor-pointer"
       ref={cardRef}
-      onClick={() => {
-        window.location.href = "#reviews";
-      }}
+      onClick={() => onClick(video)}
     >
       <video
         aria-label={`Muuhu customer video review ${index + 1}`}
@@ -95,6 +95,8 @@ function ReviewVideoCard({
 }
 
 export function VideoReviews() {
+  const [selectedVideo, setSelectedVideo] = useState<ReviewVideo | null>(null);
+
   return (
     <section className="buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden">
       <style>{`
@@ -118,7 +120,7 @@ export function VideoReviews() {
           <div 
             className="flex gap-4 w-max hover:[animation-play-state:paused]"
             style={{ 
-              animation: 'vr-css-auto-scroll 95s linear infinite',
+              animation: 'vr-css-auto-scroll 33s linear infinite',
               willChange: 'transform' 
             }}
           >
@@ -127,11 +129,41 @@ export function VideoReviews() {
                 index={index}
                 key={`${video.id}-${index}`}
                 video={video}
+                onClick={setSelectedVideo}
               />
             ))}
           </div>
         </div>
       </div>
+
+      {selectedVideo && (
+        <div 
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
+          onClick={() => setSelectedVideo(null)}
+        >
+          <div 
+            className="relative w-full max-w-4xl max-h-[90vh] flex items-center justify-center bg-transparent"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="absolute -top-12 right-0 md:-right-12 md:top-0 z-10 w-10 h-10 flex items-center justify-center text-white hover:text-gray-300 transition-colors cursor-pointer"
+              onClick={() => setSelectedVideo(null)}
+              aria-label="Close video"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+            <video
+              className="max-w-full max-h-[90vh] rounded-[18px] shadow-2xl"
+              src={selectedVideo.fullSrc || selectedVideo.src}
+              controls
+              autoPlay
+              playsInline
+            />
+          </div>
+        </div>
+      )}
     </section>
   );
 }
