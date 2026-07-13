@@ -30,23 +30,39 @@ export function CombFeatureSections() {
 
       <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
         <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
-          <div className="lg:order-last relative aspect-[4/5] overflow-hidden rounded-[18px] bg-[var(--blush)]">
+          <div className="lg:order-last relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden rounded-[18px]">
             <Image
-              alt="Essential Oil Infusion"
+              alt="Before and After Results"
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu-scalp-care-routine.png"
+              src="/images/products/muuhu-comb/muuhu-comb-before-after-2.png"
             />
           </div>
           <div className="lg:order-first">
-            <p className="buudy-mono text-[var(--gold)]">Deep Nourishment</p>
-            <h2 className="buudy-display mt-3 text-[2.5rem] leading-tight text-[var(--plum)] md:text-5xl">
-              Zero-Mess <em className="buudy-italic">Application</em>.
+            <h2 className="buudy-display text-[3rem] leading-[1.1] text-[var(--plum)] md:text-6xl mb-12">
+              Why People<br/>Love It
             </h2>
-            <p className="mt-5 max-w-lg leading-7 text-[var(--muted)]">
-              Stop wasting expensive hair serums. Our integrated 6ml liquid tank features specialized rolling ball teeth that distribute minoxidil or essential oils evenly across your scalp. Maximum root absorption, zero greasy hair.
-            </p>
+            <div className="flex flex-col gap-10">
+              <div className="flex items-start gap-6">
+                <span className="buudy-display text-5xl md:text-[4rem] text-[var(--gold)] flex-none">92%</span>
+                <p className="pt-2 text-base leading-6 text-[var(--plum)] font-medium max-w-[280px]">
+                  reported less daily shedding after the first sessions*
+                </p>
+              </div>
+              <div className="flex items-start gap-6">
+                <span className="buudy-display text-5xl md:text-[4rem] text-[var(--gold)] flex-none">90%</span>
+                <p className="pt-2 text-base leading-6 text-[var(--plum)] font-medium max-w-[280px]">
+                  noticed thicker, glossier, fuller-looking hair within the first month*
+                </p>
+              </div>
+              <div className="flex items-start gap-6">
+                <span className="buudy-display text-5xl md:text-[4rem] text-[var(--gold)] flex-none">94%</span>
+                <p className="pt-2 text-base leading-6 text-[var(--plum)] font-medium max-w-[280px]">
+                  saw new baby hairs or visible regrowth in thinning areas*
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
