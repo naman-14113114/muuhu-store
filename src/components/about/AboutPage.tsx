@@ -37,7 +37,7 @@ export function AboutPage() {
             {aboutHero.eyebrow}
           </p>
           <h1 className="buudy-display mt-4 text-[2.8rem] leading-[1.05] text-[var(--cream)] sm:text-[3.5rem] md:text-7xl font-light">
-            Welcome to <em className="buudy-italic">Buudy.com</em>
+            Welcome to <em className="buudy-italic">Muuhu.com</em>
           </h1>
           <p className="mt-8 text-base sm:text-lg leading-8 text-[rgba(247,241,232,0.85)] max-w-2xl mx-auto font-light">
             {aboutHero.copy}
@@ -107,7 +107,7 @@ export function AboutPage() {
                                         {boldPart === "Email" ? (
                                           <a
                                             className="ml-1 underline underline-offset-2 hover:text-[var(--gold)] transition-colors"
-                                            href="mailto:support@buudy.com"
+                                            href="mailto:support@muuhu.com"
                                           >
                                             {rest.trim()}
                                           </a>
@@ -180,7 +180,7 @@ export function AboutPage() {
                                       {boldPart === "Email" ? (
                                         <a
                                           className="ml-1 underline underline-offset-2 hover:text-[var(--gold)] transition-colors"
-                                          href="mailto:support@buudy.com"
+                                          href="mailto:support@muuhu.com"
                                         >
                                           {rest.trim()}
                                         </a>

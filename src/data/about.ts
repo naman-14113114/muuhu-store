@@ -2,8 +2,8 @@ export const aboutHero = {
   eyebrow: "About Muuhu",
   title: "Welcome to Muuhu.com!",
   copy: "At Muuhu.com, we are more than just an online store; we are a community dedicated to providing high-quality, affordable products that enhance your daily life. Our mission is to make shopping easy, enjoyable, and reliable for our customers around the world.",
-  imageDesktop: "/images/about/about-hero-desktop-v4.webp",
-  imageMobile: "/images/about/about-hero-desktop-v4.webp",
+  imageDesktop: "/images/about/muuhu-hair-dryer-about-hero.png",
+  imageMobile: "/images/about/muuhu-hair-dryer-about-hero.png",
 };
 
 export const aboutSections = [
