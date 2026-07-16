@@ -1,4 +1,4 @@
-import { productAsset, productMediaAsset } from "@/lib/media";
+import { productAsset } from "@/lib/media";
 
 export type Feature = {
   title: string;

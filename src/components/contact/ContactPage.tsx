@@ -6,7 +6,6 @@ import {
   ExternalLink,
   HelpCircle,
   MessageCircle,
-  Sparkles,
 } from "lucide-react";
 import {
   contactHelpLinks,

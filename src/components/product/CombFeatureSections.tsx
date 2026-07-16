@@ -22,7 +22,7 @@ export function CombFeatureSections() {
               650nm Red Light <em className="buudy-italic">Stimulation</em>.
             </h2>
             <p className="mt-5 max-w-lg leading-7 text-[var(--muted)]">
-              The Muuhu Comb doesn't just massage—it actively stimulates the roots. By delivering medical-grade 650nm red light therapy directly to the scalp, it encourages cellular energy production and fights thinning hair right at the follicle level.
+              The Muuhu Comb doesn&apos;t just massage—it actively stimulates the roots. By delivering medical-grade 650nm red light therapy directly to the scalp, it encourages cellular energy production and fights thinning hair right at the follicle level.
             </p>
           </div>
         </div>

@@ -25,6 +25,7 @@ export function TrustBadges() {
           {badges.map((badge, idx) => (
             <div key={idx} className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-center md:text-left justify-center mx-auto w-full">
               <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0 flex-none opacity-90">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={badge.icon}
                   alt={badge.title}

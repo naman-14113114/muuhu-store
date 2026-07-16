@@ -9,9 +9,7 @@ import { StickyAddToCart } from "./StickyAddToCart";
 import { ProductReviewsSection } from "./ProductReviewsSection";
 import { TrustBadges } from "./TrustBadges";
 import { ComparisonTable } from "./ComparisonTable";
-import { FeatureGrid } from "./FeatureGrid";
 import { HairDryerAttachmentBadges } from "./HairDryerAttachmentBadges";
-import { BeforeAfterCarousel } from "./BeforeAfterCarousel";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideoReviews } from "./VideoReviews";
 import { BeforeAfterGrid } from "./BeforeAfterGrid";
@@ -120,6 +118,7 @@ function HairDryerBeforeAfterSection() {
   );
 }
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 function HairDryerDescriptionBanners() {
   return (
     <section className="bg-[var(--plum)] w-full py-16 md:py-24">
