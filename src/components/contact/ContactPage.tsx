@@ -32,7 +32,9 @@ function ContactHero() {
               {contactPage.title.split(" ").slice(-1).join(" ")}
             </em>
           </h1>
-          <p className="buudy-copy mt-6 max-w-2xl text-lg">{contactPage.copy}</p>
+          <p className="buudy-copy mt-6 max-w-2xl text-lg">
+            {contactPage.copy}
+          </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
@@ -62,10 +64,9 @@ function ContactHero() {
               fill
               priority
               sizes="(min-width: 1024px) 44vw, 92vw"
-              src={homeAsset("muuhu-hair-dryer-v2.png")}
+              src={homeAsset("muuhu-hair-dryer-v2.webp")}
             />
           </div>
-
         </div>
       </div>
     </section>
@@ -127,7 +128,10 @@ function HelpAndSocial() {
 
 function FormSection() {
   return (
-    <section className="buudy-section bg-[var(--cream)] py-24" id="contact-form">
+    <section
+      className="buudy-section bg-[var(--cream)] py-24"
+      id="contact-form"
+    >
       <div className="buudy-glow -left-32 top-10 h-[400px] w-[400px] bg-[#f4a17b]" />
       <div className="buudy-wrap relative z-10 grid gap-12 lg:grid-cols-[.82fr_1.18fr] lg:items-start">
         <div>
@@ -143,7 +147,10 @@ function FormSection() {
 
           <div className="mt-8 grid gap-4">
             <div className="flex gap-4 rounded-[18px] border border-[var(--border)] bg-[rgba(247,241,232,.72)] p-5">
-              <MessageCircle className="mt-1 flex-none text-[var(--gold)]" size={20} />
+              <MessageCircle
+                className="mt-1 flex-none text-[var(--gold)]"
+                size={20}
+              />
               <p className="text-sm leading-6 text-[var(--muted)]">
                 Include your order number if your message is about shipping,
                 returns, or an existing purchase.

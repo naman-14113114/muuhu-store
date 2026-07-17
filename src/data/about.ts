@@ -35,7 +35,7 @@ export const aboutSections = [
     title: "Trust and Transparency",
     copy: "When it comes to your skin, trust is everything. That's why transparency is woven into the fabric of our brand. We don't believe in exaggerated claims or hidden fine print.\n\n- Tested for Safety: The Muuhu LED Mask is rigorously tested to ensure it is safe, effective, and built to last.\n- Privacy First: We utilize state-of-the-art encryption to ensure your personal data and payment information are always 100% secure.\n- The 90-Day Goddess Guarantee: We are so confident in our technology that we back it up with a risk-free 90-day money-back guarantee. If you don't see the glow, you don't pay.",
     image: {
-      src: "/images/about/about-trust-hair-dryer.png",
+      src: "/images/about/about-trust-hair-dryer.webp",
       alt: "Goddess guarantee, safety certificates and top security standard badges"
     },
     align: "left" as const,

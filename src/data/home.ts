@@ -58,17 +58,17 @@ export const homeFeatureCards = [
   {
     title: "Industry leading 110k RPM",
     copy: "Your Muuhu Styler is armed with a high-speed brushless motor to have you styled in record time.",
-    image: productAsset("02-new-year-new-hair.jpg"),
+    image: productAsset("02-new-year-new-hair.webp"),
   },
   {
     title: "For all hair types",
     copy: "There is an attachment for everyone. It is non-damaging and relies on air, not extreme heat. Get a picture perfect finish.",
-    image: productAsset("01-amazing-hairstyles.jpg"),
+    image: productAsset("01-amazing-hairstyles.webp"),
   },
   {
     title: "Total Frizz Control",
     copy: "Frizz is always the first to ruin a good look. Get your hair smooth with 200 million negative ions.",
-    image: productAsset("06-holiday-gift.jpg"),
+    image: productAsset("06-holiday-gift.webp"),
   },
 ];
 
