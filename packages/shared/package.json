@@ -7,10 +7,10 @@
   "scripts": {
     "lint": "eslint \"**/*.ts*\""
   },
-  "dependencies": {},
   "devDependencies": {
-    "@muuhu/tsconfig": "workspace:*",
     "@muuhu/eslint-config": "workspace:*",
+    "@muuhu/tsconfig": "workspace:*",
+    "eslint": "^8.57.1",
     "typescript": "^5.4.5"
   }
 }
