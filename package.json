@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "turbo run dev",
     "build": "turbo run build",
-    "lint": "turbo run lint",
+    "lint": "turbo run lint --concurrency=1",
     "typecheck": "turbo run typecheck",
     "dev:us": "turbo run dev --filter=@muuhu/us",
     "dev:uk": "turbo run dev --filter=@muuhu/uk",
