@@ -16,6 +16,16 @@ import {
   Sparkles,
   Plug,
   Sliders,
+  Wind,
+  Thermometer,
+  Gauge,
+  Volume2,
+  Scale,
+  Layers,
+  Settings,
+  Droplet,
+  Droplets,
+  HeartPulse,
 } from "lucide-react";
 import type { Product } from "@/data/products";
 import type { ReactNode } from "react";
@@ -47,6 +57,21 @@ type AccordionItem = {
 
 function getSpecIcon(label: string) {
   const normLabel = label.toLowerCase();
+  
+  if (normLabel.includes("motor")) return Settings;
+  if (normLabel.includes("wattage")) return Plug;
+  if (normLabel.includes("ionic")) return Sparkles;
+  if (normLabel.includes("heat")) return Thermometer;
+  if (normLabel.includes("airflow")) return Wind;
+  if (normLabel.includes("speed")) return Gauge;
+  if (normLabel.includes("noise")) return Volume2;
+  if (normLabel.includes("weight")) return Scale;
+  if (normLabel.includes("attachment")) return Layers;
+  
+  if (normLabel.includes("therapy")) return HeartPulse;
+  if (normLabel.includes("applicator")) return Droplets;
+  if (normLabel.includes("water")) return Droplet;
+
   if (normLabel.includes("dimension")) return Ruler;
   if (normLabel.includes("led")) return Lightbulb;
   if (normLabel.includes("color")) return Palette;
@@ -60,6 +85,7 @@ function getSpecIcon(label: string) {
   if (normLabel.includes("flash")) return Sparkles;
   if (normLabel.includes("mode")) return Sliders;
   if (normLabel.includes("lamp")) return Lightbulb;
+  
   return Zap;
 }
 
