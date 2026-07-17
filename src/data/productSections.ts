@@ -110,7 +110,7 @@ export const realLifeImages = [
 export const transformations: Transformation[] = [
   {
     id: "result-01",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_1.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_1.webp",
     concern: "Fast Drying",
     title: "Cuts drying time in half",
     quote: '"I have thick hair and it usually takes 40 minutes to dry. With the Muuhu dryer, I am done in 15 minutes with zero heat damage."',
@@ -123,7 +123,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-02",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_2.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_2.webp",
     concern: "Frizz Control",
     title: "Sleek and perfectly straight",
     quote: '"The smoothing brush is a miracle worker. It tames my morning frizz completely and leaves a salon-quality shine."',
@@ -136,7 +136,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-03",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_3.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_3.webp",
     concern: "Flat, Lifeless Hair",
     title: "Incredible bounce & volume",
     quote: '"I finally achieved that 90s blowout look! It gives my roots so much lift and makes my hair look incredibly thick."',
@@ -149,7 +149,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-04",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_5.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_5.webp",
     concern: "Perfect Bouncy Curls",
     title: "Effortless Hollywood waves",
     quote: '"The Coanda technology wraps my hair automatically! I have never been able to curl my hair this easily."',
@@ -162,7 +162,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-05",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_7.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_7.webp",
     concern: "Symmetrical Styling",
     title: "Flawless uniform curls",
     quote: '"Having both left and right barrels means my curls are perfectly balanced. The bounce is simply unreal."',
@@ -175,7 +175,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-06",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_8.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_8.webp",
     concern: "Defined Natural Curls",
     title: "Embraces my natural texture",
     quote: '"This diffuser completely eliminated my frizz and defined my natural curl pattern beautifully without blowing it apart."',
@@ -188,7 +188,7 @@ export const transformations: Transformation[] = [
   },
   {
     id: "result-07",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_9.png",
+    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_9.webp",
     concern: "Precision Styling",
     title: "Smooth, controlled finish",
     quote: '"The concentrator nozzle gives me total control over where the air goes. Perfect for finishing touches."',
@@ -342,7 +342,7 @@ export const faqs: FAQItem[] = [
 ];
 
 export const expertVideo = {
-  poster: productAsset("02-new-year-new-hair.jpg"),
+  poster: productAsset("02-new-year-new-hair.webp"),
   src: "/media/products/buudy-led-mask/videos/Buudy Dermatologists Video.webm",
 };
 
