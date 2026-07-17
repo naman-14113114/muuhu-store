@@ -13,5 +13,5 @@ export const announcementItems = [
   "Free shipping on all US orders",
   "110,000 RPM Brushless Motor",
   "Sign up and enjoy $10 off",
-  "4.9 stars from 2,400+ customers",
+  "4.9 stars from 16,000+ customers",
 ];

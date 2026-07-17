@@ -9,9 +9,11 @@ import { market } from "@/lib/market";
 export function ProductGallery({
   images,
   hasGifts = true,
+  badgePosition = "bottom-right",
 }: {
   images: ProductImage[];
   hasGifts?: boolean;
+  badgePosition?: "top-right" | "bottom-right";
 }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
@@ -257,7 +259,7 @@ export function ProductGallery({
               3 Free Gifts
             </span>
           )}
-          <span className="absolute bottom-5 right-5 z-10 flex items-center gap-1.5 rounded-full bg-[rgba(247,241,232,.92)] px-3.5 py-2 text-[var(--plum)] shadow-[0_10px_24px_-18px_rgba(58,31,61,.55)]">
+          <span className={`absolute z-10 flex items-center gap-1.5 rounded-full bg-[rgba(247,241,232,.92)] px-3.5 py-2 text-[var(--plum)] shadow-[0_10px_24px_-18px_rgba(58,31,61,.55)] ${badgePosition === "top-right" ? "top-5 right-5" : "bottom-5 right-5"}`}>
             <svg
               aria-hidden="true"
               className="h-3 w-[21px] flex-shrink-0 object-contain rounded-[1px]"

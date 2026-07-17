@@ -12,7 +12,7 @@ export function ProductHero({ product }: { product: Product }) {
       <div className="buudy-glow -right-24 top-52 h-[560px] w-[560px] bg-[#a05080]" />
       <div className="buudy-wrap relative z-10 grid gap-8 [overflow-anchor:none] lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1fr)] lg:items-start lg:gap-8 xl:grid-cols-[1.05fr_1fr] xl:gap-16">
         <div className="lg:sticky lg:top-6 lg:self-start">
-          <ProductGallery images={product.gallery} hasGifts={product.gifts.length > 0} />
+          <ProductGallery images={product.gallery} hasGifts={product.gifts.length > 0} badgePosition={product.id === "muuhu-comb" ? "top-right" : "bottom-right"} />
         </div>
         <div className="[overflow-anchor:none]">
           <GiftBundle product={product} />

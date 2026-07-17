@@ -4,7 +4,7 @@ export const market = {
   currency: "USD",
   country: "United States",
   marketLabel: "US",
-  madeInLabel: "Made in US",
+  madeInLabel: "USA Brand",
   checkoutSource: "us_muuhu",
   checkoutUtmSource: "us.muuhu.com",
   checkoutUtmCampaign: "us_hair_dryer",
