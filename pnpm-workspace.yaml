@@ -1,6 +1,7 @@
 packages:
   - "apps/*"
   - "packages/*"
+ignoreScripts: false
 onlyBuiltDependencies:
   - sharp
   - unrs-resolver
