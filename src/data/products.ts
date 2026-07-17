@@ -25,6 +25,11 @@ export const muuhuHairDryer: Product = {
   customerCount: "16,000+",
   promoCode: "TBD",
   promoLabel: "$10 off applied",
+  highlights: [
+    "Dries hair in half the time without heat damage",
+    "Banishes frizz for a silky, smooth finish",
+    "Achieve a bouncy, salon-quality blowout at home"
+  ],
   cartImage: productAsset("00-travel-friendly-styler.webp"),
   gallery: [
     { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Hair Dryer" },
@@ -83,7 +88,7 @@ export const muuhuHairDryer: Product = {
       name: "Muuhu Comb",
       valueCents: 8900,
       link: "/products/muuhu-comb",
-      image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp"
+      image: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp"
     },
     {
       id: "skincare-guide",
@@ -126,6 +131,11 @@ export const muuhuComb: Product = {
   customerCount: "16,000+",
   promoCode: "FREEGIFT",
   promoLabel: "Free with Hair Dryer",
+  highlights: [
+    "Stimulates dormant follicles for noticeably thicker hair",
+    "Soothes dry, itchy scalp with relaxing micro-vibrations",
+    "Delivers serums deep to the roots without greasy hair"
+  ],
   cartImage: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp",
   gallery: [
     { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu Hair Growth Therapy Comb" },

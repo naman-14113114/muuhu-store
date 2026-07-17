@@ -62,7 +62,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${fraunces.variable} ${mono.variable} ${playfair.variable} antialiased selection:bg-[var(--gold)] selection:text-[var(--ink)]`}
+      className={`${inter.variable} ${fraunces.variable} ${mono.variable} ${playfair.variable} selection:bg-[var(--gold)] selection:text-[var(--ink)]`}
     >
       <body>
         <CartProvider>

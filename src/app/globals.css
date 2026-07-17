@@ -142,9 +142,14 @@ section.bg-\[\#f6ede2\] + section.bg-\[\#f6ede2\] {
   letter-spacing: 0;
 }
 
+p {
+  font-size: 1.025rem;
+}
+
 .buudy-copy {
   color: var(--muted);
   line-height: 1.7;
+  font-size: 1.025rem;
 }
 
 .buudy-glow {

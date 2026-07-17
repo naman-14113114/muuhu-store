@@ -8,14 +8,12 @@ import Lottie from "lottie-react";
 import {
   ShieldCheck,
   Sparkles,
-  Waves,
   RotateCcw,
-  Sun,
-  Hourglass,
-  CircleDot,
-  Bandage,
-  Umbrella,
-  Droplets,
+  Timer,
+  Crown,
+  Leaf,
+  Heart,
+  Droplet,
 } from "lucide-react";
 import type { Product } from "@/data/products";
 import { market } from "@/lib/market";
@@ -89,15 +87,16 @@ function FaceNeckIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-const keyBenefitIcons = [
-  Sun,
-  Hourglass,
-  CircleDot,
-  Bandage,
-  Umbrella,
-  Droplets,
-  Waves,
-];
+function getHighlightIcon(text: string) {
+  const t = text.toLowerCase();
+  if (t.includes("time") || t.includes("dries")) return Timer;
+  if (t.includes("frizz") || t.includes("smooth")) return Sparkles;
+  if (t.includes("salon") || t.includes("blowout")) return Crown;
+  if (t.includes("follicle") || t.includes("thicker")) return Leaf;
+  if (t.includes("soothes") || t.includes("relaxing")) return Heart;
+  if (t.includes("serum") || t.includes("roots")) return Droplet;
+  return Sparkles;
+}
 
 export function GiftBundle({ product }: { product: Product }) {
   const { addProduct } = useCart();
@@ -204,8 +203,8 @@ export function GiftBundle({ product }: { product: Product }) {
       <ul className="mt-4 mb-4 flex flex-col gap-1.5 pl-1.5">
         {(product.keyBenefits ?? product.highlights)?.map(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          (benefit: any, index: number) => {
-          const Icon = keyBenefitIcons[index % keyBenefitIcons.length];
+          (benefit: any) => {
+          const Icon = getHighlightIcon(benefit);
           return (
             <li
               className="flex items-center gap-3 text-[14.5px] font-normal leading-normal text-[var(--plum)] buudy-display"

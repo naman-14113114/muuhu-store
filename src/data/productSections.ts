@@ -295,19 +295,21 @@ export const wavelengths: Wavelength[] = [
 ];
 
 export const comparison = {
-  intro: "Professional performance, without the professional price tag.",
+  intro: "Check the difference yourself",
   columns: [
     { label: "Muuhu Hair Dryer", price: "$149", featured: true },
-    { label: "Dyson Airwrap", price: "$479" },
-    { label: "Shark FlexStyle", price: "$269" },
+    { label: "Dyson Supersonic", price: "$429" },
+    { label: "Shark SpeedStyle", price: "$199" },
+    { label: "GHD Air", price: "$199" },
   ],
   rows: [
-    ["Attachments Included", "7", "6", "5"],
-    ["Motor Speed", "110,000 RPM", "110,000 RPM", "Undisclosed"],
-    ["Auto-Wrap Curlers", "Yes (Left & Right)", "Yes (Bi-directional)", "Yes (Left & Right)"],
-    ["Ionic Technology", "200M+ Negative Ions", "Yes", "Yes"],
-    ["Weight", "~600g", "660g", "700g"],
-    ["Warranty", "1 Year", "2 Years", "2 Years"],
+    ["Attachments Included", "7", "5", "4", "1"],
+    ["110,000 RPM Motor", "Yes", "Yes", "-", "-"],
+    ["Weight", "360g", "660g", "700g", "823g"],
+    ["Ionic Technology", "Yes", "Yes", "Yes", "Yes"],
+    ["Ultra-Quiet (<60dB)", "Yes", "-", "-", "-"],
+    ["App Companion", "Yes", "-", "-", "-"],
+    ["Travel Case Included", "Yes", "-", "-", "-"],
   ],
 };
 

@@ -27,6 +27,6 @@ export interface Product {
   gifts: { id: string; name: string; valueCents: number; image: string; link?: string }[];
   included: { label: string; quantity: number; tag?: string; image?: string }[];
   badges: string[];
-  keyBenefits?: { label: string; description: string }[];
-  highlights?: { label: string; description: string }[];
+  keyBenefits?: string[];
+  highlights?: string[];
 }
