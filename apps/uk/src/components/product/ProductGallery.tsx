@@ -266,18 +266,13 @@ export function ProductGallery({
               viewBox="0 0 60 30"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <rect width="60" height="30" fill="#b22234" />
-              <path d="M0 4.28h60M0 12.84h60M0 21.4h60" stroke="#fff" strokeWidth="4.28" />
-              <rect width="27" height="17" fill="#3c3b6e" />
-              <g fill="#fff">
-                <circle cx="4" cy="4" r="1" />
-                <circle cx="13" cy="4" r="1" />
-                <circle cx="22" cy="4" r="1" />
-                <circle cx="8.5" cy="8.5" r="1" />
-                <circle cx="17.5" cy="8.5" r="1" />
-                <circle cx="4" cy="13" r="1" />
-                <circle cx="13" cy="13" r="1" />
-                <circle cx="22" cy="13" r="1" />
+              <clipPath id="ukClip"><rect width="60" height="30" /></clipPath>
+              <g clipPath="url(#ukClip)">
+                <rect width="60" height="30" fill="#012169" />
+                <path d="M0 0L60 30M60 0L0 30" stroke="#fff" strokeWidth="6" />
+                <path d="M0 0L60 30M60 0L0 30" stroke="#C8102E" strokeWidth="4" clipPath="url(#ukClip)" />
+                <path d="M30 0V30M0 15H60" stroke="#fff" strokeWidth="10" />
+                <path d="M30 0V30M0 15H60" stroke="#C8102E" strokeWidth="6" />
               </g>
             </svg>
             <span className="buudy-mono leading-none">
