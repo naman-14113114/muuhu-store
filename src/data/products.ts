@@ -25,17 +25,17 @@ export const muuhuHairDryer: Product = {
   customerCount: "2,400+",
   promoCode: "TBD",
   promoLabel: "$10 off applied",
-  cartImage: productAsset("00-travel-friendly-styler.jpg"),
+  cartImage: productAsset("00-travel-friendly-styler.webp"),
   gallery: [
-    { src: productAsset("00-travel-friendly-styler.jpg"), alt: "Muuhu Hair Dryer" },
-    { src: productAsset("01-amazing-hairstyles.jpg"), alt: "Amazing hairstyles with Muuhu Hair Dryer" },
-    { src: productAsset("02-new-year-new-hair.jpg"), alt: "New year, new hair, new you!" },
-    { src: productAsset("03-before-after.jpg"), alt: "Before & After using Muuhu" },
-    { src: productAsset("04-hairluxe.jpg"), alt: "Once you try the hairluxe, there is no turning back" },
-    { src: productAsset("05-coanda-effect.jpg"), alt: "Coanda effect in action" },
-    { src: productAsset("06-holiday-gift.jpg"), alt: "Holiday gift packaging" },
-    { src: productAsset("07-prep-hair.jpg"), alt: "Prep hair before styling" },
-    { src: productAsset("08-curling-wand.jpg"), alt: "Curling wand attachment" },
+    { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Hair Dryer" },
+    { src: productAsset("01-amazing-hairstyles.webp"), alt: "Amazing hairstyles with Muuhu Hair Dryer" },
+    { src: productAsset("02-new-year-new-hair.webp"), alt: "New year, new hair, new you!" },
+    { src: productAsset("03-before-after.webp"), alt: "Before & After using Muuhu" },
+    { src: productAsset("04-hairluxe.webp"), alt: "Once you try the hairluxe, there is no turning back" },
+    { src: productAsset("05-coanda-effect.webp"), alt: "Coanda effect in action" },
+    { src: productAsset("06-holiday-gift.webp"), alt: "Holiday gift packaging" },
+    { src: productAsset("07-prep-hair.webp"), alt: "Prep hair before styling" },
+    { src: productAsset("08-curling-wand.webp"), alt: "Curling wand attachment" },
   ],
   specs: [
     { label: "Motor", value: "110,000 RPM High-Speed Brushless DC" },
@@ -76,7 +76,7 @@ export const muuhuHairDryer: Product = {
       id: "travel-case",
       name: "Luxury Travel Case",
       valueCents: 4500,
-      image: productAsset("00-travel-friendly-styler.jpg")
+      image: productAsset("00-travel-friendly-styler.webp")
     },
     {
       id: "muuhu-comb",
