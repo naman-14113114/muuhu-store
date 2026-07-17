@@ -1,0 +1,68 @@
+$ next build
+⚠ turbopack.root should be absolute, using: E:\1st YEAR DTU\New folder\muuhu-store
+▲ Next.js 16.2.6 (Turbopack)
+
+  Creating an optimized production build ...
+✓ Compiled successfully in 23.5s
+  Running TypeScript ...
+  Finished TypeScript in 16.3s ...
+  Collecting page data using 7 workers ...
+  Generating static pages using 7 workers (0/28) ...
+  Generating static pages using 7 workers (7/28) 
+  Generating static pages using 7 workers (14/28) 
+  Generating static pages using 7 workers (21/28) 
+✓ Generating static pages using 7 workers (28/28) in 1567ms
+  Finalizing page optimization ...
+
+Route (app)                            Revalidate  Expire
+┌ ○ /
+├ ○ /_not-found
+├ ƒ /account-settings
+├ ƒ /admin
+├ ƒ /admin/customers/[id]
+├ ƒ /admin/orders/[orderNumber]
+├ ƒ /api/account/session
+├ ƒ /api/checkout/prepare
+├ ƒ /api/contact
+├ ƒ /api/contact/config
+├ ƒ /api/conversions/bing-ads
+├ ƒ /api/order-tracking
+├ ƒ /api/reviews/[productHandle]
+├ ○ /apple-icon.png
+├ ƒ /auth/callback
+├ ƒ /cart
+├ ○ /icon.png
+├ ƒ /llms.txt
+├ ƒ /my-profile
+├ ƒ /order-confirmation/[orderNumber]
+├ ƒ /order-history
+├ ○ /order-tracking
+├ ● /pages/[slug]
+│ ├ /pages/premium-travel-box
+│ ├ /pages/muuhu-comb
+│ └ /pages/skincare-guide
+├ ○ /pages/about-us
+├ ○ /pages/contact-us
+├ ○ /pages/faqs
+├ ○ /pages/order-tracking
+├ ○ /policies/cookies-policy
+├ ○ /policies/privacy-policy
+├ ○ /policies/refund-policy
+├ ○ /policies/return-policy
+├ ○ /policies/shipping-policy
+├ ○ /policies/terms-of-service
+├ ● /products/[slug]                           1d      1y
+│ ├ /products/muuhu-hair-dryer                 1d      1y
+│ └ /products/muuhu-comb                       1d      1y
+├ ○ /robots.txt
+├ ƒ /sign-in
+├ ƒ /sign-up
+└ ○ /sitemap.xml
+
+
+ƒ Proxy (Middleware)
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses generateStaticParams)
+ƒ  (Dynamic)  server-rendered on demand
+

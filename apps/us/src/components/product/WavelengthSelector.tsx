@@ -1,0 +1,95 @@
+"use client";
+
+import { useState } from "react";
+import Image from "next/image";
+import { wavelengths as attachments } from "@/data/productSections";
+import { productAsset } from "@/lib/media";
+
+export function WavelengthSelector() {
+  const [active, setActive] = useState(attachments[0]);
+
+  return (
+    <section className="buudy-section overflow-hidden bg-[var(--ink)] py-14 text-[var(--cream)] md:py-24">
+      <div
+        className="buudy-glow -left-40 top-1/2 h-[500px] w-[500px] -translate-y-1/2 transition-colors duration-700"
+        style={{ background: `${active.color}15` }}
+      />
+      <div className="buudy-wrap relative z-10">
+        <div className="max-w-full lg:max-w-5xl">
+          <p className="buudy-mono text-[var(--gold)]">Attachments</p>
+          <h2 className="buudy-display mt-3 text-[2.5rem] leading-[1.06] text-[var(--cream)] md:text-6xl">
+            Change <em className="buudy-italic">7 styling tools</em> with a click.
+          </h2>
+        </div>
+
+        <div className="mt-4 grid items-center gap-4 md:mt-6 md:gap-8 lg:grid-cols-[1fr_1.2fr]">
+          <div className="relative mx-auto flex aspect-square w-full max-w-[360px] items-center justify-center">
+            <div
+              className="absolute inset-0 rounded-full opacity-60 blur-xl transition duration-700"
+              style={{
+                background: `radial-gradient(circle, ${active.color} 0%, transparent 70%)`,
+              }}
+            />
+            
+            <div className="relative w-full h-full overflow-hidden rounded-2xl">
+              <Image
+                src={productAsset("02-muuhu-hair-dryer-attachments.webp")}
+                alt="Muuhu Attachments"
+                fill
+                className="absolute inset-0 w-full h-full object-contain"
+              />
+            </div>
+          </div>
+
+          <ul>
+            {attachments.map((attachment) => {
+              const isActive = active.name === attachment.name;
+              return (
+                <li key={attachment.name}>
+                  <button
+                    className={`flex w-full items-center gap-4 border-b border-[rgba(247,241,232,.1)] py-2 text-left transition-all duration-300 hover:pl-3 group ${
+                      isActive ? "bg-[rgba(247,241,232,.03)] pl-3 border-l-2 border-l-[var(--gold)]" : ""
+                    }`}
+                    onClick={() => setActive(attachment)}
+                    onMouseEnter={() => setActive(attachment)}
+                    type="button"
+                  >
+                    <span
+                      className={`h-3.5 w-3.5 flex-none rounded-full transition-all duration-300 ${
+                        isActive ? "scale-125" : "group-hover:scale-110"
+                      }`}
+                      style={{
+                        background: attachment.color,
+                        boxShadow: isActive ? `0 0 10px ${attachment.color}` : "none",
+                      }}
+                    />
+                    <span className="buudy-display w-20 uppercase text-[rgba(247,241,232,.6)]">
+                      {attachment.nm}
+                    </span>
+                    <span className={`buudy-display text-xl transition-colors duration-300 ${
+                      isActive ? "text-[var(--gold)]" : "text-[var(--cream)] group-hover:text-[var(--gold)]"
+                    }`}>
+                      {attachment.name}
+                    </span>
+                    <span className="buudy-display ml-auto hidden text-sm text-[rgba(247,241,232,.6)] sm:block">
+                      {attachment.description}
+                    </span>
+                  </button>
+                  <div
+                    className={`overflow-hidden transition-all duration-300 sm:hidden ${
+                      isActive ? "max-h-40 opacity-100" : "max-h-0 opacity-0"
+                    }`}
+                  >
+                    <p className="buudy-display px-4 pb-3 pl-[3.25rem] text-sm leading-relaxed text-[rgba(247,241,232,.7)]">
+                      {attachment.description}
+                    </p>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+        </div>
+      </div>
+    </section>
+  );
+}
