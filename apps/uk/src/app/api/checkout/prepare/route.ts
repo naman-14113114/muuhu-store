@@ -16,7 +16,7 @@ type CheckoutPrepareBody = {
   customerEmail?: string;
   quantity?: number;
   cart?: {
-    lines: Array<{ productId: string; quantity: number; type?: string }>;
+    lines: Array<{ id?: string; productId: string; quantity: number; type?: string }>;
   };
   attribution?: Record<string, string | null | undefined>;
 };
@@ -175,13 +175,19 @@ async function createPlusbaseCheckout(
   }
 
   // Add each product line that maps to a known Muuhu PlusBase product.
-  // Both paid products and mapped gift lines (e.g. the free comb) are added.
+  // Gift lines carry the parent product's id, so we also resolve the gift's
+  // own product slug from line.id (e.g. "muuhu-hair-dryer:muuhu-comb").
   if (cart?.lines && cart.lines.length > 0) {
     for (const line of cart.lines) {
-      if (PLUSBASE_PRODUCTS[line.productId]) {
+      const key =
+        line.type === "gift" || line.id?.includes(":")
+          ? (line.id?.split(":").pop() ?? line.productId)
+          : line.productId;
+
+      if (key && PLUSBASE_PRODUCTS[key]) {
         await addItem(
-          PLUSBASE_PRODUCTS[line.productId].productId,
-          PLUSBASE_PRODUCTS[line.productId].variantId,
+          PLUSBASE_PRODUCTS[key].productId,
+          PLUSBASE_PRODUCTS[key].variantId,
           line.quantity,
           buildPlusbaseAttributionProperties(attribution),
         );

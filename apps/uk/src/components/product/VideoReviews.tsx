@@ -19,15 +19,25 @@ function ReviewVideoCard({
   const cardRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldPlayRef = useRef(false);
+  const isHoveredRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
   const [shouldLoad, setShouldLoad] = useState(index < 4);
+  const [isHovered, setIsHovered] = useState(false);
 
   const playWhenReady = useCallback(() => {
     if (!shouldPlayRef.current) return;
 
     videoRef.current?.play().catch(() => undefined);
   }, []);
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovered(false);
+  };
 
   useEffect(() => {
     const card = cardRef.current;
@@ -60,9 +70,11 @@ function ReviewVideoCard({
 
   return (
     <article
-      className="relative aspect-[9/16] w-40 flex-none overflow-hidden rounded-[18px] bg-[var(--ink)] transition hover:-translate-y-1 md:w-52 cursor-pointer"
+      className="relative aspect-[9/16] w-40 flex-none overflow-hidden rounded-[18px] bg-[var(--ink)] transition hover:-translate-y-1 md:w-52 cursor-pointer group"
       ref={cardRef}
       onClick={() => onClick(video)}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
     >
       <video
         aria-label={`Muuhu customer video review ${index + 1}`}
@@ -90,6 +102,16 @@ function ReviewVideoCard({
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(18,9,20,.48)] to-transparent"
       />
+      {/* Play Button Overlay */}
+      <div 
+        className={`absolute inset-0 flex items-center justify-center transition-opacity duration-300 ${isHovered ? 'opacity-100' : 'opacity-0'}`}
+      >
+        <div className="flex h-12 w-12 md:h-14 md:w-14 items-center justify-center rounded-full bg-[rgba(247,241,232,0.85)] text-[var(--plum)] shadow-[0_4px_12px_rgba(58,31,61,0.2)] backdrop-blur-sm transition-transform duration-300 group-hover:scale-110">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5 md:h-6 md:w-6 ml-1">
+            <path fillRule="evenodd" d="M4.5 5.653c0-1.427 1.529-2.33 2.779-1.643l11.54 6.347c1.295.712 1.295 2.573 0 3.286L7.28 19.99c-1.25.687-2.779-.217-2.779-1.643V5.653Z" clipRule="evenodd" />
+          </svg>
+        </div>
+      </div>
     </article>
   );
 }
@@ -104,6 +126,13 @@ export function VideoReviews() {
           0% { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
+        .vr-scroll-track {
+          animation: vr-css-auto-scroll 30s linear infinite;
+          will-change: transform;
+        }
+        .vr-scroll-track:hover {
+          animation-play-state: paused;
+        }
       `}</style>
       <div className="buudy-wrap">
         <SectionHeading
@@ -117,13 +146,7 @@ export function VideoReviews() {
         />
 
         <div className="relative mt-7 md:mt-10 mx-auto w-full max-w-[1400px] overflow-hidden pb-4 md:pb-8">
-          <div 
-            className="flex gap-4 w-max hover:[animation-play-state:paused]"
-            style={{ 
-              animation: 'vr-css-auto-scroll 30s linear infinite',
-              willChange: 'transform' 
-            }}
-          >
+          <div className="flex gap-4 w-max vr-scroll-track">
             {loopedVideos.map((video, index) => (
               <ReviewVideoCard
                 index={index}

@@ -174,7 +174,9 @@ export function GiftBundle({ product }: { product: Product }) {
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
-            Dermatologist Approved
+            {product.id.includes("hair-dryer") || product.id.includes("comb")
+              ? "Stylist Approved"
+              : "Dermatologist Approved"}
           </span>
         </span>
       </div>
@@ -204,19 +206,20 @@ export function GiftBundle({ product }: { product: Product }) {
         {(product.keyBenefits ?? product.highlights)?.map(
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (benefit: any) => {
-          const Icon = getHighlightIcon(benefit);
-          return (
-            <li
-              className="flex items-center gap-3 text-[14.5px] font-normal leading-normal text-[var(--plum)] buudy-display"
-              key={benefit}
-            >
-              <span className="flex h-5 w-5 shrink-0 items-center justify-center text-[var(--gold)]">
-                <Icon size={18} strokeWidth={1.5} />
-              </span>
-              <span>{benefit}</span>
-            </li>
-          );
-        })}
+            const Icon = getHighlightIcon(benefit);
+            return (
+              <li
+                className="flex items-center gap-3 text-[14.5px] font-normal leading-normal text-[var(--plum)] buudy-display"
+                key={benefit}
+              >
+                <span className="flex h-5 w-5 shrink-0 items-center justify-center text-[var(--gold)]">
+                  <Icon size={18} strokeWidth={1.5} />
+                </span>
+                <span>{benefit}</span>
+              </li>
+            );
+          },
+        )}
       </ul>
 
       <div className="mt-4 rounded-2xl border border-[rgba(58,31,61,.15)] bg-[rgba(247,241,232,.55)] p-3 sm:p-5">
@@ -344,39 +347,40 @@ export function GiftBundle({ product }: { product: Product }) {
             {product.gifts?.map(
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (gift: any) => (
-              <Link
-                aria-label={`Learn more about ${gift.name}`}
-                className="group relative flex min-h-[180px] flex-col justify-start rounded-[24px] border border-[rgba(58,31,61,.18)] bg-[var(--card)] p-2 pt-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[rgba(184,149,86,.72)] hover:shadow-[0_18px_32px_-24px_rgba(58,31,61,.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:min-h-[220px] md:p-3 md:pt-6"
-                href={gift.href || gift.link || "#"}
-                key={gift.id}
-              >
-                {/* Single absolute overlapping badge: FREE (bold & clear) + price strikethrough (no nested container) */}
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-1 bg-[var(--card)] border border-[rgba(58,31,61,.22)] rounded-full flex items-center gap-1 sm:gap-1.5 shadow-[0_2px_8px_rgba(58,31,61,0.06)] whitespace-nowrap">
-                  <span className="text-black text-[11px] sm:text-[13px] font-bold tracking-wider uppercase font-sans">
-                    FREE
-                  </span>
-                  <span className="line-through text-xs sm:text-sm text-[var(--muted)] buudy-display font-semibold leading-none">
-                    {formatMoney(gift.valueCents, product.currency)}
-                  </span>
-                </div>
+                <Link
+                  aria-label={`Learn more about ${gift.name}`}
+                  className="group relative flex min-h-[180px] flex-col justify-start rounded-[24px] border border-[rgba(58,31,61,.18)] bg-[var(--card)] p-2 pt-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[rgba(184,149,86,.72)] hover:shadow-[0_18px_32px_-24px_rgba(58,31,61,.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:min-h-[220px] md:p-3 md:pt-6"
+                  href={gift.href || gift.link || "#"}
+                  key={gift.id}
+                >
+                  {/* Single absolute overlapping badge: FREE (bold & clear) + price strikethrough (no nested container) */}
+                  <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-2 sm:px-3 py-1 bg-[var(--card)] border border-[rgba(58,31,61,.22)] rounded-full flex items-center gap-1 sm:gap-1.5 shadow-[0_2px_8px_rgba(58,31,61,0.06)] whitespace-nowrap">
+                    <span className="text-black text-[11px] sm:text-[13px] font-bold tracking-wider uppercase font-sans">
+                      FREE
+                    </span>
+                    <span className="line-through text-xs sm:text-sm text-[var(--muted)] buudy-display font-semibold leading-none">
+                      {formatMoney(gift.valueCents, product.currency)}
+                    </span>
+                  </div>
 
-                {/* Gift Image (No inner box container, directly given standard even border-radius) */}
-                <div className="relative mt-1 md:mt-2 aspect-square w-full overflow-hidden rounded-[20px] p-0.5 md:p-1 flex items-center justify-center">
-                  <Image
-                    alt={gift.name}
-                    className="rounded-[20px] object-contain p-0.5 transition-transform duration-300 group-hover:scale-105 md:p-1"
-                    fill
-                    sizes="120px"
-                    src={gift.image}
-                  />
-                </div>
+                  {/* Gift Image (No inner box container, directly given standard even border-radius) */}
+                  <div className="relative mt-1 md:mt-2 aspect-square w-full overflow-hidden rounded-[20px] p-0.5 md:p-1 flex items-center justify-center">
+                    <Image
+                      alt={gift.name}
+                      className="rounded-[20px] object-contain p-0.5 transition-transform duration-300 group-hover:scale-105 md:p-1"
+                      fill
+                      sizes="120px"
+                      src={gift.image}
+                    />
+                  </div>
 
-                {/* Gift Label / Title */}
-                <p className="buudy-display mt-0.5 md:mt-1 text-base md:text-lg font-semibold text-[var(--plum)] leading-snug">
-                  {gift.name}
-                </p>
-              </Link>
-            ))}
+                  {/* Gift Label / Title */}
+                  <p className="buudy-display mt-0.5 md:mt-1 text-base md:text-lg font-semibold text-[var(--plum)] leading-snug">
+                    {gift.name}
+                  </p>
+                </Link>
+              ),
+            )}
           </div>
         </section>
       ) : (

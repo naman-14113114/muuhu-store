@@ -8,16 +8,15 @@ export const dynamic = "force-dynamic";
 const plusbaseOrigin = "https://buudy.com";
 
 const PLUSBASE_PRODUCTS: Record<string, { productId: number; variantId: number }> = {
-  "buudy-led-mask": { productId: 1000000667467053, variantId: 1000020450989467 },
-  "buudy-ipl-device": { productId: 1000000667723529, variantId: 1000020460632985 },
-  "buudy-red-torch": { productId: 1000000665008955, variantId: 1000020384558655 },
+  "muuhu-hair-dryer": { productId: 1000000670522113, variantId: 1000020551282537 },
+  "muuhu-comb": { productId: 1000000670522361, variantId: 1000020551283771 },
 };
 
 type CheckoutPrepareBody = {
   customerEmail?: string;
   quantity?: number;
   cart?: {
-    lines: Array<{ productId: string; quantity: number; type?: string }>;
+    lines: Array<{ id?: string; productId: string; quantity: number; type?: string }>;
   };
   attribution?: Record<string, string | null | undefined>;
 };
@@ -175,32 +174,33 @@ async function createPlusbaseCheckout(
     }
   }
 
-  // Support either dynamic cart lines or legacy mask quantity fallback
+  // Add each product line that maps to a known Muuhu PlusBase product.
+  // Gift lines carry the parent product's id, so we also resolve the gift's
+  // own product slug from line.id (e.g. "muuhu-hair-dryer:muuhu-comb").
   if (cart?.lines && cart.lines.length > 0) {
     for (const line of cart.lines) {
-      if (line.type !== "gift" && PLUSBASE_PRODUCTS[line.productId]) {
+      const key =
+        line.type === "gift" || line.id?.includes(":")
+          ? (line.id?.split(":").pop() ?? line.productId)
+          : line.productId;
+
+      if (key && PLUSBASE_PRODUCTS[key]) {
         await addItem(
-          PLUSBASE_PRODUCTS[line.productId].productId,
-          PLUSBASE_PRODUCTS[line.productId].variantId,
+          PLUSBASE_PRODUCTS[key].productId,
+          PLUSBASE_PRODUCTS[key].variantId,
           line.quantity,
           buildPlusbaseAttributionProperties(attribution),
         );
       }
     }
-    // Also add the torch if there was a mask
-    const hasMask = cart.lines.some(l => l.productId === "buudy-led-mask");
-    if (hasMask) {
-      await addItem(PLUSBASE_PRODUCTS["buudy-red-torch"].productId, PLUSBASE_PRODUCTS["buudy-red-torch"].variantId, quantity);
-    }
   } else {
-    // Legacy fallback (assume mask)
+    // Legacy fallback: default to the Muuhu Hair Dryer flagship.
     await addItem(
-      PLUSBASE_PRODUCTS["buudy-led-mask"].productId,
-      PLUSBASE_PRODUCTS["buudy-led-mask"].variantId,
+      PLUSBASE_PRODUCTS["muuhu-hair-dryer"].productId,
+      PLUSBASE_PRODUCTS["muuhu-hair-dryer"].variantId,
       quantity,
       buildPlusbaseAttributionProperties(attribution),
     );
-    await addItem(PLUSBASE_PRODUCTS["buudy-red-torch"].productId, PLUSBASE_PRODUCTS["buudy-red-torch"].variantId, quantity);
   }
 
   return {

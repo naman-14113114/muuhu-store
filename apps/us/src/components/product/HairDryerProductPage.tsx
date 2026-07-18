@@ -32,7 +32,6 @@ function HairDryerHeroVideo() {
         <div className="mt-12 w-full max-w-4xl overflow-hidden rounded-2xl bg-black shadow-2xl aspect-video">
           <video
             autoPlay
-            controls
             loop
             muted
             playsInline
@@ -163,8 +162,8 @@ export function HairDryerProductPage({ product }: { product: Product }) {
       <ProductHero product={product} />
       <VideoReviews />
       <TrustBadges />
-      <HairDryerAttachmentBadges />
       <HairDryerHeroVideo />
+      <HairDryerAttachmentBadges />
       {/* <FeatureGrid 
         eyebrow="Why Muuhu"
         title={
