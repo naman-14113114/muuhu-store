@@ -1,7 +1,19 @@
 export function GuaranteeSection({ productHandle }: { productHandle?: string }) {
   const isComb = productHandle === "muuhu-comb";
   return (
-    <section className="buudy-section relative overflow-hidden bg-[var(--plum)] py-14 pb-24 text-center md:py-24 md:pb-36">
+    <section className={`buudy-section relative overflow-hidden py-14 pb-24 text-center md:py-24 md:pb-36 ${productHandle === "muuhu-hair-dryer" ? "bg-black" : "bg-[var(--plum)]"}`}>
+      {productHandle === "muuhu-hair-dryer" && (
+        <>
+          <div className="absolute inset-0 z-0">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/products/muuhu-hair-dryer/muuhu-hair-dryer-professional-results.webp"
+              alt="Muuhu Hair Dryer Guarantee Background"
+              className="w-full h-full object-cover opacity-50"
+            />
+          </div>
+        </>
+      )}
       <div className="buudy-wrap relative z-20 max-w-5xl">
         <p className="buudy-eyebrow">Promise</p>
         <h2 className="buudy-display mx-auto mt-3 max-w-4xl text-[2rem] leading-[1.05] text-[var(--cream)] sm:text-[2.35rem] md:mt-4 md:text-6xl">

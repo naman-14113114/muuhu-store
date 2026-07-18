@@ -181,7 +181,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
       <ProductReviewsSection productHandle={product.id} />
       <ComparisonTable />
       <FAQSection faqs={product.faqs} productHandle={product.id} />
-      <GuaranteeSection />
+      <GuaranteeSection productHandle={product.id} />
       <StickyAddToCart product={product} />
     </>
   );

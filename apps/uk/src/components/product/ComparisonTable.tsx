@@ -164,9 +164,9 @@ export function ComparisonTable() {
                   <div className="flex items-end h-full min-h-[60px] md:min-h-[80px]">
                     <div className="w-1/4 flex justify-center items-end h-full px-2 overflow-visible">
                       <img
-                        src="/images/products/muuhu-hair-dryer/comparison/muuhu-ultra-pro-high-speed-hair-dryer.jpg"
+                        src="/images/products/muuhu-hair-dryer/comparison/muuhu-ultra-pro-high-speed-hair-dryer-v4.webp"
                         alt="Muuhu Ultra Pro High-Speed Hair Dryer"
-                        className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom mix-blend-multiply rounded-2xl"
+                        className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom rounded-2xl"
                         decoding="async"
                         loading="lazy"
                       />
