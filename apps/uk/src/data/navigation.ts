@@ -1,6 +1,7 @@
 export const primaryNavigation = [
   { label: "Hair Dryer", href: "/products/muuhu-hair-dryer" },
   { label: "Muuhu Comb", href: "/products/muuhu-comb" },
+  { label: "Hair Quiz", href: "/pages/hair-quiz" },
 ];
 
 export const secondaryNavigation = [

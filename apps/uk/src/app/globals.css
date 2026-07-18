@@ -143,13 +143,24 @@ section.bg-\[\#f6ede2\] + section.bg-\[\#f6ede2\] {
 }
 
 p {
-  font-size: 1.025rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+/* Ground oversized lead/intro paragraphs so body copy stays consistent. */
+@media (min-width: 640px) {
+  p.text-lg,
+  p.text-xl,
+  p.text-2xl {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
 }
 
 .buudy-copy {
   color: var(--muted);
-  line-height: 1.7;
-  font-size: 1.025rem;
+  line-height: 1.65;
+  font-size: 0.95rem;
 }
 
 .buudy-glow {

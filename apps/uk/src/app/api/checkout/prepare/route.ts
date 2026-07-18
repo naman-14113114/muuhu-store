@@ -175,9 +175,10 @@ async function createPlusbaseCheckout(
   }
 
   // Add each product line that maps to a known Muuhu PlusBase product.
+  // Both paid products and mapped gift lines (e.g. the free comb) are added.
   if (cart?.lines && cart.lines.length > 0) {
     for (const line of cart.lines) {
-      if (line.type !== "gift" && PLUSBASE_PRODUCTS[line.productId]) {
+      if (PLUSBASE_PRODUCTS[line.productId]) {
         await addItem(
           PLUSBASE_PRODUCTS[line.productId].productId,
           PLUSBASE_PRODUCTS[line.productId].variantId,
