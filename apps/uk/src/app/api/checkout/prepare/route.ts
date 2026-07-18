@@ -5,12 +5,11 @@ import { buildPlusbaseCheckoutUrl } from "@/lib/site";
 export const runtime = "nodejs";
 export const dynamic = "force-dynamic";
 
-const plusbaseOrigin = "https://buudy.com";
+const plusbaseOrigin = "https://muuhu.com";
 
 const PLUSBASE_PRODUCTS: Record<string, { productId: number; variantId: number }> = {
-  "buudy-led-mask": { productId: 1000000667467053, variantId: 1000020450989467 },
-  "buudy-ipl-device": { productId: 1000000667723529, variantId: 1000020460632985 },
-  "buudy-red-torch": { productId: 1000000665008955, variantId: 1000020384558655 },
+  "muuhu-hair-dryer": { productId: 1000000670522113, variantId: 1000020551282537 },
+  "muuhu-comb": { productId: 1000000670522361, variantId: 1000020551283771 },
 };
 
 type CheckoutPrepareBody = {
@@ -175,7 +174,7 @@ async function createPlusbaseCheckout(
     }
   }
 
-  // Support either dynamic cart lines or legacy mask quantity fallback
+  // Add each product line that maps to a known Muuhu PlusBase product.
   if (cart?.lines && cart.lines.length > 0) {
     for (const line of cart.lines) {
       if (line.type !== "gift" && PLUSBASE_PRODUCTS[line.productId]) {
@@ -187,20 +186,14 @@ async function createPlusbaseCheckout(
         );
       }
     }
-    // Also add the torch if there was a mask
-    const hasMask = cart.lines.some(l => l.productId === "buudy-led-mask");
-    if (hasMask) {
-      await addItem(PLUSBASE_PRODUCTS["buudy-red-torch"].productId, PLUSBASE_PRODUCTS["buudy-red-torch"].variantId, quantity);
-    }
   } else {
-    // Legacy fallback (assume mask)
+    // Legacy fallback: default to the Muuhu Hair Dryer flagship.
     await addItem(
-      PLUSBASE_PRODUCTS["buudy-led-mask"].productId,
-      PLUSBASE_PRODUCTS["buudy-led-mask"].variantId,
+      PLUSBASE_PRODUCTS["muuhu-hair-dryer"].productId,
+      PLUSBASE_PRODUCTS["muuhu-hair-dryer"].variantId,
       quantity,
       buildPlusbaseAttributionProperties(attribution),
     );
-    await addItem(PLUSBASE_PRODUCTS["buudy-red-torch"].productId, PLUSBASE_PRODUCTS["buudy-red-torch"].variantId, quantity);
   }
 
   return {
