@@ -41,6 +41,11 @@ export const muuhuHairDryer: Product = {
     { src: productAsset("06-holiday-gift.webp"), alt: "Holiday gift packaging" },
     { src: productAsset("07-prep-hair.webp"), alt: "Prep hair before styling" },
     { src: productAsset("08-curling-wand.webp"), alt: "Curling wand attachment" },
+    { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
+    { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
+    { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Hair Dryer Attachments" },
+    { src: productAsset("12-muuhu-salon-quality-blowout.png"), alt: "Muuhu Salon Quality Blowout" },
+    { src: productAsset("13-muuhu-fast-drying-hair-dryer.png"), alt: "Muuhu Fast Drying Hair Dryer" },
   ],
   specs: [
     { label: "Motor", value: "110,000 RPM High-Speed Brushless DC" },
