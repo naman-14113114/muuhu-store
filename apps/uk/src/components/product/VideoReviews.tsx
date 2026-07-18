@@ -119,6 +119,45 @@ function ReviewVideoCard({
 export function VideoReviews() {
   const [selectedVideo, setSelectedVideo] = useState<ReviewVideo | null>(null);
 
+  const selectedIndex = selectedVideo ? loopedVideos.findIndex(v => v.id === selectedVideo.id) : -1;
+  
+  const handlePrev = useCallback(() => {
+    if (selectedIndex === -1) return;
+    if (selectedIndex > 0) setSelectedVideo(loopedVideos[selectedIndex - 1]);
+    else setSelectedVideo(loopedVideos[loopedVideos.length - 1]);
+  }, [selectedIndex]);
+
+  const handleNext = useCallback(() => {
+    if (selectedIndex === -1) return;
+    if (selectedIndex < loopedVideos.length - 1) setSelectedVideo(loopedVideos[selectedIndex + 1]);
+    else setSelectedVideo(loopedVideos[0]);
+  }, [selectedIndex]);
+
+  const touchStartX = useRef<number | null>(null);
+  const touchEndX = useRef<number | null>(null);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current === null || touchEndX.current === null) return;
+    const distance = touchStartX.current - touchEndX.current;
+    
+    if (distance > 50) {
+      handleNext();
+    } else if (distance < -50) {
+      handlePrev();
+    }
+    
+    touchStartX.current = null;
+    touchEndX.current = null;
+  };
+
   return (
     <section className="buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden">
       <style>{`
@@ -163,7 +202,19 @@ export function VideoReviews() {
         <div 
           className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4"
           onClick={() => setSelectedVideo(null)}
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
         >
+          {/* Left Arrow */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg hidden md:flex"
+            aria-label="Previous video"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
           <div 
             className="relative w-full max-w-4xl max-h-[90vh] flex items-center justify-center bg-transparent"
             onClick={(e) => e.stopPropagation()}
@@ -178,6 +229,7 @@ export function VideoReviews() {
               </svg>
             </button>
             <video
+              key={selectedVideo.id}
               className="max-w-full max-h-[90vh] rounded-[18px] shadow-2xl"
               src={selectedVideo.fullSrc || selectedVideo.src}
               controls
@@ -185,6 +237,15 @@ export function VideoReviews() {
               playsInline
             />
           </div>
+
+          {/* Right Arrow */}
+          <button
+            onClick={(e) => { e.stopPropagation(); handleNext(); }}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg hidden md:flex"
+            aria-label="Next video"
+          >
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
         </div>
       )}
     </section>
