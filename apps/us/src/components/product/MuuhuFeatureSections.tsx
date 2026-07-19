@@ -11,11 +11,11 @@ export function MuuhuProductFocus() {
       <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
         <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[var(--blush)]">
           <Image
-            alt="Coanda effect styling"
+            alt="Style without compromise"
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            src={productAsset("05-coanda-effect.jpg")}
+            src={productAsset("style-without-compromise.webp")}
           />
         </div>
         <div>

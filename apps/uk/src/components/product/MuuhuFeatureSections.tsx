@@ -17,11 +17,11 @@ export function MuuhuProductFocus() {
       <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
         <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[var(--blush)]">
           <Image
-            alt="Coanda effect styling"
+            alt="Style without compromise"
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            src={productAsset("05-coanda-effect.jpg")}
+            src={productAsset("style-without-compromise.webp")}
           />
         </div>
         <div>
@@ -218,57 +218,7 @@ export function MuuhuHairTypeSection() {
             choose for your texture.
           </p>
 
-          <div className="mt-7 grid gap-3 sm:grid-cols-2">
-            {hairTypeGuides.map((guide) => (
-              <article
-                className="rounded-[16px] border border-[rgba(58,31,61,.10)] bg-[rgba(255,252,247,.72)] p-4 shadow-[0_18px_50px_-42px_rgba(58,31,61,.55)]"
-                key={guide.type}
-              >
-                <p className="buudy-display text-xl leading-tight text-[var(--plum)]">
-                  {guide.type}
-                </p>
-                <p className="mt-2 text-xs font-semibold uppercase tracking-[.14em] text-[var(--gold)]">
-                  {guide.attachment}
-                </p>
-                <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-                  {guide.method}
-                </p>
-              </article>
-            ))}
-          </div>
-
-          <div className="mt-8 grid gap-4 md:grid-cols-2">
-            {stylingDetails.map(({ icon: Icon, title, copy }) => (
-              <div className="flex gap-3" key={title}>
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgba(188,146,82,.14)] text-[var(--gold)]">
-                  <Icon size={18} />
-                </span>
-                <div>
-                  <h3 className="text-sm font-semibold text-[var(--plum)]">
-                    {title}
-                  </h3>
-                  <p className="mt-1 text-sm leading-6 text-[var(--muted)]">
-                    {copy}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-        </div>
-
-        <div className="grid gap-6 lg:pt-8">
-          <div className="relative aspect-[4/4.35] overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
-            <Image
-              alt="Model styling wavy hair with the Muuhu curling attachment"
-              className="object-cover object-[50%_28%] rounded-[18px]"
-              fill
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              src={productAsset("08-curling-wand.jpg")}
-            />
-          </div>
-
-          <div className="rounded-[18px] border border-[rgba(58,31,61,.10)] bg-[rgba(255,252,247,.78)] p-5 lg:p-7 shadow-[0_18px_50px_-42px_rgba(58,31,61,.45)]">
+          <div className="mt-7 rounded-[18px] border border-[rgba(58,31,61,.10)] bg-[rgba(255,252,247,.78)] p-5 lg:p-7 shadow-[0_18px_50px_-42px_rgba(58,31,61,.45)]">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
               <p className="buudy-display text-2xl leading-tight text-[var(--plum)]">
                 Works on
@@ -303,6 +253,37 @@ export function MuuhuHairTypeSection() {
               Customers do not need to know their exact code. Pick the closest
               visual, then follow the matching attachment and heat guidance.
             </p>
+          </div>
+
+          <div className="mt-8 grid gap-4 md:grid-cols-2">
+            {stylingDetails.map(({ icon: Icon, title, copy }) => (
+              <div className="flex gap-3" key={title}>
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgba(188,146,82,.14)] text-[var(--gold)]">
+                  <Icon size={18} />
+                </span>
+                <div>
+                  <h3 className="text-sm font-semibold text-[var(--plum)]">
+                    {title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-[var(--muted)]">
+                    {copy}
+                  </p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+        <div className="grid lg:pt-8 w-full h-full place-items-center">
+          <div className="relative aspect-[4/4.35] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
+            <Image
+              alt="Model styling wavy hair with the Muuhu curling attachment"
+              className="object-cover object-[50%_28%] rounded-[18px]"
+              fill
+              sizes="(min-width: 1024px) 45vw, 100vw"
+              src={productAsset("08-curling-wand.jpg")}
+            />
           </div>
         </div>
       </div>
