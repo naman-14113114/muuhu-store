@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 import { reviewVideos, type ReviewVideo } from "@/data/productSections";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const NUM_SETS = 2;
 const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
@@ -206,19 +207,19 @@ export function VideoReviews() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {/* Left Arrow */}
-          <button
-            onClick={(e) => { e.stopPropagation(); handlePrev(); }}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg hidden md:flex"
-            aria-label="Previous video"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-
           <div 
-            className="relative w-full max-w-4xl max-h-[90vh] flex items-center justify-center bg-transparent"
+            className="relative flex items-center justify-center bg-transparent max-w-full"
             onClick={(e) => e.stopPropagation()}
           >
+            {/* Left Arrow */}
+            <button
+              onClick={(e) => { e.stopPropagation(); handlePrev(); }}
+              className="hidden md:flex absolute -left-16 xl:-left-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 items-center justify-center rounded-full bg-[var(--cream)]/10 border border-[var(--cream)]/30 text-[var(--cream)] hover:bg-[var(--cream)] hover:text-[var(--plum)] transition-all duration-300"
+              aria-label="Previous video"
+            >
+              <ChevronLeft size={28} />
+            </button>
+
             <button 
               className="absolute -top-12 right-0 md:-right-12 md:top-0 z-10 w-10 h-10 flex items-center justify-center text-white hover:text-gray-300 transition-colors cursor-pointer"
               onClick={() => setSelectedVideo(null)}
@@ -230,22 +231,22 @@ export function VideoReviews() {
             </button>
             <video
               key={selectedVideo.id}
-              className="max-w-full max-h-[90vh] rounded-[18px] shadow-2xl"
+              className="max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-8rem)] max-h-[90vh] rounded-[18px] shadow-2xl"
               src={selectedVideo.fullSrc || selectedVideo.src}
               controls
               autoPlay
               playsInline
             />
-          </div>
 
-          {/* Right Arrow */}
-          <button
-            onClick={(e) => { e.stopPropagation(); handleNext(); }}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg hidden md:flex"
-            aria-label="Next video"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-          </button>
+            {/* Right Arrow */}
+            <button
+              onClick={(e) => { e.stopPropagation(); handleNext(); }}
+              className="hidden md:flex absolute -right-16 xl:-right-20 top-1/2 -translate-y-1/2 z-10 w-14 h-14 items-center justify-center rounded-full bg-[var(--cream)]/10 border border-[var(--cream)]/30 text-[var(--cream)] hover:bg-[var(--cream)] hover:text-[var(--plum)] transition-all duration-300"
+              aria-label="Next video"
+            >
+              <ChevronRight size={28} />
+            </button>
+          </div>
         </div>
       )}
     </section>
