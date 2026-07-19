@@ -84,9 +84,9 @@ export const muuhuHairDryer: Product = {
   gifts: [
     {
       id: "travel-case",
-      name: "Luxury Travel Case",
+      name: "Luxury Case",
       valueCents: 4500,
-      image: productAsset("00-travel-friendly-styler.webp")
+      image: productAsset("muuhu-luxury-case.webp")
     },
     {
       id: "muuhu-comb",
