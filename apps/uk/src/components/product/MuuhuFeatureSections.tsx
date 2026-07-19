@@ -42,7 +42,7 @@ export function MuuhuAppPromo() {
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 55vw, 100vw"
-            src={productAsset("07-prep-hair.jpg")}
+            src={productAsset("muuhu-app-promo.webp")}
           />
           <span className="buudy-mono absolute left-5 top-5 rounded-full bg-[rgba(247,241,232,.9)] px-4 py-2 text-[var(--plum)] backdrop-blur">
             Free with Muuhu
@@ -68,7 +68,7 @@ export function MuuhuAppPromo() {
           </div>
           <div className="mt-5 flex justify-center md:justify-start">
             <Button asChild>
-              <a href="#" rel="noopener noreferrer">
+              <a href="https://app.muuhu.com" target="_blank" rel="noopener noreferrer">
                 <Smartphone size={17} />
                 Try the app now
               </a>

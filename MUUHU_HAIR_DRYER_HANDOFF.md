@@ -83,3 +83,29 @@ To ensure seamless handoff, study these mistakes and internal rules carefully:
 
 ### F. Do Not Touch Existing Layout Structure Unless Ordered
 **The Rule:** The user is extremely protective of the base UI structure (headings, typography, standard layout grids). Do not run "unrelated refactors" or try to redesign a section. Only inject the specific functionality requested (like a modal pop-up or a data swap) while maintaining the exact visual DOM hierarchy of the underlying card.
+
+---
+
+## 4. PLUSBASE / SHOPBASE ADMIN API ACCESS AND RULES
+
+**Updated:** 2026-07-19
+
+Sahil supplied the Muuhu private app credentials in chat and screenshot. Do not paste, commit, or repeat the raw API key, password, shared secret, or account password in any public file or final response. The local ignored vault `E:\1st YEAR DTU\New folder\trustpilot-led-mask-replica\agent-secrets.local.md` contains secret-bearing ShopBase/PlusBase entries and is covered by the `*.local.md` ignore rule.
+
+**Access verified:** A read-only API probe against `https://muuhu.onshopbase.com/admin` succeeded on 2026-07-19:
+- `GET /admin/shop.json` returned HTTP 200 for shop `muuhu`.
+- `GET /admin/products.json?limit=5&fields=id,title,handle,variants` returned HTTP 200.
+- `GET /admin/orders.json?limit=1&fields=id,created_at,financial_status,total_price,currency,line_items` returned HTTP 200.
+- No customer PII or secret values were printed.
+
+**Observed / provided permissions:** The private app screenshot shows read/write access for store content/pages/redirects, customers, orders/transactions/fulfillments, products/variants/collections, third-party fulfillment orders, and assigned fulfillment orders. Treat this as broad but still private-app-limited access. Test the exact endpoint before claiming a capability.
+
+**Official docs absorbed on 2026-07-19:**
+- Private apps use Basic HTTP auth with API key as username and API password as password.
+- The shared secret is for webhook integrity validation, not the API password.
+- API scopes determine what we can read/write.
+- REST Admin API is rate-limited with a leaky bucket model. Scripts should average about 2 requests per second and handle 429 responses.
+- Storefront SDK can read product/cart/user/order context, listen to SPA/page/cart/order events, add/update/remove cart items, apply discounts, and navigate checkout. Because ShopBase storefront is SPA-based, custom scripts must rehydrate on page changes.
+- Products, variants, product images, content/pages/redirects, customers, orders, transactions, fulfillments, checkouts, price rules, script tags, and analytics have scope-specific API surfaces. Use minimal writes and verify live state after any production change.
+
+**Practical rule:** Start with read-only calls, inspect current live/admin state, then make the smallest write needed. Never modify orders, product prices, pages, discounts, fulfillments, or customer data without a clear task and verification path.
