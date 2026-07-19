@@ -117,7 +117,7 @@ export function ComparisonTable() {
                           <img
                             src="/images/products/muuhu-hair-dryer/muuhu-logo-cropped.png"
                             alt="Muuhu Logo"
-                            className="h-6 w-16 md:h-8 md:w-24 object-contain"
+                            className="h-7 w-20 md:h-10 md:w-32 object-contain scale-[1.2] mb-1.5 md:mb-2"
                             decoding="async"
                             loading="lazy"
                           />
@@ -164,8 +164,8 @@ export function ComparisonTable() {
                   <div className="flex items-end h-full min-h-[60px] md:min-h-[80px]">
                     <div className="w-1/4 flex justify-center items-end h-full px-2 overflow-visible">
                       <img
-                        src="/images/products/muuhu-hair-dryer/comparison/muuhu-ultra-pro-high-speed-hair-dryer-v4.webp"
-                        alt="Muuhu Ultra Pro High-Speed Hair Dryer"
+                        src="/images/products/muuhu-hair-dryer/comparison/muuhu-hair-dryer-comparison.png"
+                        alt="Muuhu Hair Dryer"
                         className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom rounded-2xl"
                         decoding="async"
                         loading="lazy"

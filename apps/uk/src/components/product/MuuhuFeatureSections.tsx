@@ -21,7 +21,7 @@ export function MuuhuProductFocus() {
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 50vw, 100vw"
-            src={productAsset("style-without-compromise.webp")}
+            src={productAsset("muuhu-product-focus.webp")}
           />
         </div>
         <div>
