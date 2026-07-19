@@ -41,11 +41,11 @@ export const muuhuHairDryer: Product = {
     { src: productAsset("06-holiday-gift.webp"), alt: "Holiday gift packaging" },
     { src: productAsset("07-prep-hair.webp"), alt: "Prep hair before styling" },
     { src: productAsset("08-curling-wand.webp"), alt: "Curling wand attachment" },
-    { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
-    { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
-    { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Hair Dryer Attachments" },
-    { src: productAsset("12-muuhu-salon-quality-blowout.png"), alt: "Muuhu Salon Quality Blowout" },
-    { src: productAsset("13-muuhu-fast-drying-hair-dryer.png"), alt: "Muuhu Fast Drying Hair Dryer" },
+    // { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
+    // { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
+    // { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Hair Dryer Attachments" },
+    // { src: productAsset("12-muuhu-salon-quality-blowout.png"), alt: "Muuhu Salon Quality Blowout" },
+    // { src: productAsset("13-muuhu-fast-drying-hair-dryer.png"), alt: "Muuhu Fast Drying Hair Dryer" },
   ],
   specs: [
     { label: "Motor", value: "110,000 RPM High-Speed Brushless DC" },
@@ -61,16 +61,16 @@ export const muuhuHairDryer: Product = {
   ],
   faqs: [
     {
-      question: "Is it really as powerful as a Dyson?",
-      answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
+      question: "What are the 7 attachments included?",
+      answer: "It includes a concentrator nozzle, diffuser, smoothing brush, round volumising brush, two automatic curling barrels (left/right), and a gentle air attachment for fine hair.",
     },
     {
       question: "Does it come with a UK plug?",
       answer: "Absolutely. All our units are designed specifically for the UK market and come fitted with a standard UK 3-pin plug (220V).",
     },
     {
-      question: "What are the 7 attachments included?",
-      answer: "It includes a concentrator nozzle, diffuser, smoothing brush, round volumising brush, two automatic curling barrels (left/right), and a gentle air attachment for fine hair.",
+      question: "Is it really as powerful as a Dyson?",
+      answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
     },
     {
       question: "Will it damage my hair?",
