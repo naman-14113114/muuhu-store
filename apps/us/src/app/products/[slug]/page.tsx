@@ -52,6 +52,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       canonical: `/products/${product.slug}`,
       languages: {
         "en-US": `/products/${product.slug}`,
+        "en-GB": `https://uk.muuhu.com/products/${product.slug}`,
       },
     },
     robots: {

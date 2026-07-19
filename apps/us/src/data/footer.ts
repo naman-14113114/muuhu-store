@@ -4,7 +4,8 @@ export const footerMenus = [
     links: [
       { label: "Home", href: "/" },
       { label: "Muuhu Hair Dryer", href: "/products/muuhu-hair-dryer" },
-      { label: "Best Hair Dryer US Guide", href: "/pages/best-hair-dryer-us" },
+      { label: "Best Hair Dryer US Guide", href: "/blog/best-hair-dryer-us-2026" },
+      { label: "Blog", href: "/blog" },
       { label: "Privacy Policy", href: "/policies/privacy-policy" },
       { label: "Return Policy", href: "/policies/return-policy" },
       { label: "Shipping Policy", href: "/policies/shipping-policy" },
@@ -13,10 +14,10 @@ export const footerMenus = [
     ],
   },
   {
-    title: "Help",
+    title: "Support",
     links: [
       { label: "Contact Us", href: "/pages/contact-us" },
-      { label: "Order Tracking", href: "https://muuhu.com/order-tracking" },
+      { label: "Order Tracking", href: "/pages/order-tracking" },
       { label: "About Us", href: "/pages/about-us" },
       { label: "FAQs", href: "/pages/faqs" },
       { label: "Cookies Policy", href: "/policies/cookies-policy" },

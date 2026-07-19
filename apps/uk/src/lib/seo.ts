@@ -225,3 +225,48 @@ export function guidePageJsonLd({
     faqJsonLd(faqs),
   ];
 }
+
+export function articleJsonLd(post: {
+  title: string;
+  seoDescription: string;
+  slug: string;
+  publishDate: string;
+  updatedDate: string;
+  author: { name: string };
+  heroImage: { src: string; alt: string };
+}) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "@id": `${absoluteUrl(`/blog/${post.slug}`)}#article`,
+    headline: post.title,
+    description: post.seoDescription,
+    url: absoluteUrl(`/blog/${post.slug}`),
+    datePublished: post.publishDate,
+    dateModified: post.updatedDate,
+    inLanguage: "en-GB",
+    author: {
+      "@type": "Organization",
+      name: post.author.name,
+      url: absoluteUrl("/"),
+    },
+    publisher: {
+      "@id": `${absoluteUrl("/")}#organization`,
+    },
+    isPartOf: {
+      "@id": `${absoluteUrl("/")}#website`,
+    },
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `${absoluteUrl(`/blog/${post.slug}`)}#webpage`,
+    },
+    ...(post.heroImage.src
+      ? {
+          image: {
+            "@type": "ImageObject",
+            url: absoluteUrl(post.heroImage.src),
+          },
+        }
+      : {}),
+  };
+}
