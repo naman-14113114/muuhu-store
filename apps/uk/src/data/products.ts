@@ -93,13 +93,13 @@ export const muuhuHairDryer: Product = {
       name: "Muuhu Comb",
       valueCents: 8900,
       link: "/products/muuhu-comb",
-      image: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp"
+      image: "/images/products/muuhu-comb/muuhu_10.webp"
     },
     {
       id: "skincare-guide",
-      name: "Muuhu Haircare Masterclass E-book",
+      name: "Haircare E-book",
       valueCents: 2900,
-      image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png"
+      image: "/images/products/muuhu-hair-dryer/muuhu_ebook_3rd_render.webp"
     }
   ],
   included: [

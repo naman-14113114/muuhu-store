@@ -235,17 +235,17 @@ export function GiftBundle({ product }: { product: Product }) {
                 FREE DELIVERY
               </p>
             </div>
-            <p className="buudy-display mt-1.5 text-base sm:text-2xl text-[var(--plum)] font-normal leading-none whitespace-nowrap">
+            <div className="buudy-display mt-1.5 text-base sm:text-2xl text-[var(--plum)] font-normal leading-none whitespace-nowrap">
               {deliveryDate || "soon"}
-            </p>
+            </div>
           </div>
           <div className="text-right">
             <p className="buudy-eyebrow text-[var(--gold)] whitespace-nowrap text-[9px] sm:text-[11px] tracking-tight sm:tracking-normal">
               {hasGifts ? "ORDER WITHIN" : "ORDER TODAY"}
             </p>
-            <p className="buudy-display mt-1.5 text-xl sm:text-[2.2rem] font-normal text-[var(--plum)] leading-none">
+            <div className="buudy-display mt-1.5 text-xl sm:text-[2.2rem] font-normal text-[var(--plum)] leading-none">
               {timer}
-            </p>
+            </div>
           </div>
         </div>
       </div>
