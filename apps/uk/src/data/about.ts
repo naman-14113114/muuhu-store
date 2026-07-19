@@ -2,8 +2,8 @@ export const aboutHero = {
   eyebrow: "About Muuhu",
   title: "Welcome to Muuhu.com!",
   copy: "At Muuhu.com, we are more than just an online store; we are a community dedicated to providing high-quality, affordable products that enhance your daily life. Our mission is to make shopping easy, enjoyable, and reliable for our customers around the world.",
-  imageDesktop: "/images/about/muuhu-hair-dryer-about-hero.png",
-  imageMobile: "/images/about/muuhu-hair-dryer-about-hero.png",
+  imageDesktop: "/images/about/muuhu-hair-dryer-about-us-banner.webp",
+  imageMobile: "/images/about/muuhu-hair-dryer-about-us-banner.webp",
 };
 
 export const aboutSections = [
@@ -13,7 +13,7 @@ export const aboutSections = [
     title: "Our Team",
     copy: "Behind Muuhu is a close-knit team of skincare enthusiasts, tech innovators, and customer advocates. We aren't just selling a product; we use the Muuhu Mask ourselves. From our product design team ensuring the optimal output of every LED bulb, to our dedicated customer support squad who are always ready to guide you on your light therapy journey, everyone at Muuhu is united by one common goal: delivering an exceptional experience and real, visible results to you.",
     image: {
-      src: "/images/about/about-team-v3.webp",
+      src: "/images/about/muuhu-hair-dryer-about-our-team.webp",
       alt: "The Muuhu team designing high-performance skincare solutions"
     },
     align: "left" as const,
@@ -24,7 +24,7 @@ export const aboutSections = [
     title: "Our Story",
     copy: "The idea for Muuhu was born out of genuine frustration with the traditional skincare cycle. We were tired of spending a fortune on topical creams that over-promised and expensive dermatologist visits that were hard to maintain.\n\nWe knew the science behind clinical LED light therapy worked, but the at-home devices available were either too weak, overpriced, or tethered you to a wall with bulky cords. So, we changed the standard. We created the Muuhu LED Mask: a sleek, 100% wireless device packed with 7 visible wavelengths plus 830nm near-infrared. Today, we're proud to have helped over 16,000 customers regain their confidence from the comfort of home.",
     image: {
-      src: "/images/about/about-story-v3.webp",
+      src: "/images/about/muuhu-hair-dryer-about-our-story.webp",
       alt: "The story and inspiration behind the wireless Muuhu LED Mask"
     },
     align: "right" as const,
