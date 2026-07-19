@@ -378,11 +378,6 @@ export function GiftBundle({ product }: { product: Product }) {
                   <p className="buudy-display mt-0.5 md:mt-1 text-base md:text-lg font-semibold text-[var(--plum)] leading-snug">
                     {gift.name}
                   </p>
-                  {(gift.href || gift.link) && (
-                    <span className="mt-1 text-xs font-medium text-[var(--gold)] underline decoration-[rgba(184,149,86,.4)] underline-offset-2 transition-all hover:decoration-[var(--gold)]">
-                      View product
-                    </span>
-                  )}
                 </Link>
               ),
             )}
