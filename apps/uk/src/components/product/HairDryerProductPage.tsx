@@ -13,7 +13,7 @@ import { HairDryerAttachmentBadges } from "./HairDryerAttachmentBadges";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { VideoReviews } from "./VideoReviews";
 import { BeforeAfterGrid } from "./BeforeAfterGrid";
-import { MuuhuProductFocus, MuuhuAppPromo } from "./MuuhuFeatureSections";
+import { MuuhuProductFocus, MuuhuAppPromo, MuuhuHairTypeSection } from "./MuuhuFeatureSections";
 
 function HairDryerHeroVideo() {
   return (
@@ -178,6 +178,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
 
       <MuuhuProductFocus />
       <MuuhuAppPromo />
+      <MuuhuHairTypeSection />
       <ProductReviewsSection productHandle={product.id} />
       <ComparisonTable />
       <FAQSection faqs={product.faqs} productHandle={product.id} />
