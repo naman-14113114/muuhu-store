@@ -136,13 +136,6 @@ const stylingDetails = [
   },
 ];
 
-const techSpecs = [
-  { value: "110,000 RPM", label: "Brushless motor" },
-  { value: "20-26 m/s", label: "Fast airflow" },
-  { value: "3 heat modes", label: "High, medium, cool" },
-  { value: "2 speeds", label: "Plus cool shot" },
-];
-
 const hairTextureGroups = [
   {
     label: "Straight Hair",
@@ -213,8 +206,8 @@ export function MuuhuHairTypeSection() {
       className="buudy-section bg-[var(--cream)] py-14 md:py-24"
       id="hair-type-fit"
     >
-      <div className="buudy-wrap grid gap-10 lg:grid-cols-[1.05fr_.95fr] lg:items-start">
-        <div>
+      <div className="buudy-wrap grid gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
+        <div className="lg:order-last">
           <p className="buudy-mono text-[var(--gold)]">Hair type fit</p>
           <h2 className="buudy-display mt-3 text-[2.45rem] leading-tight text-[var(--plum)] md:text-5xl">
             Made for every hair type, guided by the right attachment.
@@ -262,52 +255,20 @@ export function MuuhuHairTypeSection() {
             ))}
           </div>
 
-          <div className="mt-8 rounded-[18px] border border-[rgba(58,31,61,.10)] bg-[rgba(58,31,61,.04)] p-4 sm:p-5">
-            <div className="grid gap-5 sm:grid-cols-[120px_1fr] sm:items-center">
-              <div className="relative aspect-square max-w-[140px]">
-                <Image
-                  alt="Muuhu hair dryer and included styling attachments"
-                  className="object-contain"
-                  fill
-                  sizes="140px"
-                  src={productAsset(
-                    "attachments/all_attachments_transparent.png",
-                  )}
-                />
-              </div>
-              <div>
-                <p className="buudy-display text-xl leading-tight text-[var(--plum)]">
-                  Match the head to the hair, then let airflow do the work.
-                </p>
-                <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-4">
-                  {techSpecs.map((spec) => (
-                    <div key={spec.value}>
-                      <p className="text-sm font-semibold text-[var(--plum)]">
-                        {spec.value}
-                      </p>
-                      <p className="mt-1 text-xs leading-5 text-[var(--muted)]">
-                        {spec.label}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
-        <div className="grid gap-4 lg:-mt-8">
+        <div className="grid gap-6 lg:pt-8">
           <div className="relative aspect-[4/4.35] overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
             <Image
               alt="Model styling wavy hair with the Muuhu curling attachment"
-              className="object-cover object-[50%_28%]"
+              className="object-cover object-[50%_28%] rounded-[18px]"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
               src={productAsset("08-curling-wand.jpg")}
             />
           </div>
 
-          <div className="rounded-[18px] border border-[rgba(58,31,61,.10)] bg-[rgba(255,252,247,.78)] p-5 shadow-[0_18px_50px_-42px_rgba(58,31,61,.45)]">
+          <div className="rounded-[18px] border border-[rgba(58,31,61,.10)] bg-[rgba(255,252,247,.78)] p-5 lg:p-7 shadow-[0_18px_50px_-42px_rgba(58,31,61,.45)]">
             <div className="flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
               <p className="buudy-display text-2xl leading-tight text-[var(--plum)]">
                 Works on
@@ -316,13 +277,13 @@ export function MuuhuHairTypeSection() {
                 Straight to coily
               </p>
             </div>
-            <div className="mt-4 grid grid-cols-2 gap-x-4 gap-y-5 sm:grid-cols-4">
+            <div className="mt-6 grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-4">
               {hairTextureGroups.map((group) => (
                 <div className="text-center" key={group.label}>
-                  <div className="flex h-24 items-end justify-center gap-1.5 rounded-[14px] bg-[rgba(58,31,61,.035)] px-2 py-2">
+                  <div className="flex items-end justify-center gap-1.5 rounded-[14px] bg-[rgba(58,31,61,.035)] px-2 pt-5 pb-3">
                     {group.patterns.map((pattern, index) => (
                       <div
-                        className="flex flex-col items-center gap-1"
+                        className="flex flex-col items-center gap-2.5"
                         key={pattern}
                       >
                         <span className="text-[10px] font-semibold text-[var(--muted)]">
