@@ -84,7 +84,7 @@ export default function BlogIndexPage() {
               Styling Guides
             </h1>
             <p className="font-sans text-lg md:text-xl text-[var(--ink)] opacity-80 leading-relaxed">
-              Discover expert advice, styling tutorials, and the science behind flawless hair. Unlock your hair's potential with our comprehensive guides.
+              Discover expert advice, styling tutorials, and the science behind flawless hair. Unlock your hair&apos;s potential with our comprehensive guides.
             </p>
           </header>
 
