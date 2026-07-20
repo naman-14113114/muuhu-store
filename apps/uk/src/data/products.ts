@@ -144,7 +144,8 @@ export const muuhuComb: Product = {
   cartImage: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
   gallery: [
     { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp", alt: "Liquid Tank Applicator" },
-    { src: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp", alt: "Scalp Care Routine" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp", alt: "USB Charging" },
+    // { src: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp", alt: "Scalp Care Routine" },
     // { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.webp", alt: "Scalp Massager Red Light Therapy" },
     { src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp", alt: "Essential Oil Applicator Comb" },
     { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-features.webp", alt: "Hair Growth Comb Features" },
@@ -152,14 +153,13 @@ export const muuhuComb: Product = {
     { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp", alt: "Waterproof Design" },
     // { src: "/images/products/muuhu-comb/muuhu-red-light-follicle-stimulation.webp", alt: "Red Light Follicle Stimulation" },
     // { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu Hair Growth Therapy Comb" },
-    { src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp", alt: "USB Charging" },
     { src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.webp", alt: "Therapy Brush Results" },
     { src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.webp", alt: "Premium Scalp Massage Brush" },
     { src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp", alt: "Therapy Comb Lifestyle" },
     // { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-close-up.webp", alt: "Hair Growth Comb Close Up" },
     { src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp", alt: "Red Light Therapy Benefits" },
     // { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.webp", alt: "Premium Haircare Tool" },
-    // { src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp", alt: "Comb Before After Results" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp", alt: "Comb Before After Results" },
     { src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp", alt: "Comb Packaging Box" }
   ],
   specs: [
