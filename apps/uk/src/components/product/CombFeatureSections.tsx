@@ -13,7 +13,7 @@ export function CombFeatureSections() {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.png"
+              src="/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp"
             />
           </div>
           <div>
@@ -36,7 +36,7 @@ export function CombFeatureSections() {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu-comb-before-after-2.png"
+              src="/images/products/muuhu-comb/muuhu-comb-before-after-2.webp"
             />
           </div>
           <div className="lg:order-first">
@@ -75,7 +75,7 @@ export function CombFeatureSections() {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.png"
+              src="/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp"
             />
           </div>
           <div>

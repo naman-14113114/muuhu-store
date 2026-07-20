@@ -93,7 +93,7 @@ export const muuhuHairDryer: Product = {
       name: "Muuhu Comb",
       valueCents: 8900,
       link: "/products/muuhu-comb",
-      image: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp"
+      image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp"
     },
     {
       id: "skincare-guide",
@@ -141,15 +141,15 @@ export const muuhuComb: Product = {
     "Soothes dry, itchy scalp with relaxing micro-vibrations",
     "Delivers serums deep to the roots without greasy hair"
   ],
-  cartImage: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp",
+  cartImage: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
   gallery: [
-    { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu Hair Growth Therapy Comb" },
+    { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp", alt: "Liquid Tank Applicator" },
     { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.webp", alt: "Scalp Massager Red Light Therapy" },
     { src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp", alt: "Essential Oil Applicator Comb" },
     { src: "/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp", alt: "Vibrating Scalp Therapy" },
     { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp", alt: "Waterproof Design" },
     { src: "/images/products/muuhu-comb/muuhu-red-light-follicle-stimulation.webp", alt: "Red Light Follicle Stimulation" },
-    { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp", alt: "Liquid Tank Applicator" },
+    { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu Hair Growth Therapy Comb" },
     { src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp", alt: "USB Charging" },
     { src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.webp", alt: "Therapy Brush Results" },
     { src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.webp", alt: "Premium Scalp Massage Brush" },
@@ -185,7 +185,7 @@ export const muuhuComb: Product = {
   ],
   gifts: [],
   included: [
-    { label: "Muuhu Comb Device", quantity: 1, image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp" },
+    { label: "Muuhu Comb Device", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp" },
     { label: "USB Charging Cable", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp" },
     { label: "User Manual", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp" },
   ],
