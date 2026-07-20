@@ -84,9 +84,9 @@ export const muuhuHairDryer: Product = {
   gifts: [
     {
       id: "travel-case",
-      name: "Luxury Case",
+      name: "Premium Packaging",
       valueCents: 4500,
-      image: productAsset("muuhu-luxury-case.webp")
+      image: productAsset("muuhu-luxury-case-v2.webp")
     },
     {
       id: "muuhu-comb",
@@ -110,7 +110,7 @@ export const muuhuHairDryer: Product = {
     { label: "Round Volumising Brush", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_round.png" },
     { label: "Concentrator Nozzle", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" },
     { label: "Diffuser", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" },
-    { label: "Luxury Case", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png" },
+    { label: "Premium Packaging", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png" },
     { label: "User Manual", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png" },
   ],
   badges: ["CE Certified", "UKCA Approved", "RoHS Compliant", "1-Year Warranty"],
