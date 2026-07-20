@@ -158,7 +158,7 @@ export const muuhuComb: Product = {
     { src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp", alt: "Therapy Comb Lifestyle" },
     // { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-close-up.webp", alt: "Hair Growth Comb Close Up" },
     { src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp", alt: "Red Light Therapy Benefits" },
-    { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.webp", alt: "Premium Haircare Tool" },
+    // { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.webp", alt: "Premium Haircare Tool" },
     // { src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp", alt: "Comb Before After Results" },
     { src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp", alt: "Comb Packaging Box" }
   ],

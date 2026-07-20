@@ -168,11 +168,12 @@ export function CombFeatureSections() {
 
       <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
         <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
-          <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] bg-[var(--blush)]">
+          <div className="w-full overflow-hidden rounded-[18px] bg-[var(--blush)]">
             <Image
               alt="Relaxing Micro-Vibrations"
-              className="object-cover"
-              fill
+              className="w-full h-auto block"
+              width={1000}
+              height={1000}
               sizes="(min-width: 1024px) 50vw, 100vw"
               src="/images/products/muuhu-comb/muuhu_24.webp"
             />
