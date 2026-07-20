@@ -10,12 +10,13 @@ export function MuuhuProductFocus() {
     <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
       <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
         <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[var(--blush)]">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             alt="Style without compromise"
-            className="object-cover"
-            fill
-            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="object-cover absolute inset-0 w-full h-full"
             src={productAsset("muuhu-product-focus-v2.webp")}
+            decoding="async"
+            loading="lazy"
           />
         </div>
         <div>
@@ -37,12 +38,13 @@ export function MuuhuAppPromo() {
     <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24" id="muuhu-app">
       <div className="buudy-wrap grid items-center gap-8 md:gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div className="relative aspect-[1200/799] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] lg:order-last">
-          <Image
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
             alt="Muuhu Companion App"
-            className="object-cover"
-            fill
-            sizes="(min-width: 1024px) 55vw, 100vw"
+            className="object-cover absolute inset-0 w-full h-full"
             src={productAsset("muuhu-app-promo.webp")}
+            decoding="async"
+            loading="lazy"
           />
           <span className="buudy-mono absolute left-5 top-5 rounded-full bg-[rgba(247,241,232,.9)] px-4 py-2 text-[var(--plum)] backdrop-blur">
             Free with Muuhu

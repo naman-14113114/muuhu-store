@@ -85,21 +85,21 @@ export const muuhuHairDryer: Product = {
     {
       id: "travel-case",
       name: "Premium Packaging",
-      valueCents: 4500,
+      valueCents: 3500,
       image: productAsset("muuhu-luxury-case-v2.webp")
     },
     {
       id: "muuhu-comb",
       name: "Muuhu Comb",
-      valueCents: 8900,
+      valueCents: 7900,
       link: "/products/muuhu-comb",
-      image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp"
+      image: productAsset("muuhu-comb-free-gift.webp")
     },
     {
       id: "skincare-guide",
       name: "Haircare E-book",
-      valueCents: 2900,
-      image: "/images/products/muuhu-hair-dryer/muuhu_ebook_3rd_render.webp"
+      valueCents: 1500,
+      image: productAsset("muuhu-haircare-ebook-gift.webp")
     }
   ],
   included: [
@@ -129,8 +129,8 @@ export const muuhuComb: Product = {
   seoTitle: "Muuhu Scalp & Hair Growth Therapy Comb | Red Light & Massage",
   seoDescription: "Revitalize your hair with the Muuhu Hair Growth Therapy Comb. Features red light therapy, micro-vibrations, and essential oil applicator for optimal scalp health.",
   currency: market.currency,
-  priceCents: 8900,
-  compareAtCents: 12900,
+  priceCents: 7900,
+  compareAtCents: 15900,
   rating: 4.9,
   reviewCount: 16000,
   customerCount: "16,000+",
