@@ -206,8 +206,8 @@ export function MuuhuHairTypeSection() {
       className="buudy-section bg-[var(--cream)] py-14 md:py-24"
       id="hair-type-fit"
     >
-      <div className="buudy-wrap grid gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-center">
-        <div className="lg:order-last">
+      <div className="buudy-wrap grid gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-stretch">
+        <div className="lg:order-last flex flex-col justify-center">
           <p className="buudy-mono text-[var(--gold)]">Hair type fit</p>
           <h2 className="buudy-display mt-3 text-[2.45rem] leading-tight text-[var(--plum)] md:text-5xl">
             Made for every hair type, guided by the right attachment.
@@ -275,14 +275,14 @@ export function MuuhuHairTypeSection() {
 
         </div>
 
-        <div className="grid lg:pt-8 w-full h-full place-items-center">
-          <div className="relative aspect-[4/4.35] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
+        <div className="w-full h-full lg:pt-8">
+          <div className="relative aspect-[4/4.35] lg:aspect-auto w-full h-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
             <Image
-              alt="Model styling wavy hair with the Muuhu curling attachment"
-              className="object-cover object-[50%_28%] rounded-[18px]"
+              alt="Made for every hair type"
+              className="object-cover rounded-[18px]"
               fill
               sizes="(min-width: 1024px) 45vw, 100vw"
-              src={productAsset("08-curling-wand.jpg")}
+              src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
             />
           </div>
         </div>
