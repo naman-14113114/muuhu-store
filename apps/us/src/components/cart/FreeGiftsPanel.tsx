@@ -10,7 +10,7 @@ export function FreeGiftsPanel({ compact = false }: { compact?: boolean }) {
   const giftLines = lines
     .filter((line) => line.type === "gift")
     .sort((first, second) => {
-      const order = ["skincare-ebook", "buudy-led-torch", "premium-travel-box"];
+      const order = ["travel-case", "muuhu-comb", "skincare-guide"];
       const firstIndex = order.findIndex((id) => first.id.includes(id));
       const secondIndex = order.findIndex((id) => second.id.includes(id));
 
@@ -45,8 +45,8 @@ export function FreeGiftsPanel({ compact = false }: { compact?: boolean }) {
               <Check size={16} />
             </span>
             <p className="mt-3 text-[0.64rem] font-semibold uppercase tracking-[.16em] text-[var(--plum)]">
-              {giftLine.id.includes("skincare-ebook")
-                ? "Skincare guide"
+              {giftLine.id.includes("skincare-guide")
+                ? "Haircare e-book"
                 : giftLine.title}
             </p>
           </div>

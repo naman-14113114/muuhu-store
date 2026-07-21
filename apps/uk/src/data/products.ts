@@ -86,6 +86,7 @@ export const muuhuHairDryer: Product = {
       id: "travel-case",
       name: "Premium Packaging",
       valueCents: 3500,
+      link: "/pages/premium-packaging",
       image: productAsset("muuhu-luxury-case-v2.webp")
     },
     {
@@ -99,6 +100,7 @@ export const muuhuHairDryer: Product = {
       id: "skincare-guide",
       name: "Haircare E-book",
       valueCents: 1500,
+      link: "/pages/haircare-ebook",
       image: productAsset("muuhu-haircare-ebook-gift.webp")
     }
   ],

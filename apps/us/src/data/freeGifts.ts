@@ -1,5 +1,3 @@
-import { productMediaAsset } from "@/lib/media";
-
 export type FreeGiftDetailSection = {
   title: string;
   paragraphs: string[];
@@ -23,141 +21,138 @@ export type FreeGiftDetail = {
 };
 
 const bundleFooter =
-  "The Muuhu LED Mask offer works best as a complete ritual: the mask, the travel case, the LED Torch, and the customer skincare guide all support the same goal.";
+  "The Muuhu Hair Dryer offer works best as a complete styling system: the dryer, premium packaging, Muuhu Comb, and Haircare Masterclass all help customers get more value from the bundle from day one.";
 
 export const freeGiftBundleFooter = bundleFooter;
 
 export const freeGiftDetails: FreeGiftDetail[] = [
   {
-    slug: "premium-travel-box",
+    slug: "premium-packaging",
     eyebrow: "Free Bonus Gift",
-    title: "Premium Travel Box",
-    seoTitle: "Premium Travel Box for Muuhu LED Mask",
+    title: "Premium Packaging",
+    seoTitle: "Premium Packaging Gift for Muuhu Hair Dryer",
     seoDescription:
-      "Discover the premium travel box included with the Muuhu LED Mask offer for protected storage, organized accessories, and easier travel.",
+      "See the premium packaging included with the Muuhu Hair Dryer offer, designed for safer storage, cleaner presentation, and a more gift-ready styling bundle.",
     intro:
-      "The Premium Travel Box is the practical bonus most customers do not realize they will appreciate until the mask becomes part of their weekly routine. It gives your Muuhu LED Mask a dedicated home, protects it between sessions, and makes travel much easier.",
+      "Premium packaging makes the Muuhu 7-in-1 styling system feel complete from the moment it arrives. It gives the dryer and attachments a cleaner presentation, supports a more gift-ready unboxing, and helps the full bundle stay organized between styling sessions.",
     note:
-      "This travel box is currently included as a free bonus with the Muuhu LED Mask offer.",
-    image: productMediaAsset("ChatGPT Image May 31, 2026, 11_53_13 PM.png"),
-    imageAlt: "Premium Travel Box for the Muuhu LED Mask",
-    cardTitle: "Why it increases the value of your order",
+      "This premium packaging is currently included as a free bonus with the Muuhu Hair Dryer offer.",
+    image: "/images/products/muuhu-hair-dryer/muuhu-luxury-case-v2.webp",
+    imageAlt: "Premium packaging included with the Muuhu Hair Dryer bundle",
+    cardTitle: "Why it makes the bundle feel complete",
     cardBullets: [
-      "Keeps the mask protected between uses",
-      "Makes the full ritual easier to store and organize",
-      "Helps frequent travellers stay consistent",
-      "Feels like part of a complete premium set",
+      "Designed around the Muuhu styling system",
+      "Keeps attachments easier to store",
+      "Adds a premium gift-ready feel",
+      "Helps protect the bundle between styling sessions",
     ],
     sections: [
       {
-        title: "Why customers care about this one",
+        title: "A better first impression",
         paragraphs: [
-          "Customers buying a higher-consideration device often want reassurance that the package feels complete. A dedicated travel box does that immediately. It makes the mask feel giftable, more premium, and easier to keep in good condition.",
-          "It also reduces the little friction points that can stop people from staying consistent, like not knowing where to keep the charger, goggles, or guide.",
+          "For a multi-attachment styling tool, the unboxing should feel considered. The premium packaging helps the dryer, attachments, guide, and bonus items arrive as one complete system rather than separate loose pieces.",
+          "That matters when the product is being bought as a gift or as a higher-value upgrade for a daily hair routine.",
         ],
       },
       {
-        title: "What it helps solve",
+        title: "Useful after delivery",
         paragraphs: [
-          "The best skincare tools only work when they stay part of your routine. A proper case helps you keep the mask safe, tidy, and close at hand instead of tucked away loosely in a drawer.",
-          "That matters if you want your purchase to feel like a long-term ritual rather than a one-week impulse.",
+          "The packaging is not just for the first photo. It helps customers keep the full Muuhu set tidier, easier to understand, and easier to store between styling sessions.",
+          "It supports the same premium feeling you see on the product page: clean presentation, organized accessories, and a styling system that feels ready from day one.",
         ],
         bullets: [
           "Cleaner storage at home",
-          "Better protection during travel",
-          "Less risk of cables and accessories getting misplaced",
-          "A more premium unboxing and ownership experience",
-        ],
-      },
-    ],
-    primaryCtaLabel: "Claim The Mask + Free Gifts",
-  },
-  {
-    slug: "muuhu-comb",
-    eyebrow: "Free Bonus Gift",
-    title: "Muuhu Hair Growth Comb",
-    seoTitle: "Muuhu Hair Growth Therapy Comb Bonus Gift",
-    seoDescription:
-      "Explore the targeted Muuhu Hair Growth Therapy Comb included as a free companion gift with the Muuhu Hair Dryer offer.",
-    intro:
-      "The Muuhu Comb adds precision scalp care to the main hair dryer offer. While the dryer gives you salon-grade styling, the comb gives you targeted red light therapy and micro-vibration massage for healthier hair roots.",
-    note:
-      "The current Muuhu Hair Dryer offer includes the Muuhu Comb as a free bonus gift.",
-    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png",
-    imageAlt: "Muuhu Hair Growth Therapy Comb bonus gift",
-    cardTitle: "Why customers love this bonus",
-    cardBullets: [
-      "Stimulates hair follicles with 650nm Red Light",
-      "Relaxes scalp with soothing micro-vibrations",
-      "Distributes essential oils without greasing hair",
-      "Makes the haircare bundle feel complete",
-    ],
-    sections: [
-      {
-        title: "Where a dedicated scalp tool helps",
-        paragraphs: [
-          "Some customers love the idea of a main styler for full hair drying and a dedicated tool for scalp health. The comb fits that role perfectly by providing targeted therapy.",
-          "It helps the offer feel like a complete hair growth and styling system rather than a single device.",
-        ],
-        bullets: [
-          "Targeted follicle stimulation",
-          "Relaxing scalp massage",
-          "Mess-free oil application",
-          "A convenient companion for your daily routine",
-        ],
-      },
-      {
-        title: "Why this bonus improves the bundle",
-        paragraphs: [
-          "It answers a common question: How do I improve my hair health at the root? Instead of buying another device later, the offer already covers both beautiful styling and underlying root health.",
-          "That makes the bundle feel incredibly generous and easier to justify.",
+          "Stronger unboxing value",
+          "Easier attachment organization",
+          "A more polished ownership experience",
         ],
       },
     ],
     primaryCtaLabel: "Claim The Dryer + Free Gifts",
   },
   {
-    slug: "skincare-guide",
-    eyebrow: "Customer Guide Bonus",
-    title: "The Muuhu Haircare Masterclass",
-    seoTitle: "The Muuhu Haircare Masterclass E-book Bonus",
+    slug: "muuhu-comb",
+    eyebrow: "Free Bonus Gift",
+    title: "Muuhu Comb",
+    seoTitle: "Muuhu Comb Bonus Gift",
     seoDescription:
-      "Learn what is inside the Muuhu Haircare Masterclass delivered after your Hair Dryer purchase, including styling tips and scalp health routines.",
+      "Explore the Muuhu Comb included as a free companion gift with the Muuhu Hair Dryer offer for scalp care, massage, and haircare routines.",
     intro:
-      "This is not a generic PDF. It is a full Muuhu masterclass designed to help Hair Dryer buyers get more value out of their styling system. It explains the attachments, shows how to build a routine, and turns uncertainty into salon-quality results.",
+      "The Muuhu Comb adds focused scalp care to the main Hair Dryer offer. While the dryer helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
     note:
-      "The Muuhu Haircare Masterclass is delivered after your purchase. The private guide file is not published on this page.",
-    image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png",
-    imageAlt: "Muuhu Haircare Masterclass bonus",
-    cardTitle: "What customers unlock inside",
+      "The current Muuhu Hair Dryer offer includes the Muuhu Comb as a free bonus gift.",
+    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png",
+    imageAlt: "Muuhu Comb bonus gift",
+    cardTitle: "Why customers love this bonus",
     cardBullets: [
-      "Coanda effect styling explained simply",
-      "Your 7 attachments broken down clearly",
-      "Hair-type guidance and weekly routines",
-      "Pre-styling prep, serum pairings, and heat protection tips",
+      "Pairs with wash-day and styling routines",
+      "Adds a relaxing scalp massage step",
+      "Helps distribute oils and serums more evenly",
+      "Makes the haircare bundle feel complete",
     ],
     sections: [
       {
-        title: "What is inside the guide",
+        title: "Where a dedicated scalp tool helps",
         paragraphs: [
-          "The guide walks customers through the Muuhu method from first principles to practical routines. It covers the science of high-speed airflow, the role of each attachment, hair-type matching, and the best products to pair with your blowouts.",
-          "It also includes travel styling tips, routine examples, common myths, and a bonus chapter on utilizing the Muuhu Comb.",
+          "A good hair routine is not only about the final blowout. The scalp-care step helps customers slow down, prep their roots, and make the full routine feel more personal.",
+          "That makes the bundle feel more complete than a single styling device.",
         ],
         bullets: [
-          "Welcome to the Muuhu Method",
-          "The Science of High-Speed Airflow",
-          "Your 7 Attachments, Explained",
-          "Find Your Hair Type",
-          "Your Personalised Styling Plan",
-          "The Best Products to Pair",
-          "Tips for Volume and Curl Retention",
+          "Targeted scalp massage",
+          "Serum and oil routine support",
+          "A calmer pre-styling ritual",
+          "A useful companion for weekly haircare",
+        ],
+      },
+      {
+        title: "Why this bonus improves the bundle",
+        paragraphs: [
+          "The comb answers a simple customer question: how do I care for my hair before I style it? Together, the dryer and comb give customers both the finish and the prep routine.",
+          "That makes the free gift feel genuinely useful, not like filler added to increase the bundle count.",
+        ],
+      },
+    ],
+    primaryCtaLabel: "Claim The Dryer + Free Gifts",
+  },
+  {
+    slug: "haircare-ebook",
+    eyebrow: "Customer Guide Bonus",
+    title: "Muuhu Haircare Masterclass E-book",
+    seoTitle: "Muuhu Haircare Masterclass E-book Bonus",
+    seoDescription:
+      "Discover the Muuhu Haircare Masterclass E-book included with your Hair Dryer purchase, with attachment guidance, styling routines, and scalp-care tips.",
+    intro:
+      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Hair Dryer. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu Comb.",
+    note:
+      "The guide is delivered after purchase and is not publicly published as a downloadable file on this page.",
+    image: "/images/products/muuhu-hair-dryer/muuhu-haircare-ebook-gift.webp",
+    imageAlt: "Muuhu Haircare Masterclass E-book bonus",
+    cardTitle: "What customers unlock inside",
+    cardBullets: [
+      "Attachment-by-attachment styling guide",
+      "Hair-type routine examples",
+      "Heat protection and prep steps",
+      "Muuhu Comb scalp-care chapter",
+    ],
+    sections: [
+      {
+        title: "What is inside the e-book",
+        paragraphs: [
+          "The guide explains the full Muuhu styling system in a way customers can actually use. It covers blowout prep, attachment selection, heat and speed choices, curl setting, smoothing, root lift, and frizz control.",
+          "It also includes routine examples for different hair types, plus a dedicated scalp-care chapter for pairing the Muuhu Comb with wash-day and pre-styling routines.",
+        ],
+        bullets: [
+          "Clear attachment guidance",
+          "Hair-type routine examples",
+          "Heat protection and prep advice",
+          "Volume, curl, and smooth-finish tips",
         ],
       },
       {
         title: "Why the guide matters",
         paragraphs: [
-          "A common hesitation is simple: What if I buy the 7-in-1 dryer and do not know how to use all the attachments properly? The guide removes that fear. It gives customers a clear starting point.",
-          "That turns the order into a complete masterclass, not just a product shipment.",
+          "A common hesitation with multi-stylers is not knowing where to begin. The e-book gives customers a clear starting point and turns the bundle into a guided styling system.",
+          "Because the guide is delivered after purchase and not published publicly, it also feels like a genuine buyer-only bonus.",
         ],
       },
     ],

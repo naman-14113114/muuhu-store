@@ -59,6 +59,20 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/pages/premium-travel-box",
+        destination: "/pages/premium-packaging",
+        permanent: true,
+      },
+      {
+        source: "/pages/skincare-guide",
+        destination: "/pages/haircare-ebook",
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {

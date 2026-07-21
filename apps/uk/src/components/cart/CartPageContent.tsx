@@ -23,7 +23,7 @@ import { FreeGiftsPanel } from "./FreeGiftsPanel";
 import { getDisplayLines, type CartLine } from "@/lib/cart";
 import { market } from "@/lib/market";
 
-const digitalGiftId = "skincare-ebook";
+const digitalGiftId = "skincare-guide";
 
 function useCheckoutCountdown(seconds: number) {
   const [remaining, setRemaining] = useState(seconds);
