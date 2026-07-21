@@ -1,0 +1,269 @@
+﻿<style>
+/* Muuhu Theme Custom CSS */
+#muuhu-home-page-block {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: oklch(95% 0.018 75);
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  --success: oklch(59% 0.14 151);
+  --background: var(--cream);
+  --foreground: var(--plum);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  background: var(--cream);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+#muuhu-home-page-block .buudy-wrap {
+  width: calc(100% - 32px);
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  #muuhu-home-page-block .buudy-wrap {
+    width: calc(100% - 80px);
+  }
+}
+
+#muuhu-home-page-block .buudy-section {
+  position: relative;
+  overflow: clip;
+}
+
+#muuhu-home-page-block .buudy-display {
+  font-family: var(--font-serif);
+  overflow-wrap: break-word;
+}
+
+#muuhu-home-page-block .buudy-italic {
+  font-style: italic;
+  font-weight: 340;
+}
+
+#muuhu-home-page-block .buudy-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+#muuhu-home-page-block .buudy-heading {
+  font-family: var(--font-serif);
+  color: var(--plum);
+  font-size: clamp(2.5rem, 6vw, 4.7rem);
+  line-height: 1.02;
+  letter-spacing: 0;
+  margin: 0;
+}
+
+#muuhu-home-page-block .buudy-copy {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+@media (min-width: 640px) {
+  #muuhu-home-page-block .buudy-copy {
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+}
+
+/* Button Styles */
+#muuhu-home-page-block .muuhu-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 9999px;
+  padding: 1rem 2rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: transform 0.15s ease-in-out, background-color 0.15s, color 0.15s;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#muuhu-home-page-block .muuhu-btn:active {
+  transform: scale(0.95);
+}
+
+#muuhu-home-page-block .muuhu-btn-primary {
+  background-color: var(--plum);
+  color: var(--cream);
+}
+
+#muuhu-home-page-block .muuhu-btn-outline {
+  background-color: transparent;
+  border: 1px solid var(--cream);
+  color: var(--cream);
+}
+
+#muuhu-home-page-block .muuhu-btn-outline:hover {
+  background-color: var(--blush);
+  color: var(--plum);
+}
+</style>
+
+<!-- Tailwind CDN (Optional, remove if PlusBase already injects Tailwind or if you compile this to vanilla CSS) -->
+<script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+<div id="muuhu-home-page-block" data-ready="false">
+   <!-- HomeVideoHero -->
+   <section class="buudy-section relative w-full overflow-hidden bg-[var(--plum)]">
+      <video autoplay loop muted playsinline class="block h-auto w-full" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/Hair%20Dryer%20video%20-%202.webm"></video>
+   </section>
+
+   <!-- SkincareGuideIntro -->
+   <section class="buudy-section bg-[var(--cream)] py-20 md:py-24">
+      <div class="buudy-wrap flex flex-col items-center text-center">
+         <div class="flex flex-col items-center gap-4">
+             <span class="buudy-eyebrow">Styling quiz</span>
+             <h2 class="buudy-heading text-center">Start with a routine that knows what your hair needs.</h2>
+             <p class="buudy-copy text-center max-w-2xl mt-4">Take the Muuhu Styling Quiz to understand your unique hair concerns, choose the right attachments, and feel confident from your first session. It is simple, supportive, and made for real at-home consistency.</p>
+         </div>
+         <a href="/pages/about-us" class="mt-8 muuhu-btn muuhu-btn-primary">
+            Start Quiz
+            <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+         </a>
+      </div>
+   </section>
+
+   <!-- TechnologySpotlight -->
+   <section class="buudy-section bg-[var(--cream)] py-20 md:py-28">
+      <div class="buudy-wrap">
+         <div class="grid gap-16 lg:grid-cols-2">
+            <div class="flex flex-col h-full">
+               <div class="flex flex-col items-center text-center gap-2 mb-8">
+                  <h2 class="buudy-heading text-center text-4xl">A smarter way to plan your blowout.</h2>
+                  <p class="buudy-copy text-center max-w-2xl mt-4">Use the guide to match your hair goals with the right Muuhu attachment. From volume support to smoother-looking hair, each tool has a purpose and a place in your weekly routine.</p>
+                  <div class="py-6">
+                     <a href="/products/muuhu-hair-dryer" class="muuhu-btn muuhu-btn-primary">
+                        Buy Now
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                     </a>
+                  </div>
+               </div>
+               <div class="w-full mt-auto">
+                  <img alt="Muuhu Hair Dryer product spotlight" class="block h-auto w-full object-cover rounded-[25px] shadow-sm" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/07-prep-hair.webp" />
+               </div>
+            </div>
+            <div class="flex flex-col h-full">
+               <div class="w-full mb-8">
+                  <img alt="Muuhu attachments guide" class="block h-auto w-full object-cover rounded-[25px] shadow-sm" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/05-coanda-effect.webp" />
+               </div>
+               <div class="flex flex-col items-center text-center mt-auto gap-4">
+                  <h2 class="buudy-heading text-center text-4xl">Reveal healthier hair</h2>
+                  <p class="buudy-copy text-center max-w-2xl mt-4">With 7 versatile attachments and intelligent heat control built into one powerful device, you can spend time to give yourself more time. It is self care when you need it, at anytime.</p>
+               </div>
+            </div>
+         </div>
+      </div>
+   </section>
+
+   <!-- HomeFeatureGrid -->
+   <section class="buudy-section bg-[var(--cream)] py-24">
+      <div class="buudy-wrap">
+         <div class="flex flex-col items-start gap-4">
+            <span class="buudy-eyebrow">Why Buudy</span>
+            <h2 class="buudy-heading text-4xl">Light therapy that covers the <em class="buudy-italic">details</em>.</h2>
+            <p class="buudy-copy max-w-2xl mt-4">Dense LED coverage, flexible treatments, and built-in neck care help the daily ritual feel simple while still feeling complete.</p>
+         </div>
+         <div class="mt-12 grid gap-6 md:grid-cols-3">
+            <article class="overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)]">
+               <img alt="Industry leading 110k RPM" class="block h-auto w-full bg-[var(--blush)] object-cover aspect-[4/3]" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/02-new-year-new-hair.webp" />
+               <div class="p-5">
+                  <h2 class="buudy-display text-2xl text-[var(--plum)] font-medium m-0">Industry leading 110k RPM</h2>
+                  <p class="mt-3 text-sm leading-6 text-[var(--muted)]">Your Muuhu Styler is armed with a high-speed brushless motor to have you styled in record time.</p>
+               </div>
+            </article>
+            <article class="overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)]">
+               <img alt="For all hair types" class="block h-auto w-full bg-[var(--blush)] object-cover aspect-[4/3]" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/01-amazing-hairstyles.webp" />
+               <div class="p-5">
+                  <h2 class="buudy-display text-2xl text-[var(--plum)] font-medium m-0">For all hair types</h2>
+                  <p class="mt-3 text-sm leading-6 text-[var(--muted)]">There is an attachment for everyone. It is non-damaging and relies on air, not extreme heat. Get a picture perfect finish.</p>
+               </div>
+            </article>
+            <article class="overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)]">
+               <img alt="Total Frizz Control" class="block h-auto w-full bg-[var(--blush)] object-cover aspect-[4/3]" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/06-holiday-gift.webp" />
+               <div class="p-5">
+                  <h2 class="buudy-display text-2xl text-[var(--plum)] font-medium m-0">Total Frizz Control</h2>
+                  <p class="mt-3 text-sm leading-6 text-[var(--muted)]">Frizz is always the first to ruin a good look. Get your hair smooth with 200 million negative ions.</p>
+               </div>
+            </article>
+         </div>
+      </div>
+   </section>
+
+   <!-- TorchSpotlight -->
+   <section class="buudy-section bg-[var(--plum)] py-12 md:py-16 text-[var(--cream)]">
+      <div class="buudy-wrap grid gap-8 lg:gap-12 lg:grid-cols-2 lg:items-center">
+         <div class="lg:order-2">
+            <div class="flex flex-col items-start gap-4">
+               <span class="buudy-eyebrow">Portable and powerful</span>
+               <h2 class="buudy-heading !text-[var(--cream)] text-4xl">Targeted volume in your <em class="buudy-italic">hand.</em></h2>
+               <p class="buudy-copy !text-[var(--cream)] max-w-2xl opacity-90 mt-4">Simply set aside some "Me Time" for 15 minutes a day. The Muuhu Styler harnesses high-speed airflow for root lift support, frizz relief, and targeted hair care.</p>
+            </div>
+            <a href="/products/muuhu-hair-dryer" class="mt-8 muuhu-btn muuhu-btn-outline">
+               Buy Now
+               <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="ml-2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+         </div>
+         <div class="relative w-full aspect-square overflow-hidden rounded-[18px] bg-[var(--cream)]">
+            <img alt="Muuhu product spotlight" class="object-cover w-full h-full" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/00-travel-friendly-styler.webp" />
+         </div>
+      </div>
+   </section>
+
+   <!-- CustomerReviewsGrid -->
+   <section class="hidden md:block relative w-full overflow-hidden bg-[var(--plum)] min-h-[500px]">
+      <div class="absolute inset-0 w-full h-full">
+         <img alt="Why try the Muuhu Styler?" class="w-full h-full object-cover block" src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/01-amazing-hairstyles.webp" />
+      </div>
+      <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-6 bg-black/40">
+         <div class="flex flex-col items-center gap-4">
+            <h2 class="buudy-heading text-center !text-[var(--cream)]">Why try the Muuhu Styler?</h2>
+            <p class="buudy-copy text-center max-w-2xl !text-[var(--cream)] opacity-90 mt-4">Tons of glowing reviews from customers!</p>
+         </div>
+         <a href="/pages/about-us" class="mt-8 muuhu-btn muuhu-btn-outline">
+            About Us
+         </a>
+      </div>
+   </section>
+</div>
+
+<script>
+(function() {
+  function initMuuhuHome() {
+    var container = document.getElementById('muuhu-home-page-block');
+    if (!container || container.getAttribute('data-ready') === 'true') return;
+    container.setAttribute('data-ready', 'true');
+    // Any necessary JS initialization for the home page (e.g. video handlers)
+    console.log("Muuhu home page initialized");
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMuuhuHome);
+  } else {
+    initMuuhuHome();
+  }
+  
+  // PlusBase SPA navigation events
+  window.addEventListener('plusbase:custom-html:ready', initMuuhuHome);
+  window.addEventListener('rsc:plusbase:hydrate', initMuuhuHome);
+})();
+</script>

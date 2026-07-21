@@ -9,15 +9,15 @@ export const homeHero = {
   ctaHref: `/products/${muuhuHairDryer.slug}`,
   images: [
     {
-      src: productAsset("04-hairluxe.jpg"),
+      src: productAsset("04-hairluxe.webp"),
       alt: "Muuhu Hair Dryer hero image",
     },
     {
-      src: productAsset("01-amazing-hairstyles.jpg"),
+      src: productAsset("01-amazing-hairstyles.webp"),
       alt: "Muuhu Hair Dryer lifestyle image",
     },
     {
-      src: productAsset("03-before-after.jpg"),
+      src: productAsset("03-before-after.webp"),
       alt: "Muuhu Hair Dryer styling image",
     },
   ],
@@ -28,7 +28,7 @@ export const homeMaskSpotlight = {
   title: "The Muuhu Hair Styler with Auto-Wrap",
   copy: "Modern styling requires modern solutions. The Muuhu Styler does it all without extreme heat. No more fumbling around with outdated curlers and heavy dryers. With our lightweight ergonomic design, you can achieve salon results every day.",
   image: {
-    src: productAsset("07-prep-hair.jpg"),
+    src: productAsset("07-prep-hair.webp"),
     alt: "Muuhu Hair Dryer product spotlight",
   },
   product: muuhuHairDryer,
@@ -49,7 +49,7 @@ export const homeTechnologySpotlight = {
   ctaLabel: "Shop the styler",
   ctaHref: `/products/${muuhuHairDryer.slug}`,
   image: {
-    src: productAsset("05-coanda-effect.jpg"),
+    src: productAsset("05-coanda-effect.webp"),
     alt: "Muuhu attachments guide",
   },
 };
@@ -77,7 +77,7 @@ export const homeLightTherapy = {
   title: "What is the Coanda effect and where did it come from?",
   copy: "You can say thanks to aerodynamics for this incredible technology. The Coanda effect uses high-speed airflow to attract and wrap hair automatically around the barrel. Since then, it has revolutionized how we curl hair without extreme heat damage. It is safe, effortless, and gives you bouncy curls over and over again.",
   image: {
-    src: productAsset("08-curling-wand.jpg"),
+    src: productAsset("08-curling-wand.webp"),
     alt: "Coanda effect editorial image",
   },
 };
@@ -86,7 +86,7 @@ export const homeYoungerYou = {
   title: "Reveal healthier hair",
   copy: "With 7 versatile attachments and intelligent heat control built into one powerful device, you can spend time to give yourself more time. It is self care when you need it, at anytime.",
   image: {
-    src: productAsset("03-before-after.jpg"),
+    src: productAsset("03-before-after.webp"),
     alt: "Muuhu styler reveal healthier hair",
   },
 };
@@ -98,7 +98,7 @@ export const homeTorchSpotlight = {
   ctaLabel: "Buy Now",
   ctaHref: `/products/${muuhuHairDryer.slug}`,
   image: {
-    src: productAsset("00-travel-friendly-styler.jpg"),
+    src: productAsset("00-travel-friendly-styler.webp"),
     alt: "Muuhu product spotlight",
   },
   product: muuhuHairDryer,
