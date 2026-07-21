@@ -25,6 +25,21 @@ function formatSubmittedReviewDate(value: string) {
   return submittedReviewDateFormatter.format(parsed).toUpperCase();
 }
 
+function getReviewTimestamp(review: ProductReview) {
+  const timestamp = Date.parse(review.date);
+  return Number.isNaN(timestamp) ? 0 : timestamp;
+}
+
+function compareNewestFirst(a: ProductReview, b: ProductReview) {
+  const dateDifference = getReviewTimestamp(b) - getReviewTimestamp(a);
+
+  if (dateDifference !== 0) {
+    return dateDifference;
+  }
+
+  return a.sourceIndex - b.sourceIndex;
+}
+
 function normalizeStaticReview(r: ProductReview) {
   return {
     ...r,
@@ -33,8 +48,12 @@ function normalizeStaticReview(r: ProductReview) {
 }
 
 const reviewCollections = {
-  "muuhu-hair-dryer": hairDryerReviews.map((r) => normalizeStaticReview(r as unknown as ProductReview)) as ProductReview[],
-  "muuhu-comb": combReviews.map((r) => normalizeStaticReview(r as unknown as ProductReview)) as ProductReview[],
+  "muuhu-hair-dryer": hairDryerReviews
+    .map((r) => normalizeStaticReview(r as unknown as ProductReview))
+    .sort(compareNewestFirst) as ProductReview[],
+  "muuhu-comb": combReviews
+    .map((r) => normalizeStaticReview(r as unknown as ProductReview))
+    .sort(compareNewestFirst) as ProductReview[],
 } as const;
 
 export type ReviewProductHandle = keyof typeof reviewCollections;
@@ -111,12 +130,6 @@ export function getProductReviewCount(productHandle: string, rating?: number) {
   return rating
     ? reviewCollections[productHandle].filter((review) => review.rating === rating).length
     : reviewCollections[productHandle].length;
-}
-
-
-function getReviewTimestamp(review: ProductReview) {
-  const timestamp = Date.parse(review.date);
-  return Number.isNaN(timestamp) ? 0 : timestamp;
 }
 
 export function toPublicProductReview(row: ProductReviewRow): ProductReview {

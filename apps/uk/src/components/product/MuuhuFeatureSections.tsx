@@ -277,15 +277,23 @@ export function MuuhuHairTypeSection() {
 
         </div>
 
-        <div className="w-full h-full lg:pt-8">
-          <div className="relative aspect-[4/4.35] lg:aspect-auto w-full h-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)]">
+        <div className="w-full h-full">
+          <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)] lg:aspect-auto lg:h-full">
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               alt="Made for every hair type"
-              className="object-cover rounded-[18px] absolute inset-0 w-full h-full"
-              src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
+              className="rounded-[18px]"
               decoding="async"
-              loading="lazy"
+              loading="eager"
+              src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
+              style={{
+                height: "100%",
+                inset: 0,
+                objectFit: "cover",
+                objectPosition: "center",
+                position: "absolute",
+                width: "100%",
+              }}
             />
           </div>
         </div>
