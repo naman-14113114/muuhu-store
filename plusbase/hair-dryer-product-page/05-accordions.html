@@ -1,0 +1,410 @@
+<style>
+/* Muuhu Theme Custom CSS - Accordions Section */
+#muuhu-accordions {
+  --plum: oklch(29% 0.071 322);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  --bg-light: rgba(247,241,232,.64);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  padding: 1rem;
+}
+#muuhu-accordions * { box-sizing: border-box; }
+#muuhu-accordions .accordion-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-light);
+  padding: 0 1.25rem;
+}
+#muuhu-accordions .accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+#muuhu-accordions .accordion-item:last-child {
+  border-bottom: none;
+}
+#muuhu-accordions .accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+#muuhu-accordions .accordion-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+#muuhu-accordions .accordion-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--plum);
+  margin-top: 0.25rem;
+}
+#muuhu-accordions .accordion-icon {
+  flex-shrink: 0;
+  color: var(--plum);
+  transition: transform 0.3s ease-out;
+}
+#muuhu-accordions .accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+#muuhu-accordions .accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out;
+}
+#muuhu-accordions .accordion-item.active .accordion-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+#muuhu-accordions .accordion-inner {
+  overflow: hidden;
+}
+#muuhu-accordions .accordion-body {
+  padding-bottom: 1.25rem;
+}
+
+/* Feature List styling */
+#muuhu-accordions .feature-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+#muuhu-accordions .feature-item { border-radius: 0.75rem; border: 1px solid var(--border); background-color: var(--card); padding: 1rem; }
+#muuhu-accordions .feature-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+#muuhu-accordions .feature-header-left { display: flex; align-items: center; gap: 0.75rem; }
+#muuhu-accordions .feature-icon-wrapper { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 0.75rem; background-color: rgba(184,149,86,.12); color: var(--gold); flex-shrink: 0; }
+#muuhu-accordions .feature-title { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 700; color: var(--plum); margin: 0; }
+#muuhu-accordions .feature-kicker { font-family: var(--font-sans); font-size: 0.75rem; font-style: italic; font-weight: 600; color: var(--gold); margin: 0; margin-top: 2px; }
+#muuhu-accordions .feature-number { font-family: var(--font-serif); font-size: 0.875rem; font-weight: 500; color: var(--gold); align-self: flex-start; margin-top: 4px; }
+#muuhu-accordions .feature-body { font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.25rem; color: var(--muted); margin: 0; }
+
+/* Specs Styling */
+#muuhu-accordions .specs-list { display: grid; gap: 0.75rem; }
+#muuhu-accordions .spec-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
+#muuhu-accordions .spec-label { display: flex; align-items: center; gap: 0.5rem; }
+#muuhu-accordions .spec-icon { display: flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem; color: var(--gold); }
+#muuhu-accordions .spec-name { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 500; color: var(--muted); margin: 0; }
+#muuhu-accordions .spec-value { font-family: var(--font-sans); text-align: right; font-size: 0.875rem; font-weight: 600; line-height: 1.25rem; color: var(--plum); margin: 0; }
+
+/* Included List styling */
+#muuhu-accordions .included-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+#muuhu-accordions .included-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); background-color: rgba(247,241,232,.55); padding: 0.75rem 1rem; }
+#muuhu-accordions .included-left { display: flex; align-items: center; gap: 0.75rem; }
+#muuhu-accordions .included-img { width: 2.5rem; height: 2.5rem; object-fit: contain; filter: invert(56%) sepia(50%) saturate(442%) hue-rotate(352deg) brightness(93%) contrast(93%); margin-left: -4px; margin-right: 4px; }
+#muuhu-accordions .included-qty { font-family: var(--font-mono); color: var(--gold); font-size: 1rem; line-height: 1; margin: 0; }
+#muuhu-accordions .included-label { font-size: 0.875rem; font-weight: 600; color: var(--plum); margin: 0; }
+
+/* Certifications Styling */
+#muuhu-accordions .cert-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+@media (min-width: 640px) { #muuhu-accordions .cert-list { grid-template-columns: repeat(2, 1fr); } }
+#muuhu-accordions .cert-item { border-radius: 0.75rem; border: 1px solid var(--border); background-color: var(--card); padding: 0.75rem 1rem; font-size: 0.875rem; font-weight: 600; line-height: 1.25rem; color: var(--plum); margin: 0; }
+</style>
+
+<div id="muuhu-accordions">
+  <div class="accordion-wrapper">
+    
+    <!-- Item 1: Features -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Features</span>
+          <span class="accordion-title">What makes our styler unique?</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span>
+                    <div>
+                      <p class="feature-title">7-in-1 Multifunctional Styler</p>
+                      <p class="feature-kicker">Ultimate Versatility</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">01</span>
+                </div>
+                <p class="feature-body">Unleash your hair's potential. Dry, straighten, curl, and volumize with one base. The ultimate styling tool designed to replace your hairdryer, straightener, and curling wand.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></span>
+                    <div>
+                      <p class="feature-title">60% Cooler Than Traditional Tools</p>
+                      <p class="feature-kicker">Zero Extreme Heat Damage</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">02</span>
+                </div>
+                <p class="feature-body">Crafted with a tourmaline ceramic heating element, this hot air styler ensures even heat distribution while minimizing damage. Get salon-worthy hair without the extreme heat.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg></span>
+                    <div>
+                      <p class="feature-title">110,000 RPM Brushless Motor</p>
+                      <p class="feature-kicker">Ultra-Fast 1200W Drying</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">03</span>
+                </div>
+                <p class="feature-body">Experience rapid drying times with a powerful 1200W high-speed motor. The intelligent aerodynamic design drives moisture from the hair rapidly for effortless styling.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></span>
+                    <div>
+                      <p class="feature-title">10 Temperature Control Settings</p>
+                      <p class="feature-kicker">Precision Styling</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">04</span>
+                </div>
+                <p class="feature-body">Choose from 10 distinct temperature and speed control settings to perfectly match your hair type and desired style, ensuring you get flawless results every single time.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+                    <div>
+                      <p class="feature-title">Effortless Curls & Waves</p>
+                      <p class="feature-kicker">The Coanda Effect</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">05</span>
+                </div>
+                <p class="feature-body">With 16MM-20MM barrel diameters, the aerodynamic Coanda effect automatically wraps your hair to create bouncy curls, loose waves, and sleek straight looks in under 10 minutes.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2: Specs -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Specifications</span>
+          <span class="accordion-title">The numbers, in detail</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <div class="specs-list">
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                  <span class="spec-name">Motor</span>
+                </div>
+                <div class="spec-value">110,000 RPM High-Speed Brushless DC</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>
+                  <span class="spec-name">Wattage</span>
+                </div>
+                <div class="spec-value">1,400W</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span>
+                  <span class="spec-name">Ionic Technology</span>
+                </div>
+                <div class="spec-value">200M+ Negative Ions</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></span>
+                  <span class="spec-name">Heat Settings</span>
+                </div>
+                <div class="spec-value">3 (Cool / Warm / Hot)</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg></span>
+                  <span class="spec-name">Speed Settings</span>
+                </div>
+                <div class="spec-value">2 + Cool Shot</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.7 7.7a2.5 2.5 0 1 1 1.8 4.3H2"/><path d="M9.6 4.6A2 2 0 1 1 11 8H2"/><path d="M12.6 19.4A2 2 0 1 0 14 16H2"/></svg></span>
+                  <span class="spec-name">Airflow Speed</span>
+                </div>
+                <div class="spec-value">20–26 m/s</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg></span>
+                  <span class="spec-name">Noise Level</span>
+                </div>
+                <div class="spec-value">Low noise (~65dB)</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="m2 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1Z"/><path d="M7 21h10"/><path d="M12 3v18"/><path d="M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2"/></svg></span>
+                  <span class="spec-name">Weight</span>
+                </div>
+                <div class="spec-value">~600g</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+                  <span class="spec-name">Voltage</span>
+                </div>
+                <div class="spec-value">220V (UK Plug)</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></svg></span>
+                  <span class="spec-name">Attachments</span>
+                </div>
+                <div class="spec-value">7 included</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 3: Included -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">In the box</span>
+          <span class="accordion-title">Everything you need</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <ul class="included-list">
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_base.png" alt="L-Shape Base Unit" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">L-Shape Base Unit</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_right.png" alt="Right Auto-Wrap Curler" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Right Auto-Wrap Curler</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_left.png" alt="Left Auto-Wrap Curler" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Left Auto-Wrap Curler</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png" alt="Smoothing Brush" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Smoothing Brush</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_round.png" alt="Round Volumising Brush" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Round Volumising Brush</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" alt="Concentrator Nozzle" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Concentrator Nozzle</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" alt="Diffuser" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Diffuser</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png" alt="Premium Packaging" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Premium Packaging</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png" alt="User Manual" class="included-img">
+                  <span class="included-qty">1</span>
+                  <p class="included-label">User Manual</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 4: Certifications -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Certifications</span>
+          <span class="accordion-title">Safety and product signals</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <ul class="cert-list">
+              <li class="cert-item">CE Certified</li>
+              <li class="cert-item">UKCA Approved</li>
+              <li class="cert-item">RoHS Compliant</li>
+              <li class="cert-item">1-Year Warranty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<script>
+  function muuhuToggleAccordion(btn) {
+    var item = btn.parentElement;
+    item.classList.toggle('active');
+  }
+</script>

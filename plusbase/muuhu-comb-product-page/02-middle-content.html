@@ -1,0 +1,463 @@
+<style>
+/* Muuhu Theme Custom CSS - Middle Section */
+#muuhu-comb-middle-content {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: transparent;
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  background-color: transparent !important;
+
+  /* Full-bleed breakout from constrained container */
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+}
+
+#muuhu-comb-middle-content * {
+  box-sizing: border-box;
+}
+
+.buudy-display {
+  font-family: var(--font-serif);
+}
+.buudy-mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+.buudy-italic {
+  font-style: italic;
+}
+
+.buudy-section {
+  padding: 0 1rem 3.5rem 1rem;
+}
+@media (min-width: 768px) {
+  .buudy-section { padding: 0 2rem 6rem 2rem; }
+}
+
+.buudy-wrap {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Trust Badges (Copied from Vercel logic) */
+.trust-badges-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 1rem;
+  align-items: center;
+  padding: 0 1rem 3.5rem 1rem;
+  background-color: transparent !important;
+}
+@media (min-width: 768px) {
+  .trust-badges-container {
+    grid-template-columns: repeat(4, 1fr);
+    padding: 0 2rem 6rem 2rem;
+  }
+}
+.trust-badge-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  width: 100%;
+}
+@media (min-width: 768px) {
+  .trust-badge-item {
+    flex-direction: row;
+    text-align: left;
+    justify-content: center;
+  }
+}
+.trust-badge-img {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .trust-badge-img {
+    width: 56px;
+    height: 56px;
+  }
+}
+.trust-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+.trust-badge-title {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--plum);
+  line-height: 1.3;
+  max-width: 180px;
+}
+@media (min-width: 768px) {
+  .trust-badge-title { font-size: 1rem; }
+}
+
+/* How To Use (Steps Slider) */
+.steps-slider-container {
+  position: relative;
+}
+.steps-slider {
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  padding-bottom: 1rem;
+  margin-left: -1rem;
+  padding-left: 1rem;
+  margin-right: -1rem;
+  padding-right: 1rem;
+}
+.steps-slider::-webkit-scrollbar {
+  display: none;
+}
+@media (min-width: 768px) {
+  .steps-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 3rem;
+    overflow-x: visible;
+    scroll-snap-type: none;
+    margin-left: 0;
+    padding-left: 0;
+    margin-right: 0;
+    padding-right: 0;
+  }
+}
+.step-card {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex-shrink: 0;
+  width: 85vw;
+  scroll-snap-align: center;
+}
+@media (min-width: 640px) {
+  .step-card { width: 45vw; }
+}
+@media (min-width: 768px) {
+  .step-card { width: auto; scroll-snap-align: none; }
+}
+.step-image-wrapper {
+  position: relative;
+  width: 100%;
+  border-radius: 18px;
+  background-color: var(--blush);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.step-image-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.7s;
+}
+.step-card:hover .step-image-wrapper img {
+  transform: scale(1.05);
+}
+.step-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: var(--plum);
+  margin: 0 0 0.5rem 0;
+}
+.step-desc {
+  color: var(--muted);
+  line-height: 1.6;
+  font-size: 0.875rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  .step-desc { font-size: 1rem; }
+}
+
+/* Standard Section Heading */
+.section-heading {
+  text-align: center;
+  font-size: 3rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin: 0 0 3rem 0;
+}
+@media (min-width: 768px) {
+  .section-heading { font-size: 3.75rem; margin: 0 0 4rem 0; }
+}
+
+/* Why People Love It */
+.why-love-grid {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .why-love-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+.why-love-image {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  aspect-ratio: 4/3;
+}
+.why-love-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.stats-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+.stat-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+}
+.stat-number {
+  font-size: 3rem;
+  color: var(--gold);
+  line-height: 1;
+  flex: none;
+}
+@media (min-width: 768px) {
+  .stat-number { font-size: 4rem; }
+}
+.stat-text {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--plum);
+  font-weight: 500;
+  max-width: 280px;
+  margin: 0;
+  padding-top: 0.5rem;
+}
+
+/* Daily Ritual */
+.ritual-grid {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 1024px) {
+  .ritual-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3.5rem;
+  }
+}
+.ritual-image {
+  width: 100%;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: var(--blush);
+}
+.ritual-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.ritual-eyebrow {
+  color: var(--gold);
+  margin: 0;
+  font-size: 0.875rem;
+}
+.ritual-title {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin: 0.75rem 0 1.25rem 0;
+}
+@media (min-width: 768px) {
+  .ritual-title { font-size: 3rem; }
+}
+.ritual-desc {
+  color: var(--muted);
+  line-height: 1.75;
+  font-size: 1rem;
+  margin: 0;
+  max-width: 32rem;
+}
+
+</style>
+
+<div id="muuhu-comb-middle-content">
+
+  <!-- Trust Badges -->
+  <div style="background-color: transparent !important;">
+    <div class="buudy-wrap">
+      <div class="trust-badges-container">
+        <div class="trust-badge-item">
+          <img src="https://uk.muuhu.com/images/trust-badges/i3_clean.png" alt="Free Shipping" class="trust-badge-img">
+          <div class="trust-badge-text">
+            <span class="trust-badge-title">Free Shipping all over UK</span>
+          </div>
+        </div>
+        <div class="trust-badge-item">
+          <img src="https://uk.muuhu.com/images/trust-badges/i1.png" alt="Salon-Grade Performance" class="trust-badge-img">
+          <div class="trust-badge-text">
+            <span class="trust-badge-title">Salon-Grade Performance</span>
+          </div>
+        </div>
+        <div class="trust-badge-item">
+          <img src="https://uk.muuhu.com/images/trust-badges/i2.png" alt="Buy Now, Pay Later Options Available" class="trust-badge-img">
+          <div class="trust-badge-text">
+            <span class="trust-badge-title">Buy Now, Pay Later Options Available</span>
+          </div>
+        </div>
+        <div class="trust-badge-item">
+          <img src="https://uk.muuhu.com/images/trust-badges/i4.png" alt="90-Day Money Back Guarantee" class="trust-badge-img">
+          <div class="trust-badge-text">
+            <span class="trust-badge-title">90-Day Money Back Guarantee</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- How To Use -->
+  <section class="buudy-section" style="background-color: transparent !important;">
+    <div class="buudy-wrap">
+      <h2 class="section-heading buudy-display">
+        How To <em class="buudy-italic" style="color: var(--gold);">Use</em>
+      </h2>
+      
+      <div class="steps-slider-container">
+        <!-- Steps Slider -->
+        <div class="steps-slider" id="muuhu-steps-slider">
+          
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-1.webp" alt="Prepare Your Scalp" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Prepare Your Scalp</h3>
+              <p class="step-desc">Ensure your hair and scalp are dry and free from styling products.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-2.webp" alt="Power On" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Power On</h3>
+              <p class="step-desc">Press the button to turn it on — vibration starts automatically.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-3.webp" alt="Select Mode" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Select Mode</h3>
+              <p class="step-desc">Pick the LED mode based on your hair goals</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-4.webp" alt="Start Brushing" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Start Brushing</h3>
+              <p class="step-desc">Glide the brush slowly over the area, focusing on thinning spots.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-5.webp" alt="Switch Lights" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Switch Lights</h3>
+              <p class="step-desc">Use each mode 1-2 minutes. You can switch colors anytime.</p>
+            </div>
+          </div>
+
+          <div class="step-card">
+            <div class="step-image-wrapper">
+              <img src="https://uk.muuhu.com/images/products/muuhu-comb/Step-6.webp" alt="Make It a Ritual" loading="lazy">
+            </div>
+            <div>
+              <h3 class="step-title">Make It a Ritual</h3>
+              <p class="step-desc">Use at least 3-4 times weekly for 3-10 minutes.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why People Love It -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap why-love-grid">
+      <div class="why-love-image" style="order: 2;">
+        <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-before-after-2.webp" alt="Before and After Results" loading="lazy">
+      </div>
+      <div style="order: 1;">
+        <h2 class="buudy-display" style="font-size: 3rem; line-height: 1.1; color: var(--plum); margin: 0 0 3rem 0;">
+          Why People<br/>Love It
+        </h2>
+        <div class="stats-list">
+          <div class="stat-item">
+            <span class="buudy-display stat-number">92%</span>
+            <p class="stat-text">reported less daily shedding after the first sessions*</p>
+          </div>
+          <div class="stat-item">
+            <span class="buudy-display stat-number">90%</span>
+            <p class="stat-text">noticed thicker, glossier, fuller-looking hair within the first month*</p>
+          </div>
+          <div class="stat-item">
+            <span class="buudy-display stat-number">94%</span>
+            <p class="stat-text">saw new baby hairs or visible regrowth in thinning areas*</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Daily Ritual -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap ritual-grid">
+      <div class="ritual-image">
+        <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu_24.webp" alt="Relaxing Micro-Vibrations" loading="lazy">
+      </div>
+      <div>
+        <p class="buudy-mono ritual-eyebrow">Daily Ritual</p>
+        <h2 class="buudy-display ritual-title">
+          Relaxing <em class="buudy-italic">Micro-Vibrations</em>.
+        </h2>
+        <p class="ritual-desc">
+          Transform your hair care routine into a spa-like experience. Thousands of micro-vibrations per minute boost blood circulation, relax tense scalp muscles, and dramatically improve the absorption of your treatments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</div>

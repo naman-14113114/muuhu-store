@@ -1,0 +1,204 @@
+<style>
+/* Muuhu Theme Custom CSS - Free Gift Section */
+#muuhu-free-gift {
+  --plum: oklch(29% 0.071 322);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  padding: 2rem 1rem 3rem 1rem;
+}
+#muuhu-free-gift * { box-sizing: border-box; }
+#muuhu-free-gift .buudy-display { font-family: var(--font-serif); }
+#muuhu-free-gift .buudy-mono { font-family: var(--font-mono); }
+#muuhu-free-gift .gift-wrapper { max-width: 1000px; margin: 0 auto; }
+#muuhu-free-gift .text-center { text-align: center; }
+#muuhu-free-gift .mb-8 { margin-bottom: 2rem; }
+#muuhu-free-gift .flex { display: flex; }
+#muuhu-free-gift .flex-col { flex-direction: column; }
+#muuhu-free-gift .items-center { align-items: center; }
+#muuhu-free-gift .justify-center { justify-content: center; }
+#muuhu-free-gift .gap-1-5 { gap: 0.375rem; }
+#muuhu-free-gift .flex-wrap { flex-wrap: wrap; }
+#muuhu-free-gift .inline-flex { display: inline-flex; }
+#muuhu-free-gift .bg-gold-light { background-color: rgba(184,149,86,.15); }
+#muuhu-free-gift .px-3 { padding-left: 0.75rem; padding-right: 0.75rem; }
+#muuhu-free-gift .py-1 { padding-top: 0.25rem; padding-bottom: 0.25rem; }
+#muuhu-free-gift .rounded { border-radius: 0.25rem; }
+#muuhu-free-gift .text-sm { font-size: 0.875rem; }
+#muuhu-free-gift .text-base { font-size: 1rem; }
+#muuhu-free-gift .text-3xl { font-size: 1.875rem; line-height: 1.2; }
+#muuhu-free-gift .font-medium { font-weight: 500; }
+#muuhu-free-gift .font-bold { font-weight: 700; }
+#muuhu-free-gift .font-extrabold { font-weight: 800; }
+#muuhu-free-gift .tracking-widest { letter-spacing: 0.1em; }
+#muuhu-free-gift .normal-case { text-transform: none; }
+#muuhu-free-gift .uppercase { text-transform: uppercase; }
+#muuhu-free-gift .text-plum { color: var(--plum); }
+
+#muuhu-free-gift .grid { display: grid; gap: 0.5rem; }
+#muuhu-free-gift .grid-cols-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (min-width: 768px) {
+  #muuhu-free-gift .md-gap-4 { gap: 1rem; }
+  #muuhu-free-gift .text-3xl { font-size: 2.25rem; }
+}
+
+#muuhu-free-gift .gift-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border-radius: 24px;
+  border: 1px solid rgba(58,31,61,.18);
+  background-color: var(--card);
+  padding: 1.25rem 0.5rem 0.5rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s;
+  text-decoration: none;
+  min-height: 180px;
+}
+@media (min-width: 768px) {
+  #muuhu-free-gift .gift-card { padding: 1.5rem 0.75rem 0.75rem 0.75rem; min-height: 220px; }
+}
+#muuhu-free-gift .gift-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(184,149,86,.72);
+  box-shadow: 0 18px 32px -24px rgba(58,31,61,.62);
+}
+
+#muuhu-free-gift .badge {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 4px 8px;
+  background-color: var(--card);
+  border: 1px solid rgba(58,31,61,.22);
+  border-radius: 9999px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  box-shadow: 0 2px 8px rgba(58,31,61,0.06);
+  white-space: nowrap;
+}
+@media (min-width: 640px) {
+  #muuhu-free-gift .badge { padding: 4px 12px; gap: 6px; }
+}
+#muuhu-free-gift .badge-free {
+  color: #000;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  font-family: var(--font-sans);
+}
+@media (min-width: 640px) {
+  #muuhu-free-gift .badge-free { font-size: 13px; }
+}
+#muuhu-free-gift .badge-price {
+  text-decoration: line-through;
+  font-size: 12px;
+  color: var(--muted);
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1;
+}
+@media (min-width: 640px) {
+  #muuhu-free-gift .badge-price { font-size: 14px; }
+}
+
+#muuhu-free-gift .gift-img-wrapper {
+  position: relative;
+  margin-top: 4px;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  border-radius: 20px;
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  #muuhu-free-gift .gift-img-wrapper { margin-top: 8px; padding: 4px; }
+}
+#muuhu-free-gift .gift-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 20px;
+  padding: 2px;
+  transition: transform 0.3s;
+}
+#muuhu-free-gift .gift-card:hover .gift-img-wrapper img {
+  transform: scale(1.05);
+}
+#muuhu-free-gift .gift-title {
+  margin-top: 2px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--plum);
+  line-height: 1.25;
+}
+@media (min-width: 768px) {
+  #muuhu-free-gift .gift-title { margin-top: 4px; font-size: 1.125rem; }
+}
+</style>
+
+<div id="muuhu-free-gift">
+  <div class="gift-wrapper">
+    <div class="text-center mb-8 flex flex-col items-center">
+      <h3 class="buudy-display text-3xl font-medium text-plum" style="margin: 0;">
+        Big Summer Savings
+      </h3>
+      <p class="buudy-mono inline-flex items-center justify-center gap-1-5 flex-wrap rounded bg-gold-light px-3 py-1 text-sm font-bold tracking-widest text-plum" style="margin-top: 0.5rem; margin-bottom: 0;">
+        <span class="buudy-display text-base font-extrabold normal-case text-plum">£129.00</span>
+        <span>VALUE OF FREE GIFTS FOR TODAY ONLY</span>
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-3 md-gap-4">
+      <div class="gift-card">
+        <div class="badge">
+          <span class="badge-free">FREE</span>
+          <span class="badge-price">£35</span>
+        </div>
+        <div class="gift-img-wrapper">
+          <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-luxury-case-v2.webp" alt="Premium Packaging">
+        </div>
+        <p class="buudy-display gift-title" style="margin-bottom: 0;">Premium Packaging</p>
+      </div>
+
+      <div class="gift-card">
+        <div class="badge">
+          <span class="badge-free">FREE</span>
+          <span class="badge-price">£79</span>
+        </div>
+        <div class="gift-img-wrapper">
+          <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-comb-free-gift.webp" alt="Muuhu Comb">
+        </div>
+        <p class="buudy-display gift-title" style="margin-bottom: 0;">Muuhu Comb</p>
+      </div>
+
+      <div class="gift-card">
+        <div class="badge">
+          <span class="badge-free">FREE</span>
+          <span class="badge-price">£15</span>
+        </div>
+        <div class="gift-img-wrapper">
+          <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-haircare-ebook-gift.webp" alt="Haircare E-book">
+        </div>
+        <p class="buudy-display gift-title" style="margin-bottom: 0;">Haircare E-book</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,362 @@
+<style>
+/* Muuhu Theme Custom CSS - Bottom Section */
+#muuhu-comb-bottom-content {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: transparent;
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  background-color: transparent !important;
+  padding-bottom: 80px; /* Space for sticky add to cart */
+
+  /* Full-bleed breakout from constrained container */
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+}
+
+#muuhu-comb-bottom-content * {
+  box-sizing: border-box;
+}
+
+.buudy-display { font-family: var(--font-serif); }
+.buudy-mono { font-family: var(--font-mono); text-transform: uppercase; }
+.buudy-italic { font-style: italic; }
+
+.buudy-section {
+  padding: 0 1rem 3.5rem 1rem;
+}
+@media (min-width: 768px) {
+  .buudy-section { padding: 0 2rem 6rem 2rem; }
+}
+.buudy-wrap { max-width: 1280px; margin: 0 auto; }
+
+/* Before / After Section */
+.results-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+@media (min-width: 768px) {
+  .results-grid { grid-template-columns: 1fr 1fr; }
+}
+.result-card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
+}
+.result-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* FAQ */
+.section-heading {
+  text-align: center;
+  max-width: 32rem;
+  margin: 0 auto 3rem;
+}
+.section-heading .eyebrow {
+  color: var(--gold);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+.section-heading .heading-title {
+  font-size: 2.5rem;
+  color: var(--plum);
+  margin: 0 0 1rem;
+  line-height: 1.1;
+}
+@media (min-width: 768px) {
+  .section-heading .heading-title { font-size: 3rem; }
+}
+.section-heading .heading-copy {
+  color: var(--plum-soft);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+.faq-grid {
+  max-width: 48rem;
+}
+.faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.faq-item {
+  border-bottom: 1px solid var(--border);
+}
+.faq-button {
+  width: 100%;
+  text-align: left;
+  padding: 1.5rem 0;
+  background: transparent;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  color: var(--plum);
+}
+.faq-question {
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+.faq-icon {
+  flex-shrink: 0;
+  transition: transform 0.3s;
+  color: var(--gold);
+}
+.faq-item.active .faq-icon {
+  transform: rotate(180deg);
+}
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  color: var(--plum-soft);
+  line-height: 1.6;
+}
+.faq-item.active .faq-answer {
+  max-height: 500px;
+}
+.faq-answer-inner {
+  padding-bottom: 1.5rem;
+}
+
+/* Guarantee Section */
+.guarantee-section {
+  position: relative;
+  background-color: var(--ink);
+  color: var(--cream);
+  overflow: hidden;
+}
+.guarantee-bg {
+  position: absolute;
+  inset: 0;
+  opacity: 0.2;
+}
+.guarantee-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.guarantee-content {
+  position: relative;
+  z-index: 10;
+  text-align: center;
+  max-width: 42rem;
+  padding: 4rem 1rem;
+}
+.guarantee-title {
+  font-size: 2.5rem;
+  margin: 0.5rem 0 1.5rem;
+  line-height: 1.1;
+}
+@media (min-width: 768px) {
+  .guarantee-title { font-size: 3.5rem; }
+}
+.guarantee-copy {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Sticky Add To Cart */
+#muuhu-comb-bottom-content .sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.05);
+}
+#muuhu-comb-bottom-content .sticky-bar.visible {
+  transform: translateY(0);
+}
+#muuhu-comb-bottom-content .sticky-product-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#muuhu-comb-bottom-content .sticky-product-info img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+}
+@media (min-width: 640px) {
+  #muuhu-comb-bottom-content .sticky-product-info img { display: block; }
+}
+#muuhu-comb-bottom-content .sticky-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+#muuhu-comb-bottom-content .sticky-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+#muuhu-comb-bottom-content .sticky-compare {
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+#muuhu-comb-bottom-content .sticky-btn {
+  background-color: var(--ink);
+  color: #F6EDE2 !important;
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  border: 1px solid var(--ink);
+  cursor: pointer;
+}
+@media (min-width: 640px) {
+  #muuhu-comb-bottom-content .sticky-btn { font-size: 1rem; padding: 0.75rem 2rem; }
+}
+#muuhu-comb-bottom-content .sticky-btn:hover {
+  border-color: var(--gold);
+}
+</style>
+
+<div id="muuhu-comb-bottom-content">
+
+  <!-- FAQ -->
+  <section class="buudy-section" style="background-color: transparent !important;" id="faq">
+    <div class="buudy-wrap faq-grid">
+      <div class="section-heading">
+        <span class="eyebrow buudy-mono">FAQ</span>
+        <h2 class="heading-title buudy-display">
+          Frequently asked <em class="buudy-italic">questions</em>.
+        </h2>
+        <p class="heading-copy">
+          Everything you might want to know before transforming your hair care routine.
+        </p>
+      </div>
+      <div>
+        <ul class="faq-list" id="muuhu-faq-list">
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">Can I use it with any hair serum or oil?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes, the integrated liquid tank is designed to work with most essential oils, minoxidil, and hair serums. The roller teeth distribute the liquid evenly without greasing the hair.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">How often should I use the red light therapy?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>We recommend using the Muuhu Comb for 10-15 minutes a day, 3-4 times a week for optimal follicle stimulation and scalp health.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">Is it waterproof?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>The comb features an IPX5 waterproof design, meaning you can easily rinse the comb teeth and liquid tank under running water after use. Do not submerge the entire device.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="guarantee-section" style="padding-top: 3.5rem; background-color: var(--ink) !important;">
+    <div class="guarantee-bg">
+      <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-scalp-care-routine.webp" alt="Muuhu Comb Guarantee">
+    </div>
+    <div class="buudy-wrap guarantee-content">
+      <p class="eyebrow buudy-mono">Promise</p>
+      <h2 class="guarantee-title buudy-display">
+        Our <em class="buudy-italic" style="color: var(--gold);">Muuhu</em><br>money back guarantee.
+      </h2>
+      <p class="guarantee-copy">
+        Experience the power of advanced scalp therapy risk-free. Designed for real growth, deeper serum penetration, and a healthier scalp, the Muuhu Comb gives you clinical-grade care at home.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky Add To Cart -->
+  <div id="muuhu-sticky-bar" class="sticky-bar">
+    <div class="sticky-product-info">
+      <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp" alt="Muuhu Comb">
+      <div>
+        <p class="buudy-display" style="margin: 0; font-weight: 700; color: var(--plum);">Muuhu Comb</p>
+        <div class="sticky-price-wrap">
+          <span class="sticky-price">£79.00</span>
+          <span class="sticky-compare">£159.00</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="sticky-btn" onclick="muuhuTriggerNativeAddToCart()">ADD TO CART</button>
+  </div>
+
+</div>
+
+<script>
+  // FAQ Toggle Logic
+  function muuhuToggleFaq(btn) {
+    var item = btn.parentElement;
+    item.classList.toggle('active');
+  }
+
+  // Sticky Bar Logic
+  window.addEventListener('scroll', function() {
+    var stickyBar = document.getElementById('muuhu-sticky-bar');
+    // Show sticky bar after scrolling past 600px
+    if (window.scrollY > 600) {
+      stickyBar.classList.add('visible');
+    } else {
+      stickyBar.classList.remove('visible');
+    }
+  });
+</script>

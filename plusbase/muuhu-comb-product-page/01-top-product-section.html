@@ -1,0 +1,459 @@
+<style>
+/* Muuhu Theme Custom CSS - Top Section */
+#muuhu-comb-hero-block {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: transparent;
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  --success: oklch(59% 0.14 151);
+  --background: transparent;
+  --foreground: var(--plum);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+
+  background-color: transparent !important;
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  
+  /* Full-bleed breakout from constrained container */
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+  padding-top: 2rem;
+  padding-bottom: 3.5rem;
+}
+
+@media (min-width: 768px) {
+  #muuhu-comb-hero-block {
+    padding-top: 3rem;
+    padding-bottom: 6rem;
+  }
+}
+
+#muuhu-comb-hero-block * {
+  box-sizing: border-box;
+}
+
+.buudy-display {
+  font-family: var(--font-serif);
+}
+.buudy-mono {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+}
+
+#muuhu-comb-hero-block .container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 768px) {
+  #muuhu-comb-hero-block .container { padding: 0 2rem; }
+}
+
+#muuhu-comb-hero-block .grid-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  #muuhu-comb-hero-block .grid-layout {
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    gap: 3.5rem;
+  }
+}
+
+/* Image Gallery */
+#muuhu-comb-hero-block .gallery-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+#muuhu-comb-hero-block .main-image-container {
+  aspect-ratio: 1 / 1;
+  width: 100%;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: var(--card);
+  border: 1px solid var(--border);
+}
+
+#muuhu-comb-hero-block .main-image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s;
+}
+
+#muuhu-comb-hero-block .thumbnails {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scrollbar-width: thin;
+}
+
+#muuhu-comb-hero-block .thumbnails::-webkit-scrollbar {
+  height: 6px;
+}
+
+#muuhu-comb-hero-block .thumbnails::-webkit-scrollbar-thumb {
+  background-color: var(--muted);
+  border-radius: 3px;
+}
+
+#muuhu-comb-hero-block .thumbnail-btn {
+  flex: 0 0 5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  border: 2px solid transparent;
+  background: var(--card);
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.2s;
+}
+
+#muuhu-comb-hero-block .thumbnail-btn:hover {
+  border-color: var(--muted);
+}
+
+#muuhu-comb-hero-block .thumbnail-btn.active {
+  border-color: var(--gold);
+}
+
+#muuhu-comb-hero-block .thumbnail-btn img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Product Info */
+#muuhu-comb-hero-block .info-col {
+  display: flex;
+  flex-direction: column;
+}
+
+#muuhu-comb-hero-block .breadcrumbs {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+#muuhu-comb-hero-block .breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+}
+#muuhu-comb-hero-block .breadcrumbs a:hover {
+  color: var(--plum);
+}
+
+#muuhu-comb-hero-block .badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+#muuhu-comb-hero-block .badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+#muuhu-comb-hero-block .badge.red-light { background: #fee2e2; color: #991b1b; }
+#muuhu-comb-hero-block .badge.vibration { background: #fef3c7; color: #92400e; }
+#muuhu-comb-hero-block .badge.ipx5 { background: #e0e7ff; color: #3730a3; }
+
+#muuhu-comb-hero-block .title {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin: 0 0 0.5rem 0;
+}
+
+@media (min-width: 640px) {
+  #muuhu-comb-hero-block .title { font-size: 3rem; }
+}
+
+#muuhu-comb-hero-block .reviews-summary {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 0.875rem;
+}
+
+#muuhu-comb-hero-block .stars {
+  display: flex;
+  color: var(--gold);
+}
+
+#muuhu-comb-hero-block .price-section {
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+}
+
+#muuhu-comb-hero-block .current-price {
+  font-size: 2.25rem;
+  font-weight: 400;
+  color: var(--plum);
+}
+
+#muuhu-comb-hero-block .compare-price {
+  font-size: 1.125rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+
+#muuhu-comb-hero-block .description {
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  color: var(--plum-soft);
+  margin-bottom: 2rem;
+}
+
+#muuhu-comb-hero-block .benefits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 2rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+#muuhu-comb-hero-block .benefit-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: 1rem;
+  color: var(--plum);
+}
+
+#muuhu-comb-hero-block .delivery-banner {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+#muuhu-comb-hero-block .delivery-eyebrow {
+  font-size: 0.75rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+#muuhu-comb-hero-block .delivery-value {
+  font-size: 1.125rem;
+  color: var(--success);
+  margin-top: 0.375rem;
+}
+
+@media (min-width: 640px) {
+  #muuhu-comb-hero-block .delivery-value { font-size: 1.25rem; }
+}
+
+#muuhu-comb-hero-block .timer-value {
+  font-size: 1.25rem;
+  color: var(--plum);
+  margin-top: 0.375rem;
+}
+
+@media (min-width: 640px) {
+  #muuhu-comb-hero-block .timer-value { font-size: 1.25rem; }
+}
+
+#muuhu-comb-hero-block .add-to-cart-btn {
+  margin-top: 1.25rem;
+  width: 100%;
+  background: var(--ink);
+  color: #F6EDE2 !important;
+  border: 1px solid var(--ink);
+  border-radius: 30px;
+  padding: 1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-sans);
+}
+
+#muuhu-comb-hero-block .add-to-cart-btn:hover {
+  transform: scale(1.02);
+  background: var(--ink);
+  border-color: var(--gold);
+}
+</style>
+
+<div id="muuhu-comb-hero-block">
+  <div class="container">
+    <div class="grid-layout">
+      <!-- Gallery Column -->
+      <div class="gallery-col">
+        <div class="main-image-container">
+          <img id="muuhu-main-image" src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp" alt="Muuhu Comb">
+        </div>
+        
+        <div class="thumbnails" id="muuhu-thumbnails">
+          <button class="thumbnail-btn active" onclick="muuhuSetImage(this, 'https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp')">
+            <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp" alt="Thumbnail 1">
+          </button>
+          <button class="thumbnail-btn" onclick="muuhuSetImage(this, 'https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-charging-usb.webp')">
+            <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-comb-charging-usb.webp" alt="Thumbnail 2">
+          </button>
+          <button class="thumbnail-btn" onclick="muuhuSetImage(this, 'https://uk.muuhu.com/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp')">
+            <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp" alt="Thumbnail 3">
+          </button>
+          <button class="thumbnail-btn" onclick="muuhuSetImage(this, 'https://uk.muuhu.com/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp')">
+            <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp" alt="Thumbnail 4">
+          </button>
+          <button class="thumbnail-btn" onclick="muuhuSetImage(this, 'https://uk.muuhu.com/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp')">
+            <img src="https://uk.muuhu.com/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp" alt="Thumbnail 5">
+          </button>
+        </div>
+      </div>
+
+      <!-- Info Column -->
+      <div class="info-col">
+        <nav class="breadcrumbs buudy-mono">
+          <a href="/">Home</a>
+          <span>/</span>
+          <span>Hair Care</span>
+        </nav>
+
+        <div class="badges buudy-mono">
+          <span class="badge red-light">Red Light Therapy</span>
+          <span class="badge vibration">Micro-Vibration</span>
+          <span class="badge ipx5">IPX5 Waterproof</span>
+        </div>
+
+        <h1 class="title buudy-display">Muuhu Comb</h1>
+
+        <div class="reviews-summary">
+          <div class="stars">
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            <svg width="16" height="16" viewBox="0 0 20 20" fill="currentColor"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+          </div>
+          <span style="color: var(--muted);">4.9 (16,000+ happy customers)</span>
+        </div>
+
+        <div class="price-section buudy-display">
+          <span class="current-price">£79.00</span>
+          <span class="compare-price">£159.00</span>
+        </div>
+
+        <p class="description">
+          A revolutionary 3-in-1 Scalp Hair Growth Therapy Comb featuring targeted red light therapy, micro-vibration massage, and an integrated liquid applicator for maximum serum absorption.
+        </p>
+
+        <ul class="benefits-list">
+          <li class="benefit-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Stimulates dormant follicles for noticeably thicker hair</span>
+          </li>
+          <li class="benefit-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Soothes dry, itchy scalp with relaxing micro-vibrations</span>
+          </li>
+          <li class="benefit-item">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--gold)"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+            <span>Delivers serums deep to the roots without greasy hair</span>
+          </li>
+        </ul>
+
+        <div class="delivery-banner">
+          <div>
+            <p class="delivery-eyebrow buudy-mono">FREE DELIVERY</p>
+            <div class="delivery-value buudy-display" id="muuhu-delivery-date">Thursday 30 May</div>
+          </div>
+          <div style="text-align: right;">
+            <p class="delivery-eyebrow buudy-mono">ORDER WITHIN</p>
+            <div class="timer-value buudy-display" id="muuhu-timer">14:59</div>
+          </div>
+        </div>
+
+        <!-- Add to Cart Action -->
+        <div style="margin-top: 1.25rem;">
+          <button type="button" class="add-to-cart-btn" onclick="muuhuTriggerNativeAddToCart()">ADD TO CART</button>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Image Swapping Logic
+  function muuhuSetImage(btn, src) {
+    document.getElementById('muuhu-main-image').src = src;
+    var btns = document.querySelectorAll('#muuhu-comb-hero-block .thumbnail-btn');
+    btns.forEach(function(b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+  }
+
+  // Delivery Date & Timer Logic
+  (function() {
+    // Delivery Date
+    var d = new Date();
+    d.setDate(d.getDate() + 3);
+    var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+    var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+    var dateStr = days[d.getDay()] + " " + d.getDate() + " " + months[d.getMonth()];
+    var delEl = document.getElementById('muuhu-delivery-date');
+    if(delEl) delEl.innerText = dateStr;
+
+    // Countdown Timer
+    var timerEl = document.getElementById('muuhu-timer');
+    if(!timerEl) return;
+    var seconds = 15 * 60 - 1;
+    setInterval(function() {
+      if (seconds <= 0) seconds = 15 * 60 - 1;
+      else seconds--;
+      var m = Math.floor(seconds / 60);
+      var s = seconds % 60;
+      timerEl.innerText = (m < 10 ? "0" + m : m) + ":" + (s < 10 ? "0" + s : s);
+    }, 1000);
+  })();
+
+  // Trigger PlusBase Native Add to Cart
+  function muuhuTriggerNativeAddToCart() {
+    // Find the default PlusBase Add To Cart button
+    var nativeBtn = document.querySelector('form[action^="/cart/add"] button[type="submit"], button[name="add"], .product-form__cart-submit, button.add-to-cart');
+    if (nativeBtn) {
+      nativeBtn.click();
+    } else {
+      alert("Please select a variant and use the default Add to Cart button below.");
+    }
+  }
+</script>

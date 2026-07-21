@@ -90,12 +90,14 @@ const nextConfig: NextConfig = {
         source: "/images/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Content-Disposition", value: "inline" },
         ],
       },
       {
         source: "/media/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Content-Disposition", value: "inline" },
         ],
       },
     ];
