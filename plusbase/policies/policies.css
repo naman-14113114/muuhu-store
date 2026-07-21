@@ -1,0 +1,79 @@
+/* Muuhu Policies General Theme */
+#muuhu-policies-block {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: oklch(95% 0.018 75);
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  
+  background-color: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-sans);
+  line-height: 1.7;
+  padding: 4rem 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+#muuhu-policies-block h1 {
+  font-family: var(--font-serif);
+  color: var(--plum);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  margin-bottom: 2rem;
+  line-height: 1.1;
+  text-align: center;
+}
+
+#muuhu-policies-block h2 {
+  font-family: var(--font-serif);
+  color: var(--plum);
+  font-size: 1.8rem;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+#muuhu-policies-block h3 {
+  font-family: var(--font-serif);
+  color: var(--plum);
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+#muuhu-policies-block p {
+  margin-bottom: 1.5rem;
+  font-size: 1.05rem;
+}
+
+#muuhu-policies-block ul,
+#muuhu-policies-block ol {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+#muuhu-policies-block li {
+  margin-bottom: 0.5rem;
+  font-size: 1.05rem;
+}
+
+#muuhu-policies-block a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+#muuhu-policies-block a:hover {
+  color: var(--plum);
+}
+
+#muuhu-policies-block strong {
+  color: var(--plum);
+  font-weight: 600;
+}

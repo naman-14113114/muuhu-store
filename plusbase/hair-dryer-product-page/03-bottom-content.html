@@ -1,0 +1,662 @@
+<style>
+/* 03-bottom-content.html CSS */
+#muuhu-bottom-content {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: oklch(95% 0.018 75);
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  padding-bottom: 80px; /* Space for sticky add to cart */
+  
+  /* Full-bleed breakout from constrained container */
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+}
+
+#muuhu-bottom-content * {
+  box-sizing: border-box;
+}
+
+#muuhu-bottom-content .buudy-wrap {
+  width: calc(100% - 32px);
+  max-width: 1180px;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .buudy-wrap {
+    width: calc(100% - 80px);
+  }
+}
+
+#muuhu-bottom-content .buudy-display { font-family: var(--font-serif); }
+#muuhu-bottom-content .buudy-mono { font-family: var(--font-mono); }
+#muuhu-bottom-content .buudy-italic { font-style: italic; font-weight: 340; }
+
+#muuhu-bottom-content .buudy-section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .buudy-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section Headings */
+#muuhu-bottom-content .section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#muuhu-bottom-content .eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+#muuhu-bottom-content .heading-title {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .heading-title { font-size: 3rem; }
+}
+#muuhu-bottom-content .heading-title.invert {
+  color: var(--cream);
+}
+#muuhu-bottom-content .heading-copy {
+  margin-top: 0.5rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+#muuhu-bottom-content .heading-copy.invert {
+  color: rgba(247, 241, 232, 0.8);
+}
+
+/* Comparison Table */
+#muuhu-bottom-content .comparison-table-wrapper {
+  margin-top: 2rem;
+  max-width: 1000px;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-table-wrapper { margin-top: 3rem; }
+}
+#muuhu-bottom-content .comparison-row {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 1px solid rgba(194,188,177,0.4);
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-row { flex-direction: row; align-items: stretch; }
+}
+#muuhu-bottom-content .comparison-row:last-child {
+  border-bottom: none;
+}
+#muuhu-bottom-content .comparison-title-col {
+  width: 100%;
+  padding-top: 0.625rem;
+  padding-bottom: 0.625rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-title-col { width: 33.333333%; padding-right: 1rem; padding-top: 0.875rem; padding-bottom: 0.875rem; }
+}
+#muuhu-bottom-content .comparison-title-col p {
+  font-weight: 600;
+  color: var(--plum);
+  font-size: 1rem;
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-title-col p { font-size: 1.125rem; }
+}
+#muuhu-bottom-content .comparison-values-col {
+  width: 100%;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-values-col { width: 66.666667%; }
+}
+#muuhu-bottom-content .comparison-values-wrapper {
+  display: flex;
+  height: 100%;
+  align-items: stretch;
+}
+#muuhu-bottom-content .comparison-value {
+  width: 25%;
+  padding: 0.625rem 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 48px;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .comparison-value { padding: 0.875rem 0.5rem; }
+}
+#muuhu-bottom-content .comparison-value.highlight {
+  background-color: rgba(58,31,61,0.05);
+  font-weight: 600;
+  color: var(--plum);
+}
+#muuhu-bottom-content .comparison-value.highlight-bottom {
+  border-bottom-left-radius: 1rem;
+  border-bottom-right-radius: 1rem;
+}
+#muuhu-bottom-content .comparison-value.normal {
+  color: var(--muted);
+}
+#muuhu-bottom-content .comparison-images-row {
+  border-bottom: 1px solid rgba(194,188,177,0.4);
+  padding-bottom: 1rem;
+}
+#muuhu-bottom-content .comparison-value img {
+  object-fit: contain;
+}
+
+/* FAQ */
+#muuhu-bottom-content .faq-grid {
+  display: grid;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  #muuhu-bottom-content .faq-grid { grid-template-columns: 1fr 1.5fr; gap: 3rem; }
+}
+#muuhu-bottom-content .faq-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0;
+}
+#muuhu-bottom-content .faq-item {
+  border-bottom: 1px solid var(--border);
+}
+#muuhu-bottom-content .faq-button {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding: 1.5rem 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  color: var(--plum);
+}
+#muuhu-bottom-content .faq-question {
+  font-size: 1.35rem;
+  line-height: 1.25;
+}
+#muuhu-bottom-content .faq-icon {
+  flex: none;
+  color: var(--gold);
+  transition: transform 0.3s;
+  margin-top: 0.25rem;
+}
+#muuhu-bottom-content .faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+#muuhu-bottom-content .faq-answer {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: all 0.3s;
+}
+#muuhu-bottom-content .faq-item.active .faq-answer {
+  grid-template-rows: 1fr;
+  opacity: 1;
+  padding-bottom: 1.5rem;
+}
+#muuhu-bottom-content .faq-answer-inner {
+  overflow: hidden;
+}
+#muuhu-bottom-content .faq-answer p {
+  margin: 0;
+  max-width: 48rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+
+/* Guarantee */
+#muuhu-bottom-content .guarantee-section {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-color: #000;
+  padding-bottom: 6rem;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .guarantee-section { padding-bottom: 9rem; }
+}
+#muuhu-bottom-content .guarantee-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+#muuhu-bottom-content .guarantee-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+#muuhu-bottom-content .guarantee-content {
+  position: relative;
+  z-index: 20;
+  max-width: 64rem;
+}
+#muuhu-bottom-content .guarantee-title {
+  margin-inline: auto;
+  margin-top: 0.75rem;
+  max-width: 56rem;
+  font-size: 2rem;
+  line-height: 1.05;
+  color: var(--cream);
+}
+@media (min-width: 640px) {
+  #muuhu-bottom-content .guarantee-title { font-size: 2.35rem; }
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .guarantee-title { margin-top: 1rem; font-size: 3.75rem; }
+}
+#muuhu-bottom-content .guarantee-copy {
+  margin-inline: auto;
+  margin-top: 1.5rem;
+  max-width: 36rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  line-height: 1.75;
+  color: #fff;
+  display: none;
+}
+@media (min-width: 768px) {
+  #muuhu-bottom-content .guarantee-copy { display: block; font-size: 1rem; }
+}
+
+/* Sticky Add To Cart */
+#muuhu-bottom-content .sticky-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(8px);
+  border-top: 1px solid var(--border);
+  padding: 0.75rem 1rem;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(100%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 -4px 6px -1px rgba(0,0,0,0.05);
+}
+#muuhu-bottom-content .sticky-bar.visible {
+  transform: translateY(0);
+}
+#muuhu-bottom-content .sticky-product-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+#muuhu-bottom-content .sticky-product-info img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 8px;
+  display: none;
+}
+@media (min-width: 640px) {
+  #muuhu-bottom-content .sticky-product-info img { display: block; }
+}
+#muuhu-bottom-content .sticky-price-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+#muuhu-bottom-content .sticky-price {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--plum);
+}
+#muuhu-bottom-content .sticky-compare {
+  font-size: 0.875rem;
+  color: var(--muted);
+  text-decoration: line-through;
+}
+#muuhu-bottom-content .sticky-btn {
+  background-color: var(--ink);
+  color: var(--cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: 30px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-decoration: none;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  border: 1px solid var(--ink);
+}
+@media (min-width: 640px) {
+  #muuhu-bottom-content .sticky-btn { font-size: 1rem; padding: 0.75rem 2rem; }
+}
+#muuhu-bottom-content .sticky-btn:hover {
+  border-color: var(--gold);
+}
+</style>
+
+<div id="muuhu-bottom-content">
+
+  <!-- Comparison Table -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap max-w-[1000px]">
+      <div style="text-align: center; margin-bottom: 2rem;">
+        <h2 class="buudy-heading buudy-display" style="font-size: 2.25rem; color: var(--plum); margin: 0; padding-bottom: 0.5rem;">
+          What makes Muuhu right for you?
+        </h2>
+        <h3 class="buudy-display" style="font-size: 1.25rem; color: var(--plum-soft); font-style: italic; margin-top: 0.75rem;">
+          (Check the difference yourself)
+        </h3>
+      </div>
+
+      <div class="comparison-table-wrapper">
+        <div style="position: relative;">
+          <!-- Header Background Highlight -->
+          <div style="position: absolute; top: 0; bottom: 0; left: 0; width: 25%; background-color: rgba(58,31,61,0.05); border-top-left-radius: 1rem; border-top-right-radius: 1rem; pointer-events: none;" class="md-highlight-bg"></div>
+
+          <!-- Logo Row -->
+          <div class="comparison-row" style="border: none; padding-top: 1rem;">
+            <div class="comparison-title-col"></div>
+            <div class="comparison-values-col">
+              <div class="comparison-values-wrapper">
+                <div class="comparison-value highlight" style="background-color: transparent;">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-logo-cropped.png" alt="Muuhu Logo" style="height: 28px; width: 80px; transform: scale(1.2); margin-bottom: 6px;">
+                </div>
+                <div class="comparison-value normal">
+                  <img src="https://uk.muuhu.com/images/logos/dyson_logo.webp" alt="Dyson Logo" style="height: 28px; width: 80px; transform: scale(1.1);">
+                </div>
+                <div class="comparison-value normal">
+                  <img src="https://uk.muuhu.com/images/logos/shark_logo.png" alt="Shark Logo" style="height: 24px; width: 64px;">
+                </div>
+                <div class="comparison-value normal">
+                  <img src="https://uk.muuhu.com/images/logos/ghd_logo.webp" alt="GHD Logo" style="height: 24px; width: 64px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Images Row -->
+          <div class="comparison-row comparison-images-row" style="border: none;">
+            <div class="comparison-title-col"></div>
+            <div class="comparison-values-col">
+              <div class="comparison-values-wrapper" style="align-items: flex-end; min-height: 60px;">
+                <div class="comparison-value highlight" style="background-color: transparent; align-items: flex-end;">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/comparison/muuhu-hair-dryer-comparison.png" alt="Muuhu Hair Dryer" style="height: 64px; border-radius: 1rem; transform-origin: bottom;">
+                </div>
+                <div class="comparison-value normal" style="align-items: flex-end;">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/comparison/dyson-airwrap-multi-styler.png" alt="Dyson" style="height: 56px; mix-blend-mode: multiply; transform-origin: bottom;">
+                </div>
+                <div class="comparison-value normal" style="align-items: flex-end;">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/comparison/shark-flexstyle-air-styling-system.png" alt="Shark" style="height: 56px; mix-blend-mode: multiply; transform-origin: bottom;">
+                </div>
+                <div class="comparison-value normal" style="align-items: flex-end;">
+                  <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/comparison/ghd-helios-professional-hair-dryer.jpg" alt="GHD" style="height: 56px; mix-blend-mode: multiply; transform-origin: bottom;">
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="border-bottom: 1px solid rgba(194,188,177,0.4);"></div>
+        </div>
+
+        <!-- Data Rows -->
+        <div class="comparison-row">
+          <div class="comparison-title-col"><p class="buudy-display">Attachments Included</p></div>
+          <div class="comparison-values-col">
+            <div class="comparison-values-wrapper">
+              <div class="comparison-value highlight"><span class="buudy-display">7</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">5</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">4</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">1</span></div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="comparison-row">
+          <div class="comparison-title-col"><p class="buudy-display">110,000 RPM Motor</p></div>
+          <div class="comparison-values-col">
+            <div class="comparison-values-wrapper">
+              <div class="comparison-value highlight">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--plum)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--muted)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="color: #c2bcb1;"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" style="color: #c2bcb1;"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M6.5 6.5L13.5 13.5M13.5 6.5L6.5 13.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-title-col"><p class="buudy-display">Weight</p></div>
+          <div class="comparison-values-col">
+            <div class="comparison-values-wrapper">
+              <div class="comparison-value highlight"><span class="buudy-display">360g</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">660g</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">700g</span></div>
+              <div class="comparison-value normal"><span class="buudy-display font-bold">823g</span></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-title-col"><p class="buudy-display">Ionic Technology</p></div>
+          <div class="comparison-values-col">
+            <div class="comparison-values-wrapper">
+              <div class="comparison-value highlight">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--plum)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--muted)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--muted)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+              <div class="comparison-value normal">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" class="text-[var(--muted)]"><circle cx="10" cy="10" r="9.375" stroke="currentColor" stroke-width="1.25"></circle><path d="M5.55469 10L8.88802 13.3333L15 7.22217" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="comparison-row">
+          <div class="comparison-title-col"><p class="buudy-display">Price</p></div>
+          <div class="comparison-values-col">
+            <div class="comparison-values-wrapper">
+              <div class="comparison-value highlight highlight-bottom">
+                <span class="buudy-display" style="font-size: 1rem;"><span style="text-decoration: line-through; opacity: 0.6; margin-right: 6px;">£299</span>£149</span>
+              </div>
+              <div class="comparison-value normal"><span class="buudy-display" style="font-size: 1rem;">£429</span></div>
+              <div class="comparison-value normal"><span class="buudy-display" style="font-size: 1rem;">£199</span></div>
+              <div class="comparison-value normal"><span class="buudy-display" style="font-size: 1rem;">£199</span></div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="buudy-section" style="background-color: var(--cream);" id="faq">
+    <div class="buudy-wrap faq-grid">
+      <div class="section-heading">
+        <span class="eyebrow buudy-mono">FAQ</span>
+        <h2 class="heading-title buudy-display">
+          Frequently asked <em class="buudy-italic">questions</em>.
+        </h2>
+        <p class="heading-copy">
+          Everything you might want to know before bringing Muuhu home.
+        </p>
+      </div>
+      <div>
+        <ul class="faq-list" id="muuhu-faq-list">
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">Is it really as powerful as a Dyson?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">Does it come with a UK plug?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>Absolutely. All our units are designed specifically for the UK market and come fitted with a standard UK 3-pin plug (220V).</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">Will it damage my hair?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>No. It uses intelligent heat distribution and 200 million negative ions to dry hair quickly via high-speed airflow rather than extreme heat, protecting your hair's natural shine.</p>
+              </div>
+            </div>
+          </li>
+          <li class="faq-item">
+            <button type="button" class="faq-button" onclick="muuhuToggleFaq(this)">
+              <span class="faq-question buudy-display">How long does shipping take?</span>
+              <svg class="faq-icon" width="25" height="25" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+            </button>
+            <div class="faq-answer">
+              <div class="faq-answer-inner">
+                <p>We offer free tracked shipping across the UK. Orders are typically delivered within 2-4 business days.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guarantee -->
+  <section class="buudy-section guarantee-section">
+    <div class="guarantee-bg">
+      <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-hair-dryer-professional-results.webp" alt="Muuhu Hair Dryer Guarantee">
+    </div>
+    <div class="buudy-wrap guarantee-content">
+      <p class="eyebrow buudy-mono">Promise</p>
+      <h2 class="guarantee-title buudy-display">
+        Our <em class="buudy-italic" style="color: var(--gold);">Muuhu</em><br>money back guarantee.
+      </h2>
+      <p class="guarantee-copy">
+        Bring salon-inspired hair styling into your daily routine with Muuhu. Designed for ultra-fast drying, frizz-free shine, and effortless at-home use, Muuhu gives you a premium styling experience you can trust every time.
+      </p>
+    </div>
+  </section>
+
+  <!-- Sticky Add To Cart -->
+  <div id="muuhu-sticky-bar" class="sticky-bar">
+    <div class="sticky-product-info">
+      <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/00-travel-friendly-styler.webp" alt="Muuhu Hair Dryer">
+      <div>
+        <h4 class="buudy-display" style="margin: 0; font-size: 1rem; color: var(--plum);">Muuhu Hair Dryer</h4>
+        <div class="sticky-price-wrap">
+          <span class="sticky-price">£149</span>
+          <span class="sticky-compare">£299</span>
+        </div>
+      </div>
+    </div>
+    <a href="#muuhu-product-hero-block" class="sticky-btn buudy-mono" onclick="muuhuScrollToTop(event)">Add To Cart</a>
+  </div>
+
+</div>
+
+<script>
+  // FAQ Toggle Logic
+  function muuhuToggleFaq(btn) {
+    var li = btn.closest('.faq-item');
+    li.classList.toggle('active');
+  }
+
+  // Sticky Bar Logic
+  document.addEventListener('DOMContentLoaded', function() {
+    var stickyBar = document.getElementById('muuhu-sticky-bar');
+    var heroBlock = document.getElementById('muuhu-product-hero-block');
+    
+    window.addEventListener('scroll', function() {
+      if (!heroBlock) return;
+      var heroRect = heroBlock.getBoundingClientRect();
+      // Show sticky bar when user scrolls past the hero block completely
+      if (heroRect.bottom < 0) {
+        stickyBar.classList.add('visible');
+      } else {
+        stickyBar.classList.remove('visible');
+      }
+    });
+  });
+
+  // Smooth scroll to top form
+  function muuhuScrollToTop(e) {
+    e.preventDefault();
+    var heroBlock = document.getElementById('muuhu-product-hero-block');
+    if (heroBlock) {
+      heroBlock.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Dynamic media queries for comparison table highlight
+  (function() {
+    var style = document.createElement('style');
+    style.innerHTML = `
+      @media (min-width: 768px) {
+        .md-highlight-bg {
+          left: 33.333333% !important;
+          width: 16.666667% !important;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  })();
+</script>

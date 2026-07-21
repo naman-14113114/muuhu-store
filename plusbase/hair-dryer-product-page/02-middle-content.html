@@ -1,0 +1,654 @@
+<style>
+/* 02-middle-content.html CSS */
+#muuhu-middle-content {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: oklch(95% 0.018 75);
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  
+  /* Full-bleed breakout from constrained container */
+  width: 100vw !important;
+  position: relative !important;
+  left: 50% !important;
+  right: 50% !important;
+  margin-left: -50vw !important;
+  margin-right: -50vw !important;
+}
+
+#muuhu-middle-content * {
+  box-sizing: border-box;
+}
+
+#muuhu-middle-content .buudy-wrap {
+  width: calc(100% - 32px);
+  max-width: 1180px;
+  margin-inline: auto;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .buudy-wrap {
+    width: calc(100% - 80px);
+  }
+}
+
+#muuhu-middle-content .buudy-display { font-family: var(--font-serif); }
+#muuhu-middle-content .buudy-mono { font-family: var(--font-mono); }
+#muuhu-middle-content .buudy-italic { font-style: italic; font-weight: 340; }
+
+#muuhu-middle-content .buudy-section {
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .buudy-section {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Section Headings */
+#muuhu-middle-content .section-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#muuhu-middle-content .section-heading.center {
+  align-items: center;
+  text-align: center;
+}
+#muuhu-middle-content .eyebrow {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+#muuhu-middle-content .heading-title {
+  font-size: 2.25rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin: 0;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .heading-title { font-size: 3rem; }
+}
+#muuhu-middle-content .heading-title.invert {
+  color: var(--cream);
+}
+#muuhu-middle-content .heading-copy {
+  margin-top: 0.5rem;
+  max-width: 32rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+#muuhu-middle-content .heading-copy.invert {
+  color: rgba(247, 241, 232, 0.8);
+}
+
+/* Video Reviews */
+@keyframes vr-css-auto-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+#muuhu-middle-content .vr-scroll-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: vr-css-auto-scroll 30s linear infinite;
+  will-change: transform;
+}
+#muuhu-middle-content .vr-scroll-track:hover {
+  animation-play-state: paused;
+}
+#muuhu-middle-content .review-video-card {
+  position: relative;
+  aspect-ratio: 9/16;
+  width: 10rem;
+  flex: none;
+  overflow: hidden;
+  border-radius: 18px;
+  background-color: var(--ink);
+  transition: transform 0.3s;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .review-video-card { width: 13rem; }
+}
+#muuhu-middle-content .review-video-card:hover {
+  transform: translateY(-4px);
+}
+#muuhu-middle-content .review-video-card video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#muuhu-middle-content .review-video-overlay {
+  position: absolute;
+  inset-x: 0;
+  bottom: 0;
+  height: 5rem;
+  background: linear-gradient(to top, rgba(18,9,20,0.48), transparent);
+  pointer-events: none;
+}
+
+/* Action Video */
+#muuhu-middle-content .action-video-container {
+  margin-top: 3rem;
+  width: 100%;
+  max-width: 56rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #000;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  aspect-ratio: 16/9;
+}
+#muuhu-middle-content .action-video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Attachments */
+#muuhu-middle-content .attachments-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.5rem 1rem;
+  align-items: start;
+  max-width: 72rem;
+  margin-inline: auto;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .attachments-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+}
+@media (min-width: 1024px) {
+  #muuhu-middle-content .attachments-grid { grid-template-columns: repeat(7, minmax(0, 1fr)); }
+}
+#muuhu-middle-content .attachment-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  text-align: center;
+  width: 100%;
+}
+#muuhu-middle-content .muuhu-attachment-icon {
+  position: relative;
+  height: 4.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s;
+  filter: invert(56%) sepia(50%) saturate(442%) hue-rotate(352deg) brightness(93%) contrast(93%);
+  margin-bottom: 0.5rem;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .muuhu-attachment-icon { height: 5.5rem; }
+}
+#muuhu-middle-content .muuhu-attachment-icon img {
+  max-height: 100%;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+#muuhu-middle-content .attachment-item:hover .muuhu-attachment-icon {
+  transform: scale(1.1);
+}
+#muuhu-middle-content .attachment-title {
+  font-weight: 700;
+  color: var(--plum);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+  font-size: 0.75rem;
+  max-width: 120px;
+  line-height: 1.25;
+}
+#muuhu-middle-content .attachment-item:hover .attachment-title {
+  color: var(--gold);
+}
+
+/* Feature Split */
+#muuhu-middle-content .feature-split {
+  display: grid;
+  align-items: center;
+  gap: 2rem;
+}
+@media (min-width: 1024px) {
+  #muuhu-middle-content .feature-split { grid-template-columns: 1fr 1fr; gap: 3.5rem; }
+}
+#muuhu-middle-content .feature-split-img {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  background-color: var(--blush);
+}
+#muuhu-middle-content .feature-split-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#muuhu-middle-content .feature-content h2 {
+  font-size: 2.5rem;
+  line-height: 1.1;
+  color: var(--plum);
+  margin-top: 0.75rem;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .feature-content h2 { font-size: 3rem; }
+}
+#muuhu-middle-content .feature-content p.desc {
+  margin-top: 1.25rem;
+  max-width: 32rem;
+  line-height: 1.75;
+  color: var(--muted);
+}
+#muuhu-middle-content .app-badge {
+  position: absolute;
+  left: 1.25rem;
+  top: 1.25rem;
+  border-radius: 9999px;
+  background-color: rgba(247, 241, 232, 0.9);
+  padding: 0.5rem 1rem;
+  color: var(--plum);
+  backdrop-filter: blur(4px);
+  font-size: 0.875rem;
+}
+#muuhu-middle-content .app-steps {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+}
+#muuhu-middle-content .app-step {
+  border-radius: 0.5rem;
+  border: 1px solid rgba(58, 31, 61, 0.12);
+  background-color: var(--card);
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  font-weight: 600;
+  color: var(--plum);
+  font-size: 0.875rem;
+}
+#muuhu-middle-content .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--plum);
+  color: var(--cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s;
+  margin-top: 1.25rem;
+}
+#muuhu-middle-content .btn-primary:hover {
+  background-color: var(--ink);
+}
+
+/* Hair Type Section */
+#muuhu-middle-content .hair-type-grid {
+  display: grid;
+  gap: 2.5rem;
+}
+@media (min-width: 1024px) {
+  #muuhu-middle-content .hair-type-grid { grid-template-columns: 0.95fr 1.05fr; align-items: stretch; }
+}
+#muuhu-middle-content .hair-type-card {
+  margin-top: 1.75rem;
+  border-radius: 18px;
+  border: 1px solid rgba(58, 31, 61, 0.1);
+  background-color: rgba(255, 252, 247, 0.78);
+  padding: 1.25rem;
+  box-shadow: 0 18px 50px -42px rgba(58, 31, 61, 0.45);
+}
+@media (min-width: 1024px) {
+  #muuhu-middle-content .hair-type-card { padding: 1.75rem; }
+}
+#muuhu-middle-content .hair-type-card-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+@media (min-width: 640px) {
+  #muuhu-middle-content .hair-type-card-header { flex-direction: row; align-items: flex-end; justify-content: space-between; }
+}
+#muuhu-middle-content .hair-types-row {
+  margin-top: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem 1rem;
+}
+@media (min-width: 640px) {
+  #muuhu-middle-content .hair-types-row { grid-template-columns: repeat(4, 1fr); }
+}
+#muuhu-middle-content .hair-type-box {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 0.375rem;
+  border-radius: 14px;
+  background-color: rgba(58, 31, 61, 0.035);
+  padding: 1.25rem 0.5rem 0.75rem;
+}
+#muuhu-middle-content .styling-details {
+  margin-top: 2rem;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 768px) {
+  #muuhu-middle-content .styling-details { grid-template-columns: repeat(2, 1fr); }
+}
+#muuhu-middle-content .styling-detail {
+  display: flex;
+  gap: 0.75rem;
+}
+#muuhu-middle-content .styling-detail-icon {
+  display: grid;
+  height: 2.5rem;
+  width: 2.5rem;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 9999px;
+  background-color: rgba(188, 146, 82, 0.14);
+  color: var(--gold);
+}
+</style>
+
+<div id="muuhu-middle-content">
+
+  <!-- Video Reviews -->
+  <section class="buudy-section" style="background-color: #f6ede2; overflow: hidden;">
+    <div class="buudy-wrap">
+      <div class="section-heading center">
+        <span class="eyebrow buudy-mono">Real Customers</span>
+        <h2 class="heading-title buudy-display">
+          Muuhu <span class="buudy-italic" style="color: var(--gold);">reviews</span> <span style="font-family: serif; font-style: italic; color: var(--plum);">&amp;</span> real results
+        </h2>
+      </div>
+      <div style="position: relative; margin-top: 2.5rem; max-width: 1400px; margin-left: auto; margin-right: auto; overflow: hidden; padding-bottom: 2rem;">
+        <div class="vr-scroll-track">
+          <!-- We duplicate a set of videos to create a scrolling loop -->
+          <!-- Set 1 -->
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%201-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%202-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%203-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%204-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%205-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <!-- Set 2 -->
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%206-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%20video%207-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%208-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%209-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+          <article class="review-video-card"><video src="https://uk.muuhu.com/videos/hair-dryer/Hair%20Dryer%2011-shorts.mp4" loop autoplay muted playsinline></video><div class="review-video-overlay"></div></article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- See It In Action (Hero Video) -->
+  <section class="buudy-section" style="background-color: var(--plum);">
+    <div class="buudy-wrap" style="display: flex; flex-direction: column; align-items: center; text-align: center;">
+      <div class="section-heading center">
+        <span class="eyebrow buudy-mono">See it in action</span>
+        <h2 class="heading-title buudy-display invert">
+          Professional blowout, <em class="buudy-italic">at home</em>.
+        </h2>
+        <p class="heading-copy invert">
+          Watch how easy it is to dry, style, and curl your hair with high-speed airflow.
+        </p>
+      </div>
+      <div class="action-video-container">
+        <video autoplay loop muted playsinline src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/Hair%20Dryer%20video%20-%202.webm"></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Attachments -->
+  <section class="buudy-section" style="background-color: #f6ede2;">
+    <div class="buudy-wrap">
+      <div style="text-align: center;">
+        <p class="buudy-mono" style="color: var(--gold); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.875rem;">Included in the box</p>
+        <h2 class="buudy-display" style="font-size: 2.25rem; color: var(--plum); margin: 0;">7-in-1 Complete Set</h2>
+      </div>
+      <div class="attachments-grid">
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_base.png" alt="L-Shape Base">
+          </div>
+          <p class="attachment-title buudy-mono">L-Shape Base</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_right.png" alt="Right Auto-Wrap Curler">
+          </div>
+          <p class="attachment-title buudy-mono">Right Auto-Wrap Curler</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_left.png" alt="Left Auto-Wrap Curler">
+          </div>
+          <p class="attachment-title buudy-mono">Left Auto-Wrap Curler</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png" alt="Smoothing Brush">
+          </div>
+          <p class="attachment-title buudy-mono">Smoothing Brush</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_round.png" alt="Round Volumising Brush">
+          </div>
+          <p class="attachment-title buudy-mono">Round Volumising Brush</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" alt="Concentrator Nozzle">
+          </div>
+          <p class="attachment-title buudy-mono">Concentrator Nozzle</p>
+        </div>
+        <div class="attachment-item">
+          <div class="muuhu-attachment-icon">
+            <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" alt="Diffuser">
+          </div>
+          <p class="attachment-title buudy-mono">Diffuser</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Style Without Compromise -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap feature-split">
+      <div class="feature-split-img">
+        <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-product-focus-v2.webp" alt="Style without compromise" loading="lazy">
+      </div>
+      <div class="feature-content">
+        <p class="buudy-mono" style="color: var(--gold);">Advanced Technology</p>
+        <h2 class="buudy-display">
+          Style without <em class="buudy-italic">compromise</em>.
+        </h2>
+        <p class="desc">
+          Our 110,000 RPM brushless motor combined with the Coanda effect allows you to wrap, curl, and style your hair effortlessly. Achieve salon-quality results at home with zero extreme heat damage.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- App Promo -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap feature-split" style="grid-template-columns: 1fr 1.2fr;">
+      <div class="feature-split-img" style="aspect-ratio: 1200/799; order: 2;">
+        <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-app-promo.webp" alt="Muuhu Companion App" loading="lazy">
+        <span class="app-badge buudy-mono">Free with Muuhu</span>
+      </div>
+      <div class="feature-content" style="order: 1;">
+        <p class="eyebrow buudy-mono">Companion App</p>
+        <h2 class="buudy-display">
+          Muuhu <span style="color: var(--gold);">Style App</span>.
+        </h2>
+        <p class="desc" style="font-size: 0.875rem; max-width: 100%;">
+          The Muuhu Style App is the ultimate companion for your hair dryer. It helps you unlock the full potential of all 7 attachments with guided tutorials, customized heat settings, and personalized routines tailored to your hair type.
+        </p>
+        <div class="app-steps">
+          <div class="app-step buudy-mono">Learn</div>
+          <div class="app-step buudy-mono">Style</div>
+          <div class="app-step buudy-mono">Track</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Hair Type Section -->
+  <section class="buudy-section" style="background-color: var(--cream);">
+    <div class="buudy-wrap hair-type-grid">
+      <div style="order: 2; display: flex; flex-direction: column; justify-content: center;">
+        <p class="buudy-mono" style="color: var(--gold);">Hair type fit</p>
+        <h2 class="buudy-display" style="margin-top: 0.75rem; font-size: 2.45rem; line-height: 1.1; color: var(--plum);">
+          Made for every hair type, guided by the right attachment.
+        </h2>
+        <p style="margin-top: 1rem; max-width: 42rem; font-size: 0.875rem; line-height: 1.5; color: var(--plum);">
+          Muuhu can be used across straight, wavy, curly, and coily hair. What changes is the attachment, heat level, speed, and section size you choose for your texture.
+        </p>
+
+        <div class="hair-type-card">
+          <div class="hair-type-card-header">
+            <p class="buudy-display" style="font-size: 1.5rem; line-height: 1.1; color: var(--plum); margin: 0;">Works on</p>
+            <p style="font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.16em; color: var(--gold); margin: 0;">Straight to coily</p>
+          </div>
+          <div class="hair-types-row">
+            <!-- Straight -->
+            <div style="text-align: center;">
+              <div class="hair-type-box">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">1A</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 6 C15 26 15 54 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">1B</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 6 C12 28 20 54 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">1C</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M17 6 C22 28 10 54 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+              </div>
+              <p style="margin-top: 0.5rem; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--plum);">Straight Hair</p>
+            </div>
+            <!-- Wavy -->
+            <div style="text-align: center;">
+              <div class="hair-type-box">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">2A</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 6 C7 18 25 27 16 39 C7 51 25 62 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">2B</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 6 C4 17 28 27 16 39 C4 51 28 62 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">2C</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 6 C2 16 30 27 16 39 C2 51 30 64 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+              </div>
+              <p style="margin-top: 0.5rem; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--plum);">Wavy Hair</p>
+            </div>
+            <!-- Curly -->
+            <div style="text-align: center;">
+              <div class="hair-type-box">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">3A</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C28 7 29 24 16 24 C3 24 3 41 16 41 C29 41 29 58 16 58 C5 58 5 74 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">3B</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C31 7 31 23 16 23 C1 23 1 39 16 39 C31 39 31 55 16 55 C1 55 1 74 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">3C</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C30 7 30 20 16 20 C2 20 2 33 16 33 C30 33 30 46 16 46 C2 46 2 59 16 59 C30 59 30 73 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+              </div>
+              <p style="margin-top: 0.5rem; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--plum);">Curly Hair</p>
+            </div>
+            <!-- Coily -->
+            <div style="text-align: center;">
+              <div class="hair-type-box">
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">4A</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C28 7 28 18 16 18 C4 18 4 29 16 29 C28 29 28 40 16 40 C4 40 4 51 16 51 C28 51 28 63 16 63 C5 63 5 75 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">4B</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C29 7 29 17 16 17 C3 17 3 27 16 27 C29 27 29 37 16 37 C3 37 3 47 16 47 C29 47 29 57 16 57 C3 57 3 68 16 68 C29 68 29 76 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 0.5rem;">
+                  <span style="font-size: 10px; font-weight: 600; color: var(--muted);">4C</span>
+                  <svg class="hair-strand text-[var(--plum)]" fill="none" viewBox="0 0 32 84" style="height: 3.5rem; width: 1.2rem;"><path d="M16 7 C30 7 30 16 16 16 C2 16 2 25 16 25 C30 25 30 34 16 34 C2 34 2 43 16 43 C30 43 30 52 16 52 C2 52 2 61 16 61 C30 61 30 70 16 70 C3 70 3 77 16 78" stroke="currentColor" stroke-linecap="round" stroke-width="2.4"></path></svg>
+                </div>
+              </div>
+              <p style="margin-top: 0.5rem; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--plum);">Coily Hair</p>
+            </div>
+          </div>
+          <p style="margin-top: 1rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted);">
+            Customers do not need to know their exact code. Pick the closest visual, then follow the matching attachment and heat guidance.
+          </p>
+        </div>
+
+        <div class="styling-details">
+          <div class="styling-detail">
+            <span class="styling-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22a7 7 0 0 0 7-7c0-2-1-3.9-3-5.5s-3.5-4-4-6.5c-.5 2.5-2 4.9-4 6.5C6 11.1 5 13 5 15a7 7 0 0 0 7 7z"></path></svg></span>
+            <div>
+              <h3 style="font-size: 0.875rem; font-weight: 600; margin: 0;">Start with towel-dried hair</h3>
+              <p style="margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted);">The dryer performs best when hair is damp, not dripping. Add heat protectant before styling.</p>
+            </div>
+          </div>
+          <div class="styling-detail">
+            <span class="styling-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+            <div>
+              <h3 style="font-size: 0.875rem; font-weight: 600; margin: 0;">Control heat by texture</h3>
+              <p style="margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted);">Use cool or medium heat for delicate strands, and reserve high heat for fast pre-drying.</p>
+            </div>
+          </div>
+          <div class="styling-detail">
+            <span class="styling-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg></span>
+            <div>
+              <h3 style="font-size: 0.875rem; font-weight: 600; margin: 0;">Polish with negative ions</h3>
+              <p style="margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted);">200M+ negative ions help reduce visible frizz and leave the finish smoother.</p>
+            </div>
+          </div>
+          <div class="styling-detail">
+            <span class="styling-detail-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg></span>
+            <div>
+              <h3 style="font-size: 0.875rem; font-weight: 600; margin: 0;">One set for every finish</h3>
+              <p style="margin-top: 0.25rem; font-size: 0.875rem; line-height: 1.5; color: var(--muted);">Seven attachments cover smooth blowouts, root lift, curls, diffusing, and precise drying.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="order: 1; width: 100%; height: 100%;">
+        <div style="position: relative; width: 100%; aspect-ratio: 2/3; overflow: hidden; border-radius: 18px; background-color: var(--blush); box-shadow: 0 28px 70px -42px rgba(58, 31, 61, 0.65);">
+          <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/muuhu-hair-dryer-for-every-hair-type.webp" alt="Made for every hair type" style="width: 100%; height: 100%; object-fit: cover; object-position: center; position: absolute; inset: 0;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
