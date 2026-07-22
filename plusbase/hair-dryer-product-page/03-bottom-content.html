@@ -17,7 +17,7 @@
   
   font-family: var(--font-sans);
   color: var(--plum);
-  padding-bottom: 80px; /* Space for sticky add to cart */
+  padding-bottom: 0px; /* Removed extra space above footer */
   
   /* Full-bleed breakout from constrained container */
   width: 100vw !important;
@@ -349,7 +349,7 @@
   text-decoration: line-through;
 }
 #muuhu-bottom-content .sticky-btn {
-  background-color: var(--ink);
+  background-color: #3b1e40;
   color: var(--cream);
   padding: 0.75rem 1.5rem;
   border-radius: 30px;
@@ -359,13 +359,22 @@
   text-decoration: none;
   font-size: 0.875rem;
   transition: all 0.2s;
-  border: 1px solid var(--ink);
+  border: 1px solid #3b1e40;
+  cursor: pointer;
 }
 @media (min-width: 640px) {
   #muuhu-bottom-content .sticky-btn { font-size: 1rem; padding: 0.75rem 2rem; }
 }
 #muuhu-bottom-content .sticky-btn:hover {
+  background-color: var(--gold);
   border-color: var(--gold);
+}
+
+/* Aggressively hide PlusBase Native Sticky Cart */
+#sb-sticky-cart,
+.product-sticky-checkout,
+.sticky-addcart {
+  display: none !important;
 }
 </style>
 
@@ -599,14 +608,14 @@
     <div class="sticky-product-info">
       <img src="https://uk.muuhu.com/images/products/muuhu-hair-dryer/00-travel-friendly-styler.webp" alt="Muuhu Hair Dryer">
       <div>
-        <h4 class="buudy-display" style="margin: 0; font-size: 1rem; color: var(--plum);">Muuhu Hair Dryer</h4>
+        <h4 class="buudy-display" style="margin: 0; font-size: 1rem; color: var(--plum); text-transform: uppercase;">Muuhu Hair Dryer + 3 free gifts</h4>
         <div class="sticky-price-wrap">
           <span class="sticky-price">£149</span>
           <span class="sticky-compare">£299</span>
         </div>
       </div>
     </div>
-    <a href="#muuhu-product-hero-block" class="sticky-btn buudy-mono" onclick="muuhuScrollToTop(event)">Add To Cart</a>
+    <button type="button" class="sticky-btn buudy-mono" onclick="muuhuTriggerNativeAddToCart()">ADD TO CART + FREE GIFTS</button>
   </div>
 
 </div>
@@ -643,6 +652,16 @@
       heroBlock.scrollIntoView({ behavior: 'smooth' });
     } else {
       window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  }
+
+  // Trigger PlusBase Native Add to Cart
+  function muuhuTriggerNativeAddToCart() {
+    var nativeBtn = document.querySelector('form[action^="/cart/add"] button[type="submit"], button[name="add"], .product-form__cart-submit, button.add-to-cart');
+    if (nativeBtn) {
+      nativeBtn.click();
+    } else {
+      alert("Please select a variant and use the default Add to Cart button below.");
     }
   }
 

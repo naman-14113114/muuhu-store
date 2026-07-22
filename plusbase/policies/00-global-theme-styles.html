@@ -1,0 +1,160 @@
+<style>
+/* Muuhu Theme - Global Styles for Contact, Policies, FAQ */
+:root {
+  --plum: oklch(29% 0.071 322);
+  --plum-soft: oklch(46% 0.083 326);
+  --gold: oklch(66% 0.088 86);
+  --cream: oklch(95% 0.018 75);
+  --blush: oklch(89% 0.032 52);
+  --ink: oklch(17% 0.03 318);
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  --bg-light: rgba(247,241,232,.64);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+}
+
+/* Base Background & Text */
+body, .page-container, .main-content, #main {
+  background-color: var(--cream) !important;
+  color: var(--plum) !important;
+  font-family: var(--font-sans) !important;
+}
+
+/* Typography (Headings) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.page-title, .heading {
+  font-family: var(--font-serif) !important;
+  color: var(--plum) !important;
+  line-height: 1.2 !important;
+}
+
+h1, .page-title {
+  font-size: clamp(2rem, 5vw, 3.5rem) !important;
+  margin-bottom: 2rem !important;
+  text-align: center;
+}
+
+h2 { font-size: 1.8rem !important; margin-top: 3rem !important; margin-bottom: 1rem !important; }
+h3 { font-size: 1.4rem !important; margin-top: 2rem !important; margin-bottom: 1rem !important; }
+
+/* Paragraphs & Links */
+p, li, td, th, span {
+  font-family: var(--font-sans);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--plum);
+}
+
+a {
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--plum);
+}
+
+ul, ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+/* FAQ Accordion Styling (For standard details/summary) */
+details, 
+.faq-item, 
+.accordion, 
+.page-faq details, 
+.rte details {
+  max-width: 1000px;
+  margin: 0 auto 1rem !important;
+  border-radius: 18px !important;
+  border: 1px solid var(--border) !important;
+  background-color: var(--bg-light) !important;
+  padding: 0 1.25rem !important;
+}
+
+details summary,
+.faq-item summary,
+.accordion summary,
+.page-faq details summary,
+.rte details summary {
+  list-style: none;
+  font-family: var(--font-serif) !important;
+  font-size: 1.25rem !important;
+  color: var(--plum) !important;
+  padding: 1rem 0 !important;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Hide default marker */
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Custom dropdown icon */
+details summary::after {
+  content: '▼';
+  font-size: 0.8rem;
+  color: var(--plum);
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::after {
+  transform: rotate(180deg);
+}
+
+/* FAQ Content Animation */
+details p, .faq-item p, .accordion p {
+  padding-bottom: 1.25rem;
+  margin-top: 0;
+  animation: fadeIn 0.3s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Contact Form Overrides */
+input, textarea, select {
+  font-family: var(--font-sans) !important;
+  border: 1px solid var(--border) !important;
+  background-color: var(--card) !important;
+  color: var(--ink) !important;
+  border-radius: 8px !important;
+  padding: 0.75rem !important;
+}
+
+/* Submit Buttons */
+button[type="submit"], .btn, .button, .contact-submit {
+  background-color: var(--ink) !important;
+  color: var(--cream) !important;
+  font-family: var(--font-sans) !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.05em !important;
+  border-radius: 30px !important;
+  padding: 0.75rem 2rem !important;
+  border: 1px solid var(--ink) !important;
+  cursor: pointer;
+  transition: all 0.2s !important;
+}
+
+button[type="submit"]:hover, .btn:hover, .button:hover, .contact-submit:hover {
+  background-color: var(--gold) !important;
+  border-color: var(--gold) !important;
+}
+</style>
