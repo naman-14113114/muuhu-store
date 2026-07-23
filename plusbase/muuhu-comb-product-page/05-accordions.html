@@ -1,0 +1,328 @@
+<style>
+/* Muuhu Theme Custom CSS - Accordions Section */
+#muuhu-accordions {
+  --plum: oklch(29% 0.071 322);
+  --gold: oklch(66% 0.088 86);
+  --cream: transparent;
+  --card: oklch(97% 0.014 75);
+  --border: oklch(83% 0.026 64);
+  --muted: oklch(48% 0.037 315);
+  --bg-light: rgba(247,241,232,.64);
+  
+  --font-sans: ui-sans-serif, system-ui, sans-serif;
+  --font-serif: ui-serif, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, monospace;
+  
+  font-family: var(--font-sans);
+  color: var(--plum);
+  padding: 1rem;
+}
+#muuhu-accordions * { box-sizing: border-box; }
+#muuhu-accordions .accordion-wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  background-color: var(--bg-light);
+  padding: 0 1.25rem;
+}
+#muuhu-accordions .accordion-item {
+  border-bottom: 1px solid var(--border);
+}
+#muuhu-accordions .accordion-item:last-child {
+  border-bottom: none;
+}
+#muuhu-accordions .accordion-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  padding: 1rem 0;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+#muuhu-accordions .accordion-eyebrow {
+  display: block;
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+}
+#muuhu-accordions .accordion-title {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  color: var(--plum);
+  margin-top: 0.25rem;
+}
+#muuhu-accordions .accordion-icon {
+  flex-shrink: 0;
+  color: var(--plum);
+  transition: transform 0.3s ease-out;
+}
+#muuhu-accordions .accordion-item.active .accordion-icon {
+  transform: rotate(180deg);
+}
+#muuhu-accordions .accordion-content {
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s ease-out, opacity 0.3s ease-out;
+}
+#muuhu-accordions .accordion-item.active .accordion-content {
+  grid-template-rows: 1fr;
+  opacity: 1;
+}
+#muuhu-accordions .accordion-inner {
+  overflow: hidden;
+}
+#muuhu-accordions .accordion-body {
+  padding-bottom: 1.25rem;
+}
+
+/* Feature List styling */
+#muuhu-accordions .feature-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+#muuhu-accordions .feature-item { border-radius: 0.75rem; border: 1px solid var(--border); background-color: var(--card); padding: 1rem; }
+#muuhu-accordions .feature-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }
+#muuhu-accordions .feature-header-left { display: flex; align-items: center; gap: 0.75rem; }
+#muuhu-accordions .feature-icon-wrapper { display: flex; align-items: center; justify-content: center; width: 2.5rem; height: 2.5rem; border-radius: 0.75rem; background-color: rgba(184,149,86,.12); color: var(--gold); flex-shrink: 0; }
+#muuhu-accordions .feature-title { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 700; color: var(--plum); margin: 0; }
+#muuhu-accordions .feature-kicker { font-family: var(--font-sans); font-size: 0.75rem; font-style: italic; font-weight: 600; color: var(--gold); margin: 0; margin-top: 2px; }
+#muuhu-accordions .feature-number { font-family: var(--font-serif); font-size: 0.875rem; font-weight: 500; color: var(--gold); align-self: flex-start; margin-top: 4px; }
+#muuhu-accordions .feature-body { font-family: var(--font-sans); font-size: 0.75rem; line-height: 1.25rem; color: var(--muted); margin: 0; }
+
+/* Specs Styling */
+#muuhu-accordions .specs-list { display: grid; gap: 0.75rem; }
+#muuhu-accordions .spec-item { display: grid; grid-template-columns: 1fr auto; gap: 1rem; align-items: center; }
+#muuhu-accordions .spec-label { display: flex; align-items: center; gap: 0.5rem; }
+#muuhu-accordions .spec-icon { display: flex; align-items: center; justify-content: center; width: 1.25rem; height: 1.25rem; color: var(--gold); }
+#muuhu-accordions .spec-name { font-family: var(--font-sans); font-size: 0.875rem; font-weight: 500; color: var(--muted); margin: 0; }
+#muuhu-accordions .spec-value { font-family: var(--font-sans); text-align: right; font-size: 0.875rem; font-weight: 600; line-height: 1.25rem; color: var(--plum); margin: 0; }
+
+/* Included List styling */
+#muuhu-accordions .included-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+#muuhu-accordions .included-item { display: flex; align-items: center; justify-content: space-between; gap: 1rem; border-radius: 0.75rem; border: 1px solid var(--border); background-color: rgba(247,241,232,.55); padding: 0.75rem 1rem; }
+#muuhu-accordions .included-left { display: flex; align-items: center; gap: 0.75rem; }
+#muuhu-accordions .included-img { width: 2.5rem; height: 2.5rem; object-fit: contain; filter: invert(56%) sepia(50%) saturate(442%) hue-rotate(352deg) brightness(93%) contrast(93%); margin-left: -4px; margin-right: 4px; }
+#muuhu-accordions .included-qty { font-family: var(--font-mono); color: var(--gold); font-size: 1rem; line-height: 1; margin: 0; }
+#muuhu-accordions .included-label { font-size: 0.875rem; font-weight: 600; color: var(--plum); margin: 0; }
+
+/* Certifications Styling */
+#muuhu-accordions .cert-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.5rem; }
+@media (min-width: 640px) { #muuhu-accordions .cert-list { grid-template-columns: repeat(2, 1fr); } }
+#muuhu-accordions .cert-item { border-radius: 0.75rem; border: 1px solid var(--border); background-color: var(--card); padding: 0.75rem 1rem; font-size: 0.875rem; font-weight: 600; line-height: 1.25rem; color: var(--plum); margin: 0; }
+</style>
+
+<div id="muuhu-accordions">
+  <div class="accordion-wrapper">
+    
+    <!-- Item 1: Features -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Features</span>
+          <span class="accordion-title">What makes our comb unique?</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <ul class="feature-list">
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg></span>
+                    <div>
+                      <p class="feature-title">Targeted Red Light Therapy</p>
+                      <p class="feature-kicker">Hair Regrowth</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">01</span>
+                </div>
+                <p class="feature-body">Delivers medical-grade 650nm red light directly to the scalp, penetrating deep into the follicles to stimulate cellular energy, encourage hair growth, and combat thinning at the source.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="M12 8v4"></path><path d="M12 16h.01"></path></svg></span>
+                    <div>
+                      <p class="feature-title">Micro-Vibration Massage</p>
+                      <p class="feature-kicker">Relaxing Scalp Care</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">02</span>
+                </div>
+                <p class="feature-body">Enjoy thousands of soothing micro-vibrations per minute. This gentle massage boosts blood circulation, relaxes tense scalp muscles, and prepares your roots for maximum nutrient absorption.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"></polygon></svg></span>
+                    <div>
+                      <p class="feature-title">Precision Liquid Applicator</p>
+                      <p class="feature-kicker">Mess-Free Application</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">03</span>
+                </div>
+                <p class="feature-body">Features an integrated 6ml liquid tank with specialized rolling ball teeth. It evenly distributes minoxidil, essential oils, or hair serums directly to the roots without leaving your hair greasy.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12.55a11 11 0 0 1 14.08 0"></path><path d="M1.42 9a16 16 0 0 1 21.16 0"></path><path d="M8.53 16.11a6 6 0 0 1 6.95 0"></path><line x1="12" y1="20" x2="12.01" y2="20"></line></svg></span>
+                    <div>
+                      <p class="feature-title">100% Waterproof Design</p>
+                      <p class="feature-kicker">IPX5 Rating</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">04</span>
+                </div>
+                <p class="feature-body">Designed for real life. The fully waterproof body means you can easily detach the tank and rinse the comb teeth directly under running water after your daily routine.</p>
+              </li>
+              <li class="feature-item">
+                <div class="feature-header">
+                  <div class="feature-header-left">
+                    <span class="feature-icon-wrapper"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg></span>
+                    <div>
+                      <p class="feature-title">USB Rechargeable & Portable</p>
+                      <p class="feature-kicker">Travel Friendly</p>
+                    </div>
+                  </div>
+                  <span class="feature-number">05</span>
+                </div>
+                <p class="feature-body">Features a long-lasting battery with fast Type-C charging. Its lightweight, travel-friendly design ensures you never have to skip a treatment, whether at home or on the go.</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 2: Specs -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Specifications</span>
+          <span class="accordion-title">The numbers, in detail</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            
+            <div class="specs-list">
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"></path><circle cx="12" cy="12" r="3"></circle></svg></span>
+                  <span class="spec-name">Therapy Type</span>
+                </div>
+                <div class="spec-value">650nm Red Light & Micro-vibration</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg></span>
+                  <span class="spec-name">Applicator</span>
+                </div>
+                <div class="spec-value">Integrated Liquid Tank with Roller Teeth</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"/><path d="M5 3v4"/><path d="M19 17v4"/><path d="M3 5h4"/><path d="M17 19h4"/></svg></span>
+                  <span class="spec-name">Waterproof Rating</span>
+                </div>
+                <div class="spec-value">IPX5</div>
+              </div>
+              <div class="spec-item">
+                <div class="spec-label">
+                  <span class="spec-icon"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 4v10.54a4 4 0 1 1-4 0V4a2 2 0 0 1 4 0Z"/></svg></span>
+                  <span class="spec-name">Battery</span>
+                </div>
+                <div class="spec-value">USB Rechargeable</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 3: Included -->
+    <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">In the box</span>
+          <span class="accordion-title">Everything you need</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            
+            <ul class="included-list">
+              <li class="included-item">
+                <div class="included-left">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="included-img"><rect x="4" y="4" width="16" height="16" rx="2"></rect><path d="M8 4v16"></path></svg>
+                  <span class="included-qty">1</span>
+                  <p class="included-label">Muuhu Comb Device</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="included-img"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                  <span class="included-qty">1</span>
+                  <p class="included-label">USB Charging Cable</p>
+                </div>
+              </li>
+              <li class="included-item">
+                <div class="included-left">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="included-img"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"></path><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"></path></svg>
+                  <span class="included-qty">1</span>
+                  <p class="included-label">User Manual</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Item 4: Certifications -->
+    <!-- <div class="accordion-item">
+      <button class="accordion-btn" onclick="muuhuToggleAccordion(this)" type="button">
+        <span>
+          <span class="accordion-eyebrow">Certifications</span>
+          <span class="accordion-title">Safety and product signals</span>
+        </span>
+        <svg class="accordion-icon" width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+      </button>
+      <div class="accordion-content">
+        <div class="accordion-inner">
+          <div class="accordion-body">
+            <ul class="cert-list">
+              <li class="cert-item">CE Certified</li>
+              <li class="cert-item">UKCA Approved</li>
+              <li class="cert-item">RoHS Compliant</li>
+              <li class="cert-item">1-Year Warranty</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    
+  </div>
+</div>
+
+<script>
+  function muuhuToggleAccordion(btn) {
+    var item = btn.parentElement;
+    item.classList.toggle('active');
+  }
+</script>
