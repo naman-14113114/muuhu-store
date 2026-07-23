@@ -102,7 +102,7 @@ function dispatchAddToCartEvent(product: Product) {
   }
 
   window.dispatchEvent(
-    new CustomEvent("buudy:add-to-cart", {
+    new CustomEvent("muuhu:add-to-cart", {
       detail: {
         product,
       },
