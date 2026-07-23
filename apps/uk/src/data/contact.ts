@@ -37,15 +37,15 @@ export const contactHelpLinks = [
 export const contactSocialLinks = [
   {
     label: "Facebook",
-    href: "https://www.facebook.com/profile.php?id=61565686185222",
+    href: "https://www.facebook.com/profile.php?id=61591489414007",
   },
   {
     label: "YouTube",
-    href: "https://www.youtube.com/@muuhu-com",
+    href: "https://www.youtube.com/@Muuhu-w3b",
   },
   {
     label: "Instagram",
-    href: "https://www.instagram.com/muuhu_com",
+    href: "https://www.instagram.com/muuhu1234/",
   },
 ];
 

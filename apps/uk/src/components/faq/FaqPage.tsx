@@ -131,7 +131,7 @@ export function FaqPage() {
             <span className="text-xs text-[var(--muted)] font-semibold uppercase tracking-wider">Connect with us:</span>
             <div className="flex items-center gap-3">
               <a
-                href="https://www.facebook.com/profile.php?id=61565686185222"
+                href="https://www.facebook.com/profile.php?id=61591489414007"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(58,31,61,0.05)] text-[var(--plum)] transition-all duration-300 hover:bg-[var(--plum)] hover:text-[var(--cream)] hover:-translate-y-0.5 shadow-sm"
@@ -142,7 +142,7 @@ export function FaqPage() {
                 </svg>
               </a>
               <a
-                href="https://www.instagram.com/buudy_com"
+                href="https://www.instagram.com/muuhu1234/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(58,31,61,0.05)] text-[var(--plum)] transition-all duration-300 hover:bg-[var(--plum)] hover:text-[var(--cream)] hover:-translate-y-0.5 shadow-sm"
@@ -155,7 +155,7 @@ export function FaqPage() {
                 </svg>
               </a>
               <a
-                href="https://www.youtube.com/@buudy-com"
+                href="https://www.youtube.com/@Muuhu-w3b"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-8 w-8 items-center justify-center rounded-full bg-[rgba(58,31,61,0.05)] text-[var(--plum)] transition-all duration-300 hover:bg-[var(--plum)] hover:text-[var(--cream)] hover:-translate-y-0.5 shadow-sm"

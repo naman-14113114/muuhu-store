@@ -158,9 +158,9 @@ export function organizationJsonLd() {
     url: absoluteUrl("/"),
     logo: absoluteUrl("/favicon.ico"),
     sameAs: [
-      "https://www.instagram.com/muuhu",
-      "https://www.facebook.com/profile.php?id=123",
-      "https://www.youtube.com/@muuhu",
+      "https://www.instagram.com/muuhu1234/",
+      "https://www.facebook.com/profile.php?id=61591489414007",
+      "https://www.youtube.com/@Muuhu-w3b",
     ],
     contactPoint: {
       "@type": "ContactPoint",

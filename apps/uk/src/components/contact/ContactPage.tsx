@@ -50,7 +50,7 @@ function ContactHero() {
 
           <div className="mt-4 flex gap-3">
             <span className="buudy-mono rounded-full border border-[var(--border)] bg-[rgba(247,241,232,.72)] px-4 py-3 text-[var(--plum)]">
-              13 Harefield Rd, Rickmansworth, England, WD3 1LY, UK
+              21 Harefield Rd, Rickmansworth, England, WD3 1LY, UK
             </span>
           </div>
 
