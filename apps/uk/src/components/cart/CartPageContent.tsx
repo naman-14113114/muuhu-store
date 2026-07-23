@@ -94,11 +94,11 @@ export function CartPageContent({
           <ShoppingBag className="mx-auto text-[var(--gold)]" size={42} />
           <h1 className="buudy-heading mt-5">Your cart is empty.</h1>
           <p className="buudy-copy mx-auto mt-5 max-w-lg">
-            Add the Buudy LED Mask or Red Torch to unlock current offers and
-            free shipping.
+            Add the Muuhu 7-in-1 Hair Dryer to start building your styling
+            routine.
           </p>
           <Button asChild className="mt-8">
-            <Link href="/">Shop Buudy</Link>
+            <Link href="/">Shop Muuhu</Link>
           </Button>
         </div>
       </section>
@@ -241,7 +241,7 @@ function MobileStickyCheckout() {
       }
     }
 
-    window.addEventListener("buudy:started-checkout", handleCheckoutStarted);
+    window.addEventListener("muuhu:started-checkout", handleCheckoutStarted);
     window.addEventListener("pageshow", handlePageShow);
 
     const mainBtn = document.getElementById("main-checkout-btn");
@@ -258,7 +258,7 @@ function MobileStickyCheckout() {
     }
 
     return () => {
-      window.removeEventListener("buudy:started-checkout", handleCheckoutStarted);
+      window.removeEventListener("muuhu:started-checkout", handleCheckoutStarted);
       window.removeEventListener("pageshow", handlePageShow);
       if (observer && mainBtn) {
         observer.unobserve(mainBtn);

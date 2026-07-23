@@ -23,13 +23,13 @@ type CheckoutEventDetail = {
   };
 };
 
-const KLAVIYO_COMPANY_ID =
-  process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID || "Tp323F";
-// const KLAVIYO_UK_POPUP_FORM_ID = "SGzH5k";
+// This is Klaviyo's public site ID, not a private API key. Keeping the Muuhu
+// default here prevents the storefront silently falling back to another brand
+// or disabling its customer-lifecycle events when an environment variable is
+// missed during deployment.
+const KLAVIYO_COMPANY_ID = process.env.NEXT_PUBLIC_KLAVIYO_COMPANY_ID || "WSS2Rr";
 const productBySlug = new Map(products.map((product) => [product.slug, product]));
 const marketHost = new URL(market.siteUrl).hostname;
-const poundOfferLabel = `${String.fromCharCode(163)}10`;
-const staleDollarOfferLabel = `${String.fromCharCode(36)}10`;
 const klaviyoNodeSelector =
   '[aria-modal="true"], [role="dialog"], [data-testid="POPUP"], div[class*="kl-private-reset-css"], .needsclick[class*="kl-private-reset-css"]';
 
@@ -83,10 +83,7 @@ function cartLinePayload(line: CartLine) {
     RowTotal: (line.unitPriceCents * line.quantity) / 100,
     ProductURL: product ? toAbsoluteUrl(`/products/${product.slug}`) : undefined,
     ImageURL: toAbsoluteUrl(line.image),
-    ProductCategories: [
-      "Light Therapy",
-      product?.template === "torch" ? "Red Light Torch" : "LED Mask",
-    ],
+    ProductCategories: ["Hair Care", product?.template === "torch" ? "Hair Styling Tool" : "Hair Dryer"],
   };
 }
 
@@ -115,7 +112,6 @@ function isBlockingKlaviyoModal(node: HTMLElement) {
 
   const rect = node.getBoundingClientRect();
   const style = window.getComputedStyle(node);
-  const text = (node.textContent || "").toUpperCase();
   const modalAncestor = node.closest<HTMLElement>(
     '[aria-modal="true"], [role="dialog"], [data-testid="POPUP"]',
   );
@@ -130,13 +126,7 @@ function isBlockingKlaviyoModal(node: HTMLElement) {
   const coversModalArea =
     containerRect.width >= Math.min(window.innerWidth * 0.62, 420) &&
     containerRect.height >= Math.min(window.innerHeight * 0.28, 260);
-  const looksLikeOfferModal =
-    (text.includes("WELCOME") ||
-      text.includes("NO, THANKS") ||
-      text.includes(poundOfferLabel) ||
-      text.includes(staleDollarOfferLabel)) &&
-    rect.width >= 240 &&
-    rect.height >= 160;
+  const looksLikeOfferModal = rect.width >= 240 && rect.height >= 160;
 
   return Boolean(modalAncestor && coversModalArea) || (isFixedLayer && looksLikeOfferModal);
 }
@@ -144,43 +134,6 @@ function isBlockingKlaviyoModal(node: HTMLElement) {
 function guardKlaviyoScrollLock() {
   let raf = 0;
   let startupChecks = 0;
-
-  const removeStaleDollarPopupNodes = () => {
-    document
-      .querySelectorAll<HTMLElement>(klaviyoNodeSelector)
-      .forEach((node) => {
-        const text = node.textContent || "";
-
-        if (!text.includes(staleDollarOfferLabel)) {
-          return;
-        }
-
-        const popup =
-          node.closest<HTMLElement>('[aria-modal="true"], [role="dialog"], [data-testid="POPUP"]') ??
-          node;
-        popup.remove();
-      });
-  };
-
-  const removeVisibleOfferPopups = () => {
-    document
-      .querySelectorAll<HTMLElement>(klaviyoNodeSelector)
-      .forEach((node) => {
-        const text = node.textContent || "";
-
-        if (
-          !text.includes(`${staleDollarOfferLabel} WELCOME`) &&
-          !text.includes(`${poundOfferLabel} WELCOME`)
-        ) {
-          return;
-        }
-
-        const popup =
-          node.closest<HTMLElement>('[aria-modal="true"], [role="dialog"], [data-testid="POPUP"]') ??
-          node;
-        popup.remove();
-      });
-  };
 
   const hasVisibleBlockingKlaviyoModal = () =>
     Array.from(document.querySelectorAll<HTMLElement>(klaviyoNodeSelector)).some(
@@ -207,8 +160,6 @@ function guardKlaviyoScrollLock() {
   const unlockScroll = () => {
     window.cancelAnimationFrame(raf);
     raf = window.requestAnimationFrame(() => {
-      removeStaleDollarPopupNodes();
-
       if (hasVisibleBlockingKlaviyoModal()) {
         return;
       }
@@ -274,7 +225,6 @@ function guardKlaviyoScrollLock() {
     }
 
     window.setTimeout(() => {
-      removeVisibleOfferPopups();
       unlockRepeatedly();
     }, 50);
   };
@@ -315,13 +265,13 @@ export function KlaviyoAnalytics() {
     window.klaviyo = window.klaviyo || [];
     const cleanupScrollGuard = guardKlaviyoScrollLock();
     const loadKlaviyo = () => {
-      if (document.querySelector("script[data-buudy-klaviyo='true']")) {
+      if (document.querySelector("script[data-muuhu-klaviyo='true']")) {
         return;
       }
 
       const script = document.createElement("script");
       script.async = true;
-      script.dataset.buudyKlaviyo = "true";
+      script.dataset.muuhuKlaviyo = "true";
       script.src = `https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=${encodeURIComponent(
         KLAVIYO_COMPANY_ID,
       )}`;
@@ -449,7 +399,7 @@ export function KlaviyoAnalytics() {
         "track",
         "Started Checkout",
         {
-          $event_id: `uk-buudy-${Date.now()}`,
+          $event_id: `uk-muuhu-${Date.now()}`,
           $value:
             typeof detail?.totals?.totalCents === "number"
               ? detail.totals.totalCents / 100
@@ -466,12 +416,12 @@ export function KlaviyoAnalytics() {
       ]);
     }
 
-    window.addEventListener("buudy:add-to-cart", handleAddToCart);
-    window.addEventListener("buudy:started-checkout", handleStartedCheckout);
+    window.addEventListener("muuhu:add-to-cart", handleAddToCart);
+    window.addEventListener("muuhu:started-checkout", handleStartedCheckout);
 
     return () => {
-      window.removeEventListener("buudy:add-to-cart", handleAddToCart);
-      window.removeEventListener("buudy:started-checkout", handleStartedCheckout);
+      window.removeEventListener("muuhu:add-to-cart", handleAddToCart);
+      window.removeEventListener("muuhu:started-checkout", handleStartedCheckout);
     };
   }, []);
 
