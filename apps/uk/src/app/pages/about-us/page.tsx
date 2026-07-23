@@ -3,16 +3,16 @@ import { AboutPage } from "@/components/about/AboutPage";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us | US LED Skincare Store - Buudy",
+  title: "About Us | Muuhu Hair Styler",
   description:
-    "Learn about Buudy, our team of skincare advocates, our story of wire-free LED mask innovation, and our mission to make high-quality light therapy routines simple and effective.",
+    "Learn about Muuhu, our team of hair care experts, our story of high-speed ionic hair dryer innovation, and our mission to make professional styling simple and safe.",
   alternates: {
     canonical: "/pages/about-us",
   },
   openGraph: {
-    title: "About Buudy | High-Performance LED Skincare",
+    title: "About Muuhu | Professional High-Speed Hair Styler",
     description:
-      "Learn about our team of skincare advocates, our story of wire-free LED mask innovation, and our mission to deliver visible results.",
+      "Learn about our team of hair care experts, our story of high-speed hair styler innovation, and our mission to deliver visible results.",
     url: absoluteUrl("/pages/about-us"),
   },
 };
