@@ -13,6 +13,7 @@ node_modules
 # testing
 /coverage
 .seo-cache/
+.playwright-cli/
 
 # next.js
 .next

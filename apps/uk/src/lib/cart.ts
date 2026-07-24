@@ -150,7 +150,7 @@ export function getDisplayLines(lines: CartLine[]): CartLine[] {
     .filter((line) => {
       if (line.productId === "muuhu-hair-dryer" && line.type === "gift") {
         const giftId = line.id.split(":")[1];
-        if (giftId === "travel-case") {
+        if (giftId === "travel-case" || giftId === "skincare-guide") {
           return false;
         }
       }

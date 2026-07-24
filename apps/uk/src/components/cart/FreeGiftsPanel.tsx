@@ -44,7 +44,11 @@ export function FreeGiftsPanel({ compact = false }: { compact?: boolean }) {
             <span className="mx-auto grid h-8 w-8 place-items-center rounded-full bg-[var(--gold)] text-white shadow-[0_0_0_5px_var(--card)]">
               <Check size={16} />
             </span>
-            <p className="mt-3 text-[0.64rem] font-semibold uppercase tracking-[.16em] text-[var(--plum)]">
+            <p
+              className={`mt-3 font-semibold uppercase text-[var(--plum)] ${
+                compact ? "buudy-gift-label" : "buudy-gift-label-large"
+              }`}
+            >
               {giftLine.id.includes("skincare-guide")
                 ? "Haircare e-book"
                 : giftLine.title}

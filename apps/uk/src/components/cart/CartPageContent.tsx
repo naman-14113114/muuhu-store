@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import {
-  BookOpen,
   Check,
   ChevronDown,
   Gift,
@@ -325,39 +324,31 @@ function CartRestoringState() {
 
 function DigitalGiftNotice({ line }: { line: CartLine }) {
   return (
-    <div className="relative overflow-hidden rounded-[1.5rem] border border-[rgba(184,149,86,.25)] bg-[rgba(184,149,86,.09)] p-5 md:pl-6 md:pr-36">
-      <div className="flex flex-col items-center gap-3 text-center md:flex-row md:items-start md:gap-4 md:text-left">
-        <div className="flex items-center justify-center gap-3 md:w-auto">
-          <span className="grid h-12 w-12 flex-none place-items-center rounded-full bg-[var(--card)] text-[var(--gold)] shadow-sm">
-            <BookOpen size={22} />
-          </span>
-          <span className="buudy-mono rounded-full bg-[var(--card)] px-4 py-2 text-[var(--plum)] md:hidden">
-            Free digital reward
-          </span>
+    <div className="rounded-[1.5rem] border border-[rgba(184,149,86,.25)] bg-[rgba(184,149,86,.09)] p-5 md:p-6">
+      <div className="grid gap-5 md:grid-cols-[132px_1fr] md:items-start">
+        <div className="relative mx-auto h-32 w-32 overflow-hidden rounded-[1.35rem] border border-[rgba(58,31,61,.14)] shadow-sm md:mx-0">
+          <Image
+            alt={line.title}
+            className="object-cover"
+            fill
+            sizes="128px"
+            src={line.image}
+          />
         </div>
-        <div className="flex flex-col items-center md:items-start">
-          <span className="buudy-mono hidden rounded-full bg-[var(--card)] px-4 py-2 text-[var(--plum)] md:block">
+        <div className="flex flex-col items-center text-center md:items-start md:text-left">
+          <span className="buudy-mono rounded-full bg-[var(--card)] px-4 py-2 text-[var(--plum)]">
             Free digital reward
           </span>
           <p className="mt-2 buudy-display text-2xl leading-tight text-[var(--plum)]">
             {line.title} is sent by email after checkout.
           </p>
-          <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
-            It will not appear as a shipped cart item, but it stays unlocked with
-            your mask order so your routine starts the moment your confirmation
-            email arrives.
-          </p>
         </div>
       </div>
-      <div className="pointer-events-none absolute bottom-[-24px] right-3 hidden h-32 w-24 rotate-[-7deg] overflow-hidden rounded-xl border border-[rgba(58,31,61,.14)] bg-[var(--card)] shadow-xl md:block">
-        <Image
-          alt={line.title}
-          className="object-contain p-2"
-          fill
-          sizes="96px"
-          src={line.image}
-        />
-      </div>
+      <p className="mt-5 text-base leading-7 text-[var(--muted)] md:mt-6 md:max-w-[760px]">
+        It will not appear as a shipped cart item, but it stays unlocked with
+        your hair dryer order so your routine starts the moment your
+        confirmation email arrives.
+      </p>
     </div>
   );
 }

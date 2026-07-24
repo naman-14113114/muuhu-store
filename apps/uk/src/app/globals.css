@@ -163,6 +163,23 @@ p {
   font-size: 0.95rem;
 }
 
+.buudy-gift-label {
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  line-height: 1.55;
+}
+
+@media (min-width: 640px) {
+  .buudy-gift-label {
+    font-size: 0.62rem;
+  }
+}
+
+.buudy-gift-label-large {
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+}
+
 .buudy-glow {
   position: absolute;
   pointer-events: none;
