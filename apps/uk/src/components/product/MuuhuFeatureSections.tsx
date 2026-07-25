@@ -1,14 +1,13 @@
 "use client";
 
-import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import {
-  CheckCircle2,
-  Droplets,
-  ShieldCheck,
-  Smartphone,
-  Sparkles,
-} from "lucide-react";
+  IconDeviceMobile,
+  IconDroplets,
+  IconLayersIntersect,
+  IconRipple,
+  IconShieldCheck,
+} from "@tabler/icons-react";
 import { productAsset } from "@/lib/media";
 
 export function MuuhuProductFocus() {
@@ -31,7 +30,9 @@ export function MuuhuProductFocus() {
             Style without <em className="buudy-italic">compromise</em>.
           </h2>
           <p className="mt-5 max-w-lg leading-7 text-[var(--muted)]">
-            Our 110,000 RPM brushless motor combined with the Coanda effect allows you to wrap, curl, and style your hair effortlessly. Achieve salon-quality results at home with zero extreme heat damage.
+            Our 110,000 RPM brushless motor combined with the Coanda effect
+            allows you to wrap, curl, and style your hair effortlessly. Achieve
+            salon-quality results at home with zero extreme heat damage.
           </p>
         </div>
       </div>
@@ -41,7 +42,10 @@ export function MuuhuProductFocus() {
 
 export function MuuhuAppPromo() {
   return (
-    <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24" id="muuhu-app">
+    <section
+      className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24"
+      id="muuhu-app"
+    >
       <div className="buudy-wrap grid items-center gap-8 md:gap-12 lg:grid-cols-[1fr_1.2fr]">
         <div className="relative aspect-[1200/799] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] lg:order-last">
           {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -62,7 +66,10 @@ export function MuuhuAppPromo() {
             Muuhu <span className="text-[var(--gold)]">Style App</span>.
           </h2>
           <p className="buudy-copy mt-3 text-sm leading-6">
-            The Muuhu Style App is the ultimate companion for your hair dryer. It helps you unlock the full potential of all 7 attachments with guided tutorials, customized heat settings, and personalized routines tailored to your hair type.
+            The Muuhu Style App is the ultimate companion for your hair dryer.
+            It helps you unlock the full potential of all 7 attachments with
+            guided tutorials, customized heat settings, and personalized
+            routines tailored to your hair type.
           </p>
           <div className="mt-4 grid grid-cols-3 gap-2">
             {["Learn", "Style", "Track"].map((step) => (
@@ -70,14 +77,20 @@ export function MuuhuAppPromo() {
                 className="rounded-lg border border-[rgba(58,31,61,.12)] bg-[var(--card)] px-3 py-2 text-center"
                 key={step}
               >
-                <p className="buudy-mono text-[var(--plum)] font-semibold">{step}</p>
+                <p className="buudy-mono text-[var(--plum)] font-semibold">
+                  {step}
+                </p>
               </div>
             ))}
           </div>
           <div className="mt-5 flex justify-center md:justify-start">
             <Button asChild>
-              <a href="https://app.muuhu.com" target="_blank" rel="noopener noreferrer">
-                <Smartphone size={17} />
+              <a
+                href="https://app.muuhu.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <IconDeviceMobile size={17} stroke={1.7} />
                 Try the app now
               </a>
             </Button>
@@ -88,51 +101,24 @@ export function MuuhuAppPromo() {
   );
 }
 
-const hairTypeGuides = [
-  {
-    type: "Straight + fine",
-    attachment: "Concentrator or smoothing brush",
-    method:
-      "Low to medium heat with fast airflow. Keep sections wide and finish with cool air for shine.",
-  },
-  {
-    type: "Wavy + frizz-prone",
-    attachment: "Round brush, then smoothing brush",
-    method:
-      "Medium heat and medium speed. Add tension at the roots, then polish the mid-lengths and ends.",
-  },
-  {
-    type: "Curly",
-    attachment: "Diffuser",
-    method:
-      "Low heat and low speed. Cup curls upward, dry in pauses, and stop before the hair feels tight.",
-  },
-  {
-    type: "Coily + thick",
-    attachment: "Diffuser plus base dryer",
-    method:
-      "Work in smaller sections. Pre-dry the roots, then use controlled airflow to stretch or define.",
-  },
-];
-
 const stylingDetails = [
   {
-    icon: Droplets,
+    icon: IconDroplets,
     title: "Start with towel-dried hair",
     copy: "The dryer performs best when hair is damp, not dripping. Add heat protectant before styling.",
   },
   {
-    icon: ShieldCheck,
+    icon: IconShieldCheck,
     title: "Control heat by texture",
     copy: "Use cool or medium heat for delicate strands, and reserve high heat for fast pre-drying.",
   },
   {
-    icon: Sparkles,
+    icon: IconRipple,
     title: "Polish with negative ions",
     copy: "200M+ negative ions help reduce visible frizz and leave the finish smoother.",
   },
   {
-    icon: CheckCircle2,
+    icon: IconLayersIntersect,
     title: "One set for every finish",
     copy: "Seven attachments cover smooth blowouts, root lift, curls, diffusing, and precise drying.",
   },
@@ -260,8 +246,8 @@ export function MuuhuHairTypeSection() {
           <div className="mt-8 grid gap-4 md:grid-cols-2">
             {stylingDetails.map(({ icon: Icon, title, copy }) => (
               <div className="flex gap-3" key={title}>
-                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full bg-[rgba(188,146,82,.14)] text-[var(--gold)]">
-                  <Icon size={18} />
+                <span className="grid h-10 w-10 shrink-0 place-items-center rounded-full border border-[rgba(184,149,86,.24)] bg-[linear-gradient(145deg,rgba(255,252,247,.96),rgba(184,149,86,.14))] text-[var(--gold)] shadow-[inset_0_1px_0_rgba(255,255,255,.75)]">
+                  <Icon size={18} stroke={1.45} />
                 </span>
                 <div>
                   <h3 className="text-sm font-semibold text-[var(--plum)]">
@@ -274,7 +260,6 @@ export function MuuhuHairTypeSection() {
               </div>
             ))}
           </div>
-
         </div>
 
         <div className="w-full h-full">

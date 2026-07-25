@@ -22,8 +22,11 @@ export function TrustBadges() {
     <section className="hidden md:block bg-[#f6ede2] py-14 md:py-24">
       <div className="buudy-wrap">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 items-center">
-          {badges.map((badge, idx) => (
-            <div key={idx} className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-center md:text-left justify-center mx-auto w-full">
+          {badges.map((badge) => (
+            <div
+              key={badge.title}
+              className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-center md:text-left justify-center mx-auto w-full"
+            >
               <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0 flex-none opacity-90">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img

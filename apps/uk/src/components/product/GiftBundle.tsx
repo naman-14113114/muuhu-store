@@ -6,15 +6,17 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import Lottie from "lottie-react";
 import {
-  ShieldCheck,
-  Sparkles,
-  RotateCcw,
-  Timer,
-  Crown,
-  Leaf,
-  Heart,
-  Droplet,
-} from "lucide-react";
+  IconBrush,
+  IconCertificate,
+  IconDiamond,
+  IconDroplet,
+  IconHeartHandshake,
+  IconLeaf,
+  IconMist,
+  IconRotateClockwise2,
+  IconScissors,
+  IconWind,
+} from "@tabler/icons-react";
 import type { Product } from "@/data/products";
 import { market } from "@/lib/market";
 import { formatMoney } from "@/lib/money";
@@ -26,6 +28,8 @@ import { Button } from "@/components/ui/Button";
 import { Price } from "@/components/ui/Price";
 import { useCart } from "@/components/cart/CartProvider";
 import { ProductDetailsAccordion } from "./ProductDetailsAccordion";
+
+type ProductIcon = typeof IconDiamond;
 
 function useCountdown(seconds: number) {
   const [remaining, setRemaining] = useState(seconds);
@@ -87,15 +91,16 @@ function FaceNeckIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-function getHighlightIcon(text: string) {
+function getHighlightIcon(text: string): ProductIcon {
   const t = text.toLowerCase();
-  if (t.includes("time") || t.includes("dries")) return Timer;
-  if (t.includes("frizz") || t.includes("smooth")) return Sparkles;
-  if (t.includes("salon") || t.includes("blowout")) return Crown;
-  if (t.includes("follicle") || t.includes("thicker")) return Leaf;
-  if (t.includes("soothes") || t.includes("relaxing")) return Heart;
-  if (t.includes("serum") || t.includes("roots")) return Droplet;
-  return Sparkles;
+  if (t.includes("time") || t.includes("dries")) return IconWind;
+  if (t.includes("frizz") || t.includes("smooth")) return IconMist;
+  if (t.includes("salon") || t.includes("blowout")) return IconBrush;
+  if (t.includes("follicle") || t.includes("thicker")) return IconLeaf;
+  if (t.includes("soothes") || t.includes("relaxing"))
+    return IconHeartHandshake;
+  if (t.includes("serum") || t.includes("roots")) return IconDroplet;
+  return IconDiamond;
 }
 
 export function GiftBundle({ product }: { product: Product }) {
@@ -148,9 +153,9 @@ export function GiftBundle({ product }: { product: Product }) {
       {/* Clinically Proven Badges */}
       <div className="mt-3 flex flex-nowrap items-center gap-1 sm:gap-2">
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <ShieldCheck
+          <IconCertificate
             size={14}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
@@ -158,9 +163,9 @@ export function GiftBundle({ product }: { product: Product }) {
           </span>
         </span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <RotateCcw
+          <IconRotateClockwise2
             size={13}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
@@ -168,9 +173,9 @@ export function GiftBundle({ product }: { product: Product }) {
           </span>
         </span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <Sparkles
+          <IconScissors
             size={14}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
@@ -212,8 +217,8 @@ export function GiftBundle({ product }: { product: Product }) {
                 className="flex items-center gap-3 text-[14.5px] font-normal leading-normal text-[var(--plum)] buudy-display"
                 key={benefit}
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center text-[var(--gold)]">
-                  <Icon size={18} strokeWidth={1.5} />
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[rgba(184,149,86,.22)] bg-[rgba(184,149,86,.10)] text-[var(--gold)]">
+                  <Icon size={17} stroke={1.45} />
                 </span>
                 <span>{benefit}</span>
               </li>
