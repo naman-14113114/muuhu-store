@@ -28,19 +28,43 @@ export const muuhuHairDryer: Product = {
   highlights: [
     "Dries hair in half the time without heat damage",
     "Banishes frizz for a silky, smooth finish",
-    "Achieve a bouncy, salon-quality blowout at home"
+    "Achieve a bouncy, salon-quality blowout at home",
   ],
-  cartImage: productAsset("00-travel-friendly-styler.webp"),
+  cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
   gallery: [
-    { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Hair Dryer" },
-    { src: productAsset("01-amazing-hairstyles.webp"), alt: "Amazing hairstyles with Muuhu Hair Dryer" },
-    { src: productAsset("02-new-year-new-hair.webp"), alt: "New year, new hair, new you!" },
-    { src: productAsset("03-before-after.webp"), alt: "Before & After using Muuhu" },
-    { src: productAsset("04-hairluxe.webp"), alt: "Once you try the hairluxe, there is no turning back" },
-    { src: productAsset("05-coanda-effect.webp"), alt: "Coanda effect in action" },
-    { src: productAsset("06-holiday-gift.webp"), alt: "Holiday gift packaging" },
+    {
+      src: productAsset("00-travel-friendly-styler.webp"),
+      alt: "Muuhu Hair Dryer",
+    },
+    {
+      src: productAsset("01-amazing-hairstyles.webp"),
+      alt: "Amazing hairstyles with Muuhu Hair Dryer",
+    },
+    {
+      src: productAsset("02-new-year-new-hair.webp"),
+      alt: "New year, new hair, new you!",
+    },
+    {
+      src: productAsset("03-before-after.webp"),
+      alt: "Before & After using Muuhu",
+    },
+    {
+      src: productAsset("04-hairluxe.webp"),
+      alt: "Once you try the hairluxe, there is no turning back",
+    },
+    {
+      src: productAsset("05-coanda-effect.webp"),
+      alt: "Coanda effect in action",
+    },
+    {
+      src: productAsset("06-holiday-gift.webp"),
+      alt: "Holiday gift packaging",
+    },
     { src: productAsset("07-prep-hair.webp"), alt: "Prep hair before styling" },
-    { src: productAsset("08-curling-wand.webp"), alt: "Curling wand attachment" },
+    {
+      src: productAsset("08-curling-wand.webp"),
+      alt: "Curling wand attachment",
+    },
     // { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
     // { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
     // { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Hair Dryer Attachments" },
@@ -62,23 +86,28 @@ export const muuhuHairDryer: Product = {
   faqs: [
     {
       question: "What are the 7 attachments included?",
-      answer: "It includes a concentrator nozzle, diffuser, smoothing brush, round volumising brush, two automatic curling barrels (left/right), and a gentle air attachment for fine hair.",
+      answer:
+        "It includes a concentrator nozzle, diffuser, smoothing brush, round volumising brush, two automatic curling barrels (left/right), and a gentle air attachment for fine hair.",
     },
     {
       question: "Does it come with a UK plug?",
-      answer: "Absolutely. All our units are designed specifically for the UK market and come fitted with a standard UK 3-pin plug (220V).",
+      answer:
+        "Absolutely. All our units are designed specifically for the UK market and come fitted with a standard UK 3-pin plug (220V).",
     },
     {
       question: "Is it really as powerful as a Dyson?",
-      answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
+      answer:
+        "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
     },
     {
       question: "Will it damage my hair?",
-      answer: "No. It uses intelligent heat distribution and 200 million negative ions to dry hair quickly via high-speed airflow rather than extreme heat, protecting your hair's natural shine.",
+      answer:
+        "No. It uses intelligent heat distribution and 200 million negative ions to dry hair quickly via high-speed airflow rather than extreme heat, protecting your hair's natural shine.",
     },
     {
       question: "Do you offer a guarantee?",
-      answer: "Yes, every Muuhu Hair Dryer comes with a full 1-year warranty and a 30-day money-back guarantee.",
+      answer:
+        "Yes, every Muuhu Hair Dryer comes with a full 1-year warranty and a 30-day money-back guarantee.",
     },
   ],
   gifts: [
@@ -87,49 +116,95 @@ export const muuhuHairDryer: Product = {
       name: "Premium Packaging",
       valueCents: 3500,
       link: "/pages/premium-packaging",
-      image: productAsset("muuhu-luxury-case-v2.webp")
+      image: productAsset("muuhu-luxury-case-v2.webp"),
     },
     {
       id: "muuhu-comb",
       name: "Muuhu Comb",
       valueCents: 7900,
       link: "/products/muuhu-comb",
-      image: productAsset("muuhu-comb-free-gift.webp")
+      image: "/images/products/muuhu-comb/muuhu_25.webp",
     },
     {
       id: "skincare-guide",
       name: "Haircare E-book",
       valueCents: 1500,
       link: "/pages/haircare-ebook",
-      image: productAsset("muuhu-haircare-ebook-gift.webp")
-    }
+      image: productAsset("muuhu-haircare-ebook-gift.webp"),
+    },
   ],
   included: [
-    { label: "L-Shape Base Unit", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_base.png" },
-    { label: "Right Auto-Wrap Curler", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_right.png" },
-    { label: "Left Auto-Wrap Curler", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_left.png" },
-    { label: "Smoothing Brush", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png" },
-    { label: "Round Volumising Brush", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_round.png" },
-    { label: "Concentrator Nozzle", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" },
-    { label: "Diffuser", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" },
-    { label: "Premium Packaging", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png" },
-    { label: "User Manual", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png" },
+    {
+      label: "L-Shape Base Unit",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_base.png",
+    },
+    {
+      label: "Right Auto-Wrap Curler",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_right.png",
+    },
+    {
+      label: "Left Auto-Wrap Curler",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_left.png",
+    },
+    {
+      label: "Smoothing Brush",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png",
+    },
+    {
+      label: "Round Volumising Brush",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_round.png",
+    },
+    {
+      label: "Concentrator Nozzle",
+      quantity: 1,
+      image:
+        "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png",
+    },
+    {
+      label: "Diffuser",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png",
+    },
+    {
+      label: "Premium Packaging",
+      quantity: 1,
+      image:
+        "/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png",
+    },
+    {
+      label: "User Manual",
+      quantity: 1,
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png",
+    },
   ],
-  badges: ["CE Certified", "UKCA Approved", "RoHS Compliant", "1-Year Warranty"],
+  badges: [
+    "CE Certified",
+    "UKCA Approved",
+    "RoHS Compliant",
+    "1-Year Warranty",
+  ],
 };
 
 export const muuhuComb: Product = {
   id: "muuhu-comb",
   sku: "MUUHU-COMB-01",
   slug: "muuhu-comb",
-  template: "torch", 
+  template: "torch",
   name: "Muuhu Comb",
   heroTitle: "Muuhu",
   heroEmphasis: "Comb",
-  shortDescription: "A revolutionary 3-in-1 Scalp Hair Growth Therapy Comb featuring targeted red light therapy, micro-vibration massage, and an integrated liquid applicator.",
-  description: "Unlock thicker, healthier hair with the Muuhu Comb. This intelligent therapy brush delivers 650nm red light to stimulate follicles, soothing micro-vibrations to boost circulation, and a precise oil applicator for maximum serum absorption without the greasy finish.",
+  shortDescription:
+    "Revolutionary 3-in-1 Hair Growth Comb with targeted red light therapy, micro-vibration massage, and a built-in liquid applicator.",
+  description:
+    "Unlock thicker, healthier hair with the Muuhu Comb. This intelligent therapy brush delivers 650nm red light to stimulate follicles, soothing micro-vibrations to boost circulation, and a precise oil applicator for maximum serum absorption without the greasy finish.",
   seoTitle: "Muuhu Scalp & Hair Growth Therapy Comb | Red Light & Massage",
-  seoDescription: "Revitalize your hair with the Muuhu Hair Growth Therapy Comb. Features red light therapy, micro-vibrations, and essential oil applicator for optimal scalp health.",
+  seoDescription:
+    "Revitalize your hair with the Muuhu Hair Growth Therapy Comb. Features red light therapy, micro-vibrations, and essential oil applicator for optimal scalp health.",
   currency: market.currency,
   priceCents: 7900,
   compareAtCents: 15900,
@@ -141,28 +216,64 @@ export const muuhuComb: Product = {
   highlights: [
     "Stimulates dormant follicles for noticeably thicker hair",
     "Soothes dry, itchy scalp with relaxing micro-vibrations",
-    "Delivers serums deep to the roots without greasy hair"
+    "Delivers serums deep to the roots without greasy hair",
   ],
-  cartImage: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
+  cartImage: "/images/products/muuhu-comb/muuhu_25.webp",
   gallery: [
-    { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp", alt: "Liquid Tank Applicator" },
-    { src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp", alt: "USB Charging" },
+    {
+      src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
+      alt: "Liquid Tank Applicator",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp",
+      alt: "USB Charging",
+    },
     // { src: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp", alt: "Scalp Care Routine" },
     // { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.webp", alt: "Scalp Massager Red Light Therapy" },
-    { src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp", alt: "Essential Oil Applicator Comb" },
-    { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-features.webp", alt: "Hair Growth Comb Features" },
-    { src: "/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp", alt: "Vibrating Scalp Therapy" },
-    { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp", alt: "Waterproof Design" },
+    {
+      src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp",
+      alt: "Essential Oil Applicator Comb",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-features.webp",
+      alt: "Hair Growth Comb Features",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp",
+      alt: "Vibrating Scalp Therapy",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp",
+      alt: "Waterproof Design",
+    },
     // { src: "/images/products/muuhu-comb/muuhu-red-light-follicle-stimulation.webp", alt: "Red Light Follicle Stimulation" },
     // { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu Hair Growth Therapy Comb" },
-    { src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.webp", alt: "Therapy Brush Results" },
-    { src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.webp", alt: "Premium Scalp Massage Brush" },
-    { src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp", alt: "Therapy Comb Lifestyle" },
+    {
+      src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.webp",
+      alt: "Therapy Brush Results",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.webp",
+      alt: "Premium Scalp Massage Brush",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp",
+      alt: "Therapy Comb Lifestyle",
+    },
     // { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-close-up.webp", alt: "Hair Growth Comb Close Up" },
-    { src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp", alt: "Red Light Therapy Benefits" },
+    {
+      src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp",
+      alt: "Red Light Therapy Benefits",
+    },
     // { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.webp", alt: "Premium Haircare Tool" },
-    { src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp", alt: "Comb Before After Results" },
-    { src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp", alt: "Comb Packaging Box" }
+    {
+      src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp",
+      alt: "Comb Before After Results",
+    },
+    {
+      src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp",
+      alt: "Comb Packaging Box",
+    },
   ],
   specs: [
     { label: "Therapy Type", value: "650nm Red Light & Micro-vibration" },
@@ -174,22 +285,37 @@ export const muuhuComb: Product = {
   faqs: [
     {
       question: "Can I use it with any hair serum or oil?",
-      answer: "Yes, the integrated liquid tank is designed to work with most essential oils, minoxidil, and hair serums. The roller teeth distribute the liquid evenly without greasing the hair.",
+      answer:
+        "Yes, the integrated liquid tank is designed to work with most essential oils, minoxidil, and hair serums. The roller teeth distribute the liquid evenly without greasing the hair.",
     },
     {
       question: "How often should I use the red light therapy?",
-      answer: "We recommend using the Muuhu Comb for 10-15 minutes a day, 3-4 times a week for optimal follicle stimulation and scalp health.",
+      answer:
+        "We recommend using the Muuhu Comb for 10-15 minutes a day, 3-4 times a week for optimal follicle stimulation and scalp health.",
     },
     {
       question: "Is it waterproof?",
-      answer: "The comb features an IPX5 waterproof design, meaning you can easily rinse the comb teeth and liquid tank under running water after use. Do not submerge the entire device.",
+      answer:
+        "The comb features an IPX5 waterproof design, meaning you can easily rinse the comb teeth and liquid tank under running water after use. Do not submerge the entire device.",
     },
   ],
   gifts: [],
   included: [
-    { label: "Muuhu Comb Device", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp" },
-    { label: "USB Charging Cable", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp" },
-    { label: "User Manual", quantity: 1, image: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp" },
+    {
+      label: "Muuhu Comb Device",
+      quantity: 1,
+      image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
+    },
+    {
+      label: "USB Charging Cable",
+      quantity: 1,
+      image: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp",
+    },
+    {
+      label: "User Manual",
+      quantity: 1,
+      image: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp",
+    },
   ],
   badges: ["CE Certified", "Red Light Therapy", "Micro-Vibration"],
 };
@@ -204,9 +330,12 @@ export function getProductById(id: string): Product | undefined {
   return products.find((p) => p.id === id);
 }
 
-export const productsById = products.reduce((acc, product) => {
-  acc[product.id] = product;
-  return acc;
-}, {} as Record<string, Product>);
+export const productsById = products.reduce(
+  (acc, product) => {
+    acc[product.id] = product;
+    return acc;
+  },
+  {} as Record<string, Product>,
+);
 
 export type { Product };

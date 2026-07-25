@@ -30,7 +30,7 @@ export const muuhuHairDryer: Product = {
     "Banishes frizz for a silky, smooth finish",
     "Achieve a bouncy, salon-quality blowout at home"
   ],
-  cartImage: productAsset("00-travel-friendly-styler.webp"),
+  cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
   gallery: [
     { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Hair Dryer" },
     { src: productAsset("01-amazing-hairstyles.webp"), alt: "Amazing hairstyles with Muuhu Hair Dryer" },
@@ -94,7 +94,7 @@ export const muuhuHairDryer: Product = {
       name: "Muuhu Comb",
       valueCents: 7900,
       link: "/products/muuhu-comb",
-      image: productAsset("muuhu-comb-free-gift.webp")
+      image: "/images/products/muuhu-comb/muuhu_25.webp"
     },
     {
       id: "skincare-guide",
@@ -126,7 +126,7 @@ export const muuhuComb: Product = {
   name: "Muuhu Comb",
   heroTitle: "Muuhu",
   heroEmphasis: "Comb",
-  shortDescription: "A revolutionary 3-in-1 Scalp Hair Growth Therapy Comb featuring targeted red light therapy, micro-vibration massage, and an integrated liquid applicator.",
+  shortDescription: "Revolutionary 3-in-1 Hair Growth Comb with targeted red light therapy, micro-vibration massage, and a built-in liquid applicator.",
   description: "Unlock thicker, healthier hair with the Muuhu Comb. This intelligent therapy brush delivers 650nm red light to stimulate follicles, soothing micro-vibrations to boost circulation, and a precise oil applicator for maximum serum absorption without the greasy finish.",
   seoTitle: "Muuhu Scalp & Hair Growth Therapy Comb | Red Light & Massage",
   seoDescription: "Revitalize your hair with the Muuhu Hair Growth Therapy Comb. Features red light therapy, micro-vibrations, and essential oil applicator for optimal scalp health.",
@@ -143,7 +143,7 @@ export const muuhuComb: Product = {
     "Soothes dry, itchy scalp with relaxing micro-vibrations",
     "Delivers serums deep to the roots without greasy hair"
   ],
-  cartImage: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
+  cartImage: "/images/products/muuhu-comb/muuhu_25.webp",
   gallery: [
     { src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp", alt: "Liquid Tank Applicator" },
     { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.webp", alt: "Scalp Massager Red Light Therapy" },

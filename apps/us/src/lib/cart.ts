@@ -1,4 +1,8 @@
-import { getProductById, getProductBySlug, type Product } from "@/data/products";
+import {
+  getProductById,
+  getProductBySlug,
+  type Product,
+} from "@/data/products";
 
 export type CartLineType = "product" | "gift";
 
@@ -30,7 +34,10 @@ export const emptyCart: CartState = {
   giftMessage: "",
 };
 
-export function buildProductCartLines(product: Product, quantity = 1): CartLine[] {
+export function buildProductCartLines(
+  product: Product,
+  quantity = 1,
+): CartLine[] {
   const normalizedQuantity = Math.max(quantity, 0);
 
   if (normalizedQuantity <= 0) {
@@ -56,7 +63,7 @@ export function buildProductCartLines(product: Product, quantity = 1): CartLine[
     slug: product.slug,
     type: "gift",
     title: gift.name,
-    subtitle: `${product.name} free gift unlocked`,
+    subtitle: `Revolutionary 3-in-1 Hair Growth Comb with targeted red light therapy, micro-vibration massage, and a built-in liquid applicator.`,
     image: gift.image,
     unitPriceCents: 0,
     compareAtCents: gift.valueCents,
@@ -129,7 +136,7 @@ export function calculateCartTotals(lines: CartLine[]) {
 
 export function getDisplayLines(lines: CartLine[]): CartLine[] {
   const hasHairDryer = lines.some(
-    (line) => line.productId === "muuhu-hair-dryer" && line.type === "product"
+    (line) => line.productId === "muuhu-hair-dryer" && line.type === "product",
   );
 
   if (!hasHairDryer) {
@@ -142,7 +149,7 @@ export function getDisplayLines(lines: CartLine[]): CartLine[] {
         return {
           ...line,
           title: "Muuhu Hair Dryer + Luxury Travel Case",
-          image: "/images/products/muuhu-hair-dryer/00-travel-friendly-styler.jpg",
+          image: "/images/products/muuhu-hair-dryer/muuhu.jpg",
         };
       }
       return line;

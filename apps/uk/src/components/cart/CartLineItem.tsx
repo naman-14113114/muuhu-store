@@ -15,12 +15,12 @@ export function CartLineItem({ line }: { line: CartLine }) {
       {((line.type === "product" && line.slug) || line.title === "Buudy LED Torch") ? (
         <Link
           aria-label={`View ${line.title}`}
-          className="relative h-24 w-20 flex-none overflow-hidden rounded-lg bg-[var(--blush)] transition hover:opacity-90"
+          className="relative h-20 w-20 flex-none overflow-hidden rounded-lg bg-transparent transition hover:opacity-90"
           href={line.title === "Buudy LED Torch" ? "/products/red-light-torch" : `/products/${line.slug}`}
         >
           <Image
             alt={line.title}
-            className="object-cover"
+            className="object-contain"
             fill
             loading="eager"
             sizes="80px"
@@ -28,10 +28,10 @@ export function CartLineItem({ line }: { line: CartLine }) {
           />
         </Link>
       ) : (
-        <div className="relative h-24 w-20 flex-none overflow-hidden rounded-lg bg-[var(--blush)]">
+        <div className="relative h-20 w-20 flex-none overflow-hidden rounded-lg bg-transparent">
           <Image
             alt={line.title}
-            className="object-cover"
+            className="object-contain"
             fill
             loading="lazy"
             sizes="80px"
