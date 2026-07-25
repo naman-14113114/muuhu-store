@@ -2,12 +2,11 @@
 
 import { useState, type FormEvent } from "react";
 import { CheckCircle2 } from "lucide-react";
-import { manualPromoCode } from "@/lib/cart";
 import { useCart } from "./CartProvider";
 
 export function PromoCodeBox() {
   const { applyManualPromoCode, manualPromoCode: appliedCode, totals } = useCart();
-  const [code, setCode] = useState(appliedCode);
+  const [code, setCode] = useState("");
   const [message, setMessage] = useState(appliedCode ? "Promo code applied successfully." : "");
   const [status, setStatus] = useState<"idle" | "success" | "error">(
     appliedCode ? "success" : "idle",
@@ -20,7 +19,7 @@ export function PromoCodeBox() {
 
     const applied = applyManualPromoCode(code);
     if (applied) {
-      setCode(manualPromoCode);
+      setCode("");
       setMessage("Promo code applied successfully.");
       setStatus("success");
       return;
@@ -31,12 +30,11 @@ export function PromoCodeBox() {
   }
 
   return (
-    <div className="rounded-xl border border-[var(--border)] bg-[rgba(241,223,210,.35)] p-4">
-      <p className="buudy-mono text-[var(--gold)]">Promo code</p>
-      <form className="mt-3 flex gap-2" onSubmit={handleApply}>
+    <>
+      <form className="flex gap-2 max-[420px]:flex-col" onSubmit={handleApply}>
         <input
           aria-label="Promo code"
-          className="min-w-0 flex-1 rounded-full border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm font-semibold uppercase tracking-[.08em] text-[var(--plum)] outline-none transition focus:border-[var(--gold)]"
+          className="buudy-display min-w-0 flex-1 rounded-full border border-[var(--border)] bg-[var(--card)] px-5 py-3.5 text-base uppercase tracking-[.08em] text-[var(--plum)] outline-none transition placeholder:text-[rgba(58,31,61,.45)] focus:border-[var(--gold)] disabled:opacity-50 md:text-lg"
           disabled={!active}
           onChange={(event) => {
             setCode(event.target.value);
@@ -45,11 +43,11 @@ export function PromoCodeBox() {
               setStatus("idle");
             }
           }}
-          placeholder={manualPromoCode}
+          placeholder="Enter Promo Code"
           value={inputValue}
         />
         <button
-          className="rounded-full bg-[var(--plum)] px-5 py-3 text-xs font-bold uppercase tracking-[.14em] text-[var(--cream)] transition hover:bg-[var(--ink)] disabled:cursor-not-allowed disabled:opacity-50"
+          className="buudy-display rounded-full bg-[var(--plum)] px-6 py-3.5 text-base uppercase tracking-[.14em] text-[var(--cream)] transition hover:bg-[var(--ink)] disabled:cursor-not-allowed disabled:opacity-50 md:px-7 md:text-lg"
           disabled={!active}
           type="submit"
         >
@@ -59,7 +57,7 @@ export function PromoCodeBox() {
       {active && message ? (
         <p
           aria-live="polite"
-          className={`mt-3 flex items-center gap-2 text-xs font-semibold ${
+          className={`mt-2 flex items-center gap-2 text-xs font-semibold ${
             status === "success" ? "text-[var(--gold)]" : "text-red-600"
           }`}
         >
@@ -67,6 +65,6 @@ export function PromoCodeBox() {
           {message}
         </p>
       ) : null}
-    </div>
+    </>
   );
 }

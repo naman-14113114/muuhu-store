@@ -7,7 +7,6 @@ import {
   ChevronDown,
   Gift,
   ShoppingBag,
-  Truck,
   Lock,
 } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
@@ -72,6 +71,10 @@ export function CartPageContent({
   const [showSaved, setShowSaved] = useState(false);
   const timer = useCheckoutCountdown(10 * 60 - 1);
   const deliveryDate = useDeliveryDate(3);
+  const [deliveryIconData, setDeliveryIconData] = useState<Record<
+    string,
+    unknown
+  > | null>(null);
   const visibleLines = useMemo(
     () => getDisplayLines(lines),
     [lines],
@@ -81,6 +84,15 @@ export function CartPageContent({
     [lines],
   );
   const hasItems = totals.itemCount > 0;
+
+  useEffect(() => {
+    fetch(
+      "/media/products/buudy-led-mask/images/lottieflow-ecommerce-14-19-aa8e50-easey.json",
+    )
+      .then((res) => res.json())
+      .then((data) => setDeliveryIconData(data))
+      .catch((err) => console.error("Error loading delivery lottie", err));
+  }, []);
 
   if (!isHydrated) {
     return <CartRestoringState />;
@@ -113,13 +125,19 @@ export function CartPageContent({
             <div className="flex flex-col items-center gap-3 md:flex-row">
               <div className="flex w-full items-center justify-center gap-3 md:w-auto">
                 <span className="grid h-11 w-11 flex-none place-items-center rounded-full bg-[rgba(184,149,86,.12)] text-[var(--gold)]">
-                  <Truck size={22} />
+                  {deliveryIconData ? (
+                    <Lottie
+                      animationData={deliveryIconData}
+                      className="h-8 w-8"
+                      loop={true}
+                    />
+                  ) : null}
                 </span>
                 <span className="buudy-mono rounded-full bg-[rgba(184,149,86,.12)] px-4 py-2 text-[var(--plum)] md:hidden">
                   Free tracked shipping
                 </span>
               </div>
-              <p className="buudy-display text-xl leading-snug text-[var(--plum)] md:text-2xl">
+              <p className="buudy-display !text-xl !leading-snug text-[var(--plum)] md:!text-2xl">
                 Order in next{" "}
                 <span className="font-semibold text-[var(--ink)]">{timer}</span>{" "}
                 and receive it by{" "}
