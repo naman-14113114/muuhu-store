@@ -1,5 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { appendAttributionToAbsoluteUrl } from "@/lib/attribution";
+import { getAppliedManualPromoCode } from "@/lib/cart";
 import { buildPlusbaseCheckoutUrl } from "@/lib/site";
 
 export const runtime = "nodejs";
@@ -17,6 +18,8 @@ type CheckoutPrepareBody = {
   quantity?: number;
   cart?: {
     lines: Array<{ id?: string; productId: string; quantity: number; type?: string }>;
+    manualPromoCode?: string;
+    promoCodes?: string[];
   };
   attribution?: Record<string, string | null | undefined>;
 };
@@ -69,6 +72,23 @@ function cleanAttribution(attribution: CheckoutPrepareBody["attribution"]) {
   });
 
   return params;
+}
+
+function getManualPromoFromCart(cart: CheckoutPrepareBody["cart"]) {
+  return getAppliedManualPromoCode(
+    cart?.manualPromoCode ??
+      cart?.promoCodes?.find((code) => getAppliedManualPromoCode(code)),
+  );
+}
+
+function appendDiscountCodeToUrl(href: string, discountCode: string) {
+  if (!discountCode) {
+    return href;
+  }
+
+  const url = new URL(href);
+  url.searchParams.set("discount", discountCode);
+  return url.toString();
 }
 
 function appendCookies(current: string, response: Response) {
@@ -213,6 +233,7 @@ export async function POST(request: NextRequest) {
   const token = crypto.randomUUID();
   const body = (await request.json().catch(() => ({}))) as CheckoutPrepareBody;
   const quantity = Math.max(1, Math.round(Number(body.quantity) || 1));
+  const appliedManualPromoCode = getManualPromoFromCart(body.cart);
 
   try {
     const checkout = await createPlusbaseCheckout(quantity, body.attribution, body.cart);
@@ -220,7 +241,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       checkoutToken: checkout.checkoutToken,
       checkoutUrl: appendAttributionToAbsoluteUrl(
-        checkout.checkoutUrl,
+        appendDiscountCodeToUrl(checkout.checkoutUrl, appliedManualPromoCode),
         cleanAttribution(body.attribution),
       ),
     });
@@ -234,6 +255,7 @@ export async function POST(request: NextRequest) {
       checkoutRef: token,
       quantity,
       giftQuantity: quantity,
+      discountCode: appliedManualPromoCode,
       extraParams: bridgeParams(body.attribution),
     }),
   });

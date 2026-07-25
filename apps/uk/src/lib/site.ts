@@ -27,6 +27,7 @@ export type CheckoutBridgeOptions = {
   quantity?: number;
   giftQuantity?: number;
   productId?: string;
+  discountCode?: string;
   source?: string;
   utmSource?: string;
   utmMedium?: string;
@@ -75,6 +76,10 @@ export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {
 
   if (options.checkoutRef) {
     params.checkout_ref = options.checkoutRef;
+  }
+
+  if (options.discountCode) {
+    params.discount = options.discountCode;
   }
 
   Object.entries(params).forEach(([key, value]) => {

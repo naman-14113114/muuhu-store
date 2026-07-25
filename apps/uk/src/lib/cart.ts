@@ -23,16 +23,32 @@ export type CartLine = {
 export type CartState = {
   lines: CartLine[];
   promoCode: string;
+  manualPromoCode: string;
   giftMessage: string;
 };
 
 export const promoCode = "AUTO";
+export const manualPromoCode = "MUUHU10";
+export const manualPromoDiscountCents = 1000;
 
 export const emptyCart: CartState = {
   lines: [],
   promoCode,
+  manualPromoCode: "",
   giftMessage: "",
 };
+
+export function normalizeManualPromoCode(code: string | null | undefined) {
+  return (code ?? "").trim().toUpperCase();
+}
+
+export function isValidManualPromoCode(code: string | null | undefined) {
+  return normalizeManualPromoCode(code) === manualPromoCode;
+}
+
+export function getAppliedManualPromoCode(code: string | null | undefined) {
+  return isValidManualPromoCode(code) ? manualPromoCode : "";
+}
 
 export function buildProductCartLines(
   product: Product,
@@ -105,7 +121,7 @@ export function upsertProductCartLines(
   return [...withoutProduct, ...buildProductCartLines(product, quantity)];
 }
 
-export function calculateCartTotals(lines: CartLine[]) {
+export function calculateCartTotals(lines: CartLine[], appliedManualPromo = "") {
   const productLines = lines.filter((line) => line.type === "product");
   const giftLines = lines.filter((line) => line.type === "gift");
   const subtotalCents = productLines.reduce(
@@ -122,6 +138,9 @@ export function calculateCartTotals(lines: CartLine[]) {
     0,
   );
   const savingsCents = Math.max(compareAtCents - subtotalCents, 0);
+  const promoDiscountCents = isValidManualPromoCode(appliedManualPromo)
+    ? Math.min(manualPromoDiscountCents, subtotalCents)
+    : 0;
 
   return {
     itemCount: productLines.reduce((total, line) => total + line.quantity, 0),
@@ -129,8 +148,9 @@ export function calculateCartTotals(lines: CartLine[]) {
     compareAtCents,
     giftValueCents,
     savingsCents,
+    promoDiscountCents,
     shippingCents: subtotalCents > 0 ? 0 : 0,
-    totalCents: subtotalCents,
+    totalCents: Math.max(subtotalCents - promoDiscountCents, 0),
   };
 }
 
