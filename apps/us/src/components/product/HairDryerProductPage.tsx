@@ -76,7 +76,7 @@ function TechnologyImage({
     <div
       className={`relative mx-auto w-full overflow-hidden rounded-[18px] ${
         section.imageFrame === "wide"
-          ? "max-w-[720px] lg:ml-auto"
+          ? "max-w-[720px] lg:max-w-none lg:absolute lg:-bottom-2 lg:-right-2 lg:w-[48vw] lg:rounded-r-none lg:rounded-bl-none"
           : "max-w-[430px] lg:mr-auto"
       }`}
     >
@@ -87,7 +87,9 @@ function TechnologyImage({
       >
         <Image
           alt={section.alt}
-          className="object-contain"
+          className={`object-contain ${
+            section.imageFrame === "wide" ? "lg:object-cover lg:object-right-bottom lg:scale-[1.02]" : ""
+          }`}
           fill
           loading="lazy"
           sizes="(min-width: 1024px) 44vw, 92vw"
@@ -100,15 +102,15 @@ function TechnologyImage({
 
 function HairDryerTechnologyStory() {
   return (
-    <section className="bg-[#3b1e40] text-[var(--cream)]">
+    <section className="bg-[#3b1e40] text-[var(--cream)] overflow-hidden">
       {technologyStorySections.map((section, index) => (
         <article
           className={`py-10 md:py-14 lg:py-16 ${
-            index === 0 ? "border-b border-[rgba(247,241,232,.16)]" : ""
+            index === 0 ? "border-b border-[rgba(247,241,232,.16)] lg:relative lg:min-h-[42vw] lg:flex lg:items-center" : ""
           }`}
           key={section.title}
         >
-          <div className="buudy-wrap grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+          <div className="buudy-wrap grid items-center gap-8 lg:grid-cols-2 lg:gap-14 w-full">
             {section.imageSide === "left" ? (
               <TechnologyImage section={section} />
             ) : null}
