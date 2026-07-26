@@ -98,7 +98,7 @@ export function BlogArticle({ post, relatedPosts }: BlogArticleProps) {
                   href="/products/muuhu-hair-dryer"
                   className="inline-block bg-[var(--gold)] text-white font-bold tracking-widest uppercase px-8 py-4 rounded-full hover:bg-white hover:text-[var(--plum)] transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
                 >
-                  Shop Muuhu Hair Dryer - $149
+                  Shop Muuhu Airpro - $149
                 </Link>
                 <p className="mt-4 text-sm text-white/60">Compare at $299 • Includes 7 attachments</p>
               </div>

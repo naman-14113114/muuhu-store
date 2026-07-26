@@ -6,7 +6,7 @@ Muuhu US sells professional high-speed hair styling devices designed for salon-q
 
 ## Primary Pages
 - [Home](${market.siteUrl}): US storefront for Muuhu hair styling devices.
-- [Muuhu Hair Dryer](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
+- [Muuhu Airpro](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
 - [Muuhu Scalp Therapy Comb](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu Hair Growth Comb.
 - [FAQs](${market.siteUrl}/pages/faqs): Common questions about shipping, returns, product use, and care.
 - [Shipping Policy](${market.siteUrl}/policies/shipping-policy): US shipping timelines and tracking guidance.
@@ -16,8 +16,8 @@ Muuhu US sells professional high-speed hair styling devices designed for salon-q
 - [Best Hair Dryer US 2026](${market.siteUrl}/blog/best-hair-dryer-us-2026): Comprehensive buyer guide for hair dryers in the US.
 - [Best Hair Dryer for Frizzy Hair](${market.siteUrl}/blog/best-hair-dryer-for-frizzy-hair-us): How ionic technology tames frizz.
 
-## Muuhu Hair Dryer Summary
-- Product: Muuhu 7-in-1 Hair Dryer
+## Muuhu Airpro Summary
+- Product: Muuhu Airpro
 - Price: USD 149, compare-at USD 299
 - Category: hair dryer, high-speed styler, ionic hair dryer, professional blowout device
 - Motor: 110,000 RPM high-speed brushless DC

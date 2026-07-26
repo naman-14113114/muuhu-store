@@ -7,16 +7,16 @@ export const muuhuHairDryer: Product = {
   sku: "MUUHU-HD-7IN1",
   slug: "muuhu-hair-dryer",
   template: "mask", // reuse the detailed product template structure
-  name: "Muuhu Hair Dryer",
+  name: "Muuhu Airpro",
   heroTitle: "Muuhu",
-  heroEmphasis: "Hair Dryer",
+  heroEmphasis: "Airpro",
   shortDescription:
     "Professional 7-in-1 high speed styling system with 110,000 RPM brushless motor. Dry, curl, straighten, and volumise with one device.",
   description:
-    "Salon-grade hair styling reimagined for US homes. The Muuhu Hair Dryer combines a 110,000 RPM brushless motor, ionic technology with 200 million negative ions, 7 interchangeable attachments, and intelligent heat control — all in one lightweight device.",
+    "Salon-grade hair styling reimagined for US homes. The Muuhu Airpro combines a 110,000 RPM brushless motor, ionic technology with 200 million negative ions, 7 interchangeable attachments, and intelligent heat control — all in one lightweight device.",
   seoTitle: "Best Hair Dryer US | Muuhu High Speed Styler",
   seoDescription:
-    "Shop the Muuhu Hair Dryer in the US: 110,000 RPM motor, ionic frizz control, 7 styling attachments, professional results at home. Free US delivery.",
+    "Shop the Muuhu Airpro in the US: 110,000 RPM motor, ionic frizz control, 7 styling attachments, professional results at home. Free US delivery.",
   currency: market.currency,
   priceCents: 14900,
   compareAtCents: 29900,
@@ -32,8 +32,8 @@ export const muuhuHairDryer: Product = {
   ],
   cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
   gallery: [
-    { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Hair Dryer" },
-    { src: productAsset("01-amazing-hairstyles.webp"), alt: "Amazing hairstyles with Muuhu Hair Dryer" },
+    { src: productAsset("00-travel-friendly-styler.webp"), alt: "Muuhu Airpro" },
+    { src: productAsset("01-amazing-hairstyles.webp"), alt: "Amazing hairstyles with Muuhu Airpro" },
     { src: productAsset("02-new-year-new-hair.webp"), alt: "New year, new hair, new you!" },
     { src: productAsset("03-before-after.webp"), alt: "Before & After using Muuhu" },
     { src: productAsset("04-hairluxe.webp"), alt: "Once you try the hairluxe, there is no turning back" },
@@ -43,7 +43,7 @@ export const muuhuHairDryer: Product = {
     { src: productAsset("08-curling-wand.webp"), alt: "Curling wand attachment" },
     { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
     { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
-    { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Hair Dryer Attachments" },
+    { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Airpro Attachments" },
     { src: productAsset("12-muuhu-salon-quality-blowout.png"), alt: "Muuhu Salon Quality Blowout" },
     { src: productAsset("13-muuhu-fast-drying-hair-dryer.png"), alt: "Muuhu Fast Drying Hair Dryer" },
   ],
@@ -62,7 +62,7 @@ export const muuhuHairDryer: Product = {
   faqs: [
     {
       question: "Is it really as powerful as a Dyson?",
-      answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
+      answer: "Yes! The Muuhu Airpro features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
     },
     {
       question: "Does it come with a US plug?",
@@ -78,7 +78,7 @@ export const muuhuHairDryer: Product = {
     },
     {
       question: "Do you offer a guarantee?",
-      answer: "Yes, every Muuhu Hair Dryer comes with a full 1-year warranty and a 30-day money-back guarantee.",
+      answer: "Yes, every Muuhu Airpro comes with a full 1-year warranty and a 30-day money-back guarantee.",
     },
   ],
   gifts: [

@@ -297,7 +297,7 @@ export const wavelengths: Wavelength[] = [
 export const comparison = {
   intro: "Check the difference yourself",
   columns: [
-    { label: "Muuhu Hair Dryer", price: "£149", featured: true },
+    { label: "Muuhu Airpro", price: "£149", featured: true },
     { label: "Dyson Supersonic", price: "£429" },
     { label: "Shark SpeedStyle", price: "£199" },
     { label: "GHD Air", price: "£199" },
@@ -327,7 +327,7 @@ export const touchTech = [
 export const faqs: FAQItem[] = [
   {
     question: "Is it really as powerful as a Dyson?",
-    answer: "Yes! The Muuhu Hair Dryer features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.",
+    answer: "Yes! The Muuhu Airpro features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.",
   },
   {
     question: "Does it come with a UK plug?",

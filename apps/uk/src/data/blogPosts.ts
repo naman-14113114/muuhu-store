@@ -34,7 +34,7 @@ export const blogPosts: BlogPost[] = [
     author: { name: 'Muuhu Editorial Team', role: 'Hair Care Experts' },
     readingTime: '8 min read',
     excerpt: 'Navigate the crowded UK hair dryer market with our comprehensive 2026 guide. We break down the science of fast drying, ionic technology, and what truly makes a hair dryer worth your investment.',
-    heroImage: { src: '/images/products/muuhu-hair-dryer/muuhu-luxury-case.webp', alt: 'Muuhu Hair Dryer in luxury case' },
+    heroImage: { src: '/images/products/muuhu-hair-dryer/muuhu-luxury-case.webp', alt: 'Muuhu Airpro in luxury case' },
     category: 'Buying Guides',
     tags: ['hair dryer', 'buying guide', 'hair care', 'technology'],
     relatedSlugs: ['dyson-airwrap-alternative-uk', 'best-hair-dryer-for-frizzy-hair-uk'],
@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'muuhu-cta',
         heading: 'Experience the Next Generation of Hair Care',
-        body: '<p>The Muuhu Hair Dryer combines a 110,000 RPM brushless motor, 200M+ negative ions, and 7 professional styling attachments in an ultra-lightweight ~600g design. Priced at just £149 (compare at £299), it is the ultimate tool for salon-quality results at home.</p>',
+        body: '<p>The Muuhu Airpro combines a 110,000 RPM brushless motor, 200M+ negative ions, and 7 professional styling attachments in an ultra-lightweight ~600g design. Priced at just £149 (compare at £299), it is the ultimate tool for salon-quality results at home.</p>',
         type: 'cta'
       }
     ]
@@ -105,7 +105,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'cta',
         heading: 'Say Goodbye to Frizz',
-        body: '<p>The Muuhu Hair Dryer features advanced ionic technology, generating over 200 million negative ions to dramatically reduce frizz and enhance shine. Paired with its smoothing brush attachment, achieving a sleek, salon-worthy finish at home has never been easier.</p>',
+        body: '<p>The Muuhu Airpro features advanced ionic technology, generating over 200 million negative ions to dramatically reduce frizz and enhance shine. Paired with its smoothing brush attachment, achieving a sleek, salon-worthy finish at home has never been easier.</p>',
         type: 'cta'
       }
     ]
@@ -147,7 +147,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'cta',
         heading: 'Embrace Your Natural Texture',
-        body: '<p>The Muuhu Hair Dryer includes a specially designed Diffuser attachment that disperses air evenly around your curls, simulating natural drying to reduce frizz and define curls and waves. Combined with precise heat and speed controls, it is the perfect tool for curly hair.</p>',
+        body: '<p>The Muuhu Airpro includes a specially designed Diffuser attachment that disperses air evenly around your curls, simulating natural drying to reduce frizz and define curls and waves. Combined with precise heat and speed controls, it is the perfect tool for curly hair.</p>',
         type: 'cta'
       }
     ]
@@ -189,7 +189,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'cta',
         heading: 'Unlock Limitless Styles',
-        body: '<p>Why buy separate tools when you can have them all? The Muuhu Hair Dryer includes all 7 attachments, giving you the power to curl, wave, smooth, and dry with one beautifully engineered device. Get yours today.</p>',
+        body: '<p>Why buy separate tools when you can have them all? The Muuhu Airpro includes all 7 attachments, giving you the power to curl, wave, smooth, and dry with one beautifully engineered device. Get yours today.</p>',
         type: 'cta'
       }
     ]
@@ -213,7 +213,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'intro',
         heading: 'The Rise of the Multi-Styler',
-        body: '<p>The invention of tools that use air to style hair, rather than extreme heat, revolutionised the beauty industry. The Dyson Airwrap popularised this category, offering a way to curl, wave, smooth, and dry without heat damage. However, its premium price tag has many consumers searching for a viable <strong>Dyson Airwrap alternative</strong> in the UK.</p><p>The Muuhu Hair Dryer and Multi-Styler enters the market as a high-performance alternative, offering comparable engineering specifications and a comprehensive suite of attachments at a more accessible price point.</p>',
+        body: '<p>The invention of tools that use air to style hair, rather than extreme heat, revolutionised the beauty industry. The Dyson Airwrap popularised this category, offering a way to curl, wave, smooth, and dry without heat damage. However, its premium price tag has many consumers searching for a viable <strong>Dyson Airwrap alternative</strong> in the UK.</p><p>The Muuhu Airpro enters the market as a high-performance alternative, offering comparable engineering specifications and a comprehensive suite of attachments at a more accessible price point.</p>',
         type: 'text'
       },
       {
@@ -231,7 +231,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'cta',
         heading: 'Experience Premium Engineering',
-        body: '<p>Discover the power of 110,000 RPM and 7 versatile attachments. The Muuhu Hair Dryer delivers salon-quality results and limitless styling potential without breaking the bank.</p>',
+        body: '<p>Discover the power of 110,000 RPM and 7 versatile attachments. The Muuhu Airpro delivers salon-quality results and limitless styling potential without breaking the bank.</p>',
         type: 'cta'
       }
     ]
@@ -246,7 +246,7 @@ export const blogPosts: BlogPost[] = [
     author: { name: 'Muuhu Editorial Team', role: 'Hair Care Experts' },
     readingTime: '9 min read',
     excerpt: 'Achieve that fresh-from-the-salon bounce and shine from your own bathroom. Our step-by-step guide breaks down the professional techniques for a flawless DIY blowout.',
-    heroImage: { src: '/images/products/muuhu-hair-dryer/01-amazing-hairstyles.webp', alt: 'Muuhu Hair Dryer showcasing salon quality blowout' },
+    heroImage: { src: '/images/products/muuhu-hair-dryer/01-amazing-hairstyles.webp', alt: 'Muuhu Airpro showcasing salon quality blowout' },
     category: 'Tutorials',
     tags: ['blowout', 'volume', 'tutorial', 'styling'],
     relatedSlugs: ['hair-dryer-attachments-guide', 'best-hair-dryer-for-frizzy-hair-uk'],
@@ -261,7 +261,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'rough-dry',
         heading: 'Step 2: The Rough Dry',
-        body: '<p>Do not start styling immediately. Using the Muuhu Hair Dryer without attachments, rough dry your hair until it is about 70-80% dry. Flip your head upside down and focus the airflow on the roots to build initial volume. Trying to style dripping wet hair takes too long and causes unnecessary heat exposure.</p>',
+        body: '<p>Do not start styling immediately. Using the Muuhu Airpro without attachments, rough dry your hair until it is about 70-80% dry. Flip your head upside down and focus the airflow on the roots to build initial volume. Trying to style dripping wet hair takes too long and causes unnecessary heat exposure.</p>',
         type: 'text'
       },
       {
@@ -279,7 +279,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'cta',
         heading: 'Your Perfect Blowout Partner',
-        body: '<p>Equipped with a Round Volumising Brush and a precision Concentrator, the Muuhu Hair Dryer provides all the tools you need for a professional blowout at home. Download the Muuhu Style App for more guided tutorials tailored to your hair type.</p>',
+        body: '<p>Equipped with a Round Volumising Brush and a precision Concentrator, the Muuhu Airpro provides all the tools you need for a professional blowout at home. Download the Muuhu Style App for more guided tutorials tailored to your hair type.</p>',
         type: 'cta'
       }
     ]

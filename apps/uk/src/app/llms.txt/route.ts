@@ -6,7 +6,7 @@ Muuhu UK sells professional high-speed hair styling devices designed for salon-q
 
 ## Primary Pages
 - [Home](${market.siteUrl}): UK storefront for Muuhu hair styling devices.
-- [Muuhu Hair Dryer](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
+- [Muuhu Airpro](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
 - [Muuhu Scalp Therapy Comb](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu Hair Growth Comb.
 - [Hair Quiz](${market.siteUrl}/pages/hair-quiz): Guided quiz for choosing the right hair styling routine.
 - [FAQs](${market.siteUrl}/pages/faqs): Common questions about shipping, returns, product use, and care.
@@ -21,8 +21,8 @@ Muuhu UK sells professional high-speed hair styling devices designed for salon-q
 - [Dyson Airwrap Alternative UK](${market.siteUrl}/blog/dyson-airwrap-alternative-uk): Factual comparison of the Muuhu vs Dyson Airwrap.
 - [Salon Blowout at Home](${market.siteUrl}/blog/salon-blowout-at-home-uk): Step-by-step professional blowout routine.
 
-## Muuhu Hair Dryer Summary
-- Product: Muuhu 7-in-1 Hair Dryer
+## Muuhu Airpro Summary
+- Product: Muuhu Airpro
 - Price: GBP 149, compare-at GBP 299
 - Category: hair dryer, high-speed styler, ionic hair dryer, professional blowout device
 - Motor: 110,000 RPM high-speed brushless DC

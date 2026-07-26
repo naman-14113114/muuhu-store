@@ -29,7 +29,7 @@ export function HairCareQuizPage() {
           <aside className="lg:sticky lg:top-8">
             <div className="relative aspect-[4/5] overflow-hidden rounded-[18px] bg-[var(--plum)]">
               <Image
-                alt="Muuhu Hair Dryer prep routine"
+                alt="Muuhu Airpro prep routine"
                 className="object-cover"
                 fill
                 priority
@@ -67,7 +67,7 @@ export function HairCareQuizPage() {
             questions={hairCareQuestions}
             buildResult={buildHairCareResult}
             productHref="/products/muuhu-hair-dryer"
-            ctaCopy="Get the Muuhu 7-in-1 Hair Dryer and unlock your full 4-week plan, with advanced styling and your signature look."
+            ctaCopy="Get the Muuhu Airpro and unlock your full 4-week plan, with advanced styling and your signature look."
             ctaLabel="Get the Hair Dryer"
             intro={{
               eyebrow: "60-second assessment",

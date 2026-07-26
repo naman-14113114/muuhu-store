@@ -223,7 +223,7 @@ export function BeforeAfterGrid() {
           />
           <p className="max-w-sm text-sm leading-7 text-[var(--muted)]">
             Verified customer transformations, photographed in their own homes
-            after consistent use of the Muuhu Hair Dryer.
+            after consistent use of the Muuhu Airpro.
           </p>
         </div>
       </div>

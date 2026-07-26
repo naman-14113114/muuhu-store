@@ -41,14 +41,14 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Muuhu Hair Dryer | Salon Professional Results",
+  title: "Muuhu Airpro | Salon Professional Results",
   description: "Dry, curl, straighten, and volumise with the Muuhu high speed styler. 110,000 RPM brushless motor and ionic technology.",
   metadataBase: new URL(market.siteUrl),
   openGraph: {
     type: "website",
     locale: "en_US",
     url: market.siteUrl,
-    title: "Muuhu Hair Dryer",
+    title: "Muuhu Airpro",
     description: "Dry, curl, straighten, and volumise with the Muuhu high speed styler.",
     siteName: "Muuhu",
   },

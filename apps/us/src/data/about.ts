@@ -11,7 +11,7 @@ export const aboutSections = [
     id: "our-team",
     eyebrow: "Who we are",
     title: "Our Team",
-    copy: "Behind Muuhu is a close-knit team of hair care experts, tech innovators, and customer advocates. We aren't just selling a product; we use the Muuhu Hair Dryer ourselves. From our product design team ensuring the optimal output of every airflow setting, to our dedicated customer support squad who are always ready to guide you on your hair care journey, everyone at Muuhu is united by one common goal: delivering an exceptional experience and real, visible results to you.",
+    copy: "Behind Muuhu is a close-knit team of hair care experts, tech innovators, and customer advocates. We aren't just selling a product; we use the Muuhu Airpro ourselves. From our product design team ensuring the optimal output of every airflow setting, to our dedicated customer support squad who are always ready to guide you on your hair care journey, everyone at Muuhu is united by one common goal: delivering an exceptional experience and real, visible results to you.",
     image: {
       src: "/images/about/muuhu-hair-dryer-about-our-team.webp",
       alt: "The Muuhu team designing high-performance skincare solutions"
@@ -22,7 +22,7 @@ export const aboutSections = [
     id: "our-story",
     eyebrow: "How we started",
     title: "Our Story",
-    copy: "The idea for Muuhu was born out of genuine frustration with traditional hair drying. We were tired of spending a fortune on salon visits and using slow, damaging hair dryers that were hard to maintain.\n\nWe knew the science behind high-speed, ionic hair drying worked, but the at-home devices available were either too weak, overpriced, or bulky. So, we changed the standard. We created the Muuhu Hair Dryer: a sleek, high-speed styler packed with intelligent heat control and millions of negative ions. Today, we're proud to have helped over 16,000 customers regain their confidence from the comfort of home.",
+    copy: "The idea for Muuhu was born out of genuine frustration with traditional hair drying. We were tired of spending a fortune on salon visits and using slow, damaging hair dryers that were hard to maintain.\n\nWe knew the science behind high-speed, ionic hair drying worked, but the at-home devices available were either too weak, overpriced, or bulky. So, we changed the standard. We created the Muuhu Airpro: a sleek, high-speed styler packed with intelligent heat control and millions of negative ions. Today, we're proud to have helped over 16,000 customers regain their confidence from the comfort of home.",
     image: {
       src: "/images/about/muuhu-hair-dryer-about-our-story.webp",
       alt: "The story and inspiration behind the wireless Muuhu LED Mask"
@@ -33,7 +33,7 @@ export const aboutSections = [
     id: "trust-transparency",
     eyebrow: "Values",
     title: "Trust and Transparency",
-    copy: "When it comes to your hair, trust is everything. That's why transparency is woven into the fabric of our brand. We don't believe in exaggerated claims or hidden fine print.\n\n- Tested for Safety: The Muuhu Hair Dryer is rigorously tested to ensure it is safe, effective, and built to last.\n- Privacy First: We utilize state-of-the-art encryption to ensure your personal data and payment information are always 100% secure.\n- The 90-Day Guarantee: We are so confident in our technology that we back it up with a risk-free 90-day money-back guarantee. If you don't love the results, you don't pay.",
+    copy: "When it comes to your hair, trust is everything. That's why transparency is woven into the fabric of our brand. We don't believe in exaggerated claims or hidden fine print.\n\n- Tested for Safety: The Muuhu Airpro is rigorously tested to ensure it is safe, effective, and built to last.\n- Privacy First: We utilize state-of-the-art encryption to ensure your personal data and payment information are always 100% secure.\n- The 90-Day Guarantee: We are so confident in our technology that we back it up with a risk-free 90-day money-back guarantee. If you don't love the results, you don't pay.",
     image: {
       src: "/images/about/about-trust-hair-dryer.webp",
       alt: "Goddess guarantee, safety certificates and top security standard badges"

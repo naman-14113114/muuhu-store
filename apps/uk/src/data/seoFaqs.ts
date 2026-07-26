@@ -3,7 +3,7 @@ export const seoFaqs = {
   faqs: [
     {
       question: "What makes the Muuhu hair dryer different?",
-      answer: "The Muuhu Hair Dryer combines a 110,000 RPM brushless motor with 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device, using high-speed airflow rather than extreme heat.",
+      answer: "The Muuhu Airpro combines a 110,000 RPM brushless motor with 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device, using high-speed airflow rather than extreme heat.",
     },
     {
       question: "Are the curlers easy to use?",
@@ -15,7 +15,7 @@ export const seoFaqs = {
     },
     {
       question: "Do you offer a warranty in the UK?",
-      answer: "Yes, every Muuhu Hair Dryer comes with a full 1-year warranty and a 30-day money-back guarantee for your peace of mind.",
+      answer: "Yes, every Muuhu Airpro comes with a full 1-year warranty and a 30-day money-back guarantee for your peace of mind.",
     },
   ],
 };

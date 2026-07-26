@@ -19,11 +19,21 @@ import {
 
 const offerHref = "/products/muuhu-hair-dryer#free-gifts";
 
-function getBulletIcon(gift: FreeGiftDetail, value: string) {
+type BulletIconKey =
+  | "shield"
+  | "package"
+  | "book"
+  | "droplet"
+  | "brush"
+  | "tools"
+  | "gift"
+  | "check";
+
+function getBulletIconKey(gift: FreeGiftDetail, value: string): BulletIconKey {
   const text = `${gift.slug} ${value}`.toLowerCase();
 
   if (text.includes("protect") || text.includes("safe") || text.includes("heat protection")) {
-    return IconShieldCheck;
+    return "shield";
   }
 
   if (
@@ -34,7 +44,7 @@ function getBulletIcon(gift: FreeGiftDetail, value: string) {
     text.includes("organization") ||
     text.includes("unboxing")
   ) {
-    return IconPackage;
+    return "package";
   }
 
   if (
@@ -44,34 +54,57 @@ function getBulletIcon(gift: FreeGiftDetail, value: string) {
     text.includes("chapter") ||
     text.includes("hair-type")
   ) {
-    return IconBook2;
+    return "book";
   }
 
   if (text.includes("serum") || text.includes("oil")) {
-    return IconDroplet;
+    return "droplet";
   }
 
   if (text.includes("scalp") || text.includes("massage") || text.includes("comb")) {
-    return IconBrush;
+    return "brush";
   }
 
   if (text.includes("attachment") || text.includes("system") || text.includes("tool")) {
-    return IconTools;
+    return "tools";
   }
 
   if (text.includes("gift") || text.includes("value")) {
-    return IconGift;
+    return "gift";
   }
 
-  return IconCircleCheck;
+  return "check";
+}
+
+function BulletIconGraphic({ iconKey }: { iconKey: BulletIconKey }) {
+  const iconProps = { "aria-hidden": true, size: 15, stroke: 1.65 };
+
+  switch (iconKey) {
+    case "shield":
+      return <IconShieldCheck {...iconProps} />;
+    case "package":
+      return <IconPackage {...iconProps} />;
+    case "book":
+      return <IconBook2 {...iconProps} />;
+    case "droplet":
+      return <IconDroplet {...iconProps} />;
+    case "brush":
+      return <IconBrush {...iconProps} />;
+    case "tools":
+      return <IconTools {...iconProps} />;
+    case "gift":
+      return <IconGift {...iconProps} />;
+    case "check":
+      return <IconCircleCheck {...iconProps} />;
+  }
 }
 
 function BulletIcon({ gift, value }: { gift: FreeGiftDetail; value: string }) {
-  const Icon = getBulletIcon(gift, value);
+  const iconKey = getBulletIconKey(gift, value);
 
   return (
     <span className="mt-0.5 grid h-7 w-7 flex-none place-items-center rounded-full border border-[rgba(184,149,86,.24)] bg-[rgba(184,149,86,.08)] text-[var(--gold)]">
-      <Icon aria-hidden="true" size={15} stroke={1.65} />
+      <BulletIconGraphic iconKey={iconKey} />
     </span>
   );
 }
@@ -167,7 +200,7 @@ export function FreeGiftDetailPage({ gift }: { gift: FreeGiftDetail }) {
         <div className="buudy-wrap max-w-3xl">
           <p className="buudy-eyebrow">Complete The Styling System</p>
           <h2 className="buudy-display mt-3 text-4xl leading-tight md:text-5xl">
-            Buy the Muuhu Hair Dryer, unlock the full bonus bundle.
+            Buy the Muuhu Airpro, unlock the full bonus bundle.
           </h2>
           <p className="mx-auto mt-5 max-w-2xl leading-7 text-[rgba(247,241,232,.72)]">
             {freeGiftBundleFooter}

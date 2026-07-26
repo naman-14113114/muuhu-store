@@ -44,6 +44,95 @@ function HairDryerHeroVideo() {
   );
 }
 
+const technologyStorySections = [
+  {
+    eyebrow: "Airpro airflow system",
+    title: "Powerful, fast, and controlled.",
+    copy:
+      "A 110,000 RPM brushless motor drives high-speed airflow through the Muuhu Airpro body for fast drying and precise styling. The result is a lighter daily routine with smoother control from roots to ends.",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control.png",
+    alt: "Muuhu Airpro high-speed airflow technology",
+    imageSide: "right",
+    imageFrame: "wide",
+  },
+  {
+    eyebrow: "Intelligent heat control",
+    title: "Protects shine while you style.",
+    copy:
+      "Muuhu Airpro is designed to dry quickly without relying on harsh, uncontrolled heat. The intelligent heat system keeps airflow consistent, helping protect natural shine while smoothing frizz and flyaways.",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail.png",
+    alt: "Muuhu Airpro intelligent heat control internal technology",
+    imageSide: "left",
+    imageFrame: "portrait",
+  },
+] as const;
+
+function TechnologyImage({
+  section,
+}: {
+  section: (typeof technologyStorySections)[number];
+}) {
+  return (
+    <div
+      className={`relative mx-auto w-full overflow-hidden rounded-[18px] ${
+        section.imageFrame === "wide"
+          ? "max-w-[720px] lg:ml-auto"
+          : "max-w-[430px] lg:mr-auto"
+      }`}
+    >
+      <div
+        className={`relative w-full ${
+          section.imageFrame === "wide" ? "aspect-[1109/852]" : "aspect-[2/3]"
+        }`}
+      >
+        <Image
+          alt={section.alt}
+          className="object-contain"
+          fill
+          loading="lazy"
+          sizes="(min-width: 1024px) 44vw, 92vw"
+          src={section.image}
+        />
+      </div>
+    </div>
+  );
+}
+
+function HairDryerTechnologyStory() {
+  return (
+    <section className="bg-[#3b1e40] text-[var(--cream)]">
+      {technologyStorySections.map((section, index) => (
+        <article
+          className={`py-10 md:py-14 lg:py-16 ${
+            index === 0 ? "border-b border-[rgba(247,241,232,.16)]" : ""
+          }`}
+          key={section.title}
+        >
+          <div className="buudy-wrap grid items-center gap-8 lg:grid-cols-2 lg:gap-14">
+            {section.imageSide === "left" ? (
+              <TechnologyImage section={section} />
+            ) : null}
+            <div className="mx-auto max-w-xl text-center lg:text-left">
+              <p className="buudy-mono text-[var(--gold)]">
+                {section.eyebrow}
+              </p>
+              <h2 className="buudy-display mt-3 text-[2.4rem] leading-[1.05] text-[var(--cream)] md:text-5xl">
+                {section.title}
+              </h2>
+              <p className="buudy-copy mt-5 text-sm leading-6 text-[rgba(247,241,232,.96)] md:text-base md:leading-7">
+                {section.copy}
+              </p>
+            </div>
+            {section.imageSide === "right" ? (
+              <TechnologyImage section={section} />
+            ) : null}
+          </div>
+        </article>
+      ))}
+    </section>
+  );
+}
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 function HairDryerBeforeAfterSection() {
   const attachments = [
@@ -130,7 +219,7 @@ function HairDryerDescriptionBanners() {
                 Everything you need to <em className="buudy-italic">style</em>.
               </>
             }
-            copy="From smooth blowouts to bouncy curls, discover all the ways you can use the Muuhu Hair Dryer."
+            copy="From smooth blowouts to bouncy curls, discover all the ways you can use the Muuhu Airpro."
             invert
           />
         </div>
@@ -174,6 +263,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
       /> */}
 
       <BeforeAfterGrid />
+      <HairDryerTechnologyStory />
       {/* <HairDryerDescriptionBanners /> */}
 
       <MuuhuProductFocus />

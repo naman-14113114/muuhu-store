@@ -214,7 +214,7 @@ async function createPlusbaseCheckout(
       }
     }
   } else {
-    // Legacy fallback: default to the Muuhu Hair Dryer flagship.
+    // Legacy fallback: default to the Muuhu Airpro flagship.
     await addItem(
       PLUSBASE_PRODUCTS["muuhu-hair-dryer"].productId,
       PLUSBASE_PRODUCTS["muuhu-hair-dryer"].variantId,

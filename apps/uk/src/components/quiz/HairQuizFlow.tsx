@@ -580,7 +580,7 @@ function QuizResults({
 
       <p className="mt-5 text-xs leading-5 text-[var(--muted)]">
         This quiz provides general haircare guidance and is not a substitute for
-        professional advice. Results are tailored to the Muuhu 7-in-1 Hair Dryer.
+        professional advice. Results are tailored to the Muuhu Airpro.
       </p>
     </div>
   );

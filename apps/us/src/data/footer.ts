@@ -3,7 +3,7 @@ export const footerMenus = [
     title: "Shop",
     links: [
       { label: "Home", href: "/" },
-      { label: "Muuhu Hair Dryer", href: "/products/muuhu-hair-dryer" },
+      { label: "Muuhu Airpro", href: "/products/muuhu-hair-dryer" },
       { label: "Best Hair Dryer US Guide", href: "/blog/best-hair-dryer-us-2026" },
       { label: "Blog", href: "/blog" },
       { label: "Privacy Policy", href: "/policies/privacy-policy" },

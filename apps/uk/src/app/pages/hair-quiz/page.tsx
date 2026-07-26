@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Muuhu Hair Quiz — Find Your Routine",
     description:
-      "Choose Haircare or Hairstyle and get a personalised 4-week routine for the Muuhu 7-in-1 Hair Dryer.",
+      "Choose Haircare or Hairstyle and get a personalised 4-week routine for the Muuhu Airpro.",
     url: "/pages/hair-quiz",
   },
 };

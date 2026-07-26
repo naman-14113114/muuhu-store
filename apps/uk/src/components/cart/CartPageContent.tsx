@@ -105,7 +105,7 @@ export function CartPageContent({
           <ShoppingBag className="mx-auto text-[var(--gold)]" size={42} />
           <h1 className="buudy-heading mt-5">Your cart is empty.</h1>
           <p className="buudy-copy mx-auto mt-5 max-w-lg">
-            Add the Muuhu 7-in-1 Hair Dryer to start building your styling
+            Add the Muuhu Airpro to start building your styling
             routine.
           </p>
           <Button asChild className="mt-8">

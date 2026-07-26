@@ -1379,7 +1379,7 @@ export function ProductReviewsGrid({
                 </>
               ) : productHandle === "muuhu-hair-dryer" ? (
                 <>
-                  Muuhu Hair Dryer <em className="buudy-italic">customer reviews</em>.
+                  Muuhu Airpro <em className="buudy-italic">customer reviews</em>.
                 </>
               ) : productHandle === "muuhu-comb" ? (
                 <>
@@ -1395,7 +1395,7 @@ export function ProductReviewsGrid({
               productHandle === "buudy-red-torch"
                 ? "Real feedback from customers who made the Buudy Red Torch part of their daily wellness ritual."
                 : productHandle === "muuhu-hair-dryer"
-                ? "Real feedback from customers who transformed their hair styling routine with the Muuhu Hair Dryer."
+                ? "Real feedback from customers who transformed their hair styling routine with the Muuhu Airpro."
                 : productHandle === "muuhu-comb"
                 ? "Real feedback from customers who made Muuhu Comb part of their at-home haircare ritual."
                 : "Real feedback from customers who made Buudy part of their at-home skincare ritual."

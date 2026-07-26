@@ -20,14 +20,14 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Best Hair Dryer US | Muuhu",
     description:
-      "Discover the Muuhu Hair Dryer with 110,000 RPM motor, ionic tech, and 7 styling attachments.",
+      "Discover the Muuhu Airpro with 110,000 RPM motor, ionic tech, and 7 styling attachments.",
     url: market.siteUrl,
     images: [
       {
         url: "/images/products/muuhu-hair-dryer/01-muuhu-hair-dryer-hero.webp",
         width: 1200,
         height: 900,
-        alt: "Muuhu Hair Dryer",
+        alt: "Muuhu Airpro",
       },
     ],
   },

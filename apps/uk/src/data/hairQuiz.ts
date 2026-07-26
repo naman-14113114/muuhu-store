@@ -27,7 +27,7 @@ export type QuizRoutineStep = {
   title: string;
   copy: string;
   highlighted?: boolean;
-  // Weeks 3 & 4 are gated behind owning the Muuhu Hair Dryer.
+  // Weeks 3 & 4 are gated behind owning the Muuhu Airpro.
   locked?: boolean;
 };
 

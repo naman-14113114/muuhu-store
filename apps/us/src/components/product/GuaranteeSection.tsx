@@ -8,7 +8,7 @@ export function GuaranteeSection({ productHandle }: { productHandle?: string }) 
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/products/muuhu-hair-dryer/muuhu-hair-dryer-professional-results.webp"
-              alt="Muuhu Hair Dryer Guarantee Background"
+              alt="Muuhu Airpro Guarantee Background"
               className="w-full h-full object-cover opacity-50"
             />
           </div>

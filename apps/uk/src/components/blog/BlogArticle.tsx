@@ -85,7 +85,7 @@ export default function BlogArticle({ post, relatedPosts }: { post: BlogPost; re
                   <h2 className="text-3xl font-serif mb-4 mt-0 text-[var(--cream)]">{section.heading}</h2>
                   <div className="mb-8 text-[var(--cream)]/90" dangerouslySetInnerHTML={{ __html: section.body }} />
                   <Link href="/products/muuhu-hair-dryer" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-widest bg-[var(--gold)] text-[var(--plum)] rounded-full hover:bg-[var(--cream)] transition-colors">
-                    Explore Muuhu Hair Dryer
+                    Explore Muuhu Airpro
                   </Link>
                 </div>
               );
@@ -132,10 +132,10 @@ export default function BlogArticle({ post, relatedPosts }: { post: BlogPost; re
           <div className="relative z-10 max-w-xl text-center md:text-left">
             <h2 className="text-3xl md:text-4xl font-serif text-[var(--cream)] mb-4">Professional styling, every day.</h2>
             <p className="text-[var(--cream)]/80 text-lg mb-8">
-              Experience the 110,000 RPM brushless motor and 200M+ negative ions with the Muuhu Hair Dryer. Includes 7 professional attachments.
+              Experience the 110,000 RPM brushless motor and 200M+ negative ions with the Muuhu Airpro. Includes 7 professional attachments.
             </p>
             <Link href="/products/muuhu-hair-dryer" className="inline-flex items-center justify-center px-8 py-4 text-sm font-bold uppercase tracking-widest bg-[var(--gold)] text-[var(--plum)] rounded-full hover:bg-[var(--cream)] transition-colors">
-              Explore the Muuhu Hair Dryer
+              Explore the Muuhu Airpro
             </Link>
           </div>
           <div className="relative z-10 w-full md:w-1/3 flex justify-center">

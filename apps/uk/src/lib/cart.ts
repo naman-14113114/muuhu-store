@@ -168,7 +168,7 @@ export function getDisplayLines(lines: CartLine[]): CartLine[] {
       if (line.productId === "muuhu-hair-dryer" && line.type === "product") {
         return {
           ...line,
-          title: "Muuhu Hair Dryer + Luxury Travel Case",
+          title: "Muuhu Airpro + Premium Packaging",
           image: "/images/products/muuhu-hair-dryer/muuhu.jpg",
         };
       }
