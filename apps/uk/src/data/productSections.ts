@@ -232,11 +232,11 @@ export const reviewVideos: ReviewVideo[] = [
     src: "/videos/hair-dryer/Hair Dryer 6-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 6.mp4",
   },
-  {
-    id: "review-07",
-    src: "/videos/hair-dryer/Hair Dryer video 7-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Video 7.mp4",
-  },
+  // {
+  //   id: "review-07",
+  //   src: "/videos/hair-dryer/Hair Dryer video 7-shorts.mp4",
+  //   fullSrc: "/videos/hair-dryer/Hair Dryer Video 7.mp4",
+  // },
   {
     id: "review-08",
     src: "/videos/hair-dryer/Hair Dryer 8-shorts.mp4",
