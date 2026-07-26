@@ -50,7 +50,7 @@ const technologyStorySections = [
     title: "Powerful, fast, and controlled.",
     copy:
       "A 110,000 RPM brushless motor drives high-speed airflow through the Muuhu Airpro body for fast drying and precise styling. The result is a lighter daily routine with smoother control from roots to ends.",
-    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control.png",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-airflow-system.png",
     alt: "Muuhu Airpro high-speed airflow technology",
     imageSide: "right",
     imageFrame: "wide",
@@ -60,7 +60,7 @@ const technologyStorySections = [
     title: "Protects shine while you style.",
     copy:
       "Muuhu Airpro is designed to dry quickly without relying on harsh, uncontrolled heat. The intelligent heat system keeps airflow consistent, helping protect natural shine while smoothing frizz and flyaways.",
-    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail.png",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail-transparent.png",
     alt: "Muuhu Airpro intelligent heat control internal technology",
     imageSide: "left",
     imageFrame: "portrait",
@@ -105,8 +105,8 @@ function HairDryerTechnologyStory() {
     <section className="bg-[#3b1e40] text-[var(--cream)] overflow-hidden">
       {technologyStorySections.map((section, index) => (
         <article
-          className={`py-10 md:py-14 lg:py-16 ${
-            index === 0 ? "border-b border-[rgba(247,241,232,.16)] lg:relative lg:min-h-[42vw] lg:flex lg:items-center" : ""
+          className={`pt-10 md:pt-14 lg:pt-16 ${
+            index === 0 ? "pb-10 md:pb-14 lg:pb-16 lg:relative lg:min-h-[37vw] lg:flex lg:items-center" : "-mb-24 lg:-mb-[120px]"
           }`}
           key={section.title}
         >
@@ -121,7 +121,7 @@ function HairDryerTechnologyStory() {
               <h2 className="buudy-display mt-3 text-[2.4rem] leading-[1.05] text-[var(--cream)] md:text-5xl">
                 {section.title}
               </h2>
-              <p className="buudy-copy mt-5 text-sm leading-6 text-[rgba(247,241,232,.96)] md:text-base md:leading-7">
+              <p className="buudy-copy mt-5 text-sm leading-6 !text-[var(--cream)] md:text-base md:leading-7">
                 {section.copy}
               </p>
             </div>
