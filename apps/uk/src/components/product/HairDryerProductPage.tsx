@@ -398,7 +398,7 @@ function MuuhuInsideSection() {
           <div className="relative h-[min(600px,156vw)] overflow-hidden rounded-[26px] bg-[var(--cream)] sm:h-[660px] md:h-[720px] lg:h-auto lg:min-h-[820px]">
             <Image
               alt="Muuhu Airpro hair dryer control body"
-              className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:h-[min(790px,178vw)]"
+              className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:!h-[790px]"
               height={1787}
               loading="lazy"
               sizes="(min-width: 1024px) 32vw, 70vw"
