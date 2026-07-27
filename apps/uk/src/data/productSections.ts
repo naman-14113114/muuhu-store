@@ -53,13 +53,13 @@ export const features: Feature[] = [
   },
   {
     title: "110,000 RPM Brushless Motor",
-    kicker: "Ultra-Fast 1200W Drying",
-    body: "Experience rapid drying times with a powerful 1200W high-speed motor. The intelligent aerodynamic design drives moisture from the hair rapidly for effortless styling.",
+    kicker: "Ultra-Fast 1400W Drying",
+    body: "Experience rapid drying times with a powerful 1400W high-speed motor. The intelligent aerodynamic design drives moisture from the hair rapidly for effortless styling.",
   },
   {
-    title: "10 Temperature Control Settings",
+    title: "3 Temperature and 3 Speed Settings",
     kicker: "Precision Styling",
-    body: "Choose from 10 distinct temperature and speed control settings to perfectly match your hair type and desired style, ensuring you get flawless results every single time.",
+    body: "Choose from 3 distinct temperature and 3 speed control settings to perfectly match your hair type and desired style, ensuring you get flawless results every single time.",
   },
   {
     title: "Effortless Curls & Waves",
@@ -305,9 +305,9 @@ export const comparison = {
   rows: [
     ["Attachments Included", "7", "5", "4", "1"],
     ["110,000 RPM Motor", "Yes", "Yes", "-", "-"],
-    ["Weight", "360g", "660g", "700g", "823g"],
+    ["Weight", "475g", "660g", "700g", "823g"],
     ["Ionic Technology", "Yes", "Yes", "Yes", "Yes"],
-    ["Ultra-Quiet (<60dB)", "Yes", "-", "-", "-"],
+    ["Low noise (65db)", "Yes", "-", "-", "-"],
     ["App Companion", "Yes", "-", "-", "-"],
     ["Travel Case Included", "Yes", "-", "-", "-"],
   ],

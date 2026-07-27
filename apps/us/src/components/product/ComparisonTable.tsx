@@ -225,7 +225,7 @@ export function ComparisonTable() {
             title="Price"
             values={comparison.columns.map((col, idx) => (
               <span key={idx} className={`buudy-display text-base md:text-lg ${idx === 0 ? 'font-bold text-[var(--plum)]' : 'text-[var(--muted)]'}`}>
-                {idx === 0 && <span className="line-through mr-1.5 opacity-60">$260</span>}
+                {idx === 0 && <span className="line-through mr-1.5 opacity-60">$299</span>}
                 {col.price}
               </span>
             ))}

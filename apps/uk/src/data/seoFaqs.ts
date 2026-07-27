@@ -15,7 +15,7 @@ export const seoFaqs = {
     },
     {
       question: "Do you offer a warranty in the UK?",
-      answer: "Yes, every Muuhu Airpro comes with a full 1-year warranty and a 30-day money-back guarantee for your peace of mind.",
+      answer: "Yes, every Muuhu Airpro comes with a full 1-year warranty and a 90-day money-back guarantee for your peace of mind.",
     },
   ],
 };
