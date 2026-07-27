@@ -68,6 +68,30 @@ const technologyStorySections = [
   },
 ] as const;
 
+const hairScienceCards = [
+  {
+    title: "Enhancing shine",
+    copy:
+      "Fast, controlled airflow helps smooth the hair surface as you dry, so light reflects more evenly from root to end. Muuhu Airpro is built for a softer, glossier finish without relying on harsh heat.",
+    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-shine-science.webp",
+    alt: "Glossy bronde hair showing a smooth reflective finish",
+  },
+  {
+    title: "Supporting scalp comfort",
+    copy:
+      "Adjustable heat and airflow settings help you dry close to the roots with more control. It is made for everyday styling that feels lighter, calmer, and easier to manage around the scalp.",
+    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-scalp-comfort.webp",
+    alt: "Woman gently lifting hair at the roots before styling",
+  },
+  {
+    title: "Helping reduce breakage",
+    copy:
+      "A smoother drying routine can mean less tugging, less overworking with brushes, and less repeated heat exposure. Muuhu Airpro helps hair look polished while keeping daily styling gentle and controlled.",
+    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-breakage-care.webp",
+    alt: "Front-facing model with smooth blonde blowout on a beige background",
+  },
+] as const;
+
 function TechnologyImage({
   section,
   className = "",
@@ -106,7 +130,7 @@ function TechnologyImage({
 function HairDryerTechnologyStory() {
   return (
     <section className="bg-[#3b1846] text-[var(--cream)] overflow-hidden">
-      {technologyStorySections.map((section, index) => (
+      {technologyStorySections.slice(0, 1).map((section, index) => (
         <article
           className={`pt-10 md:pt-14 lg:pt-16 ${
             index === 0
@@ -138,7 +162,53 @@ function HairDryerTechnologyStory() {
           </div>
         </article>
       ))}
+      <MuuhuHairScienceSection />
     </section>
+  );
+}
+
+function MuuhuHairScienceSection() {
+  return (
+    <div className="buudy-wrap pb-14 pt-4 md:pb-20 md:pt-2 lg:pb-24 lg:pt-0">
+      <div className="border-t border-white/10 pt-10 md:pt-14">
+        <div className="max-w-5xl">
+          <h2 className="buudy-display text-[2.35rem] leading-tight text-[var(--cream)] md:text-5xl">
+            Muuhu hair science
+          </h2>
+          <p className="buudy-copy mt-5 max-w-4xl text-sm leading-6 !text-[var(--cream)] md:text-base md:leading-7">
+            Solving real styling problems with controlled airflow, intelligent heat care, and useful attachments designed to protect colour, moisture, shine, and smoothness.
+          </p>
+        </div>
+        <div className="mt-9 grid gap-6 md:grid-cols-3">
+          {hairScienceCards.map((card) => (
+            <article
+              className="overflow-hidden rounded-[22px] bg-[#4a2552] shadow-[0_22px_60px_rgba(0,0,0,0.22)]"
+              key={card.title}
+            >
+              <div className="relative aspect-[4/3] bg-[var(--cream)]">
+                <Image
+                  alt={card.alt}
+                  className="object-cover"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 768px) 28vw, 92vw"
+                  src={card.image}
+                  unoptimized
+                />
+              </div>
+              <div className="p-6 md:p-7">
+                <h3 className="buudy-display text-2xl leading-tight text-[var(--cream)]">
+                  {card.title}
+                </h3>
+                <p className="buudy-copy mt-4 text-sm leading-6 !text-[var(--cream)] opacity-90">
+                  {card.copy}
+                </p>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
