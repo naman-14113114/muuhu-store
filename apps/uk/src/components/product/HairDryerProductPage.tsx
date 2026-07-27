@@ -70,15 +70,17 @@ const technologyStorySections = [
 
 function TechnologyImage({
   section,
+  className = "",
 }: {
   section: (typeof technologyStorySections)[number];
+  className?: string;
 }) {
   return (
     <div
-      className={`relative mx-auto w-full overflow-hidden rounded-[18px] ${
+      className={`relative mx-auto w-full overflow-hidden rounded-[18px] ${className} ${
         section.imageFrame === "wide"
-          ? "max-w-[720px] lg:max-w-none lg:absolute lg:-bottom-2 lg:-right-2 lg:w-[48vw] lg:rounded-r-none lg:rounded-bl-none"
-          : "max-w-[430px] lg:mr-auto"
+          ? "max-w-[620px] md:max-w-[700px] lg:max-w-none lg:absolute lg:-bottom-2 lg:-right-2 lg:w-[48vw] lg:rounded-r-none lg:rounded-bl-none"
+          : "max-w-[320px] sm:max-w-[360px] md:max-w-[400px] lg:mr-auto lg:max-w-[430px]"
       }`}
     >
       <div
@@ -107,15 +109,22 @@ function HairDryerTechnologyStory() {
       {technologyStorySections.map((section, index) => (
         <article
           className={`pt-10 md:pt-14 lg:pt-16 ${
-            index === 0 ? "pb-10 md:pb-14 lg:pb-16 lg:relative lg:min-h-[37vw] lg:flex lg:items-center" : "lg:-mt-24 -mb-24 lg:-mb-[120px]"
+            index === 0
+              ? "pb-10 md:pb-14 lg:pb-16 lg:relative lg:min-h-[37vw] lg:flex lg:items-center"
+              : "pb-10 md:pb-14 lg:-mt-24 lg:pb-0 lg:-mb-[120px]"
           }`}
           key={section.title}
         >
           <div className="buudy-wrap grid items-center gap-8 lg:grid-cols-2 lg:gap-14 w-full">
-            {section.imageSide === "left" ? (
-              <TechnologyImage section={section} />
-            ) : null}
-            <div className="mx-auto max-w-xl text-center lg:text-left">
+            <TechnologyImage
+              className={section.imageSide === "right" ? "lg:order-last" : ""}
+              section={section}
+            />
+            <div
+              className={`mx-auto max-w-xl text-center lg:text-left ${
+                section.imageSide === "right" ? "lg:order-first" : ""
+              }`}
+            >
               <p className="buudy-mono text-[var(--gold)]">
                 {section.eyebrow}
               </p>
@@ -126,9 +135,6 @@ function HairDryerTechnologyStory() {
                 {section.copy}
               </p>
             </div>
-            {section.imageSide === "right" ? (
-              <TechnologyImage section={section} />
-            ) : null}
           </div>
         </article>
       ))}
@@ -235,7 +241,7 @@ function MuuhuInsideSection() {
   return (
     <section className="buudy-section bg-[var(--cream)] py-16 text-[var(--plum)] md:py-24">
       <div className="buudy-wrap grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
-        <div className="mx-auto w-full max-w-[430px] text-center lg:text-left">
+        <div className="order-2 mx-auto w-full max-w-[430px] text-center lg:order-1 lg:text-left">
           <p className="buudy-mono text-[var(--gold)]">What&apos;s inside</p>
           <h2 className="buudy-display mt-3 text-[2.7rem] leading-[1.02] text-[var(--plum)] md:text-6xl">
             Muuhu Airpro engineering.
@@ -289,16 +295,15 @@ function MuuhuInsideSection() {
           </div>
         </div>
 
-        <div className="relative mx-auto w-full max-w-[760px]">
-          <div className="relative min-h-[760px] overflow-hidden rounded-[26px] bg-[var(--cream)] lg:min-h-[820px]">
+        <div className="relative order-1 mx-auto w-full max-w-[760px] lg:order-2">
+          <div className="relative h-[min(600px,156vw)] overflow-hidden rounded-[26px] bg-[var(--cream)] sm:h-[660px] md:h-[720px] lg:h-auto lg:min-h-[820px]">
             <Image
               alt="Muuhu Airpro hair dryer control body"
-              className="absolute left-1/2 top-1/2 object-contain"
+              className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:h-[min(790px,178vw)]"
               height={1787}
               loading="lazy"
               sizes="(min-width: 1024px) 32vw, 70vw"
               src="/images/products/muuhu-hair-dryer/muuhu-airpro-whats-inside.png"
-              style={{ height: "min(790px, 178vw)", transform: "translate(-50%, -50%)", width: "auto" }}
               width={766}
             />
 

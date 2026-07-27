@@ -195,6 +195,27 @@ export function MuuhuHairTypeSection() {
       id="hair-type-fit"
     >
       <div className="buudy-wrap grid gap-10 lg:grid-cols-[.95fr_1.05fr] lg:items-stretch">
+        <div className="mx-auto w-full max-w-[430px] sm:max-w-[460px] md:max-w-[520px] lg:max-w-none lg:h-full">
+          <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)] lg:aspect-auto lg:h-full">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              alt="Made for every hair type"
+              className="rounded-[18px]"
+              decoding="async"
+              loading="eager"
+              src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
+              style={{
+                height: "100%",
+                inset: 0,
+                objectFit: "cover",
+                objectPosition: "center",
+                position: "absolute",
+                width: "100%",
+              }}
+            />
+          </div>
+        </div>
+
         <div className="lg:order-last flex flex-col justify-center">
           <p className="buudy-mono text-[var(--gold)]">Hair type fit</p>
           <h2 className="buudy-display mt-3 text-[2.45rem] leading-tight text-[var(--plum)] md:text-5xl">
@@ -259,27 +280,6 @@ export function MuuhuHairTypeSection() {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-
-        <div className="w-full h-full">
-          <div className="relative aspect-[2/3] w-full overflow-hidden rounded-[18px] bg-[var(--blush)] shadow-[0_28px_70px_-42px_rgba(58,31,61,.65)] lg:aspect-auto lg:h-full">
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              alt="Made for every hair type"
-              className="rounded-[18px]"
-              decoding="async"
-              loading="eager"
-              src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
-              style={{
-                height: "100%",
-                inset: 0,
-                objectFit: "cover",
-                objectPosition: "center",
-                position: "absolute",
-                width: "100%",
-              }}
-            />
           </div>
         </div>
       </div>
