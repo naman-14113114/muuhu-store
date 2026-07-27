@@ -68,7 +68,7 @@ function ComparisonRow({ title, values, isLast = false }: ComparisonRowProps) {
                 key={idx}
                 className={`w-1/4 py-2.5 md:py-3.5 flex items-center justify-center text-center px-1 md:px-2 min-h-[48px] ${
                   idx === 0
-                    ? `bg-[rgba(58,31,61,0.05)] font-semibold text-[var(--plum)] ${isLast ? "rounded-b-2xl" : ""}`
+                    ? `bg-[#efe4d8] font-semibold text-[var(--plum)] ${isLast ? "rounded-b-2xl" : ""}`
                     : "text-[var(--muted)]"
                 }`}
               >
@@ -102,7 +102,7 @@ export function ComparisonTable() {
           <div className="relative">
             <div
               aria-hidden
-              className="pointer-events-none absolute inset-y-0 left-0 w-1/4 rounded-t-2xl bg-[rgba(58,31,61,0.05)] md:left-1/3 md:w-1/6"
+              className="pointer-events-none absolute inset-y-0 left-0 w-1/4 rounded-t-2xl bg-[#efe4d8] md:left-1/3 md:w-1/6"
             />
 
             {/* Logo/Name Row (ABOVE) */}
@@ -164,7 +164,7 @@ export function ComparisonTable() {
                   <div className="flex items-end h-full min-h-[60px] md:min-h-[80px]">
                     <div className="w-1/4 flex justify-center items-end h-full px-2 overflow-visible">
                       <img
-                        src="/images/products/muuhu-hair-dryer/comparison/muuhu-hair-dryer-comparison.png"
+                        src="/images/products/muuhu-hair-dryer/comparison/muuhu_comparison.webp"
                         alt="Muuhu Airpro"
                         className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom rounded-2xl"
                         decoding="async"
