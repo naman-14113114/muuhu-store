@@ -240,7 +240,106 @@ function MuuhuInsideSection() {
 
   return (
     <section className="buudy-section bg-[var(--cream)] py-16 text-[var(--plum)] md:py-24">
-      <div className="buudy-wrap grid items-start gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
+      <div className="buudy-wrap lg:hidden">
+        <div className="mx-auto max-w-[430px] text-center">
+          <p className="buudy-mono text-[var(--gold)]">What&apos;s inside</p>
+          <h2 className="buudy-display mt-3 text-[2.7rem] leading-[1.02] text-[var(--plum)]">
+            Muuhu Airpro engineering.
+          </h2>
+          <p className="buudy-copy mt-5 !text-[var(--plum)]">
+            Explore the airflow, heat, and attachment controls built into the Muuhu Airpro 7-in-1 hair dryer.
+          </p>
+        </div>
+
+        <div className="relative mx-auto mt-8 h-[min(620px,160vw)] w-full max-w-[760px] overflow-visible sm:!h-[720px]">
+          <Image
+            alt="Muuhu Airpro hair dryer control body"
+            className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:!h-[680px]"
+            height={1787}
+            loading="lazy"
+            sizes="(min-width: 640px) 48vw, 62vw"
+            src="/images/products/muuhu-hair-dryer/muuhu-airpro-engineering-controls.png"
+            width={766}
+          />
+
+          {insideFeatures.map((feature) => {
+            const isActive = feature.id === activeFeature.id;
+            const connectorLeft =
+              feature.side === "left" ? feature.labelX + 11 : feature.pointX + 2.5;
+            const connectorWidth =
+              feature.side === "left"
+                ? Math.max(4, feature.pointX - feature.labelX - 13)
+                : Math.max(4, feature.labelX - feature.pointX - 13.5);
+
+            return (
+              <div className="pointer-events-none absolute inset-0" key={feature.id}>
+                <span
+                  aria-hidden="true"
+                  className={`absolute h-px origin-left ${
+                    isActive ? "bg-[var(--plum)]" : "bg-[var(--gold)]/45"
+                  }`}
+                  style={{
+                    left: `${connectorLeft}%`,
+                    top: `${feature.pointY}%`,
+                    width: `${connectorWidth}%`,
+                  }}
+                />
+                <button
+                  aria-label={feature.label}
+                  aria-pressed={isActive}
+                  className={`pointer-events-auto absolute grid size-7 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full border text-base font-semibold leading-none shadow-md transition sm:size-9 sm:text-lg ${
+                    isActive
+                      ? "border-[var(--plum)] bg-[var(--plum)] text-[var(--cream)] ring-4 ring-[var(--gold)]/25"
+                      : "border-[var(--gold)]/50 bg-white text-[var(--plum)] hover:border-[var(--plum)] hover:bg-[var(--plum)] hover:text-[var(--cream)]"
+                  }`}
+                  onClick={() => setActiveFeatureId(feature.id)}
+                  style={{ left: `${feature.pointX}%`, top: `${feature.pointY}%` }}
+                  type="button"
+                >
+                  <span aria-hidden="true">+</span>
+                </button>
+                <button
+                  className={`pointer-events-auto absolute min-w-[104px] -translate-x-1/2 -translate-y-1/2 rounded-full border px-2 py-1.5 text-center text-[10px] font-semibold leading-tight shadow-lg transition sm:min-w-[150px] sm:px-4 sm:py-2 sm:text-xs ${
+                    isActive
+                      ? "border-[var(--plum)] bg-[var(--plum)] text-[var(--cream)]"
+                      : "border-[var(--border)] bg-white/90 text-[var(--plum)] hover:border-[var(--plum)] hover:bg-[var(--plum)] hover:text-[var(--cream)]"
+                  }`}
+                  onClick={() => setActiveFeatureId(feature.id)}
+                  style={{ left: `${feature.labelX}%`, top: `${feature.labelY}%` }}
+                  type="button"
+                >
+                  {feature.label}
+                </button>
+              </div>
+            );
+          })}
+        </div>
+
+        <div
+          className="mx-auto mt-6 max-w-[430px] rounded-[18px] border border-[var(--gold)]/35 bg-[var(--plum)] p-6 text-left text-[var(--cream)] shadow-2xl shadow-[rgba(59,30,64,0.18)]"
+          aria-live="polite"
+        >
+          <p className="buudy-mono text-[var(--gold)]">
+            Feature {activeIndex + 1} of {insideFeatures.length}
+          </p>
+          <h3 className="buudy-display mt-3 text-2xl leading-tight text-[var(--cream)]">
+            {activeFeature.title}
+          </h3>
+          <p className="mt-3 text-sm leading-6 text-[var(--cream)]/88">
+            {activeFeature.copy}
+          </p>
+          <button
+            className="mt-6 inline-flex items-center gap-2 rounded-full border border-[var(--gold)]/35 px-5 py-3 text-sm font-semibold text-[var(--cream)] transition hover:border-[var(--gold)] hover:bg-[var(--gold)] hover:text-[var(--plum)]"
+            onClick={() => setActiveFeatureId(nextFeature.id)}
+            type="button"
+          >
+            Next feature
+            <span aria-hidden="true">+</span>
+          </button>
+        </div>
+      </div>
+
+      <div className="buudy-wrap hidden items-start gap-10 lg:grid lg:grid-cols-[0.82fr_1.18fr] lg:gap-14">
         <div className="order-2 mx-auto w-full max-w-[430px] text-center lg:order-1 lg:text-left">
           <p className="buudy-mono text-[var(--gold)]">What&apos;s inside</p>
           <h2 className="buudy-display mt-3 text-[2.7rem] leading-[1.02] text-[var(--plum)] md:text-6xl">
@@ -303,7 +402,7 @@ function MuuhuInsideSection() {
               height={1787}
               loading="lazy"
               sizes="(min-width: 1024px) 32vw, 70vw"
-              src="/images/products/muuhu-hair-dryer/muuhu-airpro-whats-inside.png"
+              src="/images/products/muuhu-hair-dryer/muuhu-airpro-engineering-controls.png"
               width={766}
             />
 
