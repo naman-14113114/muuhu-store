@@ -60,7 +60,7 @@ const technologyStorySections = [
     title: "Protects shine while you style.",
     copy:
       "Muuhu Airpro is designed to dry quickly without relying on harsh, uncontrolled heat. The intelligent heat system keeps airflow consistent, helping protect natural shine while smoothing frizz and flyaways.",
-    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail-transparent.png",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail-transparent-v2.png",
     alt: "Muuhu Airpro intelligent heat control internal technology",
     imageSide: "left",
     imageFrame: "portrait",
