@@ -51,7 +51,7 @@ const technologyStorySections = [
     title: "Powerful, fast, and controlled.",
     copy:
       "A 110,000 RPM brushless motor drives high-speed airflow through the Muuhu Airpro body for fast drying and precise styling. The result is a lighter daily routine with smoother control from roots to ends.",
-    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-airflow-system-v3.png",
+    image: "/images/products/muuhu-hair-dryer/muuhu-airpro-airflow-system-v3.webp",
     alt: "Muuhu Airpro high-speed airflow technology",
     imageSide: "right",
     imageFrame: "wide",
@@ -89,7 +89,7 @@ function TechnologyImage({
         <Image
           alt={section.alt}
           className={`object-contain ${
-            section.imageFrame === "wide" ? "lg:object-cover lg:object-right-bottom lg:scale-[1.02]" : ""
+            section.imageFrame === "wide" ? "lg:object-contain lg:object-right-bottom" : ""
           }`}
           fill
           loading="lazy"
@@ -107,7 +107,7 @@ function HairDryerTechnologyStory() {
       {technologyStorySections.map((section, index) => (
         <article
           className={`pt-10 md:pt-14 lg:pt-16 ${
-            index === 0 ? "pb-10 md:pb-14 lg:pb-16 lg:relative lg:min-h-[37vw] lg:flex lg:items-center" : "-mb-24 lg:-mb-[120px]"
+            index === 0 ? "pb-10 md:pb-14 lg:pb-16 lg:relative lg:min-h-[37vw] lg:flex lg:items-center" : "lg:-mt-24 -mb-24 lg:-mb-[120px]"
           }`}
           key={section.title}
         >
