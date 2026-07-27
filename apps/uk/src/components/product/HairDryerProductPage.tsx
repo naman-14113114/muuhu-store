@@ -207,6 +207,64 @@ function MuuhuHairScienceSection() {
             </article>
           ))}
         </div>
+        <MuuhuCombGiftStrip />
+      </div>
+    </div>
+  );
+}
+
+function MuuhuCombGiftStrip() {
+  return (
+    <div className="mt-10 rounded-[30px] border border-[#d8bd94]/70 bg-[var(--cream)] p-4 shadow-[0_24px_70px_rgba(0,0,0,0.2)] sm:p-5 md:p-7 lg:p-8">
+      <div className="grid items-center gap-6 md:grid-cols-[280px_1fr] lg:grid-cols-[300px_1fr_190px] lg:gap-10">
+        <div className="relative overflow-hidden rounded-[26px]">
+          <div className="absolute left-4 top-4 z-10 rounded-full bg-[var(--gold)] px-5 py-2 buudy-mono text-xs font-bold tracking-[0.18em] text-[var(--plum)] shadow-[0_10px_24px_rgba(59,30,64,0.18)]">
+            FREE
+          </div>
+          <Image
+            alt="Muuhu hair growth comb free bonus gift"
+            className="h-full w-full object-cover"
+            height={620}
+            loading="lazy"
+            sizes="(min-width: 1024px) 300px, (min-width: 768px) 280px, 92vw"
+            src="/images/products/muuhu-hair-dryer/muuhu-comb-free-gift.webp"
+            width={620}
+          />
+        </div>
+
+        <div className="text-center md:text-left">
+          <h3 className="buudy-display text-[2rem] leading-tight text-[var(--plum)] md:text-[2.4rem]">
+            Muuhu Comb included free
+          </h3>
+          <p className="buudy-copy mt-4 max-w-3xl text-base leading-7 text-[var(--plum)]/85 md:text-lg md:leading-8">
+            A useful bonus for roots and scalp care: red-light combing,
+            micro-massage, and serum support in one compact tool. It helps make
+            the Airpro routine feel more complete, with extra care for
+            fuller-looking, stronger-feeling hair.
+          </p>
+          <div className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start">
+            {[
+              "Hair growth support",
+              "Scalp massage",
+              "Stronger-looking hair",
+            ].map((item) => (
+              <span
+                className="rounded-full border border-[#dfcdb7] bg-[#fffaf3] px-4 py-2 text-sm font-semibold text-[var(--plum)]"
+                key={item}
+              >
+                {item}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="rounded-[26px] bg-[#4a2552] px-6 py-7 text-center text-[var(--cream)]">
+          <p className="buudy-display text-4xl leading-none text-[var(--gold)]">
+            FREE
+          </p>
+          <p className="mt-3 text-lg font-semibold">with Airpro</p>
+          <p className="mt-1 text-sm text-[var(--cream)]/80">bundle gift</p>
+        </div>
       </div>
     </div>
   );
