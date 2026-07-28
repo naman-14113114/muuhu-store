@@ -62,7 +62,7 @@ function ContactHero() {
         <div className="relative">
           <div className="relative aspect-[4/5] overflow-hidden rounded-[24px] border border-[var(--border)] bg-[var(--blush)] shadow-[0_30px_70px_-44px_rgba(58,31,61,.45)]">
             <Image
-              alt="Muuhu Ionic Hair Dryer"
+              alt="Muuhu AirPro"
               className="object-cover"
               fill
               priority

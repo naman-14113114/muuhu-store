@@ -7,7 +7,7 @@ Muuhu US sells professional high-speed hair styling devices designed for salon-q
 ## Primary Pages
 - [Home](${market.siteUrl}): US storefront for Muuhu hair styling devices.
 - [Muuhu Airpro](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
-- [Muuhu Scalp Therapy Comb](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu Hair Growth Comb.
+- [Muuhu ScalpPro](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu ScalpPro.
 - [FAQs](${market.siteUrl}/pages/faqs): Common questions about shipping, returns, product use, and care.
 - [Shipping Policy](${market.siteUrl}/policies/shipping-policy): US shipping timelines and tracking guidance.
 - [Return Policy](${market.siteUrl}/policies/return-policy): 90-day money-back guarantee and return steps.

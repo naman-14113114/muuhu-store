@@ -1383,7 +1383,7 @@ export function ProductReviewsGrid({
                 </>
               ) : productHandle === "muuhu-comb" ? (
                 <>
-                  Muuhu Comb <em className="buudy-italic">customer reviews</em>.
+                  Muuhu ScalpPro <em className="buudy-italic">customer reviews</em>.
                 </>
               ) : (
                 <>
@@ -1397,7 +1397,7 @@ export function ProductReviewsGrid({
                 : productHandle === "muuhu-hair-dryer"
                 ? "Real feedback from customers who transformed their hair styling routine with the Muuhu Airpro."
                 : productHandle === "muuhu-comb"
-                ? "Real feedback from customers who made Muuhu Comb part of their at-home haircare ritual."
+                ? "Real feedback from customers who made Muuhu ScalpPro part of their at-home haircare ritual."
                 : "Real feedback from customers who made Buudy part of their at-home skincare ritual."
             }
           />
@@ -1482,7 +1482,15 @@ export function ProductReviewsGrid({
         {error ? <p className="text-sm text-red-900">{error}</p> : null}
         {hasMore ? (
           <Button
-            aria-label="Load 20 more Buudy LED Mask reviews"
+            aria-label={`Load 20 more ${
+              productHandle === "muuhu-comb"
+                ? "Muuhu ScalpPro"
+                : productHandle === "muuhu-hair-dryer"
+                  ? "Muuhu Airpro"
+                  : productHandle === "buudy-red-torch"
+                    ? "Buudy Red Torch"
+                    : "Buudy LED Mask"
+            } reviews`}
             className="min-w-48"
             disabled={isLoading}
             onClick={loadMoreReviews}

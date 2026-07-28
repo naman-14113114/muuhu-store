@@ -222,7 +222,7 @@ function MuuhuCombGiftStrip() {
             FREE
           </div>
           <Image
-            alt="Muuhu hair growth comb free bonus gift"
+            alt="Muuhu ScalpPro free bonus gift"
             className="h-full w-full object-cover"
             height={620}
             loading="lazy"
@@ -234,7 +234,7 @@ function MuuhuCombGiftStrip() {
 
         <div className="text-center md:text-left">
           <h3 className="buudy-display text-[2rem] leading-tight text-[var(--plum)] md:text-[2.4rem]">
-            Muuhu Comb included free
+            Muuhu ScalpPro included free
           </h3>
           <p className="buudy-copy mt-4 max-w-3xl text-base leading-7 text-[var(--plum)]/85 md:text-lg md:leading-8">
             A useful bonus for roots and scalp care: red-light combing,

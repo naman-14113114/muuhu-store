@@ -1,11 +1,11 @@
 import { productAsset } from "@/lib/media";
-import { muuhuHairDryer } from "./products";
+import { muuhuComb, muuhuHairDryer } from "./products";
 
 export const homeHero = {
   eyebrow: "Next-generation hair styling",
   title: "Perfected for you.",
   copy: "Professional-grade salon styling from the comfort of your home. Experience radiant, healthy hair with our 110,000 RPM motor, 7 versatile attachments, and 200 million negative ions.",
-  ctaLabel: "Shop the Muuhu Styler",
+  ctaLabel: "Shop Muuhu AirPro",
   ctaHref: `/products/${muuhuHairDryer.slug}`,
   images: [
     {
@@ -25,10 +25,10 @@ export const homeHero = {
 
 export const homeMaskSpotlight = {
   eyebrow: "Professional grade",
-  title: "The Muuhu Hair Styler with Auto-Wrap",
-  copy: "Modern styling requires modern solutions. The Muuhu Styler does it all without extreme heat. No more fumbling around with outdated curlers and heavy dryers. With our lightweight ergonomic design, you can achieve salon results every day.",
+  title: "Muuhu AirPro with Auto-Wrap",
+  copy: "Modern styling requires modern solutions. Muuhu AirPro does it all without extreme heat. No more fumbling around with outdated curlers and heavy dryers. With our lightweight ergonomic design, you can achieve salon results every day.",
   image: {
-    src: productAsset("07-prep-hair.webp"),
+    src: productAsset("26.webp"),
     alt: "Muuhu AirPro product spotlight",
   },
   product: muuhuHairDryer,
@@ -39,17 +39,17 @@ export const homeSkincareGuideIntro = {
   title: "Start with a routine that knows what your hair needs.",
   copy: "Take the Muuhu Styling Quiz to understand your unique hair concerns, choose the right attachments, and feel confident from your first session. It is simple, supportive, and made for real at-home consistency.",
   ctaLabel: "Start Quiz",
-  ctaHref: "/pages/about-us", 
+  ctaHref: "/pages/hair-quiz",
 };
 
 export const homeTechnologySpotlight = {
   eyebrow: "110,000 RPM motor plus 200M negative ions",
   title: "A smarter way to plan your blowout.",
   copy: "Use the guide to match your hair goals with the right Muuhu attachment. From volume support to smoother-looking hair, each tool has a purpose and a place in your weekly routine.",
-  ctaLabel: "Shop the styler",
+  ctaLabel: "Shop Muuhu AirPro",
   ctaHref: `/products/${muuhuHairDryer.slug}`,
   image: {
-    src: productAsset("05-coanda-effect.webp"),
+    src: productAsset("25.webp"),
     alt: "Muuhu attachments guide",
   },
 };
@@ -57,7 +57,7 @@ export const homeTechnologySpotlight = {
 export const homeFeatureCards = [
   {
     title: "Industry leading 110k RPM",
-    copy: "Your Muuhu Styler is armed with a high-speed brushless motor to have you styled in record time.",
+    copy: "Your Muuhu AirPro is armed with a high-speed brushless motor to have you styled in record time.",
     image: productAsset("02-new-year-new-hair.webp"),
   },
   {
@@ -87,21 +87,21 @@ export const homeYoungerYou = {
   copy: "With 7 versatile attachments and intelligent heat control built into one powerful device, you can spend time to give yourself more time. It is self care when you need it, at anytime.",
   image: {
     src: productAsset("03-before-after.webp"),
-    alt: "Muuhu styler reveal healthier hair",
+    alt: "Muuhu AirPro reveal healthier hair",
   },
 };
 
 export const homeTorchSpotlight = {
-  eyebrow: "Portable and powerful",
-  title: "Targeted volume in your hand.",
-  copy: 'Simply set aside some "Me Time" for 15 minutes a day. The Muuhu Styler harnesses high-speed airflow for root lift support, frizz relief, and targeted hair care.',
-  ctaLabel: "Buy Now",
-  ctaHref: `/products/${muuhuHairDryer.slug}`,
+  eyebrow: "3-in-1 scalp care",
+  title: "Targeted scalp care in your hand.",
+  copy: "Muuhu ScalpPro combines red light therapy, micro-vibration massage, and a built-in serum applicator to support a calmer scalp and healthier-looking roots in one simple daily ritual.",
+  ctaLabel: "Shop ScalpPro",
+  ctaHref: `/products/${muuhuComb.slug}`,
   image: {
-    src: productAsset("00-travel-friendly-styler.webp"),
-    alt: "Muuhu product spotlight",
+    src: "/images/products/muuhu-comb/muuhu-scalppro-bonus.webp",
+    alt: "Muuhu ScalpPro product spotlight",
   },
-  product: muuhuHairDryer,
+  product: muuhuComb,
 };
 
 export const homeWavelengthMap = {
@@ -119,7 +119,7 @@ export const homeWavelengthMap = {
 };
 
 export const homeCustomerReviewsGrid = {
-  title: "Why try the Muuhu Styler?",
+  title: "Why try Muuhu AirPro?",
   copy: "Tons of glowing reviews from customers!",
   ctaLabel: "About Us",
   ctaHref: "/pages/about-us",

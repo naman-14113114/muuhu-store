@@ -3,7 +3,7 @@ import { AboutPage } from "@/components/about/AboutPage";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "About Us | Muuhu Hair Styler",
+  title: "About Us | Muuhu AirPro",
   description:
     "Learn about Muuhu, our team of hair care experts, our story of high-speed ionic hair dryer innovation, and our mission to make professional styling simple and safe.",
   alternates: {

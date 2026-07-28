@@ -440,7 +440,11 @@ export function GiftBundle({ product }: { product: Product }) {
                       className="rounded-[20px] object-contain p-0.5 transition-transform duration-300 group-hover:scale-105 md:p-1"
                       fill
                       sizes="120px"
-                      src={gift.image}
+                      src={
+                        product.id === "muuhu-hair-dryer" && gift.id === "muuhu-comb"
+                          ? "/images/products/muuhu-comb/muuhu-scalppro-bonus.webp"
+                          : gift.image
+                      }
                     />
                   </div>
 
@@ -460,12 +464,11 @@ export function GiftBundle({ product }: { product: Product }) {
         >
           <p className="buudy-eyebrow">{product.promoLabel}</p>
           <p className="buudy-display mt-2 text-2xl text-[var(--plum)]">
-            60% off, free shipping, and a rechargeable wellness kit.
+            50% off, free shipping, and a complete scalp-care kit.
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-            Includes the torch, rechargeable battery, charger, USB cable,
-            glasses, and user manual for a complete targeted light therapy
-            routine.
+            Includes Muuhu ScalpPro, USB charging cable, built-in serum
+            applicator, and user manual for a simple at-home scalp-care routine.
           </p>
         </section>
       )}

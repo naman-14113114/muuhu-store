@@ -21,7 +21,7 @@ export type FreeGiftDetail = {
 };
 
 const bundleFooter =
-  "The Muuhu Airpro offer works best as a complete styling system: the dryer, premium packaging, Muuhu Comb, and Haircare Masterclass all help customers get more value from the bundle from day one.";
+  "The Muuhu Airpro offer works best as a complete styling system: the dryer, premium packaging, Muuhu ScalpPro, and Haircare Masterclass all help customers get more value from the bundle from day one.";
 
 export const freeGiftBundleFooter = bundleFooter;
 
@@ -73,16 +73,16 @@ export const freeGiftDetails: FreeGiftDetail[] = [
   {
     slug: "muuhu-comb",
     eyebrow: "Free Bonus Gift",
-    title: "Muuhu Comb",
-    seoTitle: "Muuhu Comb Bonus Gift",
+    title: "Muuhu ScalpPro",
+    seoTitle: "Muuhu ScalpPro Bonus Gift",
     seoDescription:
-      "Explore the Muuhu Comb included as a free companion gift with the Muuhu Airpro offer for scalp care, massage, and haircare routines.",
+      "Explore the Muuhu ScalpPro included as a free companion gift with the Muuhu Airpro offer for scalp care, massage, and haircare routines.",
     intro:
-      "The Muuhu Comb adds focused scalp care to the main Hair Dryer offer. While the dryer helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
+      "The Muuhu ScalpPro adds focused scalp care to the main Hair Dryer offer. While the dryer helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
     note:
-      "The current Muuhu Airpro offer includes the Muuhu Comb as a free bonus gift.",
-    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png",
-    imageAlt: "Muuhu Comb bonus gift",
+      "The current Muuhu Airpro offer includes the Muuhu ScalpPro as a free bonus gift.",
+    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp",
+    imageAlt: "Muuhu ScalpPro bonus gift",
     cardTitle: "Why customers love this bonus",
     cardBullets: [
       "Pairs with wash-day and styling routines",
@@ -122,7 +122,7 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     seoDescription:
       "Discover the Muuhu Haircare Masterclass E-book included with your Hair Dryer purchase, with attachment guidance, styling routines, and scalp-care tips.",
     intro:
-      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Hair Dryer. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu Comb.",
+      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Hair Dryer. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu ScalpPro.",
     note:
       "The guide is delivered after purchase and is not publicly published as a downloadable file on this page.",
     image: "/images/products/muuhu-hair-dryer/muuhu-haircare-ebook-gift.webp",
@@ -132,14 +132,14 @@ export const freeGiftDetails: FreeGiftDetail[] = [
       "Attachment-by-attachment styling guide",
       "Hair-type routine examples",
       "Heat protection and prep steps",
-      "Muuhu Comb scalp-care chapter",
+      "Muuhu ScalpPro scalp-care chapter",
     ],
     sections: [
       {
         title: "What is inside the e-book",
         paragraphs: [
           "The guide explains the full Muuhu styling system in a way customers can actually use. It covers blowout prep, attachment selection, heat and speed choices, curl setting, smoothing, root lift, and frizz control.",
-          "It also includes routine examples for different hair types, plus a dedicated scalp-care chapter for pairing the Muuhu Comb with wash-day and pre-styling routines.",
+          "It also includes routine examples for different hair types, plus a dedicated scalp-care chapter for pairing the Muuhu ScalpPro with wash-day and pre-styling routines.",
         ],
         bullets: [
           "Clear attachment guidance",

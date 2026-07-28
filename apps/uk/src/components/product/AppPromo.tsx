@@ -11,7 +11,7 @@ export function RitualSection() {
       <div className="buudy-wrap grid items-center gap-10 lg:grid-cols-[1.2fr_1fr]">
         <div className="relative aspect-video overflow-hidden rounded-[18px] bg-[var(--ink)]">
           <Image
-            alt="Muuhu Styler lifestyle ritual"
+            alt="Muuhu AirPro lifestyle ritual"
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 58vw, 100vw"
@@ -38,7 +38,7 @@ export function RitualSection() {
             ritual.
           </h2>
           <p className="buudy-copy mt-5">
-            Discover how the Muuhu Styler&apos;s 110,000 RPM motor, Coanda effect
+            Discover how the Muuhu AirPro&apos;s 110,000 RPM motor, Coanda effect
             auto-wrap curlers, and intelligent heat control make at-home
             styling feel easy, consistent, and beautifully simple.
           </p>
@@ -62,7 +62,7 @@ export function TouchTechSection() {
             hassle.
           </h2>
           <p className="mt-5 max-w-lg leading-7 text-[rgba(247,241,232,.72)]">
-            We engineered the Muuhu Styler to be as smart as it is effective,
+            We engineered Muuhu AirPro to be as smart as it is effective,
             replacing frustrating tools and extreme heat damage with a sleek,
             powerful design.
           </p>
@@ -79,7 +79,7 @@ export function TouchTechSection() {
         </div>
         <div className="relative aspect-square overflow-hidden rounded-[18px] bg-[var(--ink)]">
           <LazyAutoplayVideo
-            ariaLabel="Muuhu Styler demonstration"
+            ariaLabel="Muuhu AirPro demonstration"
             className="w-full h-full object-cover"
             rootMargin="1400px 0px"
             src={""}
@@ -116,7 +116,7 @@ export function AppPromo() {
             Muuhu <span className="text-[var(--gold)]">Masterclass</span>.
           </h2>
           <p className="buudy-copy mt-3 text-sm leading-6">
-            The Muuhu Styling Masterclass is a digital guide for Muuhu Styler
+            The Muuhu Styling Masterclass is a digital guide for Muuhu AirPro
             customers. It helps customers learn, practice, and perfect their
             personalised styling routines using the 7 included attachments.
           </p>
@@ -151,7 +151,7 @@ export function BlueLightSection() {
       <div className="buudy-wrap relative z-10 grid items-center gap-8 md:gap-12 lg:grid-cols-[1fr_1.4fr]">
         <div className="relative aspect-[4/5] overflow-hidden rounded-[18px]">
           <Image
-            alt="Negative ion technology with Muuhu Styler"
+            alt="Negative ion technology with Muuhu AirPro"
             className="object-cover"
             fill
             sizes="(min-width: 1024px) 42vw, 100vw"

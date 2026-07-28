@@ -36,7 +36,7 @@ export function cn(...classes: Array<string | false | null | undefined>) {
 
 function ButtonContent({ children }: { children: ReactNode }) {
   return (
-    <span className="buudy-cart-wipe-content inline-flex items-center justify-center gap-2">
+    <span className="buudy-cart-wipe-content inline-flex items-center justify-center gap-2 whitespace-nowrap [&_svg]:shrink-0">
       {children}
     </span>
   );

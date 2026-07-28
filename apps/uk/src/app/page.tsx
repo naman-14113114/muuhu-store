@@ -4,14 +4,14 @@ import { market } from "@/lib/market";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Best Hair Dryer UK | Muuhu Hair Styler",
+  title: "Best Hair Dryer UK | Muuhu AirPro",
   description:
     "Shop Muuhu UK for the ultimate high-speed hair styler. Features 110,000 RPM motor, negative ions for zero frizz, and 7 versatile attachments.",
   alternates: {
     canonical: "/",
   },
   keywords: [
-    "muuhu hair dryer",
+    "muuhu airpro",
     "high speed hair dryer",
     "best hair dryer UK",
     "hair styler UK",

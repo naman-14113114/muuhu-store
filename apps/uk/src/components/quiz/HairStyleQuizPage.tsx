@@ -68,14 +68,14 @@ export function HairStyleQuizPage() {
             buildResult={buildHairStyleResult}
             productHref="/products/muuhu-hair-dryer"
             ctaCopy="Get the Muuhu AirPro and unlock your full 4-week plan, with attachment mastery and your signature look."
-            ctaLabel="Get the Hair Dryer"
+            ctaLabel="Get Muuhu AirPro"
             intro={{
               eyebrow: "60-second assessment",
               title: "Build your custom",
               titleAccent: "look.",
               copy: "Discover the exact attachments and techniques for the styles you love, based on your length and skill level.",
               startLabel: "Start assessment",
-              bullets: ["5 focused questions", "Instant routine", "Weeks 3 & 4 unlocked with the dryer"],
+              bullets: ["5 focused questions", "Instant routine", "Weeks 3 & 4 unlocked with Muuhu AirPro"],
             }}
           />
         </div>
