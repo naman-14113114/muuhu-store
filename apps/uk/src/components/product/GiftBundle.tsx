@@ -103,6 +103,76 @@ function getHighlightIcon(text: string): ProductIcon {
   return IconDiamond;
 }
 
+function HairDryerBenefitStrip() {
+  const benefits = [
+    {
+      label: "7-in-1 dry, curl & style",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/airpro-7-in-1.png",
+      imageClassName:
+        "!h-12 w-auto object-contain brightness-0 contrast-125 sm:!h-16",
+    },
+    {
+      label: "Fast drying with lower heat",
+      icon: IconWind,
+    },
+    {
+      label: "90-day money-back guarantee",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/90-day-guarantee.png",
+      imageClassName:
+        "!h-11 !w-11 object-contain contrast-150 sm:!h-14 sm:!w-14",
+    },
+    {
+      label: "Science-backed design",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/science-backed-design.png",
+      imageClassName:
+        "!h-11 !w-11 object-contain contrast-150 sm:!h-14 sm:!w-14",
+    },
+  ];
+
+  return (
+    <div
+      aria-label="Muuhu AirPro benefits"
+      className="mt-7 grid grid-cols-4 border-b border-[rgba(58,31,61,.12)] pb-7 text-center sm:mt-8 sm:pb-8"
+    >
+      {benefits.map((benefit) => {
+        const Icon = benefit.icon;
+
+        return (
+          <div
+            className="flex min-w-0 flex-col items-center px-1 sm:px-2"
+            key={benefit.label}
+          >
+            <div className="flex h-12 w-full items-center justify-center sm:h-16">
+              {Icon ? (
+                <Icon
+                  aria-hidden
+                  className="h-10 w-10 text-[var(--ink)] sm:h-12 sm:w-12"
+                  stroke={0.55}
+                />
+              ) : (
+                <Image
+                  alt=""
+                  aria-hidden
+                  className={benefit.imageClassName}
+                  height={60}
+                  src={benefit.image!}
+                  width={60}
+                />
+              )}
+            </div>
+            <p className="buudy-display mt-2 !text-[9px] font-semibold uppercase !leading-[1.2] tracking-[0.01em] text-[var(--plum)] sm:!text-[10px]">
+              {benefit.label}
+            </p>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 export function GiftBundle({ product }: { product: Product }) {
   const { addProduct } = useCart();
   const router = useRouter();
@@ -267,6 +337,8 @@ export function GiftBundle({ product }: { product: Product }) {
             : "ADD TO CART + FREE SHIPPING"}
         </span>
       </Button>
+
+      {product.id === "muuhu-hair-dryer" && <HairDryerBenefitStrip />}
 
       {/* Benefits Grid Row (Mask Only) */}
       {product.id === "buudy-led-mask" && (
