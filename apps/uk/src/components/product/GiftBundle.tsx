@@ -220,7 +220,7 @@ export function GiftBundle({ product }: { product: Product }) {
         <em className="italic text-[var(--gold)]">{product.heroEmphasis}</em>
       </h1>
 
-      {/* Purchase assurance badges */}
+      {/* Clinically Proven Badges */}
       <div className="mt-3 flex flex-nowrap items-center gap-1 sm:gap-2">
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
           <IconCertificate
@@ -229,7 +229,7 @@ export function GiftBundle({ product }: { product: Product }) {
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
-            Free UK Delivery
+            Clinically Proven
           </span>
         </span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
@@ -249,9 +249,9 @@ export function GiftBundle({ product }: { product: Product }) {
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
-            {product.id.includes("hair-dryer")
-              ? "7 Attachments"
-              : "3-in-1 Scalp Care"}
+            {product.id.includes("hair-dryer") || product.id.includes("comb")
+              ? "Stylist Approved"
+              : "Dermatologist Approved"}
           </span>
         </span>
       </div>

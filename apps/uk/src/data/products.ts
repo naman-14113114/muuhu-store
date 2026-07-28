@@ -26,8 +26,8 @@ export const muuhuHairDryer: Product = {
   promoCode: "AUTO",
   promoLabel: "Save £150 today",
   highlights: [
-    "High-speed drying with controlled heat",
-    "Helps reduce frizz for a smooth, glossy finish",
+    "Dries hair in half the time without heat damage",
+    "Banishes frizz for a silky, smooth finish",
     "Achieve a bouncy, salon-quality blowout at home",
   ],
   cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
@@ -105,12 +105,12 @@ export const muuhuHairDryer: Product = {
     {
       question: "Is it really as powerful as a Dyson?",
       answer:
-        "The Muuhu AirPro features a 110,000 RPM brushless motor, matching the stated motor speed of leading £300+ competitors and delivering high-speed airflow.",
+        "Yes! The Muuhu AirPro features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.",
     },
     {
       question: "Will it damage my hair?",
       answer:
-        "It uses intelligent heat distribution and high-speed airflow to reduce prolonged exposure to extreme heat. As with any heated styling tool, use the lowest effective setting for your hair type.",
+        "No. It uses intelligent heat distribution and 200 million negative ions to dry hair quickly via high-speed airflow rather than extreme heat, protecting your hair's natural shine.",
     },
     {
       question: "Do you offer a guarantee?",
@@ -191,10 +191,10 @@ export const muuhuHairDryer: Product = {
     },
   ],
   badges: [
-    "UK 3-Pin Plug",
-    "7 Attachments Included",
+    "CE Certified",
+    "UKCA Approved",
+    "RoHS Compliant",
     "1-Year Warranty",
-    "90-Day Money-Back Guarantee",
   ],
 };
 
