@@ -51,9 +51,9 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
       window.removeEventListener("pageshow", handlePageShow);
     };
   }, []);
-  const maskQuantity =
+  const productQuantity =
     lines.find(
-      (line) => line.type === "product" && line.productId === "buudy-led-mask",
+      (line) => line.type === "product" && line.productId === "muuhu-hair-dryer",
     )?.quantity ?? totals.itemCount;
 
   function readAttribution() {
@@ -99,7 +99,7 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
         },
         body: JSON.stringify({
           customerEmail: initialCustomer.email,
-          quantity: maskQuantity, // fallback quantity
+          quantity: productQuantity,
           cart: {
             lines,
             giftMessage,
@@ -115,11 +115,13 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
         throw new Error("Could not prepare checkout.");
       }
 
-      const primaryProductId = lines.find((l) => l.type === "product")?.productId || "buudy-led-mask";
+      const primaryProductId =
+        lines.find((line) => line.type === "product")?.productId ??
+        "muuhu-hair-dryer";
 
       const data = (await response.json()) as { checkoutUrl?: string };
       const fallbackUrl = buildPlusbaseCheckoutUrl({
-        quantity: maskQuantity,
+        quantity: productQuantity,
         productId: primaryProductId,
         discountCode: manualPromoCode,
         extraParams: attribution,
@@ -130,11 +132,13 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
           : fallbackUrl,
       );
     } catch {
-      const primaryProductId = lines.find((l) => l.type === "product")?.productId || "buudy-led-mask";
+      const primaryProductId =
+        lines.find((line) => line.type === "product")?.productId ??
+        "muuhu-hair-dryer";
       setError("Opening secure checkout...");
       window.location.assign(
         buildPlusbaseCheckoutUrl({
-          quantity: maskQuantity,
+          quantity: productQuantity,
           productId: primaryProductId,
           discountCode: manualPromoCode,
           extraParams: attribution,

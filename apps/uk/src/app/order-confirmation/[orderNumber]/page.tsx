@@ -21,7 +21,7 @@ type OrderConfirmationPageProps = {
 
 export const metadata: Metadata = {
   title: "Order Confirmation",
-  description: "Your Buudy order confirmation.",
+  description: "Your Muuhu order confirmation.",
   robots: {
     index: false,
     follow: false,
@@ -61,8 +61,8 @@ export default async function OrderConfirmationPage({
           <h1 className="buudy-heading mt-5">Order not found.</h1>
           <p className="buudy-copy mx-auto mt-5 max-w-lg">
             We could not load order {orderNumber}. Check the order number or{" "}
-            <a className="font-semibold underline" href="mailto:support@buudy.com">
-              contact support@buudy.com
+            <a className="font-semibold underline" href="mailto:support@muuhu.com">
+              contact support@muuhu.com
             </a>
             .
           </p>
@@ -82,9 +82,8 @@ export default async function OrderConfirmationPage({
           <p className="buudy-eyebrow mt-5">Sale recorded</p>
           <h1 className="buudy-heading mt-3">Thank you, {order.customer_full_name}.</h1>
           <p className="buudy-copy mx-auto mt-5 max-w-2xl">
-            Your Buudy order has been recorded as {order.order_number}. A real
-            payment gateway can be connected later without changing the order
-            dashboard structure.
+            Your Muuhu order has been recorded as {order.order_number}. We will
+            email tracking details as soon as your order is dispatched.
           </p>
         </div>
 

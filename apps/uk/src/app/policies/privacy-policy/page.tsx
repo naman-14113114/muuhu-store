@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/policies/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy | Buudy",
-  description: "Understand how Buudy collects, protects and handles your personal information when buying LED masks.",
+  title: "Privacy Policy | Muuhu",
+  description: "Understand how Muuhu collects, protects, and handles personal information when you browse or place an order.",
   alternates: {
     canonical: "/policies/privacy-policy",
   },

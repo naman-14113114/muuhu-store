@@ -1,6 +1,6 @@
 // Personalised result engines for the Muuhu Haircare and Hairstyle quizzes.
 // Both build a 4-week routine: weeks 1 & 2 are revealed, weeks 3 & 4 are
-// locked behind owning the Muuhu Airpro (the 7-in-1 styler).
+// locked behind owning the Muuhu AirPro (the 7-in-1 styler).
 
 import type {
   HairCareAnswers,
@@ -109,7 +109,7 @@ function careWeek4(): QuizRoutineStep {
   return {
     number: "04",
     title: "Your Signature Look — On autopilot",
-    copy: "By now you style in half the time with salon-grade results. The final week cements your personal method, with attachment swaps for any occasion. Unlock the complete plan with your Muuhu Airpro.",
+    copy: "By now you style in half the time with salon-grade results. The final week cements your personal method, with attachment swaps for any occasion. Unlock the complete plan with your Muuhu AirPro.",
     locked: true,
   };
 }
@@ -222,7 +222,7 @@ function styleWeek4(a: HairStyleAnswers): QuizRoutineStep {
   return {
     number: "04",
     title: "Signature Week — Your full repertoire",
-    copy: `You can now switch between every look on your list and deliver ${occ}. The complete style library unlocks with your Muuhu Airpro.`,
+    copy: `You can now switch between every look on your list and deliver ${occ}. The complete style library unlocks with your Muuhu AirPro.`,
     locked: true,
   };
 }

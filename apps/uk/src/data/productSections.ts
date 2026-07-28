@@ -47,9 +47,9 @@ export const features: Feature[] = [
     body: "Unleash your hair's potential. Dry, straighten, curl, and volumize with one base. The ultimate styling tool designed to replace your hairdryer, straightener, and curling wand.",
   },
   {
-    title: "60% Cooler Than Traditional Tools",
-    kicker: "Zero Extreme Heat Damage",
-    body: "Crafted with a tourmaline ceramic heating element, this hot air styler ensures even heat distribution while minimizing damage. Get salon-worthy hair without the extreme heat.",
+    title: "Controlled Heat Styling",
+    kicker: "Designed Without Extreme Heat",
+    body: "The hot air styler distributes heat evenly while high-speed airflow does more of the drying work. Use the lowest effective setting for your hair type and finish with cool air.",
   },
   {
     title: "110,000 RPM Brushless Motor",
@@ -297,7 +297,7 @@ export const wavelengths: Wavelength[] = [
 export const comparison = {
   intro: "Check the difference yourself",
   columns: [
-    { label: "Muuhu Airpro", price: "£149", featured: true },
+    { label: "Muuhu AirPro", price: "£149", featured: true },
     { label: "Dyson Supersonic", price: "£429" },
     { label: "Shark SpeedStyle", price: "£199" },
     { label: "GHD Air", price: "£199" },
@@ -307,7 +307,7 @@ export const comparison = {
     ["110,000 RPM Motor", "Yes", "Yes", "-", "-"],
     ["Weight", "475g", "660g", "700g", "823g"],
     ["Ionic Technology", "Yes", "Yes", "Yes", "Yes"],
-    ["Low noise (65db)", "Yes", "-", "-", "-"],
+    ["Low noise (65 dB)", "Yes", "-", "-", "-"],
     ["App Companion", "Yes", "-", "-", "-"],
     ["Intelligent Heat Control", "Yes", "Yes", "-", "-"],
   ],
@@ -327,7 +327,7 @@ export const touchTech = [
 export const faqs: FAQItem[] = [
   {
     question: "Is it really as powerful as a Dyson?",
-    answer: "Yes! The Muuhu Airpro features a 110,000 RPM brushless motor, exactly the same specification as the leading £300+ competitors, delivering ultra-fast drying times.",
+    answer: "The Muuhu AirPro features a 110,000 RPM brushless motor, matching the stated motor speed of leading £300+ competitors and delivering high-speed airflow.",
   },
   {
     question: "Does it come with a UK plug?",

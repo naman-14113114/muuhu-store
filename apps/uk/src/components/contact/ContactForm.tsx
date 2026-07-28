@@ -30,7 +30,7 @@ let contactConfigPromise: Promise<ContactConfig> | null = null;
 
 function buildMailto(formData: FormData) {
   const subject =
-    (formData.get("subject")?.toString().trim() || "Buudy contact request");
+    (formData.get("subject")?.toString().trim() || "Muuhu contact request");
   const body = [
     `First name: ${formData.get("firstName") ?? ""}`,
     `Last name: ${formData.get("lastName") ?? ""}`,
@@ -134,8 +134,8 @@ function buildWeb3FormsData(
   }
 
   web3FormsData.set("access_key", accessKey);
-  web3FormsData.set("subject", `[Buudy Contact] ${subject}`);
-  web3FormsData.set("from_name", `${firstName} ${lastName}`.trim() || "Buudy customer");
+  web3FormsData.set("subject", `[Muuhu Contact] ${subject}`);
+  web3FormsData.set("from_name", `${firstName} ${lastName}`.trim() || "Muuhu customer");
   web3FormsData.set("name", `${firstName} ${lastName}`.trim());
   web3FormsData.set("email", email);
   web3FormsData.set("replyto", email);

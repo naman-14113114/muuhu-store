@@ -5,7 +5,7 @@ import { getCurrentAccount } from "@/lib/account";
 
 export const metadata: Metadata = {
   title: "Sign In",
-  description: "Sign in to your Buudy account.",
+  description: "Sign in to your Muuhu account.",
   robots: {
     index: false,
     follow: false,
@@ -40,7 +40,7 @@ export default async function SignInPage({ searchParams }: SignInPageProps) {
           <p className="buudy-eyebrow">Account</p>
           <h1 className="buudy-heading mt-4">Welcome back.</h1>
           <p className="buudy-copy mt-5 max-w-xl">
-            Sign in to save profile details, view recorded Buudy orders, and
+            Sign in to save profile details, view recorded Muuhu orders, and
             manage your account settings.
           </p>
         </div>

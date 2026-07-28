@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/policies/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Return Policy | Buudy",
-  description: "Learn about the simple, stress-free replacement policy and goddess guarantees for the Buudy LED Skincare Mask.",
+  title: "Return Policy | Muuhu",
+  description: "Read the Muuhu return and replacement policy for AirPro hair styling orders.",
   alternates: {
     canonical: "/policies/return-policy",
   },

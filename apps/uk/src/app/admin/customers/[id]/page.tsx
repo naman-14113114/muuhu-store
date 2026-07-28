@@ -18,7 +18,7 @@ type AdminCustomerPageProps = {
 
 export const metadata: Metadata = {
   title: "Customer Detail",
-  description: "Buudy admin customer detail.",
+  description: "Muuhu admin customer detail.",
   robots: {
     index: false,
     follow: false,

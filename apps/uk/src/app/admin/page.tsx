@@ -21,7 +21,7 @@ type AdminPageProps = {
 
 export const metadata: Metadata = {
   title: "Admin Dashboard",
-  description: "Buudy admin dashboard for customers and recorded sales.",
+  description: "Muuhu admin dashboard for customers and recorded sales.",
   robots: {
     index: false,
     follow: false,
@@ -105,7 +105,7 @@ export default async function AdminPage({ searchParams }: AdminPageProps) {
         <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <p className="buudy-eyebrow">Admin</p>
-            <h1 className="buudy-heading mt-3">Buudy dashboard.</h1>
+            <h1 className="buudy-heading mt-3">Muuhu dashboard.</h1>
             <p className="buudy-copy mt-4 max-w-2xl">
               Track customers, recorded sales, order snapshots, gifts, and promo
               performance from Supabase.

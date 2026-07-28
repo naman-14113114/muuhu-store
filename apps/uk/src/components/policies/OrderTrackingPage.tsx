@@ -133,7 +133,7 @@ export function OrderTrackingPage() {
         trackingEvents: Array.isArray(data.trackingEvents) ? data.trackingEvents : [],
       });
     } catch {
-      setError("We could not reach the Buudy order system right now. Please try again in a moment.");
+      setError("We could not reach the Muuhu order system right now. Please try again in a moment.");
     } finally {
       setIsLoading(false);
     }
@@ -205,7 +205,7 @@ export function OrderTrackingPage() {
                         d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
                       />
                     </svg>
-                    Checking Buudy Tracking...
+                    Checking Muuhu Tracking...
                   </span>
                 ) : (
                   <span className="flex items-center justify-center gap-2">
@@ -261,7 +261,7 @@ export function OrderTrackingPage() {
                 <div className="space-y-4">
                   <h4 className="buudy-display flex items-center gap-2 text-lg text-[var(--plum)]">
                     <Truck size={18} className="text-[var(--gold)]" />
-                    {trackingResult.trackingEvents.length ? "Shipment Timeline" : "Official Buudy Status"}
+                    {trackingResult.trackingEvents.length ? "Shipment Timeline" : "Official Muuhu Status"}
                   </h4>
 
                   {trackingResult.trackingEvents.length ? (
@@ -283,7 +283,7 @@ export function OrderTrackingPage() {
                     </div>
                   ) : (
                     <p className="rounded-2xl border border-[var(--border)] bg-[var(--cream)] p-4 text-sm font-light leading-6 text-[var(--muted)]">
-                      No carrier scan history is available yet. This page will show the real carrier timeline once Buudy receives it from the fulfillment system.
+                      No carrier scan history is available yet. This page will show the real carrier timeline once Muuhu receives it from the fulfillment system.
                     </p>
                   )}
                 </div>

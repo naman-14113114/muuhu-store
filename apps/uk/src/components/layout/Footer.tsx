@@ -65,7 +65,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] text-[var(--cream)] transition-all duration-300 hover:bg-[var(--gold)] hover:text-[var(--ink)] hover:-translate-y-1"
-                aria-label="Follow Buudy on Facebook"
+                aria-label="Follow Muuhu on Facebook"
               >
                 <svg
                   stroke="currentColor"
@@ -85,7 +85,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] text-[var(--cream)] transition-all duration-300 hover:bg-[var(--gold)] hover:text-[var(--ink)] hover:-translate-y-1"
-                aria-label="Follow Buudy on Instagram"
+                aria-label="Follow Muuhu on Instagram"
               >
                 <svg
                   stroke="currentColor"
@@ -107,7 +107,7 @@ export function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex h-9 w-9 items-center justify-center rounded-full bg-[rgba(255,255,255,0.06)] text-[var(--cream)] transition-all duration-300 hover:bg-[var(--gold)] hover:text-[var(--ink)] hover:-translate-y-1"
-                aria-label="Subscribe to Buudy on YouTube"
+                aria-label="Subscribe to Muuhu on YouTube"
               >
                 <svg
                   stroke="currentColor"

@@ -21,7 +21,7 @@ export type FreeGiftDetail = {
 };
 
 const bundleFooter =
-  "The Muuhu Airpro offer works best as a complete styling system: the dryer, premium packaging, Muuhu Comb, and Haircare Masterclass all help customers get more value from the bundle from day one.";
+  "The Muuhu AirPro offer works best as a complete styling system: the dryer, premium packaging, Muuhu Comb, and Haircare Masterclass all help customers get more value from the bundle from day one.";
 
 export const freeGiftBundleFooter = bundleFooter;
 
@@ -30,15 +30,15 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     slug: "premium-packaging",
     eyebrow: "Free Bonus Gift",
     title: "Premium Packaging",
-    seoTitle: "Premium Packaging Gift for Muuhu Airpro",
+    seoTitle: "Premium Packaging Gift for Muuhu AirPro",
     seoDescription:
-      "See the premium packaging included with the Muuhu Airpro offer, designed for safer storage, cleaner presentation, and a more gift-ready styling bundle.",
+      "See the premium packaging included with the Muuhu AirPro offer, designed for safer storage, cleaner presentation, and a more gift-ready styling bundle.",
     intro:
       "Premium packaging makes the Muuhu 7-in-1 styling system feel complete from the moment it arrives. It gives the dryer and attachments a cleaner presentation, supports a more gift-ready unboxing, and helps the full bundle stay organised between styling sessions.",
     note:
-      "This premium packaging is currently included as a free bonus with the Muuhu Airpro offer.",
+      "This premium packaging is currently included as a free bonus with the Muuhu AirPro offer.",
     image: "/images/products/muuhu-hair-dryer/muuhu-luxury-case-v2.webp",
-    imageAlt: "Premium packaging included with the Muuhu Airpro bundle",
+    imageAlt: "Premium packaging included with the Muuhu AirPro bundle",
     cardTitle: "Why it makes the bundle feel complete",
     cardBullets: [
       "Designed around the Muuhu styling system",
@@ -76,11 +76,11 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     title: "Muuhu Comb",
     seoTitle: "Muuhu Comb Bonus Gift",
     seoDescription:
-      "Explore the Muuhu Comb included as a free companion gift with the Muuhu Airpro offer for scalp care, massage, and haircare routines.",
+      "Explore the Muuhu Comb included as a free companion gift with the Muuhu AirPro offer for scalp care, massage, and haircare routines.",
     intro:
       "The Muuhu Comb adds focused scalp care to the main Hair Dryer offer. While the dryer helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
     note:
-      "The current Muuhu Airpro offer includes the Muuhu Comb as a free bonus gift.",
+      "The current Muuhu AirPro offer includes the Muuhu Comb as a free bonus gift.",
     image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.png",
     imageAlt: "Muuhu Comb bonus gift",
     cardTitle: "Why customers love this bonus",

@@ -10,7 +10,7 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
   title: "My Profile",
-  description: "Manage your Buudy customer profile.",
+  description: "Manage your Muuhu customer profile.",
   robots: {
     index: false,
     follow: false,
@@ -44,7 +44,7 @@ export default async function MyProfilePage() {
               Hello, {account.profile?.full_name?.split(" ")[0] ?? "there"}.
             </h1>
             <p className="buudy-copy mt-4 max-w-2xl">
-              Keep your contact and shipping details ready for faster Buudy
+              Keep your contact and shipping details ready for faster Muuhu
               checkout.
             </p>
           </div>

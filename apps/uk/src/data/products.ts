@@ -7,46 +7,46 @@ export const muuhuHairDryer: Product = {
   sku: "MUUHU-HD-7IN1",
   slug: "muuhu-hair-dryer",
   template: "mask", // reuse the detailed product template structure
-  name: "Muuhu Airpro",
+  name: "Muuhu AirPro",
   heroTitle: "Muuhu",
-  heroEmphasis: "Airpro",
+  heroEmphasis: "AirPro",
   shortDescription:
     "Professional 7-in-1 high speed styling system with 110,000 RPM brushless motor. Dry, curl, straighten, and volumise with one device.",
   description:
-    "Salon-grade hair styling reimagined for UK homes. The Muuhu Airpro combines a 110,000 RPM brushless motor, ionic technology with 200 million negative ions, 7 interchangeable attachments, and intelligent heat control — all in one lightweight device.",
-  seoTitle: "Best Hair Dryer UK | Muuhu High Speed Styler",
+    "Salon-grade hair styling reimagined for UK homes. The Muuhu AirPro combines a 110,000 RPM brushless motor, ionic technology with 200 million negative ions, 7 interchangeable attachments, and intelligent heat control — all in one lightweight device.",
+  seoTitle: "Muuhu AirPro | 7-in-1 High-Speed Hair Styler UK",
   seoDescription:
-    "Shop the Muuhu Airpro in the UK: 110,000 RPM motor, ionic frizz control, 7 styling attachments, professional results at home. Free UK delivery.",
+    "Shop the Muuhu AirPro in the UK: 110,000 RPM motor, ionic frizz control, 7 styling attachments, professional results at home. Free UK delivery.",
   currency: market.currency,
   priceCents: 14900,
   compareAtCents: 29900,
   rating: 4.9,
   reviewCount: 16000,
   customerCount: "16,000+",
-  promoCode: "TBD",
-  promoLabel: "£10 off applied",
+  promoCode: "AUTO",
+  promoLabel: "Save £150 today",
   highlights: [
-    "Dries hair in half the time without heat damage",
-    "Banishes frizz for a silky, smooth finish",
+    "High-speed drying with controlled heat",
+    "Helps reduce frizz for a smooth, glossy finish",
     "Achieve a bouncy, salon-quality blowout at home",
   ],
   cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
   gallery: [
     {
       src: productAsset("00-travel-friendly-styler.webp"),
-      alt: "Muuhu Airpro",
+      alt: "Muuhu AirPro",
     },
     {
       src: productAsset("26.webp"),
-      alt: "Muuhu Airpro",
+      alt: "Muuhu AirPro",
     },
     {
       src: productAsset("25.webp"),
-      alt: "Muuhu Airpro",
+      alt: "Muuhu AirPro",
     },
     {
       src: productAsset("01-amazing-hairstyles.webp"),
-      alt: "Amazing hairstyles with Muuhu Airpro",
+      alt: "Amazing hairstyles with Muuhu AirPro",
     },
     {
       src: productAsset("02-new-year-new-hair.webp"),
@@ -75,7 +75,7 @@ export const muuhuHairDryer: Product = {
     },
     // { src: productAsset("09-muuhu-high-speed-hair-dryer.png"), alt: "Muuhu High Speed Hair Dryer" },
     // { src: productAsset("10-muuhu-ionic-hair-dryer.png"), alt: "Muuhu Ionic Hair Dryer" },
-    // { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu Airpro Attachments" },
+    // { src: productAsset("11-muuhu-hair-dryer-attachments.png"), alt: "Muuhu AirPro Attachments" },
     // { src: productAsset("12-muuhu-salon-quality-blowout.png"), alt: "Muuhu Salon Quality Blowout" },
     // { src: productAsset("13-muuhu-fast-drying-hair-dryer.png"), alt: "Muuhu Fast Drying Hair Dryer" },
   ],
@@ -86,7 +86,7 @@ export const muuhuHairDryer: Product = {
     { label: "Heat Settings", value: "3" },
     { label: "Speed Settings", value: "3" },
     { label: "Airflow Speed", value: "20-26 m/s" },
-    { label: "Noise Level", value: "65db" },
+    { label: "Noise Level", value: "65 dB" },
     { label: "Weight", value: "475g" },
     { label: "Voltage", value: "220V (UK Plug)" },
     { label: "Attachments", value: "7 included" },
@@ -105,17 +105,17 @@ export const muuhuHairDryer: Product = {
     {
       question: "Is it really as powerful as a Dyson?",
       answer:
-        "Yes! The Muuhu Airpro features a 110,000 RPM brushless motor, exactly the same specification as the leading $300+ competitors, delivering ultra-fast drying times.",
+        "The Muuhu AirPro features a 110,000 RPM brushless motor, matching the stated motor speed of leading £300+ competitors and delivering high-speed airflow.",
     },
     {
       question: "Will it damage my hair?",
       answer:
-        "No. It uses intelligent heat distribution and 200 million negative ions to dry hair quickly via high-speed airflow rather than extreme heat, protecting your hair's natural shine.",
+        "It uses intelligent heat distribution and high-speed airflow to reduce prolonged exposure to extreme heat. As with any heated styling tool, use the lowest effective setting for your hair type.",
     },
     {
       question: "Do you offer a guarantee?",
       answer:
-        "Yes, every Muuhu Airpro comes with a full 1-year warranty and a 90-day money-back guarantee.",
+        "Yes, every Muuhu AirPro comes with a full 1-year warranty and a 90-day money-back guarantee.",
     },
   ],
   gifts: [
@@ -191,10 +191,10 @@ export const muuhuHairDryer: Product = {
     },
   ],
   badges: [
-    "CE Certified",
-    "UKCA Approved",
-    "RoHS Compliant",
+    "UK 3-Pin Plug",
+    "7 Attachments Included",
     "1-Year Warranty",
+    "90-Day Money-Back Guarantee",
   ],
 };
 

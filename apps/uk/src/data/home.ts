@@ -10,15 +10,15 @@ export const homeHero = {
   images: [
     {
       src: productAsset("04-hairluxe.webp"),
-      alt: "Muuhu Airpro hero image",
+      alt: "Muuhu AirPro hero image",
     },
     {
       src: productAsset("01-amazing-hairstyles.webp"),
-      alt: "Muuhu Airpro lifestyle image",
+      alt: "Muuhu AirPro lifestyle image",
     },
     {
       src: productAsset("03-before-after.webp"),
-      alt: "Muuhu Airpro styling image",
+      alt: "Muuhu AirPro styling image",
     },
   ],
 };
@@ -29,7 +29,7 @@ export const homeMaskSpotlight = {
   copy: "Modern styling requires modern solutions. The Muuhu Styler does it all without extreme heat. No more fumbling around with outdated curlers and heavy dryers. With our lightweight ergonomic design, you can achieve salon results every day.",
   image: {
     src: productAsset("07-prep-hair.webp"),
-    alt: "Muuhu Airpro product spotlight",
+    alt: "Muuhu AirPro product spotlight",
   },
   product: muuhuHairDryer,
 };

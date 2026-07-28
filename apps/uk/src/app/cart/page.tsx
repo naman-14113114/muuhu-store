@@ -5,7 +5,7 @@ import { market } from "@/lib/market";
 
 export const metadata: Metadata = {
   title: "Cart",
-  description: "Review your Buudy cart, product offers, free shipping, and checkout.",
+  description: "Review your Muuhu cart, product offers, free shipping, and checkout.",
   alternates: {
     canonical: "/cart",
   },

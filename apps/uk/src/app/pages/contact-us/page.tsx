@@ -5,14 +5,14 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Contact Us",
   description:
-    "Contact Buudy for product questions, order support, shipping help, and light therapy guidance.",
+    "Contact Muuhu for AirPro product questions, order support, shipping help, and styling guidance.",
   alternates: {
     canonical: "/pages/contact-us",
   },
   openGraph: {
-    title: "Contact Buudy",
+    title: "Contact Muuhu",
     description:
-      "Reach Buudy support for product questions, order support, shipping help, and light therapy guidance.",
+      "Reach Muuhu support for AirPro product questions, order support, shipping help, and styling guidance.",
     url: absoluteUrl("/pages/contact-us"),
   },
 };

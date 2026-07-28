@@ -105,7 +105,7 @@ export function CartPageContent({
           <ShoppingBag className="mx-auto text-[var(--gold)]" size={42} />
           <h1 className="buudy-heading mt-5">Your cart is empty.</h1>
           <p className="buudy-copy mx-auto mt-5 max-w-lg">
-            Add the Muuhu Airpro to start building your styling
+            Add the Muuhu AirPro to start building your styling
             routine.
           </p>
           <Button asChild className="mt-8">
@@ -302,7 +302,7 @@ function MobileStickyCheckout() {
           <>
             <span style={{ visibility: "hidden" }} className="inline-flex items-center gap-2">
               <Lock size={16} strokeWidth={1.8} />
-              <span>Checkout Securly</span>
+              <span>Checkout Securely</span>
             </span>
             <span style={{ position: "absolute", inset: 0 }} className="flex items-center justify-center">
               <Lottie animationData={loadingLottie} loop={true} className="h-16 w-24 scale-[1.35]" />
@@ -311,7 +311,7 @@ function MobileStickyCheckout() {
         ) : (
           <span className="relative z-10 inline-flex items-center justify-center gap-2">
             <Lock size={16} strokeWidth={1.8} />
-            <span>Checkout Securly</span>
+            <span>Checkout Securely</span>
           </span>
         )}
       </button>
@@ -333,7 +333,7 @@ function CartRestoringState() {
         />
         <h1 className="buudy-heading mt-5">Restoring your bag...</h1>
         <p className="buudy-copy mx-auto mt-5 max-w-lg">
-          Bringing your Buudy selections back into view.
+          Bringing your Muuhu selections back into view.
         </p>
       </div>
     </section>

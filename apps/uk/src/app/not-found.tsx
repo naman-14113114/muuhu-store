@@ -6,13 +6,13 @@ export default function NotFound() {
     <section className="buudy-section bg-[var(--cream)] py-28">
       <div className="buudy-wrap max-w-2xl text-center">
         <p className="buudy-eyebrow">Page not found</p>
-        <h1 className="buudy-heading mt-4">This glow is still loading.</h1>
+        <h1 className="buudy-heading mt-4">That page could not be found.</h1>
         <p className="buudy-copy mx-auto mt-5 max-w-xl">
-          The page you opened is not available yet. The Buudy LED Mask product
-          page is ready for you.
+          The page you opened is not available. Return to the Muuhu AirPro
+          product page to continue shopping.
         </p>
         <Button asChild className="mt-8">
-          <Link href="/products/buudy-led-mask">Shop Buudy LED Mask</Link>
+          <Link href="/products/muuhu-hair-dryer">Shop Muuhu AirPro</Link>
         </Button>
       </div>
     </section>

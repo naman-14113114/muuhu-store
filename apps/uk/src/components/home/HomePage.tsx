@@ -147,7 +147,7 @@ function HomeFeatureGrid() {
     <section className="buudy-section bg-[var(--cream)] py-24">
       <div className="buudy-wrap">
         <SectionHeading
-          eyebrow="Why Buudy"
+          eyebrow="Why Muuhu"
           title={
             <>
               Light therapy that covers the <em className="buudy-italic">details</em>.
