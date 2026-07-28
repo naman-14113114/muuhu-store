@@ -264,7 +264,14 @@ export function GiftBundle({ product }: { product: Product }) {
         />
         <div className="flex flex-nowrap items-center gap-x-1 sm:gap-x-1.5 text-[9.5px] sm:text-[13px] text-[var(--muted)]">
           <span className="whitespace-nowrap tracking-tight sm:tracking-normal">
-            Free UK delivery with secure card and PayPal checkout
+            or{" "}
+            <strong className="buudy-display text-[10px] sm:text-[14px] font-medium text-[var(--plum)]">
+              4
+            </strong>{" "}
+            interest-free payments of{" "}
+            <strong className="buudy-display text-[10px] sm:text-[14px] font-semibold text-[var(--plum)]">
+              {formatMoney(product.priceCents / 4, product.currency)}
+            </strong>
           </span>
         </div>
       </div>

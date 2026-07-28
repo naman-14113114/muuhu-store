@@ -1,7 +1,7 @@
 export function TrustBadges() {
   const badges = [
     {
-      title: "Free UK Delivery",
+      title: "Free Shipping all over UK",
       icon: "/images/trust-badges/i3_clean.png",
     },
     {
@@ -9,7 +9,7 @@ export function TrustBadges() {
       icon: "/images/trust-badges/i1.png",
     },
     {
-      title: "Secure Card & PayPal Checkout",
+      title: "Buy Now, Pay Later Options Available",
       icon: "/images/trust-badges/i2.png",
     },
     {

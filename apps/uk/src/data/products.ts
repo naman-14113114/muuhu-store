@@ -24,7 +24,7 @@ export const muuhuHairDryer: Product = {
   reviewCount: 16000,
   customerCount: "16,000+",
   promoCode: "AUTO",
-  promoLabel: "Save £150 today",
+  promoLabel: "£10 off applied",
   highlights: [
     "Dries hair in half the time without heat damage",
     "Banishes frizz for a silky, smooth finish",
