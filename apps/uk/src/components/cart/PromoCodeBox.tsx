@@ -80,7 +80,7 @@ export function PromoCodeBox() {
       <form className="flex gap-2 max-[420px]:flex-col" onSubmit={handleApply}>
         <input
           aria-label="Promo code"
-          className="buudy-display h-11 min-w-0 flex-1 rounded-full border border-[var(--border)] bg-[var(--card)] px-5 text-base uppercase tracking-[.08em] text-[var(--plum)] outline-none transition placeholder:text-[rgba(58,31,61,.45)] focus:border-[var(--gold)] disabled:opacity-50"
+          className="buudy-display h-10 min-w-0 flex-1 rounded-full border border-[var(--border)] bg-[var(--card)] px-5 text-sm uppercase tracking-[.08em] text-[var(--plum)] outline-none transition placeholder:text-[rgba(58,31,61,.45)] focus:border-[var(--gold)] disabled:opacity-50"
           disabled={!active}
           onChange={(event) => {
             setCode(event.target.value);
@@ -93,7 +93,7 @@ export function PromoCodeBox() {
           value={inputValue}
         />
         <button
-          className="buudy-display h-11 rounded-full bg-[var(--plum)] px-6 text-base uppercase tracking-[.14em] text-[var(--cream)] transition hover:bg-[var(--ink)] disabled:cursor-not-allowed disabled:opacity-50 md:px-7"
+          className="buudy-display h-10 rounded-full bg-[var(--plum)] px-6 text-sm uppercase tracking-[.14em] text-[var(--cream)] transition hover:bg-[var(--ink)] disabled:cursor-not-allowed disabled:opacity-50 md:px-7"
           disabled={!active}
           type="submit"
         >

@@ -1,16 +1,25 @@
+"use client";
+
 import {
   cloneElement,
   isValidElement,
+  useEffect,
+  useRef,
+  useState,
   type ButtonHTMLAttributes,
   type HTMLAttributes,
+  type MouseEvent,
   type ReactNode,
 } from "react";
+import Lottie from "lottie-react";
+import loadingLottie from "@/components/cart/loading-lottie.json";
 
 type ButtonVariant = "primary" | "ghost" | "quiet";
 
 type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: ButtonVariant;
   asChild?: boolean;
+  clickLoader?: boolean;
 };
 
 const variantClasses: Record<ButtonVariant, string> = {
@@ -36,16 +45,46 @@ function ButtonContent({ children }: { children: ReactNode }) {
 export function Button({
   children,
   className,
+  clickLoader = true,
+  disabled,
   variant = "primary",
   asChild,
+  onClick,
   type = "button",
   ...props
 }: ButtonProps) {
+  const [isClickLoading, setIsClickLoading] = useState(false);
+  const loaderTimeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (loaderTimeoutRef.current) {
+        window.clearTimeout(loaderTimeoutRef.current);
+      }
+    };
+  }, []);
+
   const classes = cn(
-    "inline-flex min-h-12 items-center justify-center gap-2 rounded-full px-6 text-sm font-semibold transition duration-200 ease-out disabled:pointer-events-none disabled:opacity-50",
+    "relative inline-flex min-h-12 items-center justify-center gap-2 overflow-hidden rounded-full px-6 text-sm font-semibold transition duration-200 ease-out disabled:pointer-events-none disabled:opacity-50",
     variantClasses[variant],
     className,
   );
+
+  function handleClick(event: MouseEvent<HTMLButtonElement>) {
+    onClick?.(event);
+
+    if (!clickLoader || disabled || event.defaultPrevented) {
+      return;
+    }
+
+    setIsClickLoading(true);
+    if (loaderTimeoutRef.current) {
+      window.clearTimeout(loaderTimeoutRef.current);
+    }
+    loaderTimeoutRef.current = window.setTimeout(() => {
+      setIsClickLoading(false);
+    }, 900);
+  }
 
   if (asChild && isValidElement<HTMLAttributes<HTMLElement>>(children)) {
     return cloneElement(children, {
@@ -56,8 +95,22 @@ export function Button({
   }
 
   return (
-    <button className={classes} type={type} {...props}>
+    <button
+      className={classes}
+      disabled={disabled}
+      onClick={handleClick}
+      type={type}
+      {...props}
+    >
       <ButtonContent>{children}</ButtonContent>
+      {clickLoader && isClickLoading ? (
+        <span
+          aria-hidden="true"
+          className="buudy-button-click-loader"
+        >
+          <Lottie animationData={loadingLottie} loop={true} />
+        </span>
+      ) : null}
     </button>
   );
 }

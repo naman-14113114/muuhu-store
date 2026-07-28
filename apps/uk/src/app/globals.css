@@ -372,6 +372,28 @@ p {
   color: inherit;
 }
 
+.buudy-button-click-loader {
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(58, 31, 61, 0.16),
+    rgba(247, 241, 232, 0.28),
+    rgba(58, 31, 61, 0.16)
+  );
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  z-index: 30;
+}
+
+.buudy-button-click-loader > div {
+  height: 4rem;
+  transform: scale(1.25);
+  width: 6rem;
+}
+
 .buudy-mask-sticky-cta footer {
   padding-bottom: 1.5rem;
 }
