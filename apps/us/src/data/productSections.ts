@@ -53,11 +53,11 @@ export const features: Feature[] = [
   },
   {
     title: "110,000 RPM Brushless Motor",
-    kicker: "Ultra-Fast 1400W Drying",
-    body: "Experience rapid drying times with a powerful 1400W high-speed motor. The intelligent aerodynamic design drives moisture from the hair rapidly for effortless styling.",
+    kicker: "Ultra-Fast 1,400W Drying",
+    body: "Experience rapid drying times with a powerful 1,400W high-speed motor. The intelligent aerodynamic design drives moisture from the hair rapidly for effortless styling.",
   },
   {
-    title: "3 Temperature and 3 Speed Settings",
+    title: "3 Temperature Settings and 3 Speed Settings",
     kicker: "Precision Styling",
     body: "Choose from 3 distinct temperature and 3 speed control settings to perfectly match your hair type and desired style, ensuring you get flawless results every single time.",
   },

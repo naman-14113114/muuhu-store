@@ -24,8 +24,8 @@ Muuhu US sells professional high-speed hair styling devices designed for salon-q
 - Wattage: 1,400W
 - Ionic technology: 200 million+ negative ions for frizz control
 - Attachments: 7 included (L-Shape Base, Smoothing Brush, Round Volumizing Brush, Left Curling Barrel, Right Curling Barrel, Diffuser, Concentrator)
-- Heat settings: 3 (Cool / Warm / Hot) plus cool shot
-- Speed settings: 2 plus cool shot
+- Temperature settings: 3 (Cool / Warm / Hot)
+- Speed settings: 3
 - Weight: approximately 1.3 lbs (600g)
 - Voltage: 110V US plug
 - Returns: 90-day money-back guarantee
