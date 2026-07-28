@@ -309,7 +309,7 @@ export const comparison = {
     ["Ionic Technology", "Yes", "Yes", "Yes", "Yes"],
     ["Low noise (65db)", "Yes", "-", "-", "-"],
     ["App Companion", "Yes", "-", "-", "-"],
-    ["Travel Case Included", "Yes", "-", "-", "-"],
+    ["Intelligent Heat Control", "Yes", "Yes", "-", "-"],
   ],
 };
 
