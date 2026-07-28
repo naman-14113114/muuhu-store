@@ -3,7 +3,7 @@ export const seoFaqs = {
   faqs: [
     {
       question: "What makes the Muuhu hair dryer different?",
-      answer: "The Muuhu Airpro combines a 110,000 RPM brushless motor with 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device, using high-speed airflow rather than extreme heat.",
+      answer: "The Muuhu Airpro combines a 1,400W, 110,000 RPM brushless motor with 3 temperature settings, 3 speed settings, and 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device.",
     },
     {
       question: "Are the curlers easy to use?",
@@ -11,7 +11,7 @@ export const seoFaqs = {
     },
     {
       question: "Is it suitable for fine or damaged hair?",
-      answer: "Absolutely. The Muuhu styler features multiple heat settings and includes a gentle air attachment specifically designed for fine or sensitive hair, ensuring safe styling.",
+      answer: "The Muuhu styler has 3 temperature settings and 3 speed settings, allowing fine or sensitive hair to be styled with lower heat and airflow when appropriate.",
     },
     {
       question: "Do you offer a warranty in the UK?",

@@ -80,7 +80,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'us-standards',
         heading: 'Optimized for the US Market',
-        body: `<p>When purchasing a high-performance hair dryer in the US, electrical compatibility is crucial. The best dryers are specifically engineered for the North American grid. Our top recommendations operate flawlessly on the standard 110V US plug, delivering a powerful 1400W of consistent energy.</p>
+        body: `<p>When purchasing a high-performance hair dryer in the US, electrical compatibility is crucial. The best dryers are specifically engineered for the North American grid. Our top recommendations operate flawlessly on the standard 110V US plug, delivering a powerful 1,400W of consistent energy.</p>
         <p>This optimized power draw ensures you get maximum airflow and rapid heat-up times without tripping breakers in standard American bathrooms. Paired with intuitive controls—typically offering multiple heat settings, distinct speed settings, and a crucial cold shot button to lock in your style—these devices provide an unparalleled user experience tailored for US consumers.</p>`,
         type: 'text'
       },
