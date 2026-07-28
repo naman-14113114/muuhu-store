@@ -123,5 +123,5 @@ export const homeCustomerReviewsGrid = {
   copy: "Tons of glowing reviews from customers!",
   ctaLabel: "About Us",
   ctaHref: "/pages/about-us",
-  image: "/images/home/about-us-screenshot.png"
+  image: "/images/home/muuhu-airpro-customer-reviews.webp"
 };

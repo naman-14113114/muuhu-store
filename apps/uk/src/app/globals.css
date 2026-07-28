@@ -355,10 +355,15 @@ p {
 
 .buudy-cart-wipe > *,
 .buudy-cart-wipe-content {
+  align-items: center;
   color: inherit;
+  display: inline-flex;
+  gap: 0.5rem;
+  justify-content: center;
   opacity: 1;
   position: relative;
   visibility: visible;
+  white-space: nowrap;
   z-index: 1;
 }
 
@@ -370,6 +375,7 @@ p {
 
 .buudy-cart-wipe-content svg {
   color: inherit;
+  flex-shrink: 0;
 }
 
 .buudy-button-click-loader {

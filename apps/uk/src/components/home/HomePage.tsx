@@ -234,6 +234,7 @@ function CustomerReviewsGrid() {
           sizes="100vw"
         />
       </div>
+      <div className="pointer-events-none absolute inset-0 bg-[rgba(58,31,61,0.24)]" />
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
         <SectionHeading
           eyebrow=""
