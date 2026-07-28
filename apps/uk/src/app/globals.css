@@ -394,6 +394,13 @@ p {
   width: 6rem;
 }
 
+img[data-muuhu-image-loading="true"] {
+  background-image: url("/images/muuhu-image-loader.svg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: clamp(16px, 12%, 40px) clamp(16px, 12%, 40px);
+}
+
 .buudy-mask-sticky-cta footer {
   padding-bottom: 1.5rem;
 }
