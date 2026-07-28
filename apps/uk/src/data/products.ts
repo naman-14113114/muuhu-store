@@ -37,6 +37,14 @@ export const muuhuHairDryer: Product = {
       alt: "Muuhu Airpro",
     },
     {
+      src: productAsset("26.webp"),
+      alt: "Muuhu Airpro",
+    },
+    {
+      src: productAsset("25.webp"),
+      alt: "Muuhu Airpro",
+    },
+    {
       src: productAsset("01-amazing-hairstyles.webp"),
       alt: "Amazing hairstyles with Muuhu Airpro",
     },
