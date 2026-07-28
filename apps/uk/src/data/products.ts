@@ -145,7 +145,7 @@ export const muuhuHairDryer: Product = {
     {
       label: "L-Shape Base Unit",
       quantity: 1,
-      image: "/images/products/muuhu-hair-dryer/attachments/cg_base.png",
+      image: "/images/products/muuhu-hair-dryer/attachments/cg_base_right.png",
     },
     {
       label: "Right Auto-Wrap Curler",
@@ -171,7 +171,7 @@ export const muuhuHairDryer: Product = {
       label: "Concentrator Nozzle",
       quantity: 1,
       image:
-        "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png",
+        "/images/products/muuhu-hair-dryer/attachments/muuhu-airpro-concentrator-nozzle.png",
     },
     {
       label: "Diffuser",

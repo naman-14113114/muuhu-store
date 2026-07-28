@@ -2,12 +2,12 @@ import Image from "next/image";
 
 export function HairDryerAttachmentBadges() {
   const attachments = [
-    { title: "L-Shape Base", src: "/images/products/muuhu-hair-dryer/attachments/cg_base.png" },
+    { title: "L-Shape Base", src: "/images/products/muuhu-hair-dryer/attachments/cg_base_right.png" },
     { title: "Right Auto-Wrap Curler", src: "/images/products/muuhu-hair-dryer/attachments/cg_right.png" },
     { title: "Left Auto-Wrap Curler", src: "/images/products/muuhu-hair-dryer/attachments/cg_left.png" },
     { title: "Smoothing Brush", src: "/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png" },
     { title: "Round Volumising Brush", src: "/images/products/muuhu-hair-dryer/attachments/cg_round.png" },
-    { title: "Concentrator Nozzle", src: "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" },
+    { title: "Concentrator Nozzle", src: "/images/products/muuhu-hair-dryer/attachments/muuhu-airpro-concentrator-nozzle.png" },
     { title: "Diffuser", src: "/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" },
   ];
 

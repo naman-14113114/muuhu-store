@@ -113,12 +113,12 @@ export const muuhuHairDryer: Product = {
     }
   ],
   included: [
-    { label: "L-Shape Base Unit", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_base.png" },
+    { label: "L-Shape Base Unit", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_base_right.png" },
     { label: "Right Auto-Wrap Curler", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_right.png" },
     { label: "Left Auto-Wrap Curler", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_left.png" },
     { label: "Smoothing Brush", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_smoothing.png" },
     { label: "Round Volumising Brush", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_round.png" },
-    { label: "Concentrator Nozzle", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_concentrator.png" },
+    { label: "Concentrator Nozzle", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/muuhu-airpro-concentrator-nozzle.png" },
     { label: "Diffuser", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_diffuser.png" },
     { label: "Premium Packaging", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/luxury_case_icon.png" },
     { label: "User Manual", quantity: 1, image: "/images/products/muuhu-hair-dryer/attachments/cg_user_manual.png" },
