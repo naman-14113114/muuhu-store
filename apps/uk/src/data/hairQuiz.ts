@@ -27,7 +27,7 @@ export type QuizRoutineStep = {
   title: string;
   copy: string;
   highlighted?: boolean;
-  // Weeks 3 & 4 are gated behind owning the Muuhu Airpro.
+  // Weeks 3 & 4 are gated behind owning the Muuhu AirPro.
   locked?: boolean;
 };
 

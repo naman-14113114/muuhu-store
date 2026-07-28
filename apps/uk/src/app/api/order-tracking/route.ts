@@ -95,13 +95,13 @@ function normalizeOrder(value: unknown) {
 
 function errorMessage(code: string) {
   if (code === "email_not_matched") {
-    return "That email does not match the order number. Use the exact email from the Buudy checkout confirmation.";
+    return "That email does not match the order number. Use the exact email from the Muuhu checkout confirmation.";
   }
   if (code === "order_not_found" || code === "not_found") {
-    return "No matching Buudy order was found. Check the order number from your confirmation email and try again.";
+    return "No matching Muuhu order was found. Check the order number from your confirmation email and try again.";
   }
   if (code === "email_invalid_format") return "Enter a valid email address.";
-  return "We could not verify that order right now. Please try again or contact support@buudy.com.";
+  return "We could not verify that order right now. Please try again or contact support@muuhu.com.";
 }
 
 export async function POST(request: NextRequest) {
@@ -130,14 +130,14 @@ export async function POST(request: NextRequest) {
         "content-type": "application/json",
         origin: plusbaseStoreUrl,
         referer: trackingPage,
-        "user-agent": "Mozilla/5.0 BuudyOrderTracking/1.0",
+        "user-agent": "Mozilla/5.0 MuuhuOrderTracking/1.0",
         "x-sb-captcha": captchaHeader(),
       },
       body: JSON.stringify({ order_name: orderName, email }),
     });
   } catch {
     return NextResponse.json(
-      { status: "error", message: "We could not reach Buudy tracking right now. Please try again." },
+      { status: "error", message: "We could not reach Muuhu tracking right now. Please try again." },
       { status: 502 },
     );
   }
@@ -158,7 +158,7 @@ export async function POST(request: NextRequest) {
 
   if (!token || !accessKey) {
     return NextResponse.json(
-      { status: "error", message: "Buudy found the order, but did not return a secure status token." },
+      { status: "error", message: "Muuhu found the order, but did not return a secure status token." },
       { status: 502 },
     );
   }
@@ -172,7 +172,7 @@ export async function POST(request: NextRequest) {
       headers: {
         accept: "application/json",
         referer: officialOrderUrl,
-        "user-agent": "Mozilla/5.0 BuudyOrderTracking/1.0",
+        "user-agent": "Mozilla/5.0 MuuhuOrderTracking/1.0",
       },
     },
   );
@@ -213,7 +213,7 @@ export async function POST(request: NextRequest) {
     trackingEvents,
     trackingAvailable,
     message: trackingAvailable
-      ? "Real tracking details found from Buudy checkout."
+      ? "Real tracking details found from Muuhu checkout."
       : "Order found. Carrier tracking has not been assigned yet, or it is still updating in the carrier system.",
   });
 }

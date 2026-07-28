@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { OrderTrackingPage } from "@/components/policies/OrderTrackingPage";
 
 export const metadata: Metadata = {
-  title: "Order Tracking | Buudy",
-  description: "Locate your Buudy LED Mask order status, shipment timeline, and official carrier tracking updates.",
+  title: "Order Tracking | Muuhu",
+  description: "Locate your Muuhu order status, shipment timeline, and official carrier tracking updates.",
   alternates: {
     canonical: "/policies/order-tracking",
   },

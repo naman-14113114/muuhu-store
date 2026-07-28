@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import { PolicyPage } from "@/components/policies/PolicyPage";
 
 export const metadata: Metadata = {
-  title: "Shipping Policy | Buudy",
-  description: "Detailed processing times, tracking rules, and free transit information for Buudy LED Skincare orders.",
+  title: "Shipping Policy | Muuhu",
+  description: "Read Muuhu processing times, delivery estimates, tracking rules, and shipping information.",
   alternates: {
     canonical: "/policies/shipping-policy",
   },

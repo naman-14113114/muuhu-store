@@ -39,7 +39,7 @@ export function CartDrawer() {
           <div>
             <p className="buudy-mono text-[var(--gold)]">Cart</p>
             <h2 className="buudy-display text-2xl text-[var(--plum)]">
-              Your Buudy bag
+              Your Muuhu bag
             </h2>
           </div>
           <button
@@ -63,7 +63,7 @@ export function CartDrawer() {
                 Restoring your bag...
               </p>
               <p className="buudy-copy mt-3 max-w-xs text-sm">
-                Bringing your Buudy selections back into view.
+                Bringing your Muuhu selections back into view.
               </p>
             </div>
           ) : hasItems ? (
@@ -78,11 +78,11 @@ export function CartDrawer() {
                 Your bag is waiting.
               </p>
               <p className="buudy-copy mt-3 max-w-xs text-sm">
-                Add the Buudy LED Mask or Red Torch to unlock current offers
-                and free shipping.
+                Add the Muuhu AirPro to unlock the current offer, free gifts,
+                and free UK delivery.
               </p>
               <Button asChild className="mt-6" onClick={closeCart}>
-                <Link href="/">Shop Buudy</Link>
+                <Link href="/">Shop Muuhu</Link>
               </Button>
             </div>
           )}

@@ -5,7 +5,7 @@ import { absoluteUrl } from "@/lib/site";
 export const metadata: Metadata = {
   title: "Haircare Quiz — Your Personalised Routine | Muuhu",
   description:
-    "Answer a few questions and get a personalised 4-week haircare routine built around the Muuhu Airpro.",
+    "Answer a few questions and get a personalised 4-week haircare routine built around the Muuhu AirPro.",
   alternates: { canonical: "/pages/hair-quiz/care" },
   openGraph: {
     title: "Haircare Quiz — Your Personalised Routine",

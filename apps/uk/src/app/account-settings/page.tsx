@@ -8,7 +8,7 @@ import { requireAccount } from "@/lib/account";
 
 export const metadata: Metadata = {
   title: "Account Settings",
-  description: "Update your Buudy account settings.",
+  description: "Update your Muuhu account settings.",
   robots: {
     index: false,
     follow: false,

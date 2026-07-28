@@ -5,7 +5,7 @@ import { getCurrentAccount } from "@/lib/account";
 
 export const metadata: Metadata = {
   title: "Create Account",
-  description: "Create your Buudy customer account.",
+  description: "Create your Muuhu customer account.",
   robots: {
     index: false,
     follow: false,
@@ -38,10 +38,10 @@ export default async function SignUpPage({ searchParams }: SignUpPageProps) {
       <div className="buudy-wrap grid gap-10 lg:grid-cols-[0.9fr_1.1fr]">
         <div className="self-center">
           <p className="buudy-eyebrow">New account</p>
-          <h1 className="buudy-heading mt-4">Your glow profile.</h1>
+          <h1 className="buudy-heading mt-4">Your styling profile.</h1>
           <p className="buudy-copy mt-5 max-w-xl">
             Create an account to keep your contact details ready, track recorded
-            sales, and make future Buudy orders smoother.
+            orders, and make future Muuhu purchases smoother.
           </p>
         </div>
 

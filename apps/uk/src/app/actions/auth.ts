@@ -161,7 +161,7 @@ export async function signUpAction(
   return {
     status: "success",
     message:
-      "Account created. Check your email to confirm your Buudy account, then sign in.",
+      "Account created. Check your email to confirm your Muuhu account, then sign in.",
   };
 }
 

@@ -15,7 +15,7 @@ type OrderWithItems = Order & {
 
 export const metadata: Metadata = {
   title: "Order History",
-  description: "View your Buudy order history.",
+  description: "View your Muuhu order history.",
   robots: {
     index: false,
     follow: false,
@@ -46,7 +46,7 @@ export default async function OrderHistoryPage() {
         <div className="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
           <div>
             <p className="buudy-eyebrow">Order history</p>
-            <h1 className="buudy-heading mt-3">Your Buudy orders.</h1>
+            <h1 className="buudy-heading mt-3">Your Muuhu orders.</h1>
             <p className="buudy-copy mt-4 max-w-2xl">
               Signed-in checkout records appear here automatically with customer
               details and order totals.
@@ -137,11 +137,11 @@ export default async function OrderHistoryPage() {
               No recorded orders yet.
             </h2>
             <p className="buudy-copy mx-auto mt-3 max-w-lg">
-              Once you checkout while signed in, your Buudy order record will
+              Once you checkout while signed in, your Muuhu order record will
               appear here.
             </p>
             <Button asChild className="mt-7">
-              <Link href="/">Shop Buudy</Link>
+              <Link href="/">Shop Muuhu</Link>
             </Button>
           </div>
         )}

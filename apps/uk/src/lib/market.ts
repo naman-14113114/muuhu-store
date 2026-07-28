@@ -4,7 +4,7 @@ export const market = {
   currency: "GBP",
   country: "United Kingdom",
   marketLabel: "UK",
-  madeInLabel: "UK Brand",
+  madeInLabel: "UK Store",
   checkoutSource: "uk_muuhu",
   checkoutUtmSource: "uk.muuhu.com",
   checkoutUtmCampaign: "uk_hair_dryer",

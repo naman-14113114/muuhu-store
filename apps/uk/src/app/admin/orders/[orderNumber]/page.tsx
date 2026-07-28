@@ -22,7 +22,7 @@ type AdminOrderPageProps = {
 
 export const metadata: Metadata = {
   title: "Order Detail",
-  description: "Buudy admin order detail.",
+  description: "Muuhu admin order detail.",
   robots: {
     index: false,
     follow: false,

@@ -319,7 +319,7 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
     },
     {
       id: "certifications",
-      eyebrow: "Certifications",
+      eyebrow: "Product assurance",
       icon: IconCertificate,
       title: "Safety and product signals",
       content: (

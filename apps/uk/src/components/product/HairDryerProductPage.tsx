@@ -47,12 +47,12 @@ function HairDryerHeroVideo() {
 
 const technologyStorySections = [
   {
-    eyebrow: "Airpro airflow system",
+    eyebrow: "AirPro airflow system",
     title: "Powerful, fast, and controlled.",
     copy:
-      "A 1,400W, 110,000 RPM brushless motor drives high-speed airflow through the Muuhu Airpro body for fast drying and precise styling. Three temperature settings and three speed settings give smoother control from roots to ends.",
+      "A 1,400W, 110,000 RPM brushless motor drives high-speed airflow through the Muuhu AirPro body for fast drying and precise styling. Three temperature settings and three speed settings give smoother control from roots to ends.",
     image: "/images/products/muuhu-hair-dryer/muuhu-airpro-airflow-system-v3.webp",
-    alt: "Muuhu Airpro high-speed airflow technology",
+    alt: "Muuhu AirPro high-speed airflow technology",
     imageSide: "right",
     imageFrame: "wide",
   },
@@ -60,9 +60,9 @@ const technologyStorySections = [
     eyebrow: "Intelligent heat control",
     title: "Protects shine while you style.",
     copy:
-      "Muuhu Airpro is designed to dry quickly without relying on harsh, uncontrolled heat. The intelligent heat system keeps airflow consistent, helping protect natural shine while smoothing frizz and flyaways.",
+      "Muuhu AirPro is designed to dry quickly without relying on harsh, uncontrolled heat. The intelligent heat system keeps airflow consistent, helping protect natural shine while smoothing frizz and flyaways.",
     image: "/images/products/muuhu-hair-dryer/muuhu-airpro-heat-control-detail-transparent-v2.png",
-    alt: "Muuhu Airpro intelligent heat control internal technology",
+    alt: "Muuhu AirPro intelligent heat control internal technology",
     imageSide: "left",
     imageFrame: "portrait",
   },
@@ -72,7 +72,7 @@ const hairScienceCards = [
   {
     title: "Enhancing shine",
     copy:
-      "Fast, controlled airflow helps smooth the hair surface as you dry, so light reflects more evenly from root to end. Muuhu Airpro is built for a softer, glossier finish without relying on harsh heat.",
+      "Fast, controlled airflow helps smooth the hair surface as you dry, so light reflects more evenly from root to end. Muuhu AirPro is built for a softer, glossier finish without relying on harsh heat.",
     image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-shine-science.webp",
     alt: "Glossy bronde hair showing a smooth reflective finish",
   },
@@ -86,7 +86,7 @@ const hairScienceCards = [
   {
     title: "Helping reduce breakage",
     copy:
-      "A smoother drying routine can mean less tugging, less overworking with brushes, and less repeated heat exposure. Muuhu Airpro helps hair look polished while keeping daily styling gentle and controlled.",
+      "A smoother drying routine can mean less tugging, less overworking with brushes, and less repeated heat exposure. Muuhu AirPro helps hair look polished while keeping daily styling gentle and controlled.",
     image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-breakage-care.webp",
     alt: "Front-facing model with smooth blonde blowout on a beige background",
   },
@@ -239,7 +239,7 @@ function MuuhuCombGiftStrip() {
           <p className="buudy-copy mt-4 max-w-3xl text-base leading-7 text-[var(--plum)]/85 md:text-lg md:leading-8">
             A useful bonus for roots and scalp care: red-light combing,
             micro-massage, and serum support in one compact tool. It helps make
-            the Airpro routine feel more complete, with extra care for
+            the AirPro routine feel more complete, with extra care for
             fuller-looking, stronger-feeling hair.
           </p>
           <div className="mt-5 flex flex-wrap justify-center gap-3 md:justify-start">
@@ -262,7 +262,7 @@ function MuuhuCombGiftStrip() {
           <p className="buudy-display text-4xl leading-none text-[var(--gold)]">
             FREE
           </p>
-          <p className="mt-3 text-lg font-semibold">with Airpro</p>
+          <p className="mt-3 text-lg font-semibold">with AirPro</p>
           <p className="mt-1 text-sm text-[var(--cream)]/80">bundle gift</p>
         </div>
       </div>
@@ -274,7 +274,7 @@ const insideFeatures = [
   {
     id: "airflow-system",
     label: "Powerful airflow",
-    title: "Airpro airflow system",
+    title: "AirPro airflow system",
     copy:
       "The 110,000 RPM brushless motor drives fast, controlled airflow for quick drying, smoother styling, and a lighter everyday routine.",
     pointX: 40,
@@ -372,16 +372,16 @@ function MuuhuInsideSection() {
         <div className="mx-auto max-w-[430px] text-center">
           <p className="buudy-mono text-[var(--gold)]">What&apos;s inside</p>
           <h2 className="buudy-display mt-3 text-[2.7rem] leading-[1.02] text-[var(--plum)]">
-            Muuhu Airpro engineering.
+            Muuhu AirPro engineering.
           </h2>
           <p className="buudy-copy mt-5 !text-[var(--plum)]">
-            Explore the airflow, heat, and attachment controls built into the Muuhu Airpro 7-in-1 hair dryer.
+            Explore the airflow, heat, and attachment controls built into the Muuhu AirPro 7-in-1 hair dryer.
           </p>
         </div>
 
         <div className="relative mx-auto mt-8 h-[min(620px,160vw)] w-full max-w-[760px] overflow-visible sm:!h-[720px]">
           <Image
-            alt="Muuhu Airpro hair dryer control body"
+            alt="Muuhu AirPro hair dryer control body"
             className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:!h-[680px]"
             height={1787}
             loading="lazy"
@@ -471,10 +471,10 @@ function MuuhuInsideSection() {
         <div className="order-2 mx-auto w-full max-w-[430px] text-center lg:order-1 lg:text-left">
           <p className="buudy-mono text-[var(--gold)]">What&apos;s inside</p>
           <h2 className="buudy-display mt-3 text-[2.7rem] leading-[1.02] text-[var(--plum)] md:text-6xl">
-            Muuhu Airpro engineering.
+            Muuhu AirPro engineering.
           </h2>
           <p className="buudy-copy mt-5 !text-[var(--plum)]">
-            Explore the airflow, heat, and attachment controls built into the Muuhu Airpro 7-in-1 hair dryer.
+            Explore the airflow, heat, and attachment controls built into the Muuhu AirPro 7-in-1 hair dryer.
           </p>
 
           <div
@@ -525,7 +525,7 @@ function MuuhuInsideSection() {
         <div className="relative order-1 mx-auto w-full max-w-[760px] lg:order-2">
           <div className="relative h-[min(600px,156vw)] overflow-hidden rounded-[26px] bg-[var(--cream)] sm:h-[660px] md:h-[720px] lg:h-auto lg:min-h-[820px]">
             <Image
-              alt="Muuhu Airpro hair dryer control body"
+              alt="Muuhu AirPro hair dryer control body"
               className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:!h-[790px]"
               height={1787}
               loading="lazy"
@@ -677,7 +677,7 @@ function HairDryerDescriptionBanners() {
                 Everything you need to <em className="buudy-italic">style</em>.
               </>
             }
-            copy="From smooth blowouts to bouncy curls, discover all the ways you can use the Muuhu Airpro."
+            copy="From smooth blowouts to bouncy curls, discover all the ways you can use the Muuhu AirPro."
             invert
           />
         </div>

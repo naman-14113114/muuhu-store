@@ -12,7 +12,7 @@ export function CartMinimalHeader() {
       <div className="buudy-wrap grid min-h-[68px] grid-cols-[1fr_auto_1fr] items-center gap-3 py-3">
         <span aria-hidden="true" />
         <Link
-          aria-label="Buudy home"
+          aria-label="Muuhu home"
           className="inline-flex shrink-0 items-center justify-self-center"
           href="/"
         >

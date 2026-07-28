@@ -3,16 +3,16 @@ import { FaqPage } from "@/components/faq/FaqPage";
 import { absoluteUrl } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Frequently Asked Questions | Help & Support - Buudy",
+  title: "Frequently Asked Questions | Help & Support - Muuhu",
   description:
-    "Find answers to shipping policies, return policies, order tracking, payment methods, and technical questions about the Buudy LED Skincare Mask.",
+    "Find answers about Muuhu AirPro specifications, delivery, returns, order tracking, payment methods, and support.",
   alternates: {
     canonical: "/pages/faqs",
   },
   openGraph: {
-    title: "Buudy Help Center | Frequently Asked Questions",
+    title: "Muuhu Help Center | Frequently Asked Questions",
     description:
-      "Find answers to shipping policies, return policies, order tracking, payment methods, and technical questions about the Buudy LED Skincare Mask.",
+      "Find answers about Muuhu AirPro specifications, delivery, returns, order tracking, payment methods, and support.",
     url: absoluteUrl("/pages/faqs"),
   },
 };

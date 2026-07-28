@@ -10,7 +10,7 @@ export function AboutPage() {
         {/* Desktop Hero Image */}
         <div className="absolute inset-0 hidden md:block select-none pointer-events-none">
           <Image
-            alt="Buudy Storefront Desktop Banner"
+            alt="Muuhu Storefront Desktop Banner"
             src={aboutHero.imageDesktop}
             fill
             priority
@@ -22,7 +22,7 @@ export function AboutPage() {
         {/* Mobile Hero Image */}
         <div className="absolute inset-0 block md:hidden select-none pointer-events-none">
           <Image
-            alt="Buudy Storefront Mobile Banner"
+            alt="Muuhu Storefront Mobile Banner"
             src={aboutHero.imageMobile}
             fill
             priority

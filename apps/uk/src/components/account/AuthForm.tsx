@@ -132,7 +132,7 @@ export function AuthForm({ mode, redirectTo }: AuthFormProps) {
       </Button>
 
       <p className="text-center text-sm text-[var(--muted)]">
-        {isSignIn ? "New to Buudy?" : "Already have an account?"}{" "}
+        {isSignIn ? "New to Muuhu?" : "Already have an account?"}{" "}
         <Link
           className="font-semibold text-[var(--plum)] underline underline-offset-4"
           href={

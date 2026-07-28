@@ -165,7 +165,7 @@ export function ComparisonTable() {
                     <div className="w-1/4 flex justify-center items-end h-full px-2 overflow-visible">
                       <img
                         src="/images/products/muuhu-hair-dryer/comparison/muuhu_comparison.webp"
-                        alt="Muuhu Airpro"
+                        alt="Muuhu AirPro"
                         className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom rounded-2xl"
                         decoding="async"
                         loading="lazy"

@@ -149,7 +149,7 @@ export function ProfileForm({ email, profile }: ProfileFormProps) {
           type="checkbox"
         />
         <span>
-          Send me Buudy care tips, offer updates, and early product news.
+          Send me Muuhu care tips, offer updates, and early product news.
         </span>
       </label>
 
