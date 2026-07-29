@@ -82,7 +82,7 @@ export function CartDrawer() {
                 and free UK delivery.
               </p>
               <Button asChild className="mt-6" onClick={closeCart}>
-                <Link href="/">Shop Muuhu</Link>
+                <Link href="/" prefetch={false}>Shop Muuhu</Link>
               </Button>
             </div>
           )}

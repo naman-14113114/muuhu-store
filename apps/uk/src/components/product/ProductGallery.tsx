@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useState, useRef } from "react";
 import { createPortal } from "react-dom";
+import Image from "next/image";
 import { Search, X } from "lucide-react";
 import type { ProductImage } from "@/lib/media";
 import { market } from "@/lib/market";
@@ -18,14 +19,14 @@ export function ProductGallery({
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [hasInteracted, setHasInteracted] = useState(false);
 
   const thumbsRef = useRef<HTMLDivElement>(null);
   const touchStartXRef = useRef(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
   const lightboxRef = useRef<HTMLDivElement>(null);
   const previousActiveElementRef = useRef<HTMLElement | null>(null);
-
-
+  const hasWarmedNextImageRef = useRef(false);
 
   // 2. Navigation controls
   const goNext = useCallback(() => {
@@ -36,6 +37,7 @@ export function ProductGallery({
   }, [images.length]);
   const openLightbox = useCallback(
     (index = currentIndex) => {
+      setHasInteracted(true);
       setCurrentIndex(index);
       setIsLightboxOpen(true);
     },
@@ -44,14 +46,41 @@ export function ProductGallery({
 
   // 3. Auto-rotate effect
   useEffect(() => {
-    if (isLightboxOpen || isPaused) return;
+    if (!hasInteracted || isLightboxOpen || isPaused) return;
 
     const interval = setInterval(() => {
       goNext();
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [goNext, isLightboxOpen, isPaused]);
+  }, [goNext, hasInteracted, isLightboxOpen, isPaused]);
+
+  const warmNextImage = useCallback(() => {
+    if (hasWarmedNextImageRef.current || images.length < 2) return;
+
+    const nextImage = images[1];
+    if (
+      !nextImage ||
+      nextImage.src.endsWith(".mp4") ||
+      nextImage.src.endsWith(".webm")
+    ) {
+      return;
+    }
+
+    hasWarmedNextImageRef.current = true;
+    const warm = () => {
+      const preloader = new window.Image();
+      preloader.decoding = "async";
+      preloader.fetchPriority = "low";
+      preloader.src = nextImage.src;
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      window.requestIdleCallback(warm, { timeout: 1800 });
+    } else {
+      globalThis.setTimeout(warm, 250);
+    }
+  }, [images]);
 
   // 4. Center active thumbnail only in the stacked gallery strip.
   useEffect(() => {
@@ -112,6 +141,7 @@ export function ProductGallery({
 
   // 6. Mobile swipe gesture handlers on main wrapper
   const handleTouchStart = (e: React.TouchEvent) => {
+    setHasInteracted(true);
     setIsPaused(true);
     touchStartXRef.current = e.changedTouches[0].screenX;
   };
@@ -130,6 +160,7 @@ export function ProductGallery({
   };
 
   const currentImage = images[currentIndex] ?? images[0];
+  const isInitialHero = currentIndex === 0 && !hasInteracted;
 
   return (
     <>
@@ -238,19 +269,21 @@ export function ProductGallery({
 
             />
           ) : (
-            <>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={currentImage.src}
-                id="buudyLED-23435t23-MainImg"
-                className="buudyLED-23435t23-main_img"
-                alt={currentImage.alt}
-                decoding="async"
-                fetchPriority="high"
-                loading="eager"
-                onClick={() => openLightbox()}
-              />
-            </>
+            <Image
+              key={currentImage.src}
+              src={currentImage.src}
+              id="buudyLED-23435t23-MainImg"
+              className="buudyLED-23435t23-main_img"
+              alt={currentImage.alt}
+              decoding="async"
+              fetchPriority={isInitialHero ? "high" : "low"}
+              fill
+              loading={isInitialHero ? "eager" : "lazy"}
+              onClick={() => openLightbox()}
+              onLoad={isInitialHero ? warmNextImage : undefined}
+              priority={isInitialHero}
+              sizes="(min-width: 1280px) 43vw, (min-width: 1024px) 48vw, 100vw"
+            />
           )}
 
           {/* Overlaid Badges */}
@@ -297,6 +330,7 @@ export function ProductGallery({
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
+              setHasInteracted(true);
               goPrev();
             }}
           >
@@ -308,6 +342,7 @@ export function ProductGallery({
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
+              setHasInteracted(true);
               goNext();
             }}
           >
@@ -347,17 +382,16 @@ export function ProductGallery({
                   playsInline
                 />
               ) : (
-                <>
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={image.src}
-                    className="buudyLED-23435t23-thumb_img"
-                    alt={image.alt}
-                    decoding="async"
-                    fetchPriority="low"
-                    loading="lazy"
-                  />
-                </>
+                <Image
+                  src={image.src}
+                  className="buudyLED-23435t23-thumb_img"
+                  alt={image.alt}
+                  decoding="async"
+                  fetchPriority="low"
+                  fill
+                  loading="lazy"
+                  sizes="(min-width: 1024px) 15vw, 28vw"
+                />
               )}
               <span aria-hidden="true" className="buudyLED-23435t23-thumb_zoom">
                 <Search size={14} strokeWidth={2.2} />

@@ -188,7 +188,6 @@ function RatingBreakdown({
 
         return (
           <button
-            aria-label={`Show only ${rating}-star reviews`}
             aria-pressed={activeRating === rating}
             className={cn(
               "grid w-full grid-cols-[5.5rem_1fr_4rem] items-center gap-3 rounded-lg px-2 py-1.5 text-left transition hover:bg-[rgba(180,145,76,.1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]",

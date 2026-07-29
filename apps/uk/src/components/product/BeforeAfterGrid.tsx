@@ -11,15 +11,20 @@ const loopedStories = Array(NUM_SETS).fill(transformations).flat();
 
 export function BeforeAfterGrid() {
   const trackRef = useRef<HTMLDivElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
   const [userInteracted, setUserInteracted] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
+  const [isNearViewport, setIsNearViewport] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const programmaticScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isAutoScrollingRef = useRef(false);
-  const animationRef = useRef<number | null>(null);
+  const stepRef = useRef(320);
+  const setWidthRef = useRef(0);
   const [selectedStory, setSelectedStory] = useState<typeof transformations[0] | null>(null);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
+  const renderedStories = isNearViewport ? loopedStories : transformations;
 
   const handleNextStory = useCallback(() => {
     if (!selectedStory) return;
@@ -63,73 +68,39 @@ export function BeforeAfterGrid() {
   };
 
   const getStep = useCallback(() => {
-    const track = trackRef.current;
-    const card = track?.querySelector<HTMLElement>("[data-story-card]");
-    if (!track || !card) return 320;
-
-    const styles = window.getComputedStyle(track);
-    const rawGap = styles.columnGap === "normal" ? styles.gap : styles.columnGap;
-    const gap = Number.parseFloat(rawGap) || 0;
-
-    return card.getBoundingClientRect().width + gap;
+    return stepRef.current;
   }, []);
 
   const getSetWidth = useCallback(() => {
-    const track = trackRef.current;
-    const cards = track?.querySelectorAll("[data-story-card]");
-    if (!track || !cards || cards.length === 0) return 0;
-
-    const styles = window.getComputedStyle(track);
-    const rawGap = styles.columnGap === "normal" ? styles.gap : styles.columnGap;
-    const gap = Number.parseFloat(rawGap) || 0;
-
-    return (cards[0].getBoundingClientRect().width + gap) * (cards.length / NUM_SETS);
+    return setWidthRef.current;
   }, []);
 
   const stopAutoScroll = useCallback(() => {
     setUserInteracted(true);
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
-      if (trackRef.current) {
-        trackRef.current.style.scrollSnapType = "";
-      }
+    isAutoScrollingRef.current = false;
+    if (programmaticScrollTimeoutRef.current) {
+      clearTimeout(programmaticScrollTimeoutRef.current);
+      programmaticScrollTimeoutRef.current = null;
     }
   }, []);
 
-  const customSmoothScroll = useCallback((track: HTMLDivElement, distance: number, duration: number = 800) => {
-    if (animationRef.current) cancelAnimationFrame(animationRef.current);
-
+  const customSmoothScroll = useCallback((track: HTMLDivElement, distance: number) => {
     isAutoScrollingRef.current = true;
-    const start = track.scrollLeft;
-    const startTime = performance.now();
+    const prefersReducedMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)",
+    ).matches;
+    track.scrollBy({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      left: distance,
+    });
 
-    // Disable snap to prevent browser stuttering during JS scroll
-    track.style.scrollSnapType = "none";
-    track.style.scrollBehavior = "auto";
-
-    const easeInOutCubic = (t: number) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
-
-    const step = (now: number) => {
-      const elapsed = now - startTime;
-      const progress = Math.min(elapsed / duration, 1);
-
-      track.scrollLeft = start + distance * easeInOutCubic(progress);
-
-      if (progress < 1) {
-        animationRef.current = requestAnimationFrame(step);
-      } else {
-        track.style.scrollSnapType = "";
-        animationRef.current = null;
-        
-        // Wait a tiny bit before accepting manual scrolls again
-        setTimeout(() => {
-          isAutoScrollingRef.current = false;
-        }, 50);
-      }
-    };
-
-    animationRef.current = requestAnimationFrame(step);
+    if (programmaticScrollTimeoutRef.current) {
+      clearTimeout(programmaticScrollTimeoutRef.current);
+    }
+    programmaticScrollTimeoutRef.current = setTimeout(() => {
+      isAutoScrollingRef.current = false;
+      programmaticScrollTimeoutRef.current = null;
+    }, prefersReducedMotion ? 50 : 850);
   }, []);
 
   const handleScroll = useCallback(() => {
@@ -156,6 +127,7 @@ export function BeforeAfterGrid() {
         track.style.scrollBehavior = "auto";
         track.scrollLeft += setWidth;
       }
+      isAutoScrollingRef.current = false;
     }, 150);
   }, [getSetWidth, stopAutoScroll]);
 
@@ -176,22 +148,77 @@ export function BeforeAfterGrid() {
   }, [getStep, customSmoothScroll]);
 
   useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !("IntersectionObserver" in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsNearViewport(true);
+        observer.disconnect();
+      },
+      { rootMargin: "700px 0px", threshold: 0.01 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
     const track = trackRef.current;
     if (!track) return;
 
-    const timer = setTimeout(() => {
-      const setWidth = getSetWidth();
-      if (setWidth > 0) {
-        track.style.scrollBehavior = "auto";
-        track.scrollLeft = setWidth;
-      }
-    }, 100);
+    const measure = () => {
+      const card = track.querySelector<HTMLElement>("[data-story-card]");
+      const cards = track.querySelectorAll("[data-story-card]");
+      if (!card || cards.length === 0) return;
 
-    return () => clearTimeout(timer);
-  }, [getSetWidth]);
+      const styles = window.getComputedStyle(track);
+      const rawGap =
+        styles.columnGap === "normal" ? styles.gap : styles.columnGap;
+      const gap = Number.parseFloat(rawGap) || 0;
+      stepRef.current = card.getBoundingClientRect().width + gap;
+      const renderedSets = isNearViewport ? NUM_SETS : 1;
+      setWidthRef.current =
+        stepRef.current * (cards.length / renderedSets);
+    };
+
+    const observer = new ResizeObserver(measure);
+    const firstCard = track.querySelector<HTMLElement>("[data-story-card]");
+    observer.observe(track);
+    if (firstCard) observer.observe(firstCard);
+
+    const frameId = requestAnimationFrame(() => {
+      measure();
+      if (
+        isNearViewport &&
+        setWidthRef.current > 0 &&
+        track.scrollLeft <= 10
+      ) {
+        isAutoScrollingRef.current = true;
+        track.style.scrollBehavior = "auto";
+        track.scrollLeft = setWidthRef.current;
+        requestAnimationFrame(() => {
+          isAutoScrollingRef.current = false;
+        });
+      }
+    });
+
+    return () => {
+      cancelAnimationFrame(frameId);
+      observer.disconnect();
+      if (scrollTimeoutRef.current) clearTimeout(scrollTimeoutRef.current);
+      if (programmaticScrollTimeoutRef.current) {
+        clearTimeout(programmaticScrollTimeoutRef.current);
+      }
+    };
+  }, [isNearViewport]);
 
   useEffect(() => {
-    if (userInteracted || isPaused) return;
+    if (!isNearViewport || userInteracted || isPaused) return;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -207,10 +234,21 @@ export function BeforeAfterGrid() {
     }, 3200);
 
     return () => window.clearInterval(interval);
-  }, [userInteracted, isPaused, getStep, customSmoothScroll]);
+  }, [
+    isNearViewport,
+    userInteracted,
+    isPaused,
+    getStep,
+    customSmoothScroll,
+  ]);
 
   return (
-    <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
+    <section
+      className={`buudy-section bg-[var(--cream)] md: md: py-14 md:py-24 ${
+        selectedStory ? "muuhu-deferred-modal-open" : ""
+      }`}
+      ref={sectionRef}
+    >
       <div className="buudy-wrap">
         <div className="mb-8 flex flex-wrap items-end justify-between gap-6 md:mb-12">
           <SectionHeading
@@ -242,7 +280,7 @@ export function BeforeAfterGrid() {
           onWheel={stopAutoScroll}
           ref={trackRef}
         >
-          {loopedStories.map((story, index) => (
+          {renderedStories.map((story, index) => (
             <article
               className="w-[min(82vw,21rem)] flex-none snap-start overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)] transition duration-300 hover:-translate-y-1 cursor-pointer"
               data-story-card
@@ -260,7 +298,7 @@ export function BeforeAfterGrid() {
               </div>
               <div className="p-5">
                 <div className="flex items-center justify-between gap-3">
-                  <p className="buudy-mono text-[var(--gold)]">{story.concern}</p>
+                  <p className="buudy-mono text-[var(--gold-text)]">{story.concern}</p>
                   <span className="buudy-mono text-[var(--plum-soft)]">5.0</span>
                 </div>
                 <h3 className="buudy-display mt-3 text-xl text-[var(--plum)]">
@@ -345,7 +383,7 @@ export function BeforeAfterGrid() {
 
             {/* Right Data Side */}
             <div className="w-full md:w-1/2 p-6 md:p-8 flex flex-col justify-center bg-[var(--card)]">
-              <p className="buudy-mono text-[var(--gold)] text-sm tracking-widest uppercase mb-2">
+              <p className="buudy-mono text-[var(--gold-text)] text-sm tracking-widest uppercase mb-2">
                 {selectedStory.concern}
               </p>
               <h3 className="buudy-display text-2xl md:text-3xl text-[var(--plum)] mb-4 leading-tight">

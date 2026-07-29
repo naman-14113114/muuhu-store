@@ -7,12 +7,84 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 const NUM_SETS = 2;
 const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
+const warmedFullVideos = new Set<string>();
+const queuedFullVideos = new Set<string>();
+const activeWarmers = new Map<string, HTMLVideoElement>();
+const fullVideoQueue: string[] = [];
+
+type NavigatorWithConnection = Navigator & {
+  connection?: {
+    effectiveType?: string;
+    saveData?: boolean;
+  };
+};
+
+function canWarmFullVideo() {
+  if (typeof navigator === "undefined") return false;
+  const connection = (navigator as NavigatorWithConnection).connection;
+  const effectiveType = connection?.effectiveType?.toLowerCase();
+
+  return (
+    !connection?.saveData &&
+    effectiveType !== "slow-2g" &&
+    effectiveType !== "2g"
+  );
+}
+
+function drainFullVideoQueue() {
+  if (typeof window === "undefined" || !canWarmFullVideo()) return;
+
+  const concurrency = window.matchMedia("(max-width: 767px)").matches ? 1 : 2;
+  while (activeWarmers.size < concurrency && fullVideoQueue.length > 0) {
+    const src = fullVideoQueue.shift();
+    if (!src) break;
+
+    queuedFullVideos.delete(src);
+    if (warmedFullVideos.has(src) || activeWarmers.has(src)) continue;
+
+    const warmer = document.createElement("video");
+    warmer.muted = true;
+    warmer.playsInline = true;
+    warmer.preload = "auto";
+    warmer.src = src;
+    activeWarmers.set(src, warmer);
+
+    const finish = () => {
+      warmedFullVideos.add(src);
+      activeWarmers.delete(src);
+      drainFullVideoQueue();
+    };
+
+    warmer.addEventListener("canplay", finish, { once: true });
+    warmer.addEventListener("error", finish, { once: true });
+    warmer.load();
+  }
+}
+
+function warmFullVideo(src?: string, immediate = false) {
+  if (
+    !src ||
+    !canWarmFullVideo() ||
+    warmedFullVideos.has(src) ||
+    activeWarmers.has(src) ||
+    queuedFullVideos.has(src)
+  ) {
+    return;
+  }
+
+  queuedFullVideos.add(src);
+  if (immediate) fullVideoQueue.unshift(src);
+  else fullVideoQueue.push(src);
+  drainFullVideoQueue();
+}
 
 function ReviewVideoCard({
+  allowPreviewLoad,
   index,
   video,
   onClick,
 }: {
+  allowPreviewLoad: boolean;
   index: number;
   video: ReviewVideo;
   onClick: (video: ReviewVideo) => void;
@@ -20,10 +92,9 @@ function ReviewVideoCard({
   const cardRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldPlayRef = useRef(false);
-  const isHoveredRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
-  const [shouldLoad, setShouldLoad] = useState(index < 4);
+  const [shouldLoad, setShouldLoad] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const playWhenReady = useCallback(() => {
@@ -34,6 +105,8 @@ function ReviewVideoCard({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    setShouldLoad(true);
+    warmFullVideo(video.fullSrc, true);
   };
 
   const handleMouseLeave = () => {
@@ -51,14 +124,14 @@ function ReviewVideoCard({
       ([entry]) => {
         shouldPlayRef.current = entry.isIntersecting;
 
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && allowPreviewLoad) {
           setShouldLoad(true);
           videoEl.play().catch(() => undefined);
         } else {
           videoEl.pause();
         }
       },
-      { rootMargin: "1200px 0px", threshold: 0.01 },
+      { rootMargin: "160px 0px", threshold: 0.01 },
     );
 
     observer.observe(card);
@@ -67,15 +140,30 @@ function ReviewVideoCard({
       shouldPlayRef.current = false;
       observer.disconnect();
     };
-  }, []);
+  }, [allowPreviewLoad]);
 
   return (
     <article
       className="relative aspect-[9/16] w-40 flex-none overflow-hidden rounded-[18px] bg-[var(--ink)] transition hover:-translate-y-1 md:w-52 cursor-pointer group"
       ref={cardRef}
       onClick={() => onClick(video)}
+      onFocus={() => {
+        setShouldLoad(true);
+        warmFullVideo(video.fullSrc, true);
+      }}
+      onKeyDown={(event) => {
+        if (event.key !== "Enter" && event.key !== " ") return;
+        event.preventDefault();
+        onClick(video);
+      }}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      onTouchStart={() => {
+        setShouldLoad(true);
+        warmFullVideo(video.fullSrc, true);
+      }}
+      role="button"
+      tabIndex={0}
     >
       <video
         aria-label={`Muuhu customer video review ${index + 1}`}
@@ -119,20 +207,94 @@ function ReviewVideoCard({
 
 export function VideoReviews() {
   const [selectedVideo, setSelectedVideo] = useState<ReviewVideo | null>(null);
+  const [modalSrc, setModalSrc] = useState<string | null>(null);
+  const [canBackgroundWarm, setCanBackgroundWarm] = useState(false);
+  const [isNearViewport, setIsNearViewport] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
 
-  const selectedIndex = selectedVideo ? loopedVideos.findIndex(v => v.id === selectedVideo.id) : -1;
+  const selectedIndex = selectedVideo
+    ? reviewVideos.findIndex((video) => video.id === selectedVideo.id)
+    : -1;
+
+  const openVideo = useCallback((video: ReviewVideo) => {
+    warmFullVideo(video.fullSrc, true);
+    setModalSrc(video.fallbackSrc ?? video.src);
+    setSelectedVideo(video);
+  }, []);
   
   const handlePrev = useCallback(() => {
     if (selectedIndex === -1) return;
-    if (selectedIndex > 0) setSelectedVideo(loopedVideos[selectedIndex - 1]);
-    else setSelectedVideo(loopedVideos[loopedVideos.length - 1]);
-  }, [selectedIndex]);
+    const nextVideo =
+      selectedIndex > 0
+        ? reviewVideos[selectedIndex - 1]
+        : reviewVideos[reviewVideos.length - 1];
+    openVideo(nextVideo);
+  }, [openVideo, selectedIndex]);
 
   const handleNext = useCallback(() => {
     if (selectedIndex === -1) return;
-    if (selectedIndex < loopedVideos.length - 1) setSelectedVideo(loopedVideos[selectedIndex + 1]);
-    else setSelectedVideo(loopedVideos[0]);
-  }, [selectedIndex]);
+    const nextVideo =
+      selectedIndex < reviewVideos.length - 1
+        ? reviewVideos[selectedIndex + 1]
+        : reviewVideos[0];
+    openVideo(nextVideo);
+  }, [openVideo, selectedIndex]);
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section || !("IntersectionObserver" in window)) {
+      setIsNearViewport(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setIsNearViewport(true);
+        observer.disconnect();
+      },
+      { rootMargin: "500px 0px", threshold: 0.01 },
+    );
+
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const enableBackgroundWarm = () => setCanBackgroundWarm(true);
+    const options: AddEventListenerOptions = { once: true, passive: true };
+
+    window.addEventListener("pointerdown", enableBackgroundWarm, options);
+    window.addEventListener("keydown", enableBackgroundWarm, { once: true });
+    window.addEventListener("scroll", enableBackgroundWarm, options);
+    window.addEventListener("touchstart", enableBackgroundWarm, options);
+
+    return () => {
+      window.removeEventListener("pointerdown", enableBackgroundWarm);
+      window.removeEventListener("keydown", enableBackgroundWarm);
+      window.removeEventListener("scroll", enableBackgroundWarm);
+      window.removeEventListener("touchstart", enableBackgroundWarm);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!canBackgroundWarm || !isNearViewport || !canWarmFullVideo()) return;
+
+    const warmAdjacentVideos = () => {
+      warmFullVideo(reviewVideos[0]?.fullSrc);
+      warmFullVideo(reviewVideos[1]?.fullSrc);
+    };
+
+    if (typeof window.requestIdleCallback === "function") {
+      const idleId = window.requestIdleCallback(warmAdjacentVideos, {
+        timeout: 2500,
+      });
+      return () => window.cancelIdleCallback(idleId);
+    }
+
+    const timeoutId = globalThis.setTimeout(warmAdjacentVideos, 500);
+    return () => globalThis.clearTimeout(timeoutId);
+  }, [canBackgroundWarm, isNearViewport]);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -160,7 +322,12 @@ export function VideoReviews() {
   };
 
   return (
-    <section className="buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden">
+    <section
+      className={`buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden ${
+        selectedVideo ? "muuhu-deferred-modal-open" : ""
+      }`}
+      ref={sectionRef}
+    >
       <style>{`
         @keyframes vr-css-auto-scroll {
           0% { transform: translateX(0); }
@@ -180,19 +347,24 @@ export function VideoReviews() {
           eyebrow="Real Customers"
           title={
             <>
-              Muuhu <span className="buudy-italic text-[var(--gold)]">reviews</span> <span className="font-playfair italic text-[var(--plum)]">&</span> real results
+              Muuhu <span className="buudy-italic text-[var(--gold-text)]">reviews</span> <span className="font-playfair italic text-[var(--plum)]">&</span> real results
             </>
           }
         />
 
         <div className="relative mt-7 md:mt-10 mx-auto w-full max-w-[1400px] overflow-hidden pb-4 md:pb-8">
-          <div className="flex gap-4 w-max vr-scroll-track">
-            {loopedVideos.map((video, index) => (
+          <div
+            className={`flex w-max gap-4 ${
+              isNearViewport ? "vr-scroll-track" : ""
+            }`}
+          >
+            {(isNearViewport ? loopedVideos : reviewVideos).map((video, index) => (
               <ReviewVideoCard
+                allowPreviewLoad={isNearViewport}
                 index={index}
                 key={`${video.id}-${index}`}
                 video={video}
-                onClick={setSelectedVideo}
+                onClick={openVideo}
               />
             ))}
           </div>
@@ -230,13 +402,27 @@ export function VideoReviews() {
               </svg>
             </button>
             <video
-              key={selectedVideo.id}
+              key={`${selectedVideo.id}-${modalSrc}`}
               className="max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-8rem)] max-h-[90vh] rounded-[18px] shadow-2xl"
-              src={selectedVideo.fullSrc || selectedVideo.src}
+              src={modalSrc ?? selectedVideo.fallbackSrc ?? selectedVideo.src}
               controls
               autoPlay
               playsInline
+              poster={selectedVideo.poster}
             />
+            {selectedVideo.fullSrc &&
+            modalSrc !== selectedVideo.fullSrc ? (
+              <video
+                aria-hidden="true"
+                className="pointer-events-none absolute h-px w-px opacity-0"
+                muted
+                onCanPlay={() => setModalSrc(selectedVideo.fullSrc ?? selectedVideo.src)}
+                playsInline
+                preload="auto"
+                src={selectedVideo.fullSrc}
+                tabIndex={-1}
+              />
+            ) : null}
 
             {/* Right Arrow */}
             <button

@@ -8,7 +8,7 @@ export function Footer() {
       <div className="buudy-wrap py-20">
         <div className="grid gap-12 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
           <div>
-            <Link className="inline-block" href="/">
+            <Link className="inline-block" href="/" prefetch={false}>
               <Image
                 alt="Muuhu"
                 className="h-auto w-44"
@@ -35,6 +35,7 @@ export function Footer() {
                     <Link
                       className="text-sm text-[rgba(247,241,232,.72)] transition hover:text-[var(--cream)]"
                       href={link.href}
+                      prefetch={false}
                     >
                       {link.label}
                     </Link>

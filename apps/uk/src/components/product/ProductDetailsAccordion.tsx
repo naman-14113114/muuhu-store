@@ -116,7 +116,7 @@ function AccordionPanel({
             <ItemIcon aria-hidden="true" size={26} stroke={1.65} />
           </span>
           <span>
-            <span className="font-sans text-xs font-bold uppercase tracking-widest text-[var(--gold)]">
+            <span className="font-sans text-xs font-bold uppercase tracking-widest text-[var(--gold-text)]">
               {item.eyebrow}
             </span>
             <span className="font-playfair mt-1 block text-xl text-[var(--plum)]">
@@ -191,7 +191,7 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
                         <p className="font-sans text-sm font-bold text-[var(--plum)]">
                           {feature.title}
                         </p>
-                        <p className="font-sans mt-0.5 text-xs italic font-semibold text-[var(--gold)]">
+                        <p className="font-sans mt-0.5 text-xs italic font-semibold text-[var(--gold-text)]">
                           {feature.kicker}
                         </p>
                       </div>

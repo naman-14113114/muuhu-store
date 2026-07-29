@@ -11,8 +11,6 @@ import {
   type MouseEvent,
   type ReactNode,
 } from "react";
-import Lottie from "lottie-react";
-import loadingLottie from "@/components/cart/loading-lottie.json";
 
 type ButtonVariant = "primary" | "ghost" | "quiet";
 
@@ -104,11 +102,14 @@ export function Button({
     >
       <ButtonContent>{children}</ButtonContent>
       {clickLoader && isClickLoading ? (
-        <span
-          aria-hidden="true"
-          className="buudy-button-click-loader"
-        >
-          <Lottie animationData={loadingLottie} loop={true} />
+        <span aria-hidden="true" className="buudy-button-click-loader">
+          <span className="buudy-button-click-loader-dots">
+            <span />
+            <span />
+            <span />
+            <span />
+            <span />
+          </span>
         </span>
       ) : null}
     </button>

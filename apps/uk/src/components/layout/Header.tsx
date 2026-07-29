@@ -1,7 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import Image from "next/image";
+import {
+  useCallback,
+  useEffect,
+  useRef,
+  useState,
+  type ReactNode,
+} from "react";
+import { useRouter } from "next/navigation";
 import { createPortal } from "react-dom";
 import {
   ChevronDown,
@@ -13,7 +21,6 @@ import {
   UserRound,
   X,
 } from "lucide-react";
-import { signOutAction } from "@/app/actions/auth";
 import { primaryNavigation, secondaryNavigation } from "@/data/navigation";
 import { useCart } from "@/components/cart/CartProvider";
 
@@ -31,6 +38,7 @@ type HeaderSession = {
 
 export function Header() {
   const { totals, openCart } = useCart();
+  const router = useRouter();
   const [accountMenuOpen, setAccountMenuOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileMenuMounted, setMobileMenuMounted] = useState(false);
@@ -119,6 +127,14 @@ export function Header() {
   const signedIn = Boolean(session?.user);
   const accountLabel =
     session?.profile?.fullName || session?.user?.email || "Account";
+  const warmRoute = useCallback(
+    (href: string) => {
+      if (href.startsWith("/")) {
+        router.prefetch(href);
+      }
+    },
+    [router],
+  );
 
   return (
     <header
@@ -146,6 +162,9 @@ export function Header() {
               className="buudy-mono text-[var(--plum)] opacity-80 transition hover:opacity-100"
               href={item.href}
               key={item.label}
+              onFocus={() => warmRoute(item.href)}
+              onMouseEnter={() => warmRoute(item.href)}
+              prefetch={false}
             >
               {item.label}
             </Link>
@@ -156,13 +175,19 @@ export function Header() {
           className="absolute left-1/2 flex -translate-x-1/2 items-center"
           href="/"
           aria-label="Muuhu home"
+          onFocus={() => warmRoute("/")}
+          onMouseEnter={() => warmRoute("/")}
+          prefetch={false}
         >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
+          <Image
             alt="Muuhu Logo"
             className="object-contain"
-            style={{ height: "36px", width: "auto", maxHeight: "36px" }}
+            height={156}
+            loading="eager"
+            sizes="126px"
             src="/images/products/muuhu-hair-dryer/muuhu-logo-cropped.png"
+            style={{ height: "36px", width: "auto", maxHeight: "36px" }}
+            width={544}
           />
         </Link>
 
@@ -173,6 +198,9 @@ export function Header() {
                 className="buudy-mono text-[var(--plum)] opacity-80 transition hover:opacity-100"
                 href={item.href}
                 key={item.label}
+                onFocus={() => warmRoute(item.href)}
+                onMouseEnter={() => warmRoute(item.href)}
+                prefetch={false}
               >
                 {item.label}
               </Link>
@@ -242,7 +270,7 @@ export function Header() {
                           label="Admin Dashboard"
                         />
                       ) : null}
-                      <form action={signOutAction}>
+                      <form action="/api/account/sign-out" method="post">
                         <button
                           className="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-left text-sm font-semibold text-[var(--plum)] transition hover:bg-[rgba(58,31,61,.06)]"
                           type="submit"
@@ -290,12 +318,15 @@ export function Header() {
                 role="dialog"
               >
                 <div className="flex items-center justify-between border-b border-[var(--border)] px-5 py-4">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
+                  <Image
                     alt="Muuhu Logo"
                     className="object-contain"
-                    style={{ height: "24px", width: "auto", maxHeight: "24px" }}
+                    height={156}
+                    loading="lazy"
+                    sizes="84px"
                     src="/images/products/muuhu-hair-dryer/muuhu-logo-cropped.png"
+                    style={{ height: "24px", width: "auto", maxHeight: "24px" }}
+                    width={544}
                   />
                   <button
                     aria-label="Close navigation menu"
@@ -358,7 +389,7 @@ export function Header() {
                             onClick={() => setMobileMenuOpen(false)}
                           />
                         ) : null}
-                        <form action={signOutAction}>
+                        <form action="/api/account/sign-out" method="post">
                           <button
                             className="flex w-full items-center gap-3 rounded-xl px-3 py-3 text-left text-sm font-semibold text-[var(--plum)] transition hover:bg-[rgba(58,31,61,.06)]"
                             type="submit"

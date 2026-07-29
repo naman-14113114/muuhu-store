@@ -10,12 +10,16 @@ export function GuaranteeSection({ productHandle }: { productHandle?: string }) 
               src="/images/products/muuhu-hair-dryer/banner_hero.webp"
               alt="Muuhu AirPro Guarantee Background"
               className="w-full h-full object-cover opacity-50"
+              decoding="async"
+              loading="lazy"
             />
           </div>
         </>
       )}
       <div className="buudy-wrap relative z-20 max-w-5xl">
-        <p className="buudy-eyebrow">Promise</p>
+        <p className={productHandle === "muuhu-hair-dryer" ? "buudy-eyebrow !text-[var(--gold-on-dark)]" : "buudy-eyebrow"}>
+          Promise
+        </p>
         <h2 className="buudy-display mx-auto mt-3 max-w-4xl text-[2rem] leading-[1.05] text-[var(--cream)] sm:text-[2.35rem] md:mt-4 md:text-6xl">
           Our <em className="buudy-italic text-[var(--gold)]">Muuhu</em>
           <br />

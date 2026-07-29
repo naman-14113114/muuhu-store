@@ -1,10 +1,10 @@
-export function runAfterEngagement(callback: () => void, delay = 45000) {
+export function runAfterEngagement(callback: () => void, delay = 120000) {
   if (typeof window === "undefined") {
     return () => undefined;
   }
 
   let hasRun = false;
-  const events = ["pointerdown", "keydown", "scroll", "touchstart"] as const;
+  const events = ["click", "keydown"] as const;
   const listenerOptions = { once: true, passive: true } as AddEventListenerOptions;
 
   function cleanupListeners() {
@@ -13,7 +13,11 @@ export function runAfterEngagement(callback: () => void, delay = 45000) {
     });
   }
 
-  function run() {
+  function run(event?: Event) {
+    if (event && !event.isTrusted) {
+      return;
+    }
+
     if (hasRun) {
       return;
     }

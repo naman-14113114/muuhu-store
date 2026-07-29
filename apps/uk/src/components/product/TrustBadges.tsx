@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 export function TrustBadges() {
   const badges = [
     {
@@ -28,11 +30,13 @@ export function TrustBadges() {
               className="flex flex-col md:flex-row items-center gap-3 md:gap-4 text-center md:text-left justify-center mx-auto w-full"
             >
               <div className="relative w-12 h-12 md:w-14 md:h-14 shrink-0 flex-none opacity-90">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
+                <Image
                   src={badge.icon}
                   alt={badge.title}
-                  className="w-full h-full object-contain"
+                  className="object-contain"
+                  fill
+                  loading="lazy"
+                  sizes="56px"
                 />
               </div>
               <p className="font-medium text-[var(--plum)] leading-snug text-sm md:text-base max-w-[180px]">

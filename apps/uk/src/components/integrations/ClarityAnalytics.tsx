@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { runAfterEngagement } from "@/lib/loadOnEngagement";
 
 const clarityScript = `
 (function(c,l,a,r,i,t,y){
@@ -12,14 +13,16 @@ const clarityScript = `
 
 export function ClarityAnalytics() {
   useEffect(() => {
-    if (document.querySelector("script[data-muuhu-clarity='true']")) {
-      return;
-    }
+    return runAfterEngagement(() => {
+      if (document.querySelector("script[data-muuhu-clarity='true']")) {
+        return;
+      }
 
-    const script = document.createElement("script");
-    script.dataset.muuhuClarity = "true";
-    script.textContent = clarityScript;
-    document.head.appendChild(script);
+      const script = document.createElement("script");
+      script.dataset.muuhuClarity = "true";
+      script.textContent = clarityScript;
+      document.head.appendChild(script);
+    });
   }, []);
 
   return null;

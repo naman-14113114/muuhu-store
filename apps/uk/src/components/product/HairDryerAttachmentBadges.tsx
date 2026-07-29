@@ -15,7 +15,7 @@ export function HairDryerAttachmentBadges() {
     <section className="bg-[#f6ede2] py-14 md:py-24">
       <div className="buudy-wrap">
         <div className="text-center mb-10">
-          <p className="buudy-mono text-[var(--gold)] mb-2 uppercase tracking-widest text-sm">Included in the box</p>
+          <p className="buudy-mono text-[var(--gold-text)] mb-2 uppercase tracking-widest text-sm">Included in the box</p>
           <h2 className="buudy-display text-3xl md:text-4xl text-[var(--plum)]">7-in-1 Complete Set</h2>
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6 md:gap-4 items-start max-w-6xl mx-auto">
@@ -27,6 +27,7 @@ export function HairDryerAttachmentBadges() {
                   alt={badge.title}
                   fill
                   className="object-contain"
+                  sizes="(min-width: 768px) 80px, 64px"
                 />
               </div>
               <p className="font-bold text-[var(--plum)] uppercase tracking-wide leading-snug text-xs max-w-[120px] transition-colors group-hover:text-[var(--gold)]">

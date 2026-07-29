@@ -100,6 +100,13 @@ const nextConfig: NextConfig = {
           { key: "Content-Disposition", value: "inline" },
         ],
       },
+      {
+        source: "/videos/:path*",
+        headers: [
+          { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
+          { key: "Content-Disposition", value: "inline" },
+        ],
+      },
     ];
   },
 };

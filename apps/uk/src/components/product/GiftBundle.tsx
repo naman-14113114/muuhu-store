@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Lottie from "lottie-react";
 import {
   IconBrush,
   IconCertificate,
@@ -17,6 +16,7 @@ import {
   IconScissors,
   IconWind,
 } from "@tabler/icons-react";
+import { Truck } from "lucide-react";
 import type { Product } from "@/data/products";
 import { market } from "@/lib/market";
 import { formatMoney } from "@/lib/money";
@@ -25,6 +25,7 @@ import {
   pickAttributionFromSearch,
 } from "@/lib/attribution";
 import { Button } from "@/components/ui/Button";
+import { DeferredLottie } from "@/components/ui/DeferredLottie";
 import { Price } from "@/components/ui/Price";
 import { useCart } from "@/components/cart/CartProvider";
 import { ProductDetailsAccordion } from "./ProductDetailsAccordion";
@@ -178,19 +179,6 @@ export function GiftBundle({ product }: { product: Product }) {
   const router = useRouter();
   const timer = useCountdown(15 * 60 - 1);
   const deliveryDate = useDeliveryDate(3);
-  const [deliveryIconData, setDeliveryIconData] = useState<Record<
-    string,
-    unknown
-  > | null>(null);
-
-  useEffect(() => {
-    fetch(
-      "/media/products/buudy-led-mask/images/lottieflow-ecommerce-14-19-aa8e50-easey.json",
-    )
-      .then((res) => res.json())
-      .then((data) => setDeliveryIconData(data))
-      .catch((err) => console.error("Error loading delivery lottie", err));
-  }, []);
 
   const giftValue = product.gifts?.reduce(
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -217,7 +205,9 @@ export function GiftBundle({ product }: { product: Product }) {
 
       <h1 className="font-playfair mt-3 whitespace-nowrap text-[2rem] leading-[1.02] text-[var(--plum)] sm:text-[2.55rem] md:text-[3.25rem] xl:text-[4rem] 2xl:text-[4.45rem]">
         {product.heroTitle}{" "}
-        <em className="italic text-[var(--gold)]">{product.heroEmphasis}</em>
+        <em className="italic text-[var(--gold-text)]">
+          {product.heroEmphasis}
+        </em>
       </h1>
 
       {/* Clinically Proven Badges */}
@@ -262,7 +252,7 @@ export function GiftBundle({ product }: { product: Product }) {
           currency={product.currency}
           priceCents={product.priceCents}
         />
-        <div className="flex flex-nowrap items-center gap-x-1 sm:gap-x-1.5 text-[9.5px] sm:text-[13px] text-[var(--muted)]">
+        <div className="flex flex-nowrap items-center gap-x-1 sm:gap-x-1.5 text-[9.5px] sm:text-[13px] text-[var(--plum)]">
           <span className="whitespace-nowrap tracking-tight sm:tracking-normal">
             or{" "}
             <strong className="buudy-display text-[10px] sm:text-[14px] font-medium text-[var(--plum)]">
@@ -301,11 +291,17 @@ export function GiftBundle({ product }: { product: Product }) {
         <div className="flex items-center justify-between gap-2 sm:gap-5">
           <div>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              {deliveryIconData && (
-                <div className="w-5 h-5 sm:w-7 sm:h-7 flex-shrink-0 flex items-center justify-center">
-                  <Lottie animationData={deliveryIconData} loop={true} />
-                </div>
-              )}
+              <DeferredLottie
+                className="flex h-5 w-5 flex-shrink-0 items-center justify-center sm:h-7 sm:w-7"
+                fallback={
+                  <Truck
+                    aria-hidden="true"
+                    className="h-4 w-4 text-[var(--gold-text)] sm:h-5 sm:w-5"
+                    strokeWidth={1.5}
+                  />
+                }
+                src="/media/products/buudy-led-mask/images/lottieflow-ecommerce-14-19-aa8e50-easey.json"
+              />
               <p className="buudy-eyebrow text-[var(--gold)] m-0 leading-none flex items-center h-5 sm:h-7 font-bold text-[10px] sm:text-xs">
                 FREE DELIVERY
               </p>
@@ -410,9 +406,9 @@ export function GiftBundle({ product }: { product: Product }) {
       {hasGifts ? (
         <section className="mt-8" id="free-gifts">
           <div className="text-center mb-8 flex flex-col items-center">
-            <h3 className="buudy-display text-3xl font-medium text-[var(--plum)]">
+            <h2 className="buudy-display text-3xl font-medium text-[var(--plum)]">
               Big Summer Savings
-            </h3>
+            </h2>
             <p className="buudy-mono mt-2 inline-flex items-center justify-center gap-1.5 flex-wrap rounded bg-[rgba(184,149,86,.15)] px-3 py-1 text-xs sm:text-sm font-bold tracking-widest text-[var(--plum)]">
               <span className="buudy-display text-sm sm:text-base font-extrabold normal-case text-[var(--plum)]">
                 {formatMoney(giftValue, product.currency)}
@@ -425,7 +421,6 @@ export function GiftBundle({ product }: { product: Product }) {
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (gift: any) => (
                 <Link
-                  aria-label={`Learn more about ${gift.name}`}
                   className="group relative flex min-h-[180px] flex-col justify-start rounded-[24px] border border-[rgba(58,31,61,.18)] bg-[var(--card)] p-2 pt-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[rgba(184,149,86,.72)] hover:shadow-[0_18px_32px_-24px_rgba(58,31,61,.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:min-h-[220px] md:p-3 md:pt-6"
                   href={gift.href || gift.link || "#"}
                   key={gift.id}

@@ -63,7 +63,7 @@ export function MuuhuAppPromo() {
         <div>
           <p className="buudy-eyebrow">Companion App</p>
           <h2 className="buudy-display mt-2 text-[2.5rem] leading-tight text-[var(--plum)] md:text-5xl">
-            Muuhu <span className="text-[var(--gold)]">Style App</span>.
+            Muuhu <span className="text-[var(--gold-text)]">Style App</span>.
           </h2>
           <p className="buudy-copy mt-3 text-sm leading-6">
             The Muuhu Style App is the ultimate companion for your hair dryer.
@@ -202,7 +202,7 @@ export function MuuhuHairTypeSection() {
               alt="Made for every hair type"
               className="rounded-[18px]"
               decoding="async"
-              loading="eager"
+              loading="lazy"
               src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
               style={{
                 height: "100%",
@@ -217,7 +217,7 @@ export function MuuhuHairTypeSection() {
         </div>
 
         <div className="lg:order-last flex flex-col justify-center">
-          <p className="buudy-mono text-[var(--gold)]">Hair type fit</p>
+          <p className="buudy-mono text-[var(--gold-text)]">Hair type fit</p>
           <h2 className="buudy-display mt-3 text-[2.45rem] leading-tight text-[var(--plum)] md:text-5xl">
             Made for every hair type, guided by the right attachment.
           </h2>
@@ -232,7 +232,7 @@ export function MuuhuHairTypeSection() {
               <p className="buudy-display text-2xl leading-tight text-[var(--plum)]">
                 Works on
               </p>
-              <p className="text-xs font-semibold uppercase tracking-[.16em] text-[var(--gold)]">
+              <p className="text-xs font-semibold uppercase tracking-[.16em] text-[var(--gold-text)]">
                 Straight to coily
               </p>
             </div>

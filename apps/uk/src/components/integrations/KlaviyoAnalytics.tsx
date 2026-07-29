@@ -263,8 +263,9 @@ export function KlaviyoAnalytics() {
     }
 
     window.klaviyo = window.klaviyo || [];
-    const cleanupScrollGuard = guardKlaviyoScrollLock();
+    let cleanupScrollGuard: () => void = () => undefined;
     const loadKlaviyo = () => {
+      cleanupScrollGuard = guardKlaviyoScrollLock();
       if (document.querySelector("script[data-muuhu-klaviyo='true']")) {
         return;
       }

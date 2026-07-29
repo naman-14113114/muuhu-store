@@ -36,6 +36,23 @@ function syncImagesWithin(node: Node) {
 
 export function GlobalImageLoader() {
   useEffect(() => {
+    const pendingNodes = new Set<Node>();
+    let batchScheduled = false;
+
+    const flushPendingNodes = () => {
+      batchScheduled = false;
+      pendingNodes.forEach(syncImagesWithin);
+      pendingNodes.clear();
+    };
+
+    const scheduleNodeSync = (node: Node) => {
+      pendingNodes.add(node);
+      if (batchScheduled) return;
+
+      batchScheduled = true;
+      queueMicrotask(flushPendingNodes);
+    };
+
     const clearLoadingState = (event: Event) => {
       if (event.target instanceof HTMLImageElement) {
         event.target.removeAttribute(loadingAttribute);
@@ -47,14 +64,14 @@ export function GlobalImageLoader() {
     Array.from(document.images).forEach(syncImageLoadingState);
 
     const observer = new MutationObserver((records) => {
-      records.forEach((record) => {
+      for (const record of records) {
         if (record.type === "attributes") {
-          syncImagesWithin(record.target);
-          return;
+          scheduleNodeSync(record.target);
+          continue;
         }
 
-        record.addedNodes.forEach(syncImagesWithin);
-      });
+        record.addedNodes.forEach(scheduleNodeSync);
+      }
     });
 
     observer.observe(document.documentElement, {
@@ -66,6 +83,7 @@ export function GlobalImageLoader() {
 
     return () => {
       observer.disconnect();
+      pendingNodes.clear();
       document.removeEventListener("load", clearLoadingState, true);
       document.removeEventListener("error", clearLoadingState, true);
     };

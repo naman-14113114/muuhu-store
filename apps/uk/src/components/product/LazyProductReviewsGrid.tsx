@@ -28,8 +28,6 @@ export function LazyProductReviewsGrid(props: LazyProductReviewsGridProps) {
       return;
     }
 
-    const timer = window.setTimeout(() => setShouldRender(true), 1200);
-
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (!entry.isIntersecting) {
@@ -45,7 +43,6 @@ export function LazyProductReviewsGrid(props: LazyProductReviewsGridProps) {
     observer.observe(root);
 
     return () => {
-      window.clearTimeout(timer);
       observer.disconnect();
     };
   }, []);
