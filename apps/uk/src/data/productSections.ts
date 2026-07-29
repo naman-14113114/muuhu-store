@@ -47,9 +47,9 @@ export const features: Feature[] = [
     body: "Unleash your hair's potential. Dry, straighten, curl, and volumize with one base. The ultimate styling tool designed to replace your hairdryer, straightener, and curling wand.",
   },
   {
-    title: "Controlled Heat Styling",
-    kicker: "Designed Without Extreme Heat",
-    body: "The hot air styler distributes heat evenly while high-speed airflow does more of the drying work. Use the lowest effective setting for your hair type and finish with cool air.",
+    title: "60% Cooler Than Traditional Tools",
+    kicker: "Zero Extreme Heat Damage",
+    body: "Crafted with a tourmaline ceramic heating element, this hot air styler ensures even heat distribution while minimizing damage. Get salon-worthy hair without the extreme heat.",
   },
   {
     title: "110,000 RPM Brushless Motor",

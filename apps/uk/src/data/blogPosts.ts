@@ -57,7 +57,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'the-muuhu-difference',
         heading: 'Why High-Velocity Matters',
-        body: '<p>High-velocity airflow can dry hair quickly with less reliance on high heat. Traditional dryers may keep hair exposed to high temperatures for longer, while modern high-speed systems move more air across the hair surface.</p><p>Dryers equipped with 110,000 RPM brushless motors are designed to shorten drying time while giving the user more control over temperature and speed.</p>',
+        body: '<p>High-velocity airflow is the secret to drying hair quickly without heat damage. Traditional hair dryers rely on high temperatures to evaporate water, which can boil the moisture inside the hair shaft, leading to breakage and dullness. In contrast, modern engineering uses high-speed air to physically blow water off the hair\'s surface.</p><p>For instance, dryers equipped with 110,000 RPM brushless motors can halve your drying time while keeping temperatures well within safe limits. This approach preserves the hair\'s natural moisture balance and colour vibrancy.</p>',
         type: 'text'
       },
       {
