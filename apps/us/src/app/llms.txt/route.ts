@@ -21,7 +21,7 @@ Muuhu US sells professional high-speed hair styling devices designed for salon-q
 - Price: USD 149, compare-at USD 299
 - Category: hair dryer, high-speed styler, ionic hair dryer, professional blowout device
 - Motor: 110,000 RPM high-speed brushless DC
-- Wattage: 1,400W
+- Wattage: 1,600W
 - Ionic technology: 200 million+ negative ions for frizz control
 - Attachments: 7 included (L-Shape Base, Smoothing Brush, Round Volumizing Brush, Left Curling Barrel, Right Curling Barrel, Diffuser, Concentrator)
 - Temperature settings: 3 (Cool / Warm / Hot)

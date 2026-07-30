@@ -45,7 +45,7 @@ const technologyStorySections = [
     eyebrow: "AirPro airflow system",
     title: "Powerful, fast, and controlled.",
     copy:
-      "A 1,400W, 110,000 RPM brushless motor drives high-speed airflow through the Muuhu AirPro body for fast drying and precise styling. Three temperature settings and three speed settings give smoother control from roots to ends.",
+      "A 1,600W, 110,000 RPM brushless motor drives high-speed airflow through the Muuhu AirPro body for fast drying and precise styling. Three temperature settings and three speed settings give smoother control from roots to ends.",
     image: "/images/products/muuhu-hair-dryer/muuhu-airpro-airflow-system-v3.webp",
     alt: "Muuhu AirPro high-speed airflow technology",
     imageSide: "right",

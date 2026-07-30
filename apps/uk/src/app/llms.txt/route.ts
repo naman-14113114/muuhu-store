@@ -26,13 +26,13 @@ Muuhu UK sells professional high-speed hair styling devices designed for salon-q
 - Price: GBP 149, compare-at GBP 299
 - Category: hair dryer, high-speed styler, ionic hair dryer, professional blowout device
 - Motor: 110,000 RPM high-speed brushless DC
-- Wattage: 1,400W
+- Wattage: 1,600W
 - Ionic technology: 200 million+ negative ions for frizz control
 - Attachments: 7 included (L-Shape Base, Smoothing Brush, Round Volumising Brush, Left Curling Barrel, Right Curling Barrel, Diffuser, Concentrator)
 - Temperature settings: 3 (Cool / Warm / Hot)
 - Speed settings: 3
 - Weight: approximately 600g
-- Voltage: 220V UK plug
+- Voltage: 220-240V UK plug
 - Returns: 90-day money-back guarantee
 - Shipping: free tracked UK shipping
 

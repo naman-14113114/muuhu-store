@@ -3,7 +3,7 @@ export const seoFaqs = {
   faqs: [
     {
       question: "What makes Muuhu AirPro different?",
-      answer: "The Muuhu AirPro combines a 1,400W, 110,000 RPM brushless motor with 3 temperature settings, 3 speed settings, and 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device.",
+      answer: "The Muuhu AirPro combines a 1,600W, 110,000 RPM brushless motor with 3 temperature settings, 3 speed settings, and 7 interchangeable styling attachments. It allows you to dry, curl, smooth, and volumise your hair with a single device.",
     },
     {
       question: "Are the curlers easy to use?",

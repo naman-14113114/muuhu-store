@@ -57,14 +57,14 @@ export const muuhuHairDryer: Product = {
   ],
   specs: [
     { label: "Motor", value: "110,000 RPM High-Speed Brushless DC" },
-    { label: "Wattage", value: "1,400W" },
+    { label: "Wattage", value: "1,600W" },
     { label: "Ionic Technology", value: "200M+ Negative Ions" },
     { label: "Heat Settings", value: "3" },
     { label: "Speed Settings", value: "3" },
     { label: "Airflow Speed", value: "20-26 m/s" },
     { label: "Noise Level", value: "65db" },
     { label: "Weight", value: "475g" },
-    { label: "Voltage", value: "220V (UK Plug)" },
+    { label: "Voltage", value: "220-240V (UK Plug)" },
     { label: "Attachments", value: "7 included" },
   ],
   faqs: [

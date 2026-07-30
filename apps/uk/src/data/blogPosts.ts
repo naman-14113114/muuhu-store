@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'muuhu-cta',
         heading: 'Experience the Next Generation of Hair Care',
-        body: '<p>The Muuhu AirPro combines a 1,400W, 110,000 RPM brushless motor, 3 temperature settings, 3 speed settings, 200M+ negative ions, and 7 professional styling attachments. Priced at £149 (compare at £299), it is designed for salon-quality results at home.</p>',
+        body: '<p>The Muuhu AirPro combines a 1,600W, 110,000 RPM brushless motor, 3 temperature settings, 3 speed settings, 200M+ negative ions, and 7 professional styling attachments. Priced at £149 (compare at £299), it is designed for salon-quality results at home.</p>',
         type: 'cta'
       }
     ]
