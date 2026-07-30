@@ -43,7 +43,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
         <div className="flex items-start justify-between gap-3">
           <div>
             <p className="buudy-display text-lg leading-tight text-[var(--plum)]">
-              {line.title}
+              {(line.title === "Muuhu Airpro" || line.title === "Muuhu AirPro") ? "Muuhu Airpro + Premium Packaging" : line.title}
             </p>
             <p className="mt-1 text-xs leading-5 text-[var(--muted)]">{line.subtitle}</p>
           </div>
