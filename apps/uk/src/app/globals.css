@@ -455,17 +455,6 @@ img[data-muuhu-image-loading="true"] {
   background-size: clamp(16px, 12%, 40px) clamp(16px, 12%, 40px);
 }
 
-.muuhu-airpro-deferred-content > section {
-  content-visibility: auto;
-  contain-intrinsic-size: auto 900px;
-}
-
-.muuhu-airpro-deferred-content > section.muuhu-deferred-modal-open,
-.muuhu-airpro-deferred-content > section#reviews {
-  content-visibility: visible;
-  contain: none;
-}
-
 .buudy-mask-sticky-cta footer {
   padding-bottom: 1.5rem;
 }

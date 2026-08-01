@@ -143,7 +143,7 @@ export function Footer() {
                   alt={icon.label}
                   className="h-full w-full object-cover"
                   decoding="async"
-                  loading="lazy"
+                  loading="eager"
                   src={icon.src}
                 />
               </span>

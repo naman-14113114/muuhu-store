@@ -1,26 +1,7 @@
-"use client";
-
-import dynamic from "next/dynamic";
-
-const VideoReviews = dynamic(
-  () => import("./VideoReviews").then((mod) => mod.VideoReviews),
-  { ssr: false },
-);
-
-const BeforeAfterGrid = dynamic(
-  () => import("./BeforeAfterGrid").then((mod) => mod.BeforeAfterGrid),
-  { ssr: false },
-);
-
-const WavelengthSelector = dynamic(
-  () => import("./WavelengthSelector").then((mod) => mod.WavelengthSelector),
-  { ssr: false },
-);
-
-const ExpertSection = dynamic(
-  () => import("./ExpertSection").then((mod) => mod.ExpertSection),
-  { ssr: false },
-);
+import { BeforeAfterGrid } from "./BeforeAfterGrid";
+import { ExpertSection } from "./ExpertSection";
+import { VideoReviews } from "./VideoReviews";
+import { WavelengthSelector } from "./WavelengthSelector";
 
 export function DeferredVideoReviews() {
   return <VideoReviews />;

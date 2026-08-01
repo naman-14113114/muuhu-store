@@ -276,9 +276,9 @@ export function ProductGallery({
               className="buudyLED-23435t23-main_img"
               alt={currentImage.alt}
               decoding="async"
-              fetchPriority={isInitialHero ? "high" : "low"}
+              fetchPriority={isInitialHero ? "high" : "auto"}
               fill
-              loading={isInitialHero ? "eager" : "lazy"}
+              loading="eager"
               onClick={() => openLightbox()}
               onLoad={isInitialHero ? warmNextImage : undefined}
               priority={isInitialHero}
@@ -387,9 +387,9 @@ export function ProductGallery({
                   className="buudyLED-23435t23-thumb_img"
                   alt={image.alt}
                   decoding="async"
-                  fetchPriority="low"
+                  fetchPriority="auto"
                   fill
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 1024px) 15vw, 28vw"
                 />
               )}

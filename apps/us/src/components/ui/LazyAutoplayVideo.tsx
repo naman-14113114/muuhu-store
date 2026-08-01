@@ -65,7 +65,7 @@ export function LazyAutoplayVideo({
       muted
       playsInline
       poster={poster}
-      preload="metadata"
+      preload="auto"
       ref={videoRef}
     >
       <source src={src} type={type} />

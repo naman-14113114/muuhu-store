@@ -91,7 +91,7 @@ function TechnologyImage({
             section.imageFrame === "wide" ? "lg:object-contain lg:object-right-bottom" : ""
           }`}
           fill
-          loading="lazy"
+          loading="eager"
           sizes="(min-width: 1024px) 44vw, 92vw"
           src={section.image}
         />
@@ -238,7 +238,7 @@ function HairDryerDescriptionBanners() {
               src={banner.src}
               alt={banner.alt}
               className="w-full h-auto block"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         ))}

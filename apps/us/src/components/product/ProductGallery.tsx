@@ -359,8 +359,8 @@ export function ProductGallery({
                     className="buudyLED-23435t23-thumb_img"
                     alt={image.alt}
                     decoding="async"
-                    fetchPriority="low"
-                    loading="lazy"
+                    fetchPriority="auto"
+                    loading="eager"
                   />
                 </>
               )}

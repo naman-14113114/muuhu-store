@@ -35,7 +35,7 @@ export function TrustBadges() {
                   alt={badge.title}
                   className="object-contain"
                   fill
-                  loading="lazy"
+                  loading="eager"
                   sizes="56px"
                 />
               </div>

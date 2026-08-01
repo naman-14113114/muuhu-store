@@ -113,7 +113,7 @@ function TechnologyImage({
             section.imageFrame === "wide" ? "lg:object-contain lg:object-right-bottom" : ""
           }`}
           fill
-          loading="lazy"
+          loading="eager"
           sizes="(min-width: 1024px) 44vw, 92vw"
           src={section.image}
         />
@@ -185,7 +185,7 @@ function MuuhuHairScienceSection() {
                   alt={card.alt}
                   className="object-cover"
                   fill
-                  loading="lazy"
+                  loading="eager"
                   sizes="(min-width: 768px) 28vw, 92vw"
                   src={card.image}
                 />
@@ -219,7 +219,7 @@ function MuuhuCombGiftStrip() {
             alt="Muuhu ScalpPro free bonus gift"
             className="h-full w-full object-cover"
             height={620}
-            loading="lazy"
+            loading="eager"
             sizes="(min-width: 1024px) 300px, (min-width: 768px) 280px, 92vw"
             src="/images/products/muuhu-hair-dryer/muuhu-comb-free-gift.webp"
             width={620}
@@ -367,7 +367,7 @@ function HairDryerDescriptionBanners() {
               src={banner.src}
               alt={banner.alt}
               className="w-full h-auto block"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         ))}

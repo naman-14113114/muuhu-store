@@ -11,22 +11,20 @@ export function DeferredAutoplayVideo({
 }) {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldLoad, setShouldLoad] = useState(false);
+  const [shouldPlay, setShouldPlay] = useState(false);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     if (!("IntersectionObserver" in window)) {
-      const timeoutId = globalThis.setTimeout(() => setShouldLoad(true), 0);
+      const timeoutId = globalThis.setTimeout(() => setShouldPlay(true), 0);
       return () => globalThis.clearTimeout(timeoutId);
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setShouldLoad(true);
-        observer.disconnect();
+        setShouldPlay(entry.isIntersecting);
       },
       { rootMargin: "800px 0px", threshold: 0.01 },
     );
@@ -36,26 +34,29 @@ export function DeferredAutoplayVideo({
   }, []);
 
   useEffect(() => {
-    if (!shouldLoad || !videoRef.current) return;
-
     const video = videoRef.current;
-    video.load();
-    video.play().catch(() => undefined);
-  }, [shouldLoad]);
+    if (!video) return;
+
+    if (shouldPlay) {
+      video.play().catch(() => undefined);
+    } else {
+      video.pause();
+    }
+  }, [shouldPlay]);
 
   return (
     <div className="h-full w-full" ref={containerRef}>
       <video
         aria-label="Muuhu AirPro styling demonstration"
-        autoPlay={shouldLoad}
+        autoPlay={shouldPlay}
         className={className}
         loop
         muted
         playsInline
-        preload={shouldLoad ? "metadata" : "none"}
+        preload="auto"
         ref={videoRef}
       >
-        {shouldLoad ? <source src={src} type="video/webm" /> : null}
+        <source src={src} type="video/webm" />
       </video>
     </div>
   );

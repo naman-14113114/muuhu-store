@@ -4,9 +4,37 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { reviewVideos, type ReviewVideo } from "@/data/productSections";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { preloadFullVideosAfterFrontend } from "@/lib/mediaPreload";
 
 const NUM_SETS = 2;
 const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
+const previewVideoPromises = new Map<string, Promise<void>>();
+
+function preparePreviewVideo(video: ReviewVideo) {
+  if (typeof window === "undefined") return Promise.resolve();
+
+  const src = video.fallbackSrc ?? video.src;
+  const cached = previewVideoPromises.get(src);
+  if (cached) return cached;
+
+  const promise = new Promise<void>((resolve) => {
+    const preview = document.createElement("video");
+    const settle = () => resolve();
+
+    preview.muted = true;
+    preview.playsInline = true;
+    preview.preload = "auto";
+    preview.addEventListener("loadeddata", settle, { once: true });
+    preview.addEventListener("error", settle, { once: true });
+    preview.src = src;
+    preview.load();
+
+    if (preview.readyState >= 2) settle();
+  });
+
+  previewVideoPromises.set(src, promise);
+  return promise;
+}
 
 function ReviewVideoCard({
   index,
@@ -20,10 +48,8 @@ function ReviewVideoCard({
   const cardRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const shouldPlayRef = useRef(false);
-  const isHoveredRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
-  const [shouldLoad, setShouldLoad] = useState(index < 4);
   const [isHovered, setIsHovered] = useState(false);
 
   const playWhenReady = useCallback(() => {
@@ -52,7 +78,6 @@ function ReviewVideoCard({
         shouldPlayRef.current = entry.isIntersecting;
 
         if (entry.isIntersecting) {
-          setShouldLoad(true);
           videoEl.play().catch(() => undefined);
         } else {
           videoEl.pause();
@@ -79,10 +104,10 @@ function ReviewVideoCard({
     >
       <video
         aria-label={`Muuhu customer video review ${index + 1}`}
+        data-muuhu-preview-video
         className="h-full w-full object-cover"
         disablePictureInPicture
         loop
-        autoPlay={shouldLoad}
         muted
         onCanPlay={playWhenReady}
         onError={() => {
@@ -93,9 +118,9 @@ function ReviewVideoCard({
         onLoadedData={playWhenReady}
         playsInline
         poster={video.poster}
-        preload={shouldLoad ? "metadata" : "none"}
+        preload="auto"
         ref={videoRef}
-        src={shouldLoad ? src : undefined}
+        src={src}
       >
         Your browser does not support the video tag.
       </video>
@@ -119,20 +144,41 @@ function ReviewVideoCard({
 
 export function VideoReviews() {
   const [selectedVideo, setSelectedVideo] = useState<ReviewVideo | null>(null);
+  const [modalSrc, setModalSrc] = useState<string | null>(null);
+  const navigationRequestRef = useRef(0);
 
-  const selectedIndex = selectedVideo ? loopedVideos.findIndex(v => v.id === selectedVideo.id) : -1;
+  const selectedIndex = selectedVideo
+    ? reviewVideos.findIndex((video) => video.id === selectedVideo.id)
+    : -1;
+
+  const openVideo = useCallback((video: ReviewVideo) => {
+    const requestId = navigationRequestRef.current + 1;
+    navigationRequestRef.current = requestId;
+
+    void preparePreviewVideo(video).then(() => {
+      if (navigationRequestRef.current !== requestId) return;
+      setModalSrc(video.fallbackSrc ?? video.src);
+      setSelectedVideo(video);
+    });
+  }, []);
   
   const handlePrev = useCallback(() => {
     if (selectedIndex === -1) return;
-    if (selectedIndex > 0) setSelectedVideo(loopedVideos[selectedIndex - 1]);
-    else setSelectedVideo(loopedVideos[loopedVideos.length - 1]);
-  }, [selectedIndex]);
+    if (selectedIndex > 0) openVideo(reviewVideos[selectedIndex - 1]);
+    else openVideo(reviewVideos[reviewVideos.length - 1]);
+  }, [openVideo, selectedIndex]);
 
   const handleNext = useCallback(() => {
     if (selectedIndex === -1) return;
-    if (selectedIndex < loopedVideos.length - 1) setSelectedVideo(loopedVideos[selectedIndex + 1]);
-    else setSelectedVideo(loopedVideos[0]);
-  }, [selectedIndex]);
+    if (selectedIndex < reviewVideos.length - 1) openVideo(reviewVideos[selectedIndex + 1]);
+    else openVideo(reviewVideos[0]);
+  }, [openVideo, selectedIndex]);
+
+  useEffect(() => {
+    return preloadFullVideosAfterFrontend(
+      reviewVideos.flatMap((video) => (video.fullSrc ? [video.fullSrc] : [])),
+    );
+  }, []);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -192,7 +238,7 @@ export function VideoReviews() {
                 index={index}
                 key={`${video.id}-${index}`}
                 video={video}
-                onClick={setSelectedVideo}
+                onClick={openVideo}
               />
             ))}
           </div>
@@ -230,13 +276,28 @@ export function VideoReviews() {
               </svg>
             </button>
             <video
-              key={selectedVideo.id}
+              key={`${selectedVideo.id}-${modalSrc}`}
               className="max-w-[calc(100vw-2rem)] md:max-w-[calc(100vw-8rem)] max-h-[90vh] rounded-[18px] shadow-2xl"
-              src={selectedVideo.fullSrc || selectedVideo.src}
+              src={modalSrc ?? selectedVideo.fallbackSrc ?? selectedVideo.src}
               controls
               autoPlay
               playsInline
+              poster={selectedVideo.poster}
             />
+            {selectedVideo.fullSrc && modalSrc !== selectedVideo.fullSrc ? (
+              <video
+                aria-hidden="true"
+                className="pointer-events-none absolute h-px w-px opacity-0"
+                muted
+                onCanPlay={() =>
+                  setModalSrc(selectedVideo.fullSrc ?? selectedVideo.src)
+                }
+                playsInline
+                preload="auto"
+                src={selectedVideo.fullSrc}
+                tabIndex={-1}
+              />
+            ) : null}
 
             {/* Right Arrow */}
             <button

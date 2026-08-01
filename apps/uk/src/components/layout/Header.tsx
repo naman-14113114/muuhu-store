@@ -322,7 +322,7 @@ export function Header() {
                     alt="Muuhu Logo"
                     className="object-contain"
                     height={156}
-                    loading="lazy"
+                    loading="eager"
                     sizes="84px"
                     src="/images/products/muuhu-hair-dryer/muuhu-logo-cropped.png"
                     style={{ height: "24px", width: "auto", maxHeight: "24px" }}

@@ -8,39 +8,84 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const NUM_SETS = 3;
 const loopedStories = Array(NUM_SETS).fill(transformations).flat();
+const storyImagePromises = new Map<string, Promise<void>>();
+
+function preloadStoryImage(src: string) {
+  if (typeof window === "undefined") return Promise.resolve();
+
+  const cached = storyImagePromises.get(src);
+  if (cached) return cached;
+
+  const promise = new Promise<void>((resolve) => {
+    const image = new window.Image();
+    let settled = false;
+
+    const settle = () => {
+      if (settled) return;
+      settled = true;
+
+      if (typeof image.decode === "function") {
+        image.decode().catch(() => undefined).finally(resolve);
+      } else {
+        resolve();
+      }
+    };
+
+    image.decoding = "async";
+    image.onload = settle;
+    image.onerror = () => resolve();
+    image.src = src;
+
+    if (image.complete) settle();
+  });
+
+  storyImagePromises.set(src, promise);
+  return promise;
+}
 
 export function BeforeAfterGrid() {
   const trackRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [userInteracted, setUserInteracted] = useState(false);
   const [isPaused, setIsPaused] = useState(false);
-  const [isNearViewport, setIsNearViewport] = useState(false);
+  const [isAnimationVisible, setIsAnimationVisible] = useState(false);
   const scrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const programmaticScrollTimeoutRef = useRef<NodeJS.Timeout | null>(null);
   const isAutoScrollingRef = useRef(false);
   const stepRef = useRef(320);
   const setWidthRef = useRef(0);
   const [selectedStory, setSelectedStory] = useState<typeof transformations[0] | null>(null);
+  const navigationRequestRef = useRef(0);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
-  const renderedStories = isNearViewport ? loopedStories : transformations;
+
+  const openStory = useCallback((story: (typeof transformations)[0]) => {
+    const requestId = navigationRequestRef.current + 1;
+    navigationRequestRef.current = requestId;
+
+    void preloadStoryImage(story.image).then(() => {
+      if (navigationRequestRef.current === requestId) {
+        setSelectedStory(story);
+      }
+    });
+  }, []);
 
   const handleNextStory = useCallback(() => {
     if (!selectedStory) return;
     const currentIndex = transformations.findIndex(t => t.id === selectedStory.id);
     if (currentIndex === -1) return;
     const nextIndex = (currentIndex + 1) % transformations.length;
-    setSelectedStory(transformations[nextIndex]);
-  }, [selectedStory]);
+    openStory(transformations[nextIndex]);
+  }, [openStory, selectedStory]);
 
   const handlePrevStory = useCallback(() => {
     if (!selectedStory) return;
     const currentIndex = transformations.findIndex(t => t.id === selectedStory.id);
     if (currentIndex === -1) return;
     const prevIndex = (currentIndex - 1 + transformations.length) % transformations.length;
-    setSelectedStory(transformations[prevIndex]);
-  }, [selectedStory]);
+    openStory(transformations[prevIndex]);
+  }, [openStory, selectedStory]);
 
   const handleTouchStart = (e: React.TouchEvent) => {
     touchStartX.current = e.targetTouches[0].clientX;
@@ -148,19 +193,23 @@ export function BeforeAfterGrid() {
   }, [getStep, customSmoothScroll]);
 
   useEffect(() => {
+    transformations.forEach((story) => {
+      void preloadStoryImage(story.image);
+    });
+  }, []);
+
+  useEffect(() => {
     const section = sectionRef.current;
     if (!section || !("IntersectionObserver" in window)) {
-      setIsNearViewport(true);
+      setIsAnimationVisible(true);
       return;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setIsNearViewport(true);
-        observer.disconnect();
+        setIsAnimationVisible(entry.isIntersecting);
       },
-      { rootMargin: "700px 0px", threshold: 0.01 },
+      { rootMargin: "160px 0px", threshold: 0.01 },
     );
 
     observer.observe(section);
@@ -181,9 +230,7 @@ export function BeforeAfterGrid() {
         styles.columnGap === "normal" ? styles.gap : styles.columnGap;
       const gap = Number.parseFloat(rawGap) || 0;
       stepRef.current = card.getBoundingClientRect().width + gap;
-      const renderedSets = isNearViewport ? NUM_SETS : 1;
-      setWidthRef.current =
-        stepRef.current * (cards.length / renderedSets);
+      setWidthRef.current = stepRef.current * (cards.length / NUM_SETS);
     };
 
     const observer = new ResizeObserver(measure);
@@ -194,7 +241,6 @@ export function BeforeAfterGrid() {
     const frameId = requestAnimationFrame(() => {
       measure();
       if (
-        isNearViewport &&
         setWidthRef.current > 0 &&
         track.scrollLeft <= 10
       ) {
@@ -215,10 +261,10 @@ export function BeforeAfterGrid() {
         clearTimeout(programmaticScrollTimeoutRef.current);
       }
     };
-  }, [isNearViewport]);
+  }, []);
 
   useEffect(() => {
-    if (!isNearViewport || userInteracted || isPaused) return;
+    if (!isAnimationVisible || userInteracted || isPaused) return;
 
     const prefersReducedMotion = window.matchMedia(
       "(prefers-reduced-motion: reduce)",
@@ -235,7 +281,7 @@ export function BeforeAfterGrid() {
 
     return () => window.clearInterval(interval);
   }, [
-    isNearViewport,
+    isAnimationVisible,
     userInteracted,
     isPaused,
     getStep,
@@ -280,18 +326,19 @@ export function BeforeAfterGrid() {
           onWheel={stopAutoScroll}
           ref={trackRef}
         >
-          {renderedStories.map((story, index) => (
+          {loopedStories.map((story, index) => (
             <article
               className="w-[min(82vw,21rem)] flex-none snap-start overflow-hidden rounded-[18px] border border-[var(--border)] bg-[var(--card)] transition duration-300 hover:-translate-y-1 cursor-pointer"
               data-story-card
               key={`${story.id}-${index}`}
-              onClick={() => setSelectedStory(story)}
+              onClick={() => openStory(story)}
             >
               <div className="relative aspect-[4/3] overflow-hidden bg-[var(--blush)]">
                 <Image
                   alt={story.concern}
                   className="object-cover"
                   fill
+                  loading="eager"
                   sizes="(min-width: 1024px) 336px, 82vw"
                   src={story.image}
                 />
@@ -376,6 +423,7 @@ export function BeforeAfterGrid() {
                 alt={selectedStory.concern}
                 className="object-cover"
                 fill
+                loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 src={selectedStory.image}
               />

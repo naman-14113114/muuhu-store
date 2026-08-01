@@ -33,7 +33,7 @@ export function CartLineItem({ line }: { line: CartLine }) {
             alt={line.title}
             className="object-contain"
             fill
-            loading="lazy"
+            loading="eager"
             sizes="80px"
             src={line.image}
           />

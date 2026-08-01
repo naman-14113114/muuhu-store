@@ -442,7 +442,7 @@ function ReviewImages({ images, name }: { images: string[]; name: string }) {
           alt={`Review photo from ${name}`}
           className="block h-auto w-full"
           height={0}
-          loading="lazy"
+          loading="eager"
           sizes="(min-width: 1024px) 280px, (min-width: 768px) 45vw, 92vw"
           src={visibleImages[0]}
           width={0}
@@ -465,7 +465,7 @@ function ReviewImages({ images, name }: { images: string[]; name: string }) {
             alt={`Review photo from ${name}`}
             className="object-cover"
             fill
-            loading="lazy"
+            loading="eager"
             sizes="(min-width: 1024px) 280px, (min-width: 768px) 45vw, 92vw"
             src={image}
           />

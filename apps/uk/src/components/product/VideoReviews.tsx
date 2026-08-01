@@ -4,6 +4,7 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { reviewVideos, type ReviewVideo } from "@/data/productSections";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { preloadFullVideosAfterFrontend } from "@/lib/mediaPreload";
 
 const NUM_SETS = 2;
 const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
@@ -11,6 +12,7 @@ const warmedFullVideos = new Set<string>();
 const queuedFullVideos = new Set<string>();
 const activeWarmers = new Map<string, HTMLVideoElement>();
 const fullVideoQueue: string[] = [];
+const previewVideoPromises = new Map<string, Promise<void>>();
 
 type NavigatorWithConnection = Navigator & {
   connection?: {
@@ -78,13 +80,37 @@ function warmFullVideo(src?: string, immediate = false) {
   drainFullVideoQueue();
 }
 
+function preparePreviewVideo(video: ReviewVideo) {
+  if (typeof window === "undefined") return Promise.resolve();
+
+  const src = video.fallbackSrc ?? video.src;
+  const cached = previewVideoPromises.get(src);
+  if (cached) return cached;
+
+  const promise = new Promise<void>((resolve) => {
+    const preview = document.createElement("video");
+    const settle = () => resolve();
+
+    preview.muted = true;
+    preview.playsInline = true;
+    preview.preload = "auto";
+    preview.addEventListener("loadeddata", settle, { once: true });
+    preview.addEventListener("error", settle, { once: true });
+    preview.src = src;
+    preview.load();
+
+    if (preview.readyState >= 2) settle();
+  });
+
+  previewVideoPromises.set(src, promise);
+  return promise;
+}
+
 function ReviewVideoCard({
-  allowPreviewLoad,
   index,
   video,
   onClick,
 }: {
-  allowPreviewLoad: boolean;
   index: number;
   video: ReviewVideo;
   onClick: (video: ReviewVideo) => void;
@@ -94,7 +120,6 @@ function ReviewVideoCard({
   const shouldPlayRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
-  const [shouldLoad, setShouldLoad] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
   const playWhenReady = useCallback(() => {
@@ -105,7 +130,6 @@ function ReviewVideoCard({
 
   const handleMouseEnter = () => {
     setIsHovered(true);
-    setShouldLoad(true);
     warmFullVideo(video.fullSrc, true);
   };
 
@@ -124,8 +148,7 @@ function ReviewVideoCard({
       ([entry]) => {
         shouldPlayRef.current = entry.isIntersecting;
 
-        if (entry.isIntersecting && allowPreviewLoad) {
-          setShouldLoad(true);
+        if (entry.isIntersecting) {
           videoEl.play().catch(() => undefined);
         } else {
           videoEl.pause();
@@ -140,7 +163,7 @@ function ReviewVideoCard({
       shouldPlayRef.current = false;
       observer.disconnect();
     };
-  }, [allowPreviewLoad]);
+  }, []);
 
   return (
     <article
@@ -148,7 +171,6 @@ function ReviewVideoCard({
       ref={cardRef}
       onClick={() => onClick(video)}
       onFocus={() => {
-        setShouldLoad(true);
         warmFullVideo(video.fullSrc, true);
       }}
       onKeyDown={(event) => {
@@ -159,7 +181,6 @@ function ReviewVideoCard({
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
       onTouchStart={() => {
-        setShouldLoad(true);
         warmFullVideo(video.fullSrc, true);
       }}
       role="button"
@@ -167,10 +188,10 @@ function ReviewVideoCard({
     >
       <video
         aria-label={`Muuhu customer video review ${index + 1}`}
+        data-muuhu-preview-video
         className="h-full w-full object-cover"
         disablePictureInPicture
         loop
-        autoPlay={shouldLoad}
         muted
         onCanPlay={playWhenReady}
         onError={() => {
@@ -181,9 +202,9 @@ function ReviewVideoCard({
         onLoadedData={playWhenReady}
         playsInline
         poster={video.poster}
-        preload={shouldLoad ? "metadata" : "none"}
+        preload="auto"
         ref={videoRef}
-        src={shouldLoad ? src : undefined}
+        src={src}
       >
         Your browser does not support the video tag.
       </video>
@@ -208,18 +229,22 @@ function ReviewVideoCard({
 export function VideoReviews() {
   const [selectedVideo, setSelectedVideo] = useState<ReviewVideo | null>(null);
   const [modalSrc, setModalSrc] = useState<string | null>(null);
-  const [canBackgroundWarm, setCanBackgroundWarm] = useState(false);
-  const [isNearViewport, setIsNearViewport] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
+  const navigationRequestRef = useRef(0);
 
   const selectedIndex = selectedVideo
     ? reviewVideos.findIndex((video) => video.id === selectedVideo.id)
     : -1;
 
   const openVideo = useCallback((video: ReviewVideo) => {
+    const requestId = navigationRequestRef.current + 1;
+    navigationRequestRef.current = requestId;
     warmFullVideo(video.fullSrc, true);
-    setModalSrc(video.fallbackSrc ?? video.src);
-    setSelectedVideo(video);
+
+    void preparePreviewVideo(video).then(() => {
+      if (navigationRequestRef.current !== requestId) return;
+      setModalSrc(video.fallbackSrc ?? video.src);
+      setSelectedVideo(video);
+    });
   }, []);
   
   const handlePrev = useCallback(() => {
@@ -241,60 +266,10 @@ export function VideoReviews() {
   }, [openVideo, selectedIndex]);
 
   useEffect(() => {
-    const section = sectionRef.current;
-    if (!section || !("IntersectionObserver" in window)) {
-      setIsNearViewport(true);
-      return;
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) return;
-        setIsNearViewport(true);
-        observer.disconnect();
-      },
-      { rootMargin: "500px 0px", threshold: 0.01 },
+    return preloadFullVideosAfterFrontend(
+      reviewVideos.flatMap((video) => (video.fullSrc ? [video.fullSrc] : [])),
     );
-
-    observer.observe(section);
-    return () => observer.disconnect();
   }, []);
-
-  useEffect(() => {
-    const enableBackgroundWarm = () => setCanBackgroundWarm(true);
-    const options: AddEventListenerOptions = { once: true, passive: true };
-
-    window.addEventListener("pointerdown", enableBackgroundWarm, options);
-    window.addEventListener("keydown", enableBackgroundWarm, { once: true });
-    window.addEventListener("scroll", enableBackgroundWarm, options);
-    window.addEventListener("touchstart", enableBackgroundWarm, options);
-
-    return () => {
-      window.removeEventListener("pointerdown", enableBackgroundWarm);
-      window.removeEventListener("keydown", enableBackgroundWarm);
-      window.removeEventListener("scroll", enableBackgroundWarm);
-      window.removeEventListener("touchstart", enableBackgroundWarm);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!canBackgroundWarm || !isNearViewport || !canWarmFullVideo()) return;
-
-    const warmAdjacentVideos = () => {
-      warmFullVideo(reviewVideos[0]?.fullSrc);
-      warmFullVideo(reviewVideos[1]?.fullSrc);
-    };
-
-    if (typeof window.requestIdleCallback === "function") {
-      const idleId = window.requestIdleCallback(warmAdjacentVideos, {
-        timeout: 2500,
-      });
-      return () => window.cancelIdleCallback(idleId);
-    }
-
-    const timeoutId = globalThis.setTimeout(warmAdjacentVideos, 500);
-    return () => globalThis.clearTimeout(timeoutId);
-  }, [canBackgroundWarm, isNearViewport]);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -326,7 +301,6 @@ export function VideoReviews() {
       className={`buudy-section bg-[#f6ede2] py-14 md:py-24 overflow-hidden ${
         selectedVideo ? "muuhu-deferred-modal-open" : ""
       }`}
-      ref={sectionRef}
     >
       <style>{`
         @keyframes vr-css-auto-scroll {
@@ -353,14 +327,9 @@ export function VideoReviews() {
         />
 
         <div className="relative mt-7 md:mt-10 mx-auto w-full max-w-[1400px] overflow-hidden pb-4 md:pb-8">
-          <div
-            className={`flex w-max gap-4 ${
-              isNearViewport ? "vr-scroll-track" : ""
-            }`}
-          >
-            {(isNearViewport ? loopedVideos : reviewVideos).map((video, index) => (
+          <div className="flex w-max gap-4 vr-scroll-track">
+            {loopedVideos.map((video, index) => (
               <ReviewVideoCard
-                allowPreviewLoad={isNearViewport}
                 index={index}
                 key={`${video.id}-${index}`}
                 video={video}

@@ -11,7 +11,7 @@ export function GuaranteeSection({ productHandle }: { productHandle?: string }) 
               alt="Muuhu AirPro Guarantee Background"
               className="w-full h-full object-cover opacity-50"
               decoding="async"
-              loading="lazy"
+              loading="eager"
             />
           </div>
         </>

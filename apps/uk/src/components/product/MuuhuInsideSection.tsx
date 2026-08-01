@@ -122,7 +122,7 @@ export function MuuhuInsideSection() {
             alt="Muuhu AirPro hair dryer control body"
             className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:!h-[680px]"
             height={1787}
-            loading="lazy"
+            loading="eager"
             sizes="(min-width: 640px) 48vw, 62vw"
             src="/images/products/muuhu-hair-dryer/muuhu-airpro-engineering-controls.png"
             width={766}
@@ -283,7 +283,7 @@ export function MuuhuInsideSection() {
               alt="Muuhu AirPro hair dryer control body"
               className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:!h-[790px]"
               height={1787}
-              loading="lazy"
+              loading="eager"
               sizes="(min-width: 1024px) 32vw, 70vw"
               src="/images/products/muuhu-hair-dryer/muuhu-airpro-engineering-controls.png"
               width={766}

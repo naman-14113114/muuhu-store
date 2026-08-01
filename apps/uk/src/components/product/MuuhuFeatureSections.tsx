@@ -21,7 +21,7 @@ export function MuuhuProductFocus() {
             className="object-cover absolute inset-0 w-full h-full"
             src={productAsset("muuhu-product-focus-v2.webp")}
             decoding="async"
-            loading="lazy"
+            loading="eager"
           />
         </div>
         <div>
@@ -54,7 +54,7 @@ export function MuuhuAppPromo() {
             className="object-cover absolute inset-0 w-full h-full"
             src={productAsset("muuhu-app-promo.webp")}
             decoding="async"
-            loading="lazy"
+            loading="eager"
           />
           <span className="buudy-mono absolute left-5 top-5 rounded-full bg-[rgba(247,241,232,.9)] px-4 py-2 text-[var(--plum)] backdrop-blur">
             Free with Muuhu
@@ -202,7 +202,7 @@ export function MuuhuHairTypeSection() {
               alt="Made for every hair type"
               className="rounded-[18px]"
               decoding="async"
-              loading="lazy"
+              loading="eager"
               src={productAsset("muuhu-hair-dryer-for-every-hair-type.webp")}
               style={{
                 height: "100%",

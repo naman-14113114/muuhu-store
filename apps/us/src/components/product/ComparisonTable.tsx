@@ -119,7 +119,7 @@ export function ComparisonTable() {
                             alt="Muuhu Logo"
                             className="h-7 w-20 md:h-10 md:w-32 object-contain scale-[1.2] mb-1.5 md:mb-2"
                             decoding="async"
-                            loading="lazy"
+                            loading="eager"
                           />
                         )}
                         {idx === 1 && (
@@ -128,7 +128,7 @@ export function ComparisonTable() {
                             alt="Dyson Logo"
                             className="h-7 w-20 md:h-10 md:w-32 object-contain scale-[1.1]"
                             decoding="async"
-                            loading="lazy"
+                            loading="eager"
                           />
                         )}
                         {idx === 2 && (
@@ -137,7 +137,7 @@ export function ComparisonTable() {
                             alt="Shark Logo"
                             className="h-6 w-16 md:h-8 md:w-24 object-contain"
                             decoding="async"
-                            loading="lazy"
+                            loading="eager"
                           />
                         )}
                         {idx === 3 && (
@@ -146,7 +146,7 @@ export function ComparisonTable() {
                             alt="GHD Logo"
                             className="h-6 w-16 md:h-8 md:w-24 object-contain"
                             decoding="async"
-                            loading="lazy"
+                            loading="eager"
                           />
                         )}
                       </div>
@@ -168,7 +168,7 @@ export function ComparisonTable() {
                         alt="Muuhu Airpro"
                         className="h-16 sm:h-20 md:h-28 w-auto object-contain transform origin-bottom rounded-2xl"
                         decoding="async"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </div>
                     <div className="w-1/4 flex justify-center items-end h-full px-2">
@@ -177,7 +177,7 @@ export function ComparisonTable() {
                         alt="Dyson Airwrap Multi-Styler"
                         className="h-14 sm:h-16 md:h-24 w-auto object-contain transform origin-bottom mix-blend-multiply"
                         decoding="async"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </div>
                     <div className="w-1/4 flex justify-center items-end h-full px-2">
@@ -186,7 +186,7 @@ export function ComparisonTable() {
                         alt="Shark FlexStyle Air Styling System"
                         className="h-14 sm:h-16 md:h-24 w-auto object-contain transform origin-bottom mix-blend-multiply"
                         decoding="async"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </div>
                     <div className="w-1/4 flex justify-center items-end h-full px-2">
@@ -195,7 +195,7 @@ export function ComparisonTable() {
                         alt="GHD Helios Professional Hair Dryer"
                         className="h-14 sm:h-16 md:h-24 w-auto object-contain transform origin-bottom mix-blend-multiply"
                         decoding="async"
-                        loading="lazy"
+                        loading="eager"
                       />
                     </div>
                   </div>
