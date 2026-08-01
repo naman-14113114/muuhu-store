@@ -253,6 +253,96 @@ function guardKlaviyoScrollLock() {
   };
 }
 
+function warmImageUrl(url: string) {
+  if (!url || url.startsWith("data:")) {
+    return;
+  }
+
+  try {
+    const image = new Image();
+    image.decoding = "async";
+    image.fetchPriority = "high";
+    image.src = new URL(url, window.location.href).href;
+  } catch {
+    // Klaviyo sometimes injects non-standard CSS URLs. Ignore those safely.
+  }
+}
+
+function warmCssImageUrls(value: string) {
+  const matches = value.matchAll(/url\((['"]?)(.*?)\1\)/g);
+
+  for (const match of matches) {
+    warmImageUrl(match[2] ?? "");
+  }
+}
+
+function warmKlaviyoMedia(root: ParentNode = document) {
+  const elements: HTMLElement[] = [];
+
+  if (root instanceof HTMLElement) {
+    elements.push(root);
+  }
+
+  if ("querySelectorAll" in root) {
+    elements.push(...Array.from(root.querySelectorAll<HTMLElement>("*")));
+  }
+
+  for (const element of elements) {
+    if (element instanceof HTMLImageElement) {
+      element.loading = "eager";
+      element.decoding = "async";
+      element.fetchPriority = "high";
+
+      if (element.currentSrc || element.src) {
+        warmImageUrl(element.currentSrc || element.src);
+      }
+    }
+
+    const style = window.getComputedStyle(element);
+    warmCssImageUrls(style.backgroundImage);
+    warmCssImageUrls(style.listStyleImage);
+    warmCssImageUrls(style.borderImageSource);
+  }
+}
+
+function watchKlaviyoMedia() {
+  let raf = 0;
+
+  const scheduleWarm = (root?: ParentNode) => {
+    window.cancelAnimationFrame(raf);
+    raf = window.requestAnimationFrame(() => warmKlaviyoMedia(root));
+  };
+
+  scheduleWarm();
+
+  const observer = new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type === "attributes" && mutation.target instanceof HTMLElement) {
+        scheduleWarm(mutation.target);
+        continue;
+      }
+
+      for (const node of Array.from(mutation.addedNodes)) {
+        if (node instanceof HTMLElement) {
+          scheduleWarm(node);
+        }
+      }
+    }
+  });
+
+  observer.observe(document.documentElement, {
+    attributeFilter: ["src", "srcset", "style", "class"],
+    attributes: true,
+    childList: true,
+    subtree: true,
+  });
+
+  return () => {
+    window.cancelAnimationFrame(raf);
+    observer.disconnect();
+  };
+}
+
 export function KlaviyoAnalytics() {
   const pathname = usePathname();
   const trackedProductSlugs = useRef(new Set<string>());
@@ -264,6 +354,7 @@ export function KlaviyoAnalytics() {
 
     window.klaviyo = window.klaviyo || [];
     let cleanupScrollGuard: () => void = () => undefined;
+    const cleanupMediaWatch = watchKlaviyoMedia();
     const loadKlaviyo = () => {
       cleanupScrollGuard = guardKlaviyoScrollLock();
       if (document.querySelector("script[data-muuhu-klaviyo='true']")) {
@@ -279,11 +370,12 @@ export function KlaviyoAnalytics() {
       document.head.appendChild(script);
     };
 
-    const cleanupKlaviyoLoad = runAfterEngagement(loadKlaviyo);
+    const cleanupKlaviyoLoad = runAfterEngagement(loadKlaviyo, 2500);
 
     return () => {
       cleanupKlaviyoLoad();
       cleanupScrollGuard();
+      cleanupMediaWatch();
     };
   }, []);
 

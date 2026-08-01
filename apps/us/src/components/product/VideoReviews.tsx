@@ -47,14 +47,13 @@ function ReviewVideoCard({
 }) {
   const cardRef = useRef<HTMLElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const shouldPlayRef = useRef(false);
   const primarySrc = video.fallbackSrc ?? video.src;
   const [src, setSrc] = useState(primarySrc);
   const [isHovered, setIsHovered] = useState(false);
+  const [hasPlayableFrame, setHasPlayableFrame] = useState(false);
 
   const playWhenReady = useCallback(() => {
-    if (!shouldPlayRef.current) return;
-
+    setHasPlayableFrame(true);
     videoRef.current?.play().catch(() => undefined);
   }, []);
 
@@ -67,32 +66,34 @@ function ReviewVideoCard({
   };
 
   useEffect(() => {
-    const card = cardRef.current;
     const videoEl = videoRef.current;
-    if (!card || !videoEl) return;
+    if (!videoEl) return;
 
     videoEl.muted = true;
+    videoEl.playsInline = true;
+    videoEl.preload = "auto";
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        shouldPlayRef.current = entry.isIntersecting;
+    const startPlayback = () => {
+      setHasPlayableFrame(true);
+      videoEl.play().catch(() => undefined);
+    };
 
-        if (entry.isIntersecting) {
-          videoEl.play().catch(() => undefined);
-        } else {
-          videoEl.pause();
-        }
-      },
-      { rootMargin: "1200px 0px", threshold: 0.01 },
-    );
-
-    observer.observe(card);
+    if (videoEl.readyState >= HTMLMediaElement.HAVE_CURRENT_DATA) {
+      startPlayback();
+    } else {
+      videoEl.addEventListener("canplay", startPlayback);
+      videoEl.addEventListener("loadeddata", startPlayback);
+      videoEl.load();
+      window.setTimeout(() => {
+        videoEl.play().catch(() => undefined);
+      }, 0);
+    }
 
     return () => {
-      shouldPlayRef.current = false;
-      observer.disconnect();
+      videoEl.removeEventListener("canplay", startPlayback);
+      videoEl.removeEventListener("loadeddata", startPlayback);
     };
-  }, []);
+  }, [src]);
 
   return (
     <article
@@ -112,6 +113,7 @@ function ReviewVideoCard({
         onCanPlay={playWhenReady}
         onError={() => {
           if (src !== video.src) {
+            setHasPlayableFrame(false);
             setSrc(video.src);
           }
         }}
@@ -124,6 +126,15 @@ function ReviewVideoCard({
       >
         Your browser does not support the video tag.
       </video>
+      {video.poster ? (
+        <div
+          aria-hidden
+          className={`pointer-events-none absolute inset-0 bg-cover bg-center transition-opacity duration-300 ${
+            hasPlayableFrame ? "opacity-0" : "opacity-100"
+          }`}
+          style={{ backgroundImage: `url("${video.poster}")` }}
+        />
+      ) : null}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-[rgba(18,9,20,.48)] to-transparent"
@@ -154,11 +165,12 @@ export function VideoReviews() {
   const openVideo = useCallback((video: ReviewVideo) => {
     const requestId = navigationRequestRef.current + 1;
     navigationRequestRef.current = requestId;
+    setModalSrc(video.fallbackSrc ?? video.src);
+    setSelectedVideo(video);
 
     void preparePreviewVideo(video).then(() => {
       if (navigationRequestRef.current !== requestId) return;
       setModalSrc(video.fallbackSrc ?? video.src);
-      setSelectedVideo(video);
     });
   }, []);
   

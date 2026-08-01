@@ -423,9 +423,11 @@ export function BeforeAfterGrid() {
                 alt={selectedStory.concern}
                 className="object-cover"
                 fill
+                key={selectedStory.id}
                 loading="eager"
                 sizes="(min-width: 768px) 50vw, 100vw"
                 src={selectedStory.image}
+                unoptimized
               />
             </div>
 

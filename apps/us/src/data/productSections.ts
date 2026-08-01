@@ -204,31 +204,37 @@ export const transformations: Transformation[] = [
 export const reviewVideos: ReviewVideo[] = [
   {
     id: "review-01",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-01-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer video 1-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 1.mp4",
   },
   {
     id: "review-02",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-02-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer video 2-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 2.mp4",
   },
   {
     id: "review-03",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-03-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer video 3-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 3.mp4",
   },
   {
     id: "review-04",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-04-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer video 4-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 4.mp4",
   },
   {
     id: "review-05",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-05-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer video 5-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 5.mp4",
   },
   {
     id: "review-06",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-06-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer 6-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 6.mp4",
   },
@@ -239,16 +245,19 @@ export const reviewVideos: ReviewVideo[] = [
   // },
   {
     id: "review-08",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-08-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer 8-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Video 8.mp4",
   },
   {
     id: "review-09",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-09-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer 9-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Video 9.mp4",
   },
   {
     id: "review-11",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-11-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer 11-shorts.mp4",
     fullSrc: "/videos/hair-dryer/Hair Dryer Video 11.mp4",
   },

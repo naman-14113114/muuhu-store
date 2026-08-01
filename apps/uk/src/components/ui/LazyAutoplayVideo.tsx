@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 type LazyAutoplayVideoProps = {
   ariaLabel?: string;
@@ -20,46 +20,33 @@ export function LazyAutoplayVideo({
   type = "video/mp4",
 }: LazyAutoplayVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldPlay, setShouldPlay] = useState(false);
 
   useEffect(() => {
+    void rootMargin;
+
     const video = videoRef.current;
     if (!video) {
       return;
     }
 
+    video.preload = "auto";
+    video.load();
+
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       return;
     }
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (!entry.isIntersecting) {
-          return;
-        }
+    const timeoutId = window.setTimeout(() => {
+      video.play().catch(() => undefined);
+    }, 0);
 
-        setShouldPlay(true);
-      },
-      { rootMargin, threshold: 0.01 },
-    );
-
-    observer.observe(video);
-
-    return () => observer.disconnect();
-  }, [rootMargin]);
-
-  useEffect(() => {
-    if (!shouldPlay) {
-      return;
-    }
-
-    videoRef.current?.play().catch(() => undefined);
-  }, [shouldPlay]);
+    return () => window.clearTimeout(timeoutId);
+  }, [rootMargin, src, type]);
 
   return (
     <video
       aria-label={ariaLabel}
-      autoPlay={shouldPlay}
+      autoPlay
       className={["block", className].filter(Boolean).join(" ")}
       loop
       muted

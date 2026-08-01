@@ -149,3 +149,132 @@ earlier mistakes or corrections.
 - Conversion-first eager loading intentionally increases total current-page transfer compared with the earlier viewport-deferred model. Full-resolution review videos remain bounded and network-aware so they do not compete with the hero on constrained connections.
 - Exact full-video modal upgrade timing depends on the visitor's network and browser cache. The short matching preview remains available during that upgrade, and code/build validation covers the source handoff; a complete cold-network playback sweep of every review video was not practical because the assets are large.
 - Future performance work must not restore viewport-triggered section mounting, blank review placeholders, or delayed first-source attachment unless the user explicitly changes the conversion-first priority.
+
+## 2026-08-01 20:00:13 +05:30 - AirPro media regression repair after conversion-first loading push
+
+### Repository, branch, HEAD, and upstream state
+- Target repository: `E:\1st YEAR DTU\New folder\muuhu-store`.
+- Relevant public storefronts: UK AirPro product page at `https://uk.muuhu.com/products/muuhu-hair-dryer`, with matching US shared media components kept in sync where the same regression existed.
+- Current branch: `main`.
+- Starting local HEAD and upstream before this repair: `3581e55d4cc21d487f708f04d2dee5afaca2be74` with subject `perf: make storefront media conversion-ready`.
+- `origin` fetch/push URL: `https://github.com/naman-14113114/muuhu-store.git`.
+- `git fetch --all --prune` was run before the task and again before publication. `git rev-list --left-right --count HEAD...origin/main` returned `0 0`, so no Naman, Antigravity, user, generated, or GitHub change appeared between the prior conversion-first commit and this repair.
+- The worktree at inspection contained only the scoped media repair files and new poster assets listed below. No unrelated dirty file was present inside the repository.
+
+### User request and practical meaning
+- The user supplied the local screen recording `C:\Users\sahil\Videos\Screen Recordings\Screen Recording 2026-08-01 184918.mp4` and asked to inspect it carefully, understand what was happening, fix all visible regressions, test the page, and push clean code to GitHub.
+- The user was specifically angry that the previous conversion-first loading work still produced bad shopper-facing behavior: the Klaviyo popup image was missing or loading after the popup appeared, review-video cards showed as black even after the website otherwise looked loaded, the before/after modal changed text faster than the image, autoplay videos stopped or paused when offscreen/backgrounded, and some review-video clicks did not immediately open the full video view.
+- The practical intent was not to redesign the page, rework copy, change offers, change product media, improve Lighthouse at the cost of conversion, or touch checkout. The practical intent was to preserve the approved AirPro frontend while making popup media, review previews, review modals, before/after modals, and autoplay media feel already ready when the shopper reaches or clicks them.
+
+### Exact scope and protected areas
+- In scope:
+  - UK Klaviyo popup script timing and popup image warming.
+  - UK AirPro review-video carousel preview readiness and modal-open reliability.
+  - US review-video carousel parity because the same component/data pattern exists there.
+  - UK and US before/after modal image synchronization.
+  - UK and US reusable autoplay-video behavior where viewport pausing contradicted the user's instruction.
+  - Local poster JPEG files for the hair-dryer review videos, so preview cards never show black while short videos prepare.
+- Protected:
+  - No product names, prices, gift names, offer values, discount text, review copy, product copy, image choices, video choices, links, checkout handoff, cart behavior, tracking event names, route slugs, header, footer, layout structure, responsive breakpoints, or visual design were intentionally changed.
+  - No direct Vercel deployment, promotion, rollback, dashboard setting, domain setting, or environment variable change was authorized or performed.
+
+### Files and routes inspected
+- Read and followed:
+  - `E:\1st YEAR DTU\New folder\AGENTS.md`
+  - `E:\1st YEAR DTU\New folder\CONTEXT.md`
+  - `E:\1st YEAR DTU\New folder\muuhu-store\AGENTS.md`
+  - `E:\1st YEAR DTU\New folder\muuhu-store\CONTEXT.md`
+- Inspected the supplied recording with `ffprobe` and extracted frames/contact sheet under `C:\Users\sahil\AppData\Local\Temp\muuhu-recording-184918-frames\` and `C:\Users\sahil\AppData\Local\Temp\muuhu-recording-184918-contact.jpg`.
+- Inspected and tested the local route `http://localhost:3100/products/muuhu-hair-dryer`.
+- Inspected component and data files in:
+  - `apps/uk/src/components/integrations/KlaviyoAnalytics.tsx`
+  - `apps/uk/src/components/product/VideoReviews.tsx`
+  - `apps/us/src/components/product/VideoReviews.tsx`
+  - `apps/uk/src/components/product/BeforeAfterGrid.tsx`
+  - `apps/us/src/components/product/BeforeAfterGrid.tsx`
+  - `apps/uk/src/components/ui/DeferredAutoplayVideo.tsx`
+  - `apps/uk/src/components/ui/LazyAutoplayVideo.tsx`
+  - `apps/us/src/components/ui/LazyAutoplayVideo.tsx`
+  - `apps/uk/src/data/productSections.ts`
+  - `apps/us/src/data/productSections.ts`
+
+### Files and assets changed
+- Changed:
+  - `apps/uk/src/components/integrations/KlaviyoAnalytics.tsx`
+  - `apps/uk/src/components/product/BeforeAfterGrid.tsx`
+  - `apps/uk/src/components/product/VideoReviews.tsx`
+  - `apps/uk/src/components/ui/DeferredAutoplayVideo.tsx`
+  - `apps/uk/src/components/ui/LazyAutoplayVideo.tsx`
+  - `apps/uk/src/data/productSections.ts`
+  - `apps/us/src/components/product/BeforeAfterGrid.tsx`
+  - `apps/us/src/components/product/VideoReviews.tsx`
+  - `apps/us/src/components/ui/LazyAutoplayVideo.tsx`
+  - `apps/us/src/data/productSections.ts`
+- Added review-video poster assets in:
+  - `apps/uk/public/videos/hair-dryer/posters/`
+  - `apps/us/public/videos/hair-dryer/posters/`
+- Added the following poster filenames in both UK and US public folders:
+  - `muuhu-airpro-review-video-01-poster.jpg`
+  - `muuhu-airpro-review-video-02-poster.jpg`
+  - `muuhu-airpro-review-video-03-poster.jpg`
+  - `muuhu-airpro-review-video-04-poster.jpg`
+  - `muuhu-airpro-review-video-05-poster.jpg`
+  - `muuhu-airpro-review-video-06-poster.jpg`
+  - `muuhu-airpro-review-video-08-poster.jpg`
+  - `muuhu-airpro-review-video-09-poster.jpg`
+  - `muuhu-airpro-review-video-11-poster.jpg`
+
+### Implementation details
+- `VideoReviews.tsx` now treats every review preview as immediately source-backed:
+  - Review-video data accepts `poster?: string`.
+  - Each preview video receives its `poster`, `preload="auto"`, and source immediately instead of waiting for a later interaction or viewport event.
+  - A poster overlay remains visible only until that individual video has a playable frame via `onCanPlay` or `onLoadedData`, preventing the black cards the user saw in the screen recording.
+  - The modal opens immediately on click using the matching short/fallback preview first, then warms or upgrades the full video. This fixes the click feeling where some videos appeared not to open because full media preparation won the race against UI feedback.
+- UK and US product-section review data now includes poster paths for all nine hair-dryer review videos.
+- `BeforeAfterGrid.tsx` now uses a keyed, direct public image in the modal for the active story. The modal image uses the same public `/images/products/muuhu-hair-dryer/before-after-cards/...` asset already shown and preloaded outside the modal rather than Next's optimized proxy. This prevents the text from switching while a separate optimized modal image request lags behind.
+- `DeferredAutoplayVideo.tsx` and `LazyAutoplayVideo.tsx` no longer pause or stop autoplay merely because the section is outside the viewport. They keep the source attached, use `preload="auto"`, and attempt playback after mount, while still respecting reduced-motion where the existing component already did.
+- `KlaviyoAnalytics.tsx` was changed so the Klaviyo onsite script loads after a short idle/engagement delay instead of a long 120-second delay. The popup is still not forced open by local code; Klaviyo keeps controlling campaign rules. The change makes the popup system available early enough that its image can be ready with the popup.
+- `KlaviyoAnalytics.tsx` now warms popup media injected by Klaviyo:
+  - It scans current and newly added DOM nodes for `img` sources, `srcset` candidates, and CSS image URLs in inline styles or computed styles.
+  - It sets Klaviyo popup images to eager, async decoding, and high fetch priority when possible.
+  - It preloads the discovered image URLs through the browser cache so the popup artwork is not blank when Klaviyo displays the popup.
+  - It observes relevant DOM mutations and attribute changes but avoids broad business logic changes or fabricated popup image URLs.
+
+### Mistakes, misunderstandings, regressions, and corrections
+- Previous conversion-first work removed viewport-delayed section rendering but did not fully solve black review-video cards because the carousel had no poster fallback while the video element prepared its first playable frame. The correction adds real poster files and a per-card poster overlay that disappears only when that card is ready.
+- Previous before/after work made source assets eager but the modal still used a separate optimized image path, so clicking a different story could update title/body before the modal image request caught up. The correction uses the same direct public source path and keys the image by story id, so modal media and modal text switch together.
+- Previous popup loading still allowed Klaviyo to arrive too late and did not warm media that Klaviyo injected dynamically. The correction reduces the Klaviyo load delay and watches/warm-loads Klaviyo image and background URLs without changing campaign rules or popup copy.
+- A first browser automation attempt clicked generic elements and accidentally selected wrong overlays/cart controls instead of the actual review card and before/after story buttons. The verification was corrected by inspecting the rendered markup and targeting the actual `[role="button"]` review card and `[data-story-card]` before/after cards.
+- A first local dev-server command passed `-- --port 3100`, which Next interpreted incorrectly and produced a launch problem. It was corrected to `pnpm --filter @muuhu/uk dev --port 3100`.
+
+### Verification performed
+- `git diff --check` passed, with only Windows CRLF warnings from Git and no whitespace errors.
+- `pnpm --filter @muuhu/uk lint` passed with zero errors.
+- `pnpm --filter @muuhu/us lint` passed with zero errors. The same five unrelated pre-existing US warnings remained: unused `Props` in the US blog slug page, native-image warnings in existing blog card/article files, unused `MuuhuProductFocus`, and unused `Image` in the US feature sections.
+- `pnpm --filter @muuhu/uk exec tsc --noEmit` passed.
+- `pnpm --filter @muuhu/us exec tsc --noEmit` passed.
+- `pnpm --filter @muuhu/uk build` passed with Next.js 16.2.6/Turbopack and 39 routes.
+- `pnpm --filter @muuhu/us build` passed with Next.js 16.2.6/Turbopack and 31 routes.
+- Local UK route `http://localhost:3100/products/muuhu-hair-dryer` returned 200 and compiled.
+- Browser checks on the local UK AirPro page confirmed:
+  - Initial desktop after a short wait had `previewCount: 18`, `sourcedCount: 18`, `posterCount: 18`, `pausedCount: 0`, and all review previews using `preload="auto"`.
+  - After scrolling to the video review area, the same page still had `previewCount: 18`, `sourcedCount: 18`, `posterCount: 18`, `pausedCount: 0`, and the first eight observed preview videos had ready state `4`.
+  - Clicking the actual review-card button opened the video modal within 300ms with `modalSrc` set to the matching short video and `modalPoster` set to the matching poster.
+  - Clicking before/after story cards changed from `image_1.webp` to `image_2.webp`, did not use the optimized `/_next/image` proxy, and changed the text from the first story to the second story at the same interaction point.
+  - Mobile check at `390x844` showed no horizontal overflow, `previewCount: 18`, `sourcedCount: 18`, `posterCount: 18`, `pausedCount: 0`, and the Klaviyo script present.
+- The local dev server process started for verification was stopped after testing. No unrelated process was intentionally killed.
+
+### Checks not performed and reason
+- A forced real Klaviyo popup display was not performed because the popup campaign display rules, account targeting, and timing are controlled by Klaviyo. Instead, the verification confirmed the Klaviyo script loads locally and the code now observes/warm-loads Klaviyo-injected image sources whenever they appear.
+- A full cold-cache sweep of every remote production asset was not performed before committing because the requested fixes were local source-level media readiness repairs and all local build/type/browser checks passed. The GitHub push is expected to trigger normal Vercel production builds.
+
+### Git, commit, push, and deployment actions
+- Before committing, a final `git fetch --all --prune` reported no incoming remote change and `git rev-list --left-right --count HEAD...origin/main` returned `0 0`.
+- This task is to be staged and committed on the existing `main` branch with the scoped media repair files, poster assets, and this context record. The intended commit subject is `fix: stabilize AirPro media loading`.
+- The user explicitly requested a GitHub push after verification. No branch or pull request will be created for this task.
+- No direct Vercel CLI deployment, manual dashboard deployment, production promotion, rollback, domain update, or settings change is part of this task. Vercel, if it runs, must run only from GitHub after the push.
+
+### Remaining uncertainty and future guidance
+- The review-video cards now have poster fallbacks and immediately attached sources, so black cards should not be visible while videos prepare. If a user connection is extremely slow, the poster is the intended temporary visual until playback is ready.
+- Do not reintroduce viewport-based pausing for these autoplay sections unless the user explicitly asks for a performance-first tradeoff. The user's latest instruction is that autoplay video must continue in the background and loop.
+- Do not delay Klaviyo to 120 seconds again for the AirPro page. The user specifically wants popup imagery to load with the popup rather than after it.

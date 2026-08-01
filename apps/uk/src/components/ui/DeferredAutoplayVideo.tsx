@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 export function DeferredAutoplayVideo({
   className,
@@ -9,46 +9,27 @@ export function DeferredAutoplayVideo({
   className?: string;
   src: string;
 }) {
-  const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [shouldPlay, setShouldPlay] = useState(false);
-
-  useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
-
-    if (!("IntersectionObserver" in window)) {
-      const timeoutId = globalThis.setTimeout(() => setShouldPlay(true), 0);
-      return () => globalThis.clearTimeout(timeoutId);
-    }
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        setShouldPlay(entry.isIntersecting);
-      },
-      { rootMargin: "800px 0px", threshold: 0.01 },
-    );
-
-    observer.observe(container);
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     const video = videoRef.current;
     if (!video) return;
 
-    if (shouldPlay) {
+    video.preload = "auto";
+    video.load();
+
+    const timeoutId = window.setTimeout(() => {
       video.play().catch(() => undefined);
-    } else {
-      video.pause();
-    }
-  }, [shouldPlay]);
+    }, 0);
+
+    return () => window.clearTimeout(timeoutId);
+  }, [src]);
 
   return (
-    <div className="h-full w-full" ref={containerRef}>
+    <div className="h-full w-full">
       <video
         aria-label="Muuhu AirPro styling demonstration"
-        autoPlay={shouldPlay}
+        autoPlay
         className={className}
         loop
         muted
