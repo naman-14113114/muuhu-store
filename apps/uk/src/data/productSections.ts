@@ -306,7 +306,7 @@ export const wavelengths: Wavelength[] = [
 export const comparison = {
   intro: "Check the difference yourself",
   columns: [
-    { label: "Muuhu AirPro", price: "£149", featured: true },
+    { label: "Muuhu AirPro", price: "£129", featured: true },
     { label: "Dyson Supersonic", price: "£429" },
     { label: "Shark SpeedStyle", price: "£199" },
     { label: "GHD Air", price: "£199" },

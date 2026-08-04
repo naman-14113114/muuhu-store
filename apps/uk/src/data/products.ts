@@ -18,8 +18,8 @@ export const muuhuHairDryer: Product = {
   seoDescription:
     "Shop the Muuhu AirPro in the UK: 110,000 RPM motor, ionic frizz control, 7 styling attachments, professional results at home. Free UK delivery.",
   currency: market.currency,
-  priceCents: 14900,
-  compareAtCents: 29900,
+  priceCents: 12900,
+  compareAtCents: 25900,
   rating: 4.9,
   reviewCount: 16000,
   customerCount: "16,000+",

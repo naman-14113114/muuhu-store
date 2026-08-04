@@ -63,7 +63,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'muuhu-cta',
         heading: 'Experience the Next Generation of Hair Care',
-        body: '<p>The Muuhu AirPro combines a 1,600W, 110,000 RPM brushless motor, 3 temperature settings, 3 speed settings, 200M+ negative ions, and 7 professional styling attachments. Priced at £149 (compare at £299), it is designed for salon-quality results at home.</p>',
+        body: '<p>The Muuhu AirPro combines a 1,600W, 110,000 RPM brushless motor, 3 temperature settings, 3 speed settings, 200M+ negative ions, and 7 professional styling attachments. Priced at £129 (compare at £259), it is designed for salon-quality results at home.</p>',
         type: 'cta'
       }
     ]
@@ -219,7 +219,7 @@ export const blogPosts: BlogPost[] = [
       {
         id: 'spec-comparison',
         heading: 'Factual Specification Comparison',
-        body: '<p>When comparing high-end styling tools, it comes down to motor performance, weight, and versatility. Here is a factual look at the specifications:</p><ul><li><strong>Motor Speed:</strong> The Muuhu features a 110,000 RPM brushless motor, delivering high-velocity airflow necessary for Coanda styling and fast drying.</li><li><strong>Attachments:</strong> The Muuhu system includes 7 dedicated attachments (including specific Left and Right curling barrels, a diffuser, and smoothing brushes), providing complete styling versatility out of the box.</li><li><strong>Weight:</strong> At approximately 600g, the Muuhu is designed to be lightweight and ergonomically balanced, reducing arm fatigue during styling.</li><li><strong>Price:</strong> The Muuhu is priced at £149 (compare at £299), positioning it as a significant value proposition compared to other premium market leaders.</li></ul>',
+        body: '<p>When comparing high-end styling tools, it comes down to motor performance, weight, and versatility. Here is a factual look at the specifications:</p><ul><li><strong>Motor Speed:</strong> The Muuhu features a 110,000 RPM brushless motor, delivering high-velocity airflow necessary for Coanda styling and fast drying.</li><li><strong>Attachments:</strong> The Muuhu system includes 7 dedicated attachments (including specific Left and Right curling barrels, a diffuser, and smoothing brushes), providing complete styling versatility out of the box.</li><li><strong>Weight:</strong> At approximately 600g, the Muuhu is designed to be lightweight and ergonomically balanced, reducing arm fatigue during styling.</li><li><strong>Price:</strong> The Muuhu is priced at £129 (compare at £259), positioning it as a significant value proposition compared to other premium market leaders.</li></ul>',
         type: 'text'
       },
       {
