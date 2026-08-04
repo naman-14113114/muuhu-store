@@ -33,7 +33,7 @@ export const muuhuHairDryer: Product = {
   cartImage: "/images/products/muuhu-hair-dryer/muuhu.jpg",
   gallery: [
     {
-      src: productAsset("00-travel-friendly-styler.webp"),
+      src: productAsset("00-travel-friendly-styler-v2.webp"),
       alt: "Muuhu AirPro",
     },
     {
