@@ -65,6 +65,9 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${fraunces.variable} ${mono.variable} ${playfair.variable} selection:bg-[var(--gold)] selection:text-[var(--ink)]`}
     >
+      <head>
+        <meta name="msvalidate.01" content="88852D9F75A47A0B3326F9BAFE7F7D74" />
+      </head>
       <body>
         <GlobalImageLoader />
         <CartProvider>
