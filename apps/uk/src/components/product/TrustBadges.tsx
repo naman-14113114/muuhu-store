@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-export function TrustBadges() {
+export function TrustBadges({ className }: { className?: string }) {
   const badges = [
     {
       title: "Free Shipping all over UK",
@@ -21,7 +21,7 @@ export function TrustBadges() {
   ];
 
   return (
-    <section className="hidden md:block bg-[#f6ede2] py-14 md:py-24">
+    <section className={`hidden md:block bg-[#f6ede2] ${className ?? 'py-14 md:py-24'}`}>
       <div className="buudy-wrap">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-4 items-center">
           {badges.map((badge) => (

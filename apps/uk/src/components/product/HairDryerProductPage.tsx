@@ -381,8 +381,8 @@ export function HairDryerProductPage({ product }: { product: Product }) {
     <>
       <ProductHero product={product} />
       <div className="muuhu-airpro-deferred-content">
+        <TrustBadges className="pt-6 pb-4 md:pt-10 md:pb-8" />
         <VideoReviews />
-        <TrustBadges />
         <HairDryerAttachmentBadges />
         {/* <FeatureGrid
           eyebrow="Why Muuhu"

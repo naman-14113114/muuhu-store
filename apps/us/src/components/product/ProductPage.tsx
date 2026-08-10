@@ -40,8 +40,8 @@ export function ProductPage({ product, variant }: { product: Product; variant?: 
   return (
     <>
       <ProductHero product={product} />
-      <DeferredVideoReviews />
       <TrustBadges />
+      <DeferredVideoReviews />
       {/* <FeatureGrid /> */}
       <DeferredBeforeAfterGrid />
       <DeferredWavelengthSelector />
