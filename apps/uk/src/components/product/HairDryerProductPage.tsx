@@ -383,7 +383,6 @@ export function HairDryerProductPage({ product }: { product: Product }) {
       <div className="muuhu-airpro-deferred-content">
         <VideoReviews />
         <TrustBadges />
-        <HairDryerHeroVideo />
         <HairDryerAttachmentBadges />
         {/* <FeatureGrid
           eyebrow="Why Muuhu"
@@ -402,6 +401,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
         <MuuhuAppPromo />
         <MuuhuHairTypeSection />
         <ProductReviewsSection productHandle={product.id} />
+        <HairDryerHeroVideo />
         <MuuhuInsideSection />
         <ComparisonTable />
         <FAQSection faqs={product.faqs} productHandle={product.id} />

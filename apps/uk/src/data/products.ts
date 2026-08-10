@@ -115,7 +115,7 @@ export const muuhuHairDryer: Product = {
     {
       question: "Do you offer a guarantee?",
       answer:
-        "Yes, every Muuhu AirPro comes with a full 1-year warranty and a 90-day money-back guarantee.",
+        "Yes, every Muuhu AirPro comes with a full 2-year warranty and a 90-day money-back guarantee.",
     },
   ],
   gifts: [
@@ -194,7 +194,7 @@ export const muuhuHairDryer: Product = {
     "CE Certified",
     "UKCA Approved",
     "RoHS Compliant",
-    "1-Year Warranty",
+    "2-Year Warranty",
   ],
 };
 

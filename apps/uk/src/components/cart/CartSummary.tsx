@@ -14,12 +14,27 @@ type CartSummaryProps = {
 };
 
 export function CartSummary({ action = "summary", children }: CartSummaryProps) {
-  const { totals, closeCart } = useCart();
+  const { lines, totals, closeCart } = useCart();
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const baseOfferDiscountCents =
-    totals.savingsCents + totals.giftValueCents > 0 ? 7000 : 0;
+  const giftLines = lines.filter(
+    (line) => line.type === "gift" && line.quantity > 0 && (line.compareAtCents ?? 0) > 0,
+  );
+  const giftOfferDiscountCents = giftLines.reduce(
+    (total, line) => total + (line.compareAtCents ?? 0) * line.quantity,
+    0,
+  );
+  const giftOfferLabel =
+    giftLines.length > 1
+      ? "FREE GIFTS"
+      : giftLines[0]
+        ? `FREE ${giftLines[0].title}`
+        : "BUNDLE SAVING";
+  const giftOfferDetail =
+    giftLines.length > 1
+      ? giftLines.map((line) => line.title).join(", ")
+      : "";
   const totalSavingsCents =
-    baseOfferDiscountCents + totals.promoDiscountCents;
+    giftOfferDiscountCents + totals.promoDiscountCents;
 
   return (
     <div className="rounded-2xl border border-[var(--border)] bg-[var(--card)] p-5">
@@ -55,14 +70,21 @@ export function CartSummary({ action = "summary", children }: CartSummaryProps) 
           >
             <div className="overflow-hidden">
               <div className="space-y-3 pb-3 pt-2 text-sm">
-                {baseOfferDiscountCents > 0 ? (
+                {giftOfferDiscountCents > 0 ? (
                   <div className="flex justify-between gap-4">
-                    <span className="flex items-center gap-1.5 uppercase text-[var(--muted)]">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--muted)]"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-                      FREE TORCH
+                    <span className="text-[var(--muted)]">
+                      <span className="flex items-center gap-1.5 uppercase">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--muted)]"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
+                        {giftOfferLabel}
+                      </span>
+                      {giftOfferDetail ? (
+                        <span className="ml-5 mt-1 block text-xs normal-case leading-snug">
+                          {giftOfferDetail}
+                        </span>
+                      ) : null}
                     </span>
                     <span className="font-semibold text-[var(--muted)]">
-                      -{formatMoney(baseOfferDiscountCents)}
+                      -{formatMoney(giftOfferDiscountCents)}
                     </span>
                   </div>
                 ) : null}

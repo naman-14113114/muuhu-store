@@ -18,6 +18,10 @@ export function DeferredAutoplayVideo({
     video.preload = "auto";
     video.load();
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      return;
+    }
+
     const timeoutId = window.setTimeout(() => {
       video.play().catch(() => undefined);
     }, 0);

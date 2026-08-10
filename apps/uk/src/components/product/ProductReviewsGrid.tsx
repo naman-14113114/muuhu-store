@@ -874,10 +874,10 @@ function WriteReviewModal({
             <div>
               <p className="buudy-mono text-[var(--gold)]">Review published</p>
               <h3 className="buudy-display mt-4 text-4xl text-[var(--plum)]">
-                Thank you for sharing your glow.
+                Thank you for sharing your experience.
               </h3>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[var(--muted)]">
-                Your review is live in the Buudy archive now.
+                Your review is live in the Muuhu reviews now.
               </p>
               <Button className="mt-7" onClick={onClose}>
                 Close

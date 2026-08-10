@@ -175,7 +175,7 @@ export async function GET(
         return false;
       }
 
-      // Current public Buudy reviews are all verified, so this flag is a no-op
+      // Current public Muuhu reviews are all verified, so this flag is a no-op
       // until a future import exposes non-verified review records.
       void verifiedOnly;
       return true;
@@ -315,7 +315,7 @@ export async function POST(
       images: imageUrls,
       product_handle: productHandle,
       rating: parsed.data.rating,
-      source: "uk_buudy_review_form",
+      source: "uk_muuhu_review_form",
       status: "published",
       title: parsed.data.title,
     })

@@ -1,25 +1,21 @@
 "use client";
 
-import { useEffect } from "react";
-import { runAfterEngagement } from "@/lib/loadOnEngagement";
+import Script from "next/script";
 
-const tawkToScript = `
-var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-Tawk_API.customStyle = {
+const tawkToConfigScript = `
+window.Tawk_API = window.Tawk_API || {};
+window.Tawk_LoadStart = new Date();
+window.Tawk_API.customStyle = {
   zIndex: 50
 };
-(function(){
-var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-s1.async=true;
-s1.src='https://embed.tawk.to/6a5f29aaac21c71d47d7230c/1ju1rlhkd';
-s1.charset='UTF-8';
-s1.setAttribute('crossorigin','*');
-s0.parentNode.insertBefore(s1,s0);
-})();
 `;
 
 const tawkToPositionScript = `
 (function(){
+  if (document.documentElement.getAttribute('data-muuhu-tawk-positioner') === 'active') {
+    return;
+  }
+
   var desktop = { right: '28px', bottom: '128px' };
   var mobile = { right: '18px', bottom: '112px' };
 
@@ -53,8 +49,8 @@ const tawkToPositionScript = `
     }
   }
 
-  document.documentElement.setAttribute('data-buudy-tawk-positioner', 'active');
-  window.__buudyPositionTawkTo = positionTawkFrames;
+  document.documentElement.setAttribute('data-muuhu-tawk-positioner', 'active');
+  window.__muuhuPositionTawkTo = positionTawkFrames;
 
   var observer = new MutationObserver(positionTawkFrames);
   observer.observe(document.documentElement, {
@@ -72,25 +68,19 @@ const tawkToPositionScript = `
 `;
 
 export function TawkToWidget() {
-  useEffect(
-    () =>
-      runAfterEngagement(() => {
-        if (!document.querySelector("script[data-buudy-tawk-position='true']")) {
-          const positionScript = document.createElement("script");
-          positionScript.dataset.buudyTawkPosition = "true";
-          positionScript.textContent = tawkToPositionScript;
-          document.head.appendChild(positionScript);
-        }
-
-        if (!document.querySelector("script[data-buudy-tawk='true']")) {
-          const widgetScript = document.createElement("script");
-          widgetScript.dataset.buudyTawk = "true";
-          widgetScript.textContent = tawkToScript;
-          document.head.appendChild(widgetScript);
-        }
-      }),
-    [],
+  return (
+    <>
+      <Script id="muuhu-tawk-position" strategy="afterInteractive">
+        {tawkToPositionScript}
+      </Script>
+      <Script id="muuhu-tawk-config" strategy="afterInteractive">
+        {tawkToConfigScript}
+      </Script>
+      <Script
+        id="muuhu-tawk-widget"
+        src="https://embed.tawk.to/6a5f29aaac21c71d47d7230c/1ju1rlhkd"
+        strategy="afterInteractive"
+      />
+    </>
   );
-
-  return null;
 }
