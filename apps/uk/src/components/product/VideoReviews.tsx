@@ -4,7 +4,6 @@ import { useEffect, useRef, useState, useCallback } from "react";
 import { reviewVideos, type ReviewVideo } from "@/data/productSections";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { ChevronLeft, ChevronRight } from "lucide-react";
-import { preloadFullVideosAfterFrontend } from "@/lib/mediaPreload";
 
 const NUM_SETS = 2;
 const loopedVideos = Array(NUM_SETS).fill(reviewVideos).flat();
@@ -276,12 +275,6 @@ export function VideoReviews() {
         : reviewVideos[0];
     openVideo(nextVideo);
   }, [openVideo, selectedIndex]);
-
-  useEffect(() => {
-    return preloadFullVideosAfterFrontend(
-      reviewVideos.flatMap((video) => (video.fullSrc ? [video.fullSrc] : [])),
-    );
-  }, []);
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);

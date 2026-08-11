@@ -278,3 +278,100 @@ earlier mistakes or corrections.
 - The review-video cards now have poster fallbacks and immediately attached sources, so black cards should not be visible while videos prepare. If a user connection is extremely slow, the poster is the intended temporary visual until playback is ready.
 - Do not reintroduce viewport-based pausing for these autoplay sections unless the user explicitly asks for a performance-first tradeoff. The user's latest instruction is that autoplay video must continue in the background and loop.
 - Do not delay Klaviyo to 120 seconds again for the AirPro page. The user specifically wants popup imagery to load with the popup rather than after it.
+
+## 2026-08-11 13:23:14 +05:30 - UK AirPro header and review-video loading repair
+
+### Repository, branch, HEAD, and upstream
+- Repository: `E:\1st YEAR DTU\New folder\muuhu-store`.
+- Branch: `main`.
+- HEAD: `9a64779801bb5b0af9222b2d6062cb44e3005960` / `update top 20 reviews of muuhu hair dryer`, authored and committed Tue Aug 11 12:26:44 +0530.
+- Upstream: `origin/main` at `https://github.com/naman-14113114/muuhu-store.git`.
+- Fetch/reconciliation: `git fetch --all --prune` was run before edits. `git rev-list --left-right --count HEAD...@{upstream}` returned `0 0`. The worktree was clean before this task.
+- Final repository state before this context append: 11 intended modified files, all scoped to the UK header, UK video-review component, and nine active UK AirPro carousel preview MP4s. No staged files.
+
+### User request and inferred practical meaning
+- The user provided screen recording `C:\Users\sahil\Videos\Screen Recordings\Screen Recording 2026-08-11 123521.mp4` and asked to fix UK Muuhu AirPro product-page loading without changing product data, images, design, or layout.
+- Priority 1: make existing About Us, FAQs, and Contact Us header links visible on desktop beside the logo as quickly as the other nav links.
+- Priority 2: make the review video carousel load quickly and stop freezing on thumbnails. Compare against Buudy LED mask carousel behavior at `https://www.buudy.co.uk/products/buudy-led-mask`.
+- Priority 3: make this specific AirPro product page load as fast as possible without undoing Naman's recent loading work, especially the Tawk.to script work.
+
+### Scope and protected areas
+- Changed only UK AirPro header breakpoint/spacing, UK AirPro review-video full-preload behavior, and active UK AirPro carousel preview video encodes.
+- Protected and not changed: Tawk.to integration, Klaviyo behavior, product copy, prices, offers, routes, checkout flow, review JSON, hero media, page section order, CSS design language, modal layout, US app, PlusBase mappings, analytics, SEO metadata, deployment settings, Git history, and production state.
+- Naman's Tawk script file `apps/uk/src/components/integrations/TawkToWidget.tsx` was inspected and intentionally left untouched.
+
+### Files and routes inspected
+- Workspace and repo instructions/context: workspace `AGENTS.md`, workspace `CONTEXT.md`, `muuhu-store\AGENTS.md`, `muuhu-store\CONTEXT.md`, and `MUUHU_HAIR_DRYER_HANDOFF.md`.
+- UK route under test: `/products/muuhu-hair-dryer`.
+- Screen recording metadata and contact-sheet inspection from `Screen Recording 2026-08-11 123521.mp4`.
+- Muuhu files inspected: `apps/uk/src/components/layout/Header.tsx`, `apps/uk/src/data/navigation.ts`, `apps/uk/src/components/integrations/TawkToWidget.tsx`, `apps/uk/src/components/product/HairDryerProductPage.tsx`, `apps/uk/src/components/product/DeferredClientSections.tsx`, `apps/uk/src/components/product/VideoReviews.tsx`, `apps/uk/src/lib/mediaPreload.ts`, `apps/uk/src/data/productSections.ts`, and active files under `apps/uk/public/videos/hair-dryer`.
+- Buudy reference files inspected in `E:\1st YEAR DTU\New folder\uk.Buudy Vercel Deployment`: `AGENTS.md`, `CONTEXT.md`, `src/components/product/VideoReviews.tsx`, and `src/data/productSections.ts`.
+- Next local docs inspected because repo instructions require local docs before writing code: video, image, link, and prefetching guides under `apps/uk/node_modules/next/dist/docs`.
+
+### Findings
+- Header issue root cause: primary navigation used `lg:flex`, but secondary navigation used `xl:flex`. At desktop widths from 1024px to 1279px the product nav was visible while About Us, FAQs, and Contact Us stayed hidden. Browser verification reproduced this at 1100px before the fix.
+- AirPro review carousel issue root cause: the visible short preview clips were reasonable in duration but too heavy for a duplicated autoplay carousel. The active clips were 5.53s to 8.00s, 720x1280, about 1.8 MB each, and included audio tracks even though the carousel is muted.
+- Additional AirPro loading issue: `VideoReviews` queued full review videos automatically after frontend media settled. The active full review videos were roughly 10 MB to 36 MB each and 19s to 68s long, so the page could start hidden full-video downloads that are not needed until a shopper opens a review modal.
+- Buudy comparison: the live Buudy LED mask carousel and code use small remote Videowise `q6clip.mp4#t=0.1` preview clips and thumbnails with metadata/viewport behavior. Buudy does not initially compete with local 10 MB to 36 MB full-review video preloads in the same way.
+- Page section lazy loading: no whole-product-page lazy section rendering or viewport-triggered blanking was found in the AirPro page path. `HairDryerProductPage` renders the sections directly, and `DeferredClientSections` imports synchronously. The previous conversion-first section work was preserved.
+
+### Files changed
+- `apps/uk/src/components/layout/Header.tsx`.
+- `apps/uk/src/components/product/VideoReviews.tsx`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer video 1-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer video 2-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer video 3-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer video 4-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer video 5-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer 6-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer 8-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer 9-shorts.mp4`.
+- `apps/uk/public/videos/hair-dryer/Hair Dryer 11-shorts.mp4`.
+
+### Implementation details
+- Header: changed the secondary desktop nav from `xl:flex` to `lg:flex` so About Us, FAQs, and Contact Us appear at the same desktop breakpoint as Muuhu AirPro, Muuhu ScalpPro, and Hair Quiz.
+- Header spacing: tightened `lg` nav/container gaps from 7/6 to 5/4 and restored the wider spacing at `2xl`, keeping the same layout and visual style while avoiding squeeze at 1100px.
+- VideoReviews: removed the automatic mount-time call to `preloadFullVideosAfterFrontend(...)`. Full review videos still warm on hover, focus, touch, and click, and the modal still opens immediately with the preview before upgrading to the full MP4.
+- Preview videos: re-encoded only the nine active UK AirPro carousel short clips in place with ffmpeg: 540x960, 30 fps H.264, `-crf 30`, `-maxrate 900k`, `-bufsize 1800k`, `-movflags +faststart`, `yuv420p`, and no audio. Clip duration/content was not cut.
+- Active preview total changed from 16,597.3 KB to 4,617.8 KB, a 72.2% reduction.
+- Individual preview sizes after the edit: video 1 581.4 KB/8.00s, video 2 429.6 KB/6.30s, video 3 473.4 KB/7.03s, video 4 371.4 KB/5.53s, video 5 887.4 KB/7.33s, video 6 436.2 KB/6.80s, video 8 420.7 KB/6.83s, video 9 510.6 KB/7.37s, and video 11 507.2 KB/7.50s.
+- No temporary `.optimized-*` files remained after encoding.
+
+### Video length guidance recorded for future edits
+- The current preview durations are acceptable: about 5.5s to 8s.
+- For fast carousel playback, future preview clips should stay about 4s to 8s, ideally below 1 MB each, portrait 540x960 or similarly light, muted/no audio, fast-start MP4, and focused on the main product-use moment.
+- Full modal videos can remain longer because they are now user-initiated, but if the user wants full modal playback to feel instant on slow mobile connections, 15s to 25s full review clips or separate compressed modal versions would be safer than 35s to 68s files.
+
+### Mistakes, misunderstandings, regressions, and corrections
+- A first dev-server command attempted port 3100 but Next reported another dev server already running for the same UK app at `http://localhost:3000`, PID `28120`. The existing server was used for browser verification and was not stopped or killed.
+- The first Playwright screenshot after carousel testing preserved scroll position near the reviews section instead of the header. This was corrected by scrolling to `scrollY = 0` and capturing the actual top/header view.
+- PowerShell quoting caused early Playwright `eval` attempts with quoted CSS selectors to fail. The verification was corrected with quote-free DOM evaluation expressions.
+- No regression to Tawk.to, Klaviyo, section rendering, checkout, product data, or page design was made.
+
+### Commands and verification
+- `ffprobe` inspected the supplied screen recording: 145.233s, 1920x1008, 30 fps, about 151 MB.
+- Generated and visually inspected a contact sheet from the screen recording.
+- `git status --short --branch`, `git remote -v`, `git fetch --all --prune`, `git rev-list --left-right --count HEAD...@{upstream}`, `git log`, `git diff`, `git diff --stat`, and `git diff --check` were run.
+- `pnpm --filter @muuhu/uk lint` passed.
+- `pnpm --filter @muuhu/uk exec tsc --noEmit` passed.
+- `pnpm --filter @muuhu/uk build` passed with Next.js 16.2.6 and generated 39 routes.
+- Local route `http://localhost:3000/products/muuhu-hair-dryer` returned HTTP 200 from the already-running UK dev server.
+- Browser verification at 1100x850 confirmed primary nav `display: flex`, secondary nav `display: flex`, secondary text `About_UsFAQsContact_Us`, secondary width 246px, and no horizontal overflow.
+- Browser verification at 390x844 confirmed both desktop nav groups remain hidden for mobile and no horizontal overflow exists.
+- Browser verification at 1365x900 after a clean reload and 6s wait confirmed 18 preview video elements, all 18 at `readyState 4`, `paused: 0`, 18 posters, 18 short MP4 resources, and 0 full MP4 resources during initial page load.
+- Carousel/modal verification scrolled the first preview into view, clicked it, confirmed one controlled modal video opened immediately on the short preview with poster, and after a short wait confirmed the modal video had upgraded to `/videos/hair-dryer/Hair Dryer Reviews Video 1.mp4` with `readyState 4`.
+- Visual screenshots inspected: `C:\Users\sahil\AppData\Local\Temp\muuhu-header-1100-after.png` for the carousel area and `C:\Users\sahil\AppData\Local\Temp\muuhu-top-1100-after.png` for the repaired 1100px top/header viewport.
+
+### Checks not performed and reason
+- No live production deployment, Lighthouse run, PageSpeed run, PlusBase checkout, payment, order creation, or authenticated admin check was performed because the user requested a local code/media loading fix and did not ask to publish.
+- No full-video cutting was performed because the active carousel problem was solved by optimizing the short previews and removing automatic full-video preload; cutting full review content would change review media content.
+- No US app verification was performed because the request was for the UK AirPro product page and scope was intentionally not broadened.
+
+### Git, commit, push, and deployment actions
+- No commit, push, branch, pull request, fast-forward pull, merge, rebase, stash, reset, Vercel deployment, production promotion, rollback, alias/domain change, environment variable change, live checkout, payment, or order occurred.
+- All changes remain local and unstaged after this task unless the user explicitly asks to publish.
+
+### Remaining uncertainty and future guidance
+- The live production page will not reflect these fixes until the user approves a commit/push/deploy path.
+- The existing dev server on `http://localhost:3000` was not started by this task and was left running.
+- The best current answer for future review-carousel clips is 4s to 8s, under about 1 MB each, portrait, no audio, and fast-start encoded. The current Muuhu preview clips now meet that target.

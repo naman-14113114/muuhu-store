@@ -140,7 +140,7 @@ export function Header() {
     <header
       className="relative z-40 border-b border-[rgba(58,31,61,.14)] bg-[rgba(247,241,232,.88)] backdrop-blur-xl"
     >
-      <div className="buudy-wrap relative flex min-h-[64px] items-center justify-between gap-4 lg:min-h-[72px] lg:gap-6">
+      <div className="buudy-wrap relative flex min-h-[64px] items-center justify-between gap-4 lg:min-h-[72px] lg:gap-5 2xl:gap-6">
         <button
           aria-controls="mobile-site-navigation"
           aria-expanded={mobileMenuOpen}
@@ -156,7 +156,7 @@ export function Header() {
           <Menu size={20} strokeWidth={1.8} />
         </button>
 
-        <nav className="hidden gap-7 lg:flex" aria-label="Primary">
+        <nav className="hidden gap-5 lg:flex 2xl:gap-7" aria-label="Primary">
           {primaryNavigation.map((item) => (
             <Link
               className="buudy-mono text-[var(--plum)] opacity-80 transition hover:opacity-100"
@@ -191,8 +191,8 @@ export function Header() {
           />
         </Link>
 
-        <div className="flex items-center gap-3 lg:gap-6">
-          <nav className="hidden gap-7 xl:flex" aria-label="Secondary">
+        <div className="flex items-center gap-3 lg:gap-4 2xl:gap-6">
+          <nav className="hidden gap-5 lg:flex 2xl:gap-7" aria-label="Secondary">
             {secondaryNavigation.map((item) => (
               <Link
                 className="buudy-mono text-[var(--plum)] opacity-80 transition hover:opacity-100"
