@@ -196,10 +196,24 @@ export function ContactForm() {
     setState({ status: "submitting", message: "" });
 
     try {
-      const config = await getContactConfig();
-      const response = await fetch(config.endpoint, {
+      const response = await fetch("/api/contact", {
         method: "POST",
-        body: buildWeb3FormsData(formData, config.accessKey, sourceMeta),
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          firstName: formData.get("firstName"),
+          lastName: formData.get("lastName"),
+          email: formData.get("email"),
+          phone: formData.get("phone"),
+          subject: formData.get("subject"),
+          message: formData.get("message"),
+          botcheck: formData.get("botcheck"),
+          sourceOrigin: sourceMeta.sourceOrigin,
+          sourcePath: sourceMeta.sourcePath,
+          sourceUrl: sourceMeta.sourceUrl,
+        }),
       });
       const result = (await response.json()) as {
         success?: boolean;
