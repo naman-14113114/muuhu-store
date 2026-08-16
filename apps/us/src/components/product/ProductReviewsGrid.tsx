@@ -188,7 +188,6 @@ function RatingBreakdown({
 
         return (
           <button
-            aria-label={`Show only ${rating}-star reviews`}
             aria-pressed={activeRating === rating}
             className={cn(
               "grid w-full grid-cols-[5.5rem_1fr_4rem] items-center gap-3 rounded-lg px-2 py-1.5 text-left transition hover:bg-[rgba(180,145,76,.1)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--gold)]",
@@ -875,10 +874,10 @@ function WriteReviewModal({
             <div>
               <p className="buudy-mono text-[var(--gold)]">Review published</p>
               <h3 className="buudy-display mt-4 text-4xl text-[var(--plum)]">
-                Thank you for sharing your glow.
+                Thank you for sharing your experience.
               </h3>
               <p className="mx-auto mt-4 max-w-xl text-base leading-7 text-[var(--muted)]">
-                Your review is live in the Buudy archive now.
+                Your review is live in the Muuhu reviews now.
               </p>
               <Button className="mt-7" onClick={onClose}>
                 Close
@@ -1261,32 +1260,15 @@ export function ProductReviewsGrid({
   }, [applyReviewResponse, fetchReviews]);
 
   const handleReviewSubmitted = useCallback(
-    async (review: ProductReview) => {
+    async (_review: ProductReview) => {
       setActiveRating(null);
       setReviewSort(defaultReviewFilters.sort);
       setVerifiedOnly(defaultReviewFilters.verifiedOnly);
       setWithPhotos(defaultReviewFilters.withPhotos);
       setOpenMenu(null);
       setError("");
-      setReviews((currentReviews) => [
-        {
-          ...review,
-          isNew: true,
-          staggerIndex: 0,
-        },
-        ...currentReviews.filter((currentReview) => currentReview.id !== review.id),
-      ]);
-      setCurrentTotal((current) => current + 1);
-      setSummaryTotal((current) => current + 1);
-
-      try {
-        const data = await fetchReviews(defaultReviewFilters, 0);
-        applyReviewResponse(data, "replace");
-      } catch {
-        setError("Your review is live, but we could not refresh the full archive yet.");
-      }
     },
-    [applyReviewResponse, fetchReviews],
+    [],
   );
 
   async function applyFilters(nextFilters: ReviewFilters) {

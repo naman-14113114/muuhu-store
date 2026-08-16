@@ -104,15 +104,22 @@ function AccordionPanel({
 
   return (
     <div className="border-b border-[var(--border)] last:border-b-0">
-      <button
+      <div
         aria-controls={contentId}
         aria-expanded={isOpen}
-        className="flex w-full items-center justify-between gap-5 py-4 text-left"
+        className="flex w-full items-center justify-between gap-5 py-4 text-left cursor-pointer select-none"
         onClick={onToggle}
-        type="button"
+        role="button"
+        tabIndex={0}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onToggle();
+          }
+        }}
       >
         <span className="flex items-center gap-4">
-          <span className="grid h-12 w-12 flex-none place-items-center rounded-full border border-[rgba(184,149,86,.36)] bg-[linear-gradient(145deg,rgba(255,252,247,.98),rgba(184,149,86,.18))] text-[var(--gold)] shadow-[inset_0_1px_0_rgba(255,255,255,.82),0_14px_30px_-24px_rgba(58,31,61,.58)]">
+          <span className="grid h-12 w-12 flex-none place-items-center rounded-full border border-[rgba(184,149,86,.36)] bg-[linear-gradient(145deg,rgba(255,252,247,.98),rgba(184,149,86,.18))] text-[var(--gold)] shadow-[inset_0_1px_0_rgba(255,255,252,.82),0_14px_30px_-24px_rgba(58,31,61,.58)]">
             <ItemIcon aria-hidden="true" size={26} stroke={1.65} />
           </span>
           <span>
@@ -131,7 +138,7 @@ function AccordionPanel({
           size={19}
           stroke={1.6}
         />
-      </button>
+      </div>
       <div
         className={`grid transition-[grid-template-rows,opacity] duration-300 ease-out ${
           isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
@@ -241,28 +248,6 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
         </dl>
       ),
     },
-    /* {
-      id: "benefits",
-      eyebrow: "Key benefits",
-      title: "What your ritual supports",
-      content: (
-        <ul className="grid gap-2 sm:grid-cols-2">
-          {(product.differentiators ?? product.keyBenefits ?? product.highlights).map((benefit, index) => {
-            const Icon = keyBenefitIcons[index % keyBenefitIcons.length];
-
-            return (
-              <li
-                className="flex items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm font-semibold leading-5 text-[var(--plum)]"
-                key={benefit}
-              >
-                <Icon className="shrink-0 text-[var(--gold)]" size={15} strokeWidth={1.8} />
-                {benefit}
-              </li>
-            );
-          })}
-        </ul>
-      ),
-    }, */
     {
       id: "included",
       eyebrow: "In the box",
