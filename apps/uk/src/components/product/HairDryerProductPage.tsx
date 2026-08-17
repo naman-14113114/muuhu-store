@@ -394,7 +394,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
         /> */}
 
         <BeforeAfterGrid />
-        <HairDryerTechnologyStory />
+        {/* <HairDryerTechnologyStory /> */}
         {/* <HairDryerDescriptionBanners /> */}
 
         {/* <MuuhuProductFocus /> */}
