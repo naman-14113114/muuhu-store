@@ -68,7 +68,7 @@ const hairScienceCards = [
     title: "Enhancing shine",
     copy:
       "Fast, controlled airflow helps smooth the hair surface as you dry, so light reflects more evenly from root to end. Muuhu AirPro is built for a softer, glossier finish without relying on harsh heat.",
-    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-shine-science.webp",
+    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-enhancing-shine.webp",
     alt: "Glossy bronde hair showing a smooth reflective finish",
   },
   {
@@ -82,8 +82,8 @@ const hairScienceCards = [
     title: "Helping reduce breakage",
     copy:
       "A smoother drying routine can mean less tugging, less overworking with brushes, and less repeated heat exposure. Muuhu AirPro helps hair look polished while keeping daily styling gentle and controlled.",
-    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-breakage-care.webp",
-    alt: "Front-facing model with smooth blonde blowout on a beige background",
+    image: "/images/products/muuhu-hair-dryer/hair-science/muuhu-hair-breakage-reduction.webp",
+    alt: "Model with healthy, smooth blonde styled hair",
   },
 ] as const;
 
