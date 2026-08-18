@@ -36,9 +36,9 @@ const insideFeatures = [
       "Choose cool air, medium heat, or high heat depending on your hair type, section size, and how polished you want the final finish to look.",
     pointX: 50,
     pointY: 49,
-    labelX: 20,
+    labelX: 82,
     labelY: 49,
-    side: "left",
+    side: "right",
   },
   {
     id: "fan-speed-button",
@@ -278,10 +278,10 @@ export function MuuhuInsideSection() {
         </div>
 
         <div className="relative order-1 mx-auto w-full max-w-[760px] lg:order-2">
-          <div className="relative h-[min(600px,156vw)] overflow-hidden rounded-[26px] bg-[var(--cream)] sm:h-[660px] md:h-[720px] lg:h-auto lg:min-h-[820px]">
+          <div className="relative h-[min(600px,156vw)] overflow-hidden rounded-[26px] bg-[var(--cream)] sm:h-[660px] md:h-[720px] lg:h-auto lg:min-h-[600px]">
             <Image
               alt="Muuhu AirPro hair dryer control body"
-              className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:!h-[790px]"
+              className="absolute left-1/2 top-1/2 h-[min(560px,145vw)] w-auto -translate-x-1/2 -translate-y-1/2 object-contain sm:h-[620px] md:h-[680px] lg:!h-[570px]"
               height={1787}
               loading="eager"
               sizes="(min-width: 1024px) 32vw, 70vw"
