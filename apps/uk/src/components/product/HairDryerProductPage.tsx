@@ -125,7 +125,7 @@ function TechnologyImage({
 function HairDryerTechnologyStory() {
   return (
     <section className="bg-[#3b1846] text-[var(--cream)] overflow-hidden">
-      {technologyStorySections.slice(0, 1).map((section, index) => (
+      {/* {technologyStorySections.slice(0, 1).map((section, index) => (
         <article
           className={`pt-10 md:pt-14 lg:pt-16 ${
             index === 0
@@ -156,7 +156,7 @@ function HairDryerTechnologyStory() {
             </div>
           </div>
         </article>
-      ))}
+      ))} */}
       <MuuhuHairScienceSection />
     </section>
   );
@@ -394,7 +394,8 @@ export function HairDryerProductPage({ product }: { product: Product }) {
         /> */}
 
         <BeforeAfterGrid />
-        {/* <HairDryerTechnologyStory /> */}
+        <MuuhuInsideSection />
+        <HairDryerTechnologyStory />
         {/* <HairDryerDescriptionBanners /> */}
 
         {/* <MuuhuProductFocus /> */}
@@ -402,7 +403,7 @@ export function HairDryerProductPage({ product }: { product: Product }) {
         <MuuhuHairTypeSection />
         <ProductReviewsSection productHandle={product.id} />
         <HairDryerHeroVideo />
-        <MuuhuInsideSection />
+
         <ComparisonTable />
         <FAQSection faqs={product.faqs} productHandle={product.id} />
         <GuaranteeSection productHandle={product.id} />
