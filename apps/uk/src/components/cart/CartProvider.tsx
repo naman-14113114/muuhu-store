@@ -2,6 +2,7 @@
 
 import {
   createContext,
+  useCallback,
   useContext,
   useEffect,
   useLayoutEffect,
@@ -277,6 +278,9 @@ export function CartProvider({ children }: { children: ReactNode }) {
     setState(emptyCart);
   }
 
+  const openCart = useCallback(() => setIsOpen(true), []);
+  const closeCart = useCallback(() => setIsOpen(false), []);
+
   const value = useMemo<CartContextValue>(
     () => ({
       ...state,
@@ -288,14 +292,14 @@ export function CartProvider({ children }: { children: ReactNode }) {
       setQuantity,
       removeProduct,
       clearCart,
-      openCart: () => setIsOpen(true),
-      closeCart: () => setIsOpen(false),
+      openCart,
+      closeCart,
       applyManualPromoCode,
       clearManualPromoCode,
       setGiftMessage: (message: string) =>
         setState((current) => ({ ...current, giftMessage: message })),
     }),
-    [activePromoCodes, hydrated, isOpen, state, totals],
+    [activePromoCodes, closeCart, hydrated, isOpen, openCart, state, totals],
   );
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;

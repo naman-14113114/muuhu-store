@@ -1,9 +1,13 @@
 "use client";
 
-import Link from "next/link";
 import { ArrowRight, ChevronDown } from "lucide-react";
+import { useRouter } from "next/navigation";
 import { useState, type ReactNode } from "react";
 import { formatMoney } from "@/lib/money";
+import {
+  appendAttributionToPath,
+  pickAttributionFromSearch,
+} from "@/lib/attribution";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "./CartProvider";
 import { PromoCodeBox } from "./PromoCodeBox";
@@ -14,6 +18,7 @@ type CartSummaryProps = {
 };
 
 export function CartSummary({ action = "summary", children }: CartSummaryProps) {
+  const router = useRouter();
   const { lines, totals, closeCart } = useCart();
   const [detailsOpen, setDetailsOpen] = useState(false);
   const giftLines = lines.filter(
@@ -127,11 +132,20 @@ export function CartSummary({ action = "summary", children }: CartSummaryProps) 
       {children ? <div className="mt-4">{children}</div> : null}
 
       {action === "cart" ? (
-        <Button asChild className="mt-5 w-full" onClick={closeCart}>
-          <Link href="/cart">
-            Go to cart
-            <ArrowRight size={17} />
-          </Link>
+        <Button
+          className="proxy-bundle-btn mt-5 w-full"
+          onClick={() => {
+            closeCart();
+            router.push(
+              appendAttributionToPath(
+                "/cart",
+                pickAttributionFromSearch(window.location.search),
+              ),
+            );
+          }}
+        >
+          Go to cart
+          <ArrowRight size={17} />
         </Button>
       ) : null}
     </div>

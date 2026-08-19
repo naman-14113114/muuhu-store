@@ -1,6 +1,8 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useEffect, useRef } from "react";
 import { X } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { useCart } from "./CartProvider";
@@ -10,8 +12,21 @@ import { getDisplayLines } from "@/lib/cart";
 
 export function CartDrawer() {
   const { lines, isHydrated, isOpen, closeCart, totals } = useCart();
+  const pathname = usePathname();
+  const prevPathnameRef = useRef(pathname);
   const visibleLines = getDisplayLines(lines);
   const hasItems = totals.itemCount > 0;
+
+  useEffect(() => {
+    if (prevPathnameRef.current !== pathname) {
+      prevPathnameRef.current = pathname;
+      closeCart();
+    }
+  }, [pathname, closeCart]);
+
+  if (pathname === "/cart" || pathname.startsWith("/cart/")) {
+    return null;
+  }
 
   return (
     <div

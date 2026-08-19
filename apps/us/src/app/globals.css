@@ -342,6 +342,75 @@ p {
 
 .buudy-cart-wipe-content svg {
   color: inherit;
+  flex-shrink: 0;
+}
+
+.buudy-button-click-loader {
+  align-items: center;
+  background: linear-gradient(
+    90deg,
+    rgba(58, 31, 61, 0.16),
+    rgba(247, 241, 232, 0.28),
+    rgba(58, 31, 61, 0.16)
+  );
+  display: flex;
+  inset: 0;
+  justify-content: center;
+  pointer-events: none;
+  position: absolute;
+  z-index: 30;
+}
+
+.buudy-button-click-loader-dots {
+  align-items: center;
+  display: inline-flex;
+  gap: 0.28rem;
+  justify-content: center;
+}
+
+.buudy-button-click-loader-dots > span {
+  animation: buudy-button-dot-jump 700ms ease-in-out infinite;
+  background: currentColor;
+  border-radius: 999px;
+  height: 0.38rem;
+  width: 0.38rem;
+}
+
+.buudy-button-click-loader-dots > span:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.buudy-button-click-loader-dots > span:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.buudy-button-click-loader-dots > span:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.buudy-button-click-loader-dots > span:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+@keyframes buudy-button-dot-jump {
+  0%,
+  60%,
+  100% {
+    opacity: 0.45;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-0.32rem);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .buudy-button-click-loader-dots > span {
+    animation: none;
+    opacity: 0.82;
+  }
 }
 
 .buudy-mask-sticky-cta footer {

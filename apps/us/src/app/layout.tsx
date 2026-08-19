@@ -78,8 +78,8 @@ export default function RootLayout({
           <main>{children}</main>
           <HideOnPaths paths={["/cart"]}>
             <Footer />
+            <CartDrawer />
           </HideOnPaths>
-          <CartDrawer />
         </CartProvider>
         <AttributionCapture />
         <MarketingAnalytics />

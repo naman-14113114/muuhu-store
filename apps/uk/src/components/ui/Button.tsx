@@ -69,19 +69,17 @@ export function Button({
   );
 
   function handleClick(event: MouseEvent<HTMLButtonElement>) {
+    if (clickLoader && !disabled && !event.defaultPrevented) {
+      setIsClickLoading(true);
+      if (loaderTimeoutRef.current) {
+        window.clearTimeout(loaderTimeoutRef.current);
+      }
+      loaderTimeoutRef.current = window.setTimeout(() => {
+        setIsClickLoading(false);
+      }, 900);
+    }
+
     onClick?.(event);
-
-    if (!clickLoader || disabled || event.defaultPrevented) {
-      return;
-    }
-
-    setIsClickLoading(true);
-    if (loaderTimeoutRef.current) {
-      window.clearTimeout(loaderTimeoutRef.current);
-    }
-    loaderTimeoutRef.current = window.setTimeout(() => {
-      setIsClickLoading(false);
-    }, 900);
   }
 
   if (asChild && isValidElement<HTMLAttributes<HTMLElement>>(children)) {
