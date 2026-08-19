@@ -120,16 +120,15 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
         "muuhu-hair-dryer";
 
       const data = (await response.json()) as { checkoutUrl?: string };
-      const fallbackUrl = buildPlusbaseCheckoutUrl({
-        quantity: productQuantity,
-        productId: primaryProductId,
-        discountCode: manualPromoCode,
-        extraParams: attribution,
-      });
       window.location.assign(
         data.checkoutUrl
           ? appendAttributionToAbsoluteUrl(data.checkoutUrl, attribution)
-          : fallbackUrl,
+          : buildPlusbaseCheckoutUrl({
+              quantity: productQuantity,
+              productId: primaryProductId,
+              discountCode: manualPromoCode,
+              extraParams: attribution,
+            }),
       );
     } catch {
       const primaryProductId =

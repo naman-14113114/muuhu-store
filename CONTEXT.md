@@ -375,3 +375,41 @@ earlier mistakes or corrections.
 - The live production page will not reflect these fixes until the user approves a commit/push/deploy path.
 - The existing dev server on `http://localhost:3000` was not started by this task and was left running.
 - The best current answer for future review-carousel clips is 4s to 8s, under about 1 MB each, portrait, no audio, and fast-start encoded. The current Muuhu preview clips now meet that target.
+
+## 2026-08-19 14:41:48 +05:30 - UK Muuhu checkout redirect repaired locally
+
+### Repository, request, and protected scope
+- Repository: `E:\1st YEAR DTU\New folder\muuhu-store`; intended storefront: `https://uk.muuhu.com`; affected route flow: `/products/muuhu-hair-dryer` -> `/cart` -> Muuhu PlusBase checkout on `https://muuhu.com/checkouts/...`.
+- Branch and source baseline: clean `main` at `047cca242bbb92003873c1916cce9099ad4b72ca` (`update reviews`), tracking `origin/main` at the same commit. `git fetch --all --prune` was run before work and again after implementation; ahead/behind remained `0/0` and no collaborator change arrived during the task.
+- User request: refresh current Muuhu Store memory, inspect `C:\Users\sahil\Videos\Screen Recordings\Screen Recording 2026-08-19 142217.mp4`, and urgently restore the checkout handoff because clicking `Checkout securely` remained on the cart with `Opening secure checkout...` instead of reaching Muuhu checkout.
+- Practical scope: diagnose and repair only the UK checkout redirect. Product data, prices, gift composition, PlusBase product/variant IDs, cart totals, promo rules, visual frontend, media/loading work, Tawk, Klaviyo, analytics, SEO, US app, admin credentials, Vercel settings, and production deployment state were protected.
+
+### Evidence, source inspection, and root cause
+- The complete workspace and repository context/instruction files were read first, including `MUUHU_HAIR_DRYER_HANDOFF.md`. Relevant local Next.js 16.2.6 Route Handler and environment-variable documentation plus the Playwright skill were read before implementation.
+- The supplied recording is 31.1 seconds, H.264 at 1920x1008/30 fps with AAC audio and about 31.3 MB. Extracted frames/contact sheet showed the cart button changing to its loader and the page remaining at `https://uk.muuhu.com/cart` with `Opening secure checkout...`.
+- Live Playwright reproduction on `https://uk.muuhu.com` followed the real AirPro add-to-cart flow and reproduced the stuck cart. Browser console reported `TypeError: Failed to construct 'URL': Invalid URL` in the checkout client chunk.
+- The current live `/api/checkout/prepare` endpoint was independently tested with a non-PII AirPro plus ScalpPro cart payload. It returned HTTP 200 in about two seconds with a valid `https://muuhu.com/checkouts/...` URL; opening that generated checkout returned HTTP 200. PlusBase connectivity, current product IDs, and the direct checkout API were therefore healthy.
+- The live compiled client chunk was inspected and contained `new URL("")`. Vercel had inlined `NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL` as an empty string. `getPlusbaseCheckoutBridgeUrl()` used nullish coalescing, which accepted the empty string instead of the valid code default.
+- A second code defect made the empty fallback value fatal even when the API had already returned a valid checkout: `CheckoutForm` constructed `fallbackUrl` unconditionally before checking `data.checkoutUrl`. The invalid fallback threw first, the catch block attempted the same invalid fallback again, and the shopper remained on the cart with the loader/error message.
+- Files inspected included UK `CheckoutForm.tsx`, checkout `prepare/route.ts`, `site.ts`, `cart.ts`, `CartProvider.tsx`, attribution helpers, package scripts, checkout Git history, the production client chunk, and local Vercel project metadata. No secret value was printed or copied.
+
+### Files changed and implementation
+- Changed `apps/uk/src/lib/site.ts`: `NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL` is now trimmed and an empty/whitespace value falls back to the established `https://muuhu.com/pages/add-to-cart` bridge.
+- Changed `apps/uk/src/components/cart/CheckoutForm.tsx`: the PlusBase bridge fallback is now constructed only when `/api/checkout/prepare` did not return `checkoutUrl`. A valid direct checkout response can no longer be blocked by an unused fallback configuration.
+- No checkout URL, product ID, variant ID, cart line, price, gift, discount, UI text, loader, layout, or integration was changed.
+
+### Verification and corrections
+- `git diff --check` passed with only expected Windows LF-to-CRLF notices.
+- `pnpm --filter @muuhu/uk exec tsc --noEmit` passed.
+- `pnpm --filter @muuhu/uk lint` passed with zero errors and seven unrelated pre-existing warnings in review/product files introduced by newer repository work.
+- A Next.js 16.2.6 production build was run with `NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL` deliberately set to whitespace. It passed and generated all 39 routes. The compiled checkout chunk now resolves the whitespace value to `https://muuhu.com/pages/add-to-cart` and constructs no `new URL("")`.
+- The production build was served locally at `http://localhost:3022`. Playwright followed the complete AirPro add-to-cart and cart checkout flow. Clicking `Checkout securely` navigated to `https://muuhu.com/checkouts/...`; the hosted checkout loaded with title `Checkout - muuhu` and contained quantity 1 of both `Muuhu Airpro` and free `Muuhu ScalpPro`.
+- One first local checkout click was intercepted by a temporarily displayed Klaviyo popup image. A fresh snapshot was taken after it cleared and the same checkout button was clicked successfully; this was test timing, not a checkout-code failure, and no Klaviyo code was changed.
+- The task-created local server was stopped and port 3022 was confirmed closed. Playwright sessions were closed. The existing ignored `.playwright-cli` directory contains historical artifacts from many earlier tasks, so it was preserved rather than recursively deleting unrelated files.
+- The internet open tool rejected the Muuhu URL as unsafe before loading it; live verification was completed through Playwright and direct HTTPS requests instead.
+
+### External actions, final Git state, and remaining work
+- Two temporary PlusBase checkout carts were created only for diagnostics/verification. No customer details were entered, no payment was submitted, and no order was created.
+- Final application diff before this context append is exactly two UK files: `apps/uk/src/components/cart/CheckoutForm.tsx` and `apps/uk/src/lib/site.ts`. They are unstaged. This context append is the third repository modification.
+- No credential or secret was required. No PlusBase admin write, product change, order action, coupon change, environment edit, Vercel setting change, branch, commit, push, pull request, pull, merge, rebase, stash, reset, deployment, production promotion, rollback, alias/domain change, payment, or order occurred.
+- Production remains on the pre-fix build and will continue showing the recorded failure until a future explicit publication request commits/pushes/deploys this local fix. The code no longer depends on correcting the empty Vercel variable, although cleaning that public environment value later would reduce configuration ambiguity.

@@ -15,11 +15,9 @@ export function absoluteUrl(path = "/") {
 }
 
 export function getPlusbaseCheckoutBridgeUrl() {
-  const configured =
-    process.env.NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL ??
-    `${plusbaseStoreUrl}${plusbaseBridgePath}`;
+  const configured = process.env.NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL?.trim();
 
-  return configured;
+  return configured || `${plusbaseStoreUrl}${plusbaseBridgePath}`;
 }
 
 export type CheckoutBridgeOptions = {
