@@ -5,6 +5,7 @@ const routes = [
   { path: "/", lastModified: "2026-07-19" },
   { path: "/products/muuhu-hair-dryer", lastModified: "2026-07-19" },
   { path: "/products/muuhu-comb", lastModified: "2026-07-19" },
+  { path: "/products/muuhu-scalppro", lastModified: "2026-08-19" },
   { path: "/pages/premium-packaging", lastModified: "2026-07-21" },
   { path: "/pages/haircare-ebook", lastModified: "2026-07-21" },
   { path: "/pages/contact-us", lastModified: "2026-06-16" },

@@ -1,5 +1,6 @@
 import hairDryerReviews from "./reviews/muuhu-hair-dryer-reviews.json";
 import combReviews from "./reviews/muuhu-comb-reviews.json";
+import scalpProReviews from "./reviews/muuhu-scalppro-reviews.json";
 import { market } from "@/lib/market";
 import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { isSupabaseAdminConfigured } from "@/lib/supabase/config";
@@ -52,6 +53,9 @@ const reviewCollections = {
     .map((r) => normalizeStaticReview(r as unknown as ProductReview))
     .sort(compareNewestFirst) as ProductReview[],
   "muuhu-comb": combReviews
+    .map((r) => normalizeStaticReview(r as unknown as ProductReview))
+    .sort(compareNewestFirst) as ProductReview[],
+  "muuhu-scalppro": scalpProReviews
     .map((r) => normalizeStaticReview(r as unknown as ProductReview))
     .sort(compareNewestFirst) as ProductReview[],
 } as const;

@@ -3,7 +3,7 @@ import { ProductGallery } from "./ProductGallery";
 import { GiftBundle } from "./GiftBundle";
 
 export function ProductHero({ product }: { product: Product }) {
-  const isComb = product.id === "muuhu-comb";
+  const isComb = product.id === "muuhu-comb" || product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro";
 
   return (
     <section

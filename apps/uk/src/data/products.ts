@@ -131,7 +131,7 @@ export const muuhuHairDryer: Product = {
       name: "Muuhu ScalpPro",
       valueCents: 7900,
       link: "/products/muuhu-comb",
-      image: "/images/products/muuhu-comb/muuhu_25.webp",
+      image: "/images/products/muuhu-comb/muuhu-scalppro-bonus.webp",
     },
     {
       id: "skincare-guide",
@@ -207,12 +207,12 @@ export const muuhuComb: Product = {
   heroTitle: "Muuhu",
   heroEmphasis: "ScalpPro",
   shortDescription:
-    "Revolutionary 3-in-1 Hair Growth Comb with targeted red light therapy, micro-vibration massage, and a built-in liquid applicator.",
+    "5-in-1 Scalp Rejuvenation Comb with Tri-Color LED therapy, EMS microcurrent, soothing vibration, and an 8ml mess-free serum applicator.",
   description:
-    "Unlock thicker, healthier hair with the Muuhu ScalpPro. This intelligent therapy brush delivers 650nm red light to stimulate follicles, soothing micro-vibrations to boost circulation, and a precise oil applicator for maximum serum absorption without the greasy finish.",
-  seoTitle: "Muuhu ScalpPro | Red Light Scalp Care & Massage UK",
+    "Unlock thicker, healthier hair with the Muuhu ScalpPro. Engineered with targeted 650nm red, 430nm blue, and purple light therapy, 3 levels of EMS microcurrent, high-frequency micro-vibration (10,000 VPM), and 6 elastic rollerball teeth that deliver active serums directly to follicle roots without greasy residue.",
+  seoTitle: "Muuhu ScalpPro | EMS Tri-Light Scalp Care & Massage UK",
   seoDescription:
-    "Shop Muuhu ScalpPro in the UK. Features red light therapy, micro-vibrations, and a built-in oil applicator for a simple at-home scalp-care routine.",
+    "Shop Muuhu ScalpPro in the UK. 5-in-1 hair growth comb featuring 3-mode LED light therapy, EMS microcurrent, vibration massage, and an 8ml detachable serum tank.",
   currency: market.currency,
   priceCents: 7900,
   compareAtCents: 15900,
@@ -222,113 +222,243 @@ export const muuhuComb: Product = {
   promoCode: "FREEGIFT",
   promoLabel: "Free with Muuhu AirPro",
   highlights: [
-    "Stimulates dormant follicles for noticeably thicker hair",
-    "Soothes dry, itchy scalp with relaxing micro-vibrations",
-    "Delivers serums deep to the roots without greasy hair",
+    "6 Elastic rolling beads deliver serums directly to roots without grease",
+    "3-Color light therapy (Red, Blue, Purple) for root strength & follicle health",
+    "3 EMS intensity levels & 3 vibration speeds (10,000 VPM) soothe scalp tension",
   ],
-  cartImage: "/images/products/muuhu-comb/muuhu_25.webp",
+  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
   gallery: [
     {
-      src: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
-      alt: "Liquid Tank Applicator",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+      alt: "Muuhu ScalpPro 3-in-1 Scalp Care & Massage Comb",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp",
-      alt: "USB Charging",
-    },
-    // { src: "/images/products/muuhu-comb/muuhu-scalp-care-routine.webp", alt: "Scalp Care Routine" },
-    // { src: "/images/products/muuhu-comb/muuhu-scalp-massager-red-light.webp", alt: "Scalp Massager Red Light Therapy" },
-    {
-      src: "/images/products/muuhu-comb/muuhu-essential-oil-applicator-comb.webp",
-      alt: "Essential Oil Applicator Comb",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp",
+      alt: "Tri-Color Light Therapy (Red, Blue, Purple) & EMS Stimulation",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-features.webp",
-      alt: "Hair Growth Comb Features",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+      alt: "5-in-1 Multifunctional Scalp Massager Technologies",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-vibrating-scalp-therapy.webp",
-      alt: "Vibrating Scalp Therapy",
+      src: "/images/products/muuhu-scalppro/Step-2.webp",
+      alt: "Precision Serum Applicator & Essential Oil Dispensing",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-waterproof.webp",
-      alt: "Waterproof Design",
-    },
-    // { src: "/images/products/muuhu-comb/muuhu-red-light-follicle-stimulation.webp", alt: "Red Light Follicle Stimulation" },
-    // { src: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp", alt: "Muuhu ScalpPro" },
-    {
-      src: "/images/products/muuhu-comb/muuhu-therapy-brush-results.webp",
-      alt: "Therapy Brush Results",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+      alt: "High-Frequency Vibration & Acupressure Multi-Contact Points",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-scalp-massage-brush-premium.webp",
-      alt: "Premium Scalp Massage Brush",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_teeth.webp",
+      alt: "Targeted Solutions for Hair Loss, Shedding & Thinning",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-therapy-comb-lifestyle.webp",
-      alt: "Therapy Comb Lifestyle",
-    },
-    // { src: "/images/products/muuhu-comb/muuhu-hair-growth-comb-close-up.webp", alt: "Hair Growth Comb Close Up" },
-    {
-      src: "/images/products/muuhu-comb/muuhu-red-light-therapy-benefits.webp",
-      alt: "Red Light Therapy Benefits",
-    },
-    // { src: "/images/products/muuhu-comb/muuhu-premium-haircare-tool.webp", alt: "Premium Haircare Tool" },
-    {
-      src: "/images/products/muuhu-comb/muuhu-comb-before-after-results.webp",
-      alt: "Comb Before After Results",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_standup.webp",
+      alt: "Portable Scalp Care for Morning, Travel & Bedtime",
     },
     {
-      src: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp",
-      alt: "Comb Packaging Box",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_ems.webp",
+      alt: "Long-Lasting Battery & Type-C Fast Charging",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_24.webp",
+      alt: "Muuhu ScalpPro Daily Styling & Care Mirror Routine",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_25.webp",
+      alt: "Relaxing Evening Phototherapy Scalp Treatment",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu-comb-before-after-2.webp",
+      alt: "Hygienic Free-Standing Countertop Vanity Design",
     },
   ],
   specs: [
-    { label: "Therapy Type", value: "650nm Red Light & Micro-vibration" },
-    { label: "Applicator", value: "Integrated Liquid Tank with Roller Teeth" },
-    { label: "Waterproof Rating", value: "IPX5" },
-    { label: "Battery", value: "USB Rechargeable" },
-    { label: "Usage", value: "Suitable for all hair types" },
+    { label: "Model", value: "F1 Multifunctional Scalp Comb" },
+    { label: "Light Therapy", value: "Red (650-680nm), Blue (430-450nm), Purple (380-420nm)" },
+    { label: "EMS & Vibration", value: "3 EMS Speeds + 3 Vibration Speeds (10,000±2,000 VPM)" },
+    { label: "Teeth Array", value: "6 Rolling Beads + 6 EMS Combs + 8 Silicone Combs" },
+    { label: "Liquid Tank", value: "8ml Detachable Reservoir" },
+    { label: "Power & Charging", value: "1.5W, DC5V Type-C Fast Charging" },
   ],
   faqs: [
     {
-      question: "Can I use it with any hair serum or oil?",
+      question: "Can I use it with any hair serum, oil, or minoxidil?",
       answer:
-        "Yes, the integrated liquid tank is designed to work with most essential oils, minoxidil, and hair serums. The roller teeth distribute the liquid evenly without greasing the hair.",
+        "Yes, the detachable 8ml liquid tank works seamlessly with hair oils, minoxidil, and scalp serums. The 6 elastic rolling beads dispense liquid directly onto the scalp roots upon contact without coating the hair shafts or leaving grease.",
     },
     {
-      question: "How often should I use the red light therapy?",
+      question: "How do the 3 light therapy modes work?",
       answer:
-        "We recommend using the Muuhu ScalpPro for 10-15 minutes a day, 3-4 times a week for optimal follicle stimulation and scalp health.",
+        "Red Light (650-680nm) stimulates cellular ATP and strengthens hair roots; Blue Light (430-450nm) balances scalp oil and calms irritation; Purple Light (380-420nm) provides synergistic dual-wave follicle nourishment.",
     },
     {
-      question: "Is it waterproof?",
+      question: "How do I adjust the EMS and vibration settings?",
       answer:
-        "The comb features an IPX5 waterproof design, meaning you can easily rinse the comb teeth and liquid tank under running water after use. Do not submerge the entire device.",
+        "Muuhu ScalpPro offers 3 EMS microcurrent intensity levels and 3 vibration speeds (10,000 VPM). You can easily cycle through the modes using the button to match your scalp's comfort level.",
+    },
+    {
+      question: "How do I clean the liquid tank and comb teeth?",
+      answer:
+        "The 8ml liquid tank is detachable. Simply remove the tank and rinse it along with the rolling teeth under warm tap water. Note: Do not submerge the charging port or power on while charging.",
     },
   ],
   gifts: [],
   included: [
     {
-      label: "Muuhu ScalpPro Device",
+      label: "Muuhu ScalpPro Main Unit (White)",
       quantity: 1,
-      image: "/images/products/muuhu-comb/muuhu-comb-liquid-tank.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
     },
     {
-      label: "USB Charging Cable",
+      label: "8ml Detachable Liquid Tank",
       quantity: 1,
-      image: "/images/products/muuhu-comb/muuhu-comb-charging-usb.webp",
+      image: "/images/products/muuhu-scalppro/Step-2.webp",
     },
     {
-      label: "User Manual",
+      label: "Precision Dropper",
       quantity: 1,
-      image: "/images/products/muuhu-comb/muuhu-comb-packaging-box.webp",
+      image: "/images/products/muuhu-scalppro/Step-2.webp",
+    },
+    {
+      label: "Type-C Charging Cable",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_ems.webp",
+    },
+    {
+      label: "Instruction Manual",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu-comb-before-after-2.webp",
     },
   ],
-  badges: ["CE Certified", "Red Light Therapy", "Micro-Vibration"],
+  badges: ["CE Certified", "Tri-Color Phototherapy", "EMS Microcurrent", "IPX5 Rinseable"],
 };
 
-export const products: Product[] = [muuhuHairDryer, muuhuComb];
+export const muuhuScalpPro: Product = {
+  id: "muuhu-scalppro",
+  sku: "MUUHU-COMB-01",
+  slug: "muuhu-scalppro",
+  template: "torch",
+  name: "Muuhu ScalpPro",
+  heroTitle: "Muuhu",
+  heroEmphasis: "ScalpPro",
+  shortDescription:
+    "5-in-1 Scalp Rejuvenation Comb with Tri-Color LED therapy, EMS microcurrent, soothing vibration, and an 8ml mess-free serum applicator.",
+  description:
+    "Unlock thicker, healthier hair with the Muuhu ScalpPro. Engineered with targeted 650nm red, 430nm blue, and purple light therapy, 3 levels of EMS microcurrent, high-frequency micro-vibration (10,000 VPM), and 6 elastic rollerball teeth that deliver active serums directly to follicle roots without greasy residue.",
+  seoTitle: "Muuhu ScalpPro | EMS Tri-Light Scalp Care & Massage UK",
+  seoDescription:
+    "Shop Muuhu ScalpPro in the UK. 5-in-1 hair growth comb featuring 3-mode LED light therapy, EMS microcurrent, vibration massage, and an 8ml detachable serum tank.",
+  currency: market.currency,
+  priceCents: 7900,
+  compareAtCents: 15900,
+  rating: 4.9,
+  reviewCount: 16000,
+  customerCount: "16,000+",
+  promoCode: "FREEGIFT",
+  promoLabel: "Free with Muuhu AirPro",
+  highlights: [
+    "6 Elastic rolling beads deliver serums directly to roots without grease",
+    "3-Color light therapy (Red, Blue, Purple) for root strength & follicle health",
+    "3 EMS intensity levels & 3 vibration speeds (10,000 VPM) soothe scalp tension",
+  ],
+  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+  gallery: [
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+      alt: "Muuhu ScalpPro Model F1 Main View",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp",
+      alt: "Tri-Color Light Therapy Spectrum (Red, Blue, Purple)",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+      alt: "8ml Detachable Liquid Reservoir & Precision Dropper",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_ems.webp",
+      alt: "3 EMS Microcurrent Levels & 10,000 VPM Micro-Vibration",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_teeth.webp",
+      alt: "6 Elastic Rolling Beads & 8 Soft Silicone Massage Teeth",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_lifestyle.webp",
+      alt: "At-Home Scalp Care Routine with Model F1",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_standup.webp",
+      alt: "Hygienic Stand-Up Flat Bottom Vanity Design",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+      alt: "Complete Package List & Accessories",
+    },
+  ],
+  specs: [
+    { label: "Model", value: "F1 Multifunctional Scalp Comb" },
+    { label: "Light Therapy", value: "Red (650-680nm), Blue (430-450nm), Purple (380-420nm)" },
+    { label: "EMS & Vibration", value: "3 EMS Speeds + 3 Vibration Speeds (10,000±2,000 VPM)" },
+    { label: "Teeth Array", value: "6 Rolling Beads + 6 EMS Combs + 8 Silicone Combs" },
+    { label: "Liquid Tank", value: "8ml Detachable Reservoir" },
+    { label: "Power & Charging", value: "1.5W, DC5V Type-C Fast Charging" },
+  ],
+  faqs: [
+    {
+      question: "Can I use it with any hair serum, oil, or minoxidil?",
+      answer:
+        "Yes, the detachable 8ml liquid tank works seamlessly with hair oils, minoxidil, and scalp serums. The 6 elastic rolling beads dispense liquid directly onto the scalp roots upon contact without coating the hair shafts or leaving grease.",
+    },
+    {
+      question: "How do the 3 light therapy modes work?",
+      answer:
+        "Red Light (650-680nm) stimulates cellular ATP and strengthens hair roots; Blue Light (430-450nm) balances scalp oil and calms irritation; Purple Light (380-420nm) provides synergistic dual-wave follicle nourishment.",
+    },
+    {
+      question: "How do I adjust the EMS and vibration settings?",
+      answer:
+        "Muuhu ScalpPro offers 3 EMS microcurrent intensity levels and 3 vibration speeds (10,000 VPM). You can easily cycle through the modes using the button to match your scalp's comfort level.",
+    },
+    {
+      question: "How do I clean the liquid tank and comb teeth?",
+      answer:
+        "The 8ml liquid tank is detachable. Simply remove the tank and rinse it along with the rolling teeth under warm tap water. Note: Do not submerge the charging port or power on while charging.",
+    },
+  ],
+  gifts: [],
+  included: [
+    {
+      label: "Muuhu ScalpPro Main Unit (White)",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+    },
+    {
+      label: "8ml Detachable Liquid Tank",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+    },
+    {
+      label: "Precision Dropper",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+    },
+    {
+      label: "Type-C Charging Cable",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+    },
+    {
+      label: "Instruction Manual",
+      quantity: 1,
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+    },
+  ],
+  badges: ["CE Certified", "Tri-Color Phototherapy", "EMS Microcurrent", "IPX5 Rinseable"],
+};
+
+export const products: Product[] = [muuhuHairDryer, muuhuComb, muuhuScalpPro];
 
 export function getProductBySlug(slug: string): Product | undefined {
   return products.find((p) => p.slug === slug);

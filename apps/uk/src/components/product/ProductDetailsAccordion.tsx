@@ -35,6 +35,7 @@ import type { ReactNode } from "react";
 import {
   features as defaultFeatures,
   combFeatures,
+  scalpProFeatures,
 } from "@/data/productSections";
 
 type ProductIcon = typeof IconDiamond;
@@ -176,13 +177,17 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
       eyebrow: "Features",
       icon: IconDiamond,
       title:
-        product.id === "muuhu-comb"
+        product.id === "muuhu-comb" || product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
           ? "What makes our comb unique?"
           : "What makes our styler unique?",
       content: (
         <ul className="grid gap-3">
-          {(product.id === "muuhu-comb" ? combFeatures : defaultFeatures).map(
-            (feature, index) => {
+          {(product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
+            ? scalpProFeatures
+            : product.id === "muuhu-comb"
+            ? combFeatures
+            : defaultFeatures
+          ).map((feature, index) => {
               const Icon = featureIcons[index % featureIcons.length];
               return (
                 <li
@@ -256,43 +261,34 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
       content: (
         <ul className="grid gap-2">
           {product.included.map((item) => {
-            const isUserManual = item.label.toLowerCase().includes("manual");
+            const ItemIcon = (() => {
+              const l = item.label.toLowerCase();
+              if (l.includes("manual") || l.includes("guide") || l.includes("book")) return IconBook2;
+              if (l.includes("tank") || l.includes("reservoir") || l.includes("liquid")) return IconDroplets;
+              if (l.includes("dropper") || l.includes("pipette")) return IconAdjustmentsHorizontal;
+              if (l.includes("cable") || l.includes("charging") || l.includes("type-c") || l.includes("usb") || l.includes("plug")) return IconPlug;
+              if (l.includes("comb") || l.includes("main") || l.includes("unit") || l.includes("device") || l.includes("styler") || l.includes("pro")) return IconDiamond;
+              return IconPackage;
+            })();
 
             return (
               <li
-                className="flex items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[rgba(247,241,232,.55)] px-4 py-3"
+                className="flex items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[rgba(247,241,232,.55)] px-4 py-3.5"
                 key={`${item.quantity}-${item.label}`}
               >
                 <span className="flex items-center gap-3">
-                  {isUserManual ? (
-                    <span className="grid h-10 w-10 shrink-0 place-items-center -ml-1 mr-1 text-[var(--gold)] drop-shadow-[0_8px_14px_rgba(184,149,86,.18)]">
-                      <IconBook2 aria-hidden="true" size={31} stroke={1.45} />
-                    </span>
-                  ) : item.image ? (
-                    <div
-                      className="shrink-0 relative w-10 h-10 -ml-1 mr-1"
-                      style={{
-                        filter:
-                          "invert(56%) sepia(50%) saturate(442%) hue-rotate(352deg) brightness(93%) contrast(93%)",
-                      }}
-                    >
-                      <Image
-                        src={item.image}
-                        alt={item.label}
-                        fill
-                        className="object-contain"
-                      />
-                    </div>
-                  ) : null}
-                  <span className="buudy-mono text-[var(--gold)]">
-                    {item.quantity}
+                  <span className="grid h-9 w-9 shrink-0 place-items-center text-[var(--gold)]">
+                    <ItemIcon aria-hidden="true" size={24} stroke={1.6} />
+                  </span>
+                  <span className="buudy-mono text-[var(--gold)] font-bold">
+                    {item.quantity}×
                   </span>
                   <span className="text-sm font-semibold text-[var(--plum)]">
                     {item.label}
                   </span>
                 </span>
                 {item.tag ? (
-                  <span className="buudy-mono rounded-full bg-[rgba(184,149,86,.18)] px-3 py-1 text-[var(--plum)]">
+                  <span className="buudy-mono rounded-full bg-[rgba(184,149,86,.18)] px-3 py-1 text-[var(--plum)] text-xs">
                     {item.tag}
                   </span>
                 ) : null}

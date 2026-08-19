@@ -26,10 +26,16 @@ import {
   Droplet,
   Droplets,
   HeartPulse,
+  BookOpen,
+  Package,
 } from "lucide-react";
 import type { Product } from "@/data/products";
 import type { ReactNode } from "react";
-import { features as defaultFeatures, combFeatures } from "@/data/productSections";
+import {
+  features as defaultFeatures,
+  combFeatures,
+  scalpProFeatures,
+} from "@/data/productSections";
 import {
   IconGrid4x4,
   IconShieldHeart,
@@ -162,10 +168,18 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
     {
       id: "unique",
       eyebrow: "Features",
-      title: product.id === "muuhu-comb" ? "What makes our comb unique?" : "What makes our styler unique?",
+      title:
+        product.id === "muuhu-comb" || product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
+          ? "What makes our comb unique?"
+          : "What makes our styler unique?",
       content: (
         <ul className="grid gap-3">
-          {(product.id === "muuhu-comb" ? combFeatures : defaultFeatures).map((feature, index) => {
+          {(product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
+            ? scalpProFeatures
+            : product.id === "muuhu-comb"
+            ? combFeatures
+            : defaultFeatures
+          ).map((feature, index) => {
             const Icon = featureIcons[index % featureIcons.length];
             return (
             <li
@@ -252,29 +266,41 @@ export function ProductDetailsAccordion({ product }: { product: Product }) {
       title: "Everything you need",
       content: (
         <ul className="grid gap-2">
-          {product.included.map((item) => (
-            <li
-              className="flex items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[rgba(247,241,232,.55)] px-4 py-3"
-              key={`${item.quantity}-${item.label}`}
-            >
-              <span className="flex items-center gap-3">
-                {item.image && (
-                  <div className="shrink-0 relative w-10 h-10 -ml-1 mr-1" style={{ filter: 'invert(56%) sepia(50%) saturate(442%) hue-rotate(352deg) brightness(93%) contrast(93%)' }}>
-                    <Image src={item.image} alt={item.label} fill className="object-contain" />
-                  </div>
-                )}
-                <span className="buudy-mono text-[var(--gold)]">{item.quantity}</span>
-                <span className="text-sm font-semibold text-[var(--plum)]">
-                  {item.label}
+          {product.included.map((item) => {
+            const ItemIcon = (() => {
+              const l = item.label.toLowerCase();
+              if (l.includes("manual") || l.includes("guide") || l.includes("book")) return BookOpen;
+              if (l.includes("tank") || l.includes("reservoir") || l.includes("liquid")) return Droplets;
+              if (l.includes("dropper") || l.includes("pipette")) return Sliders;
+              if (l.includes("cable") || l.includes("charging") || l.includes("type-c") || l.includes("usb") || l.includes("plug")) return Plug;
+              if (l.includes("comb") || l.includes("main") || l.includes("unit") || l.includes("device") || l.includes("styler") || l.includes("pro")) return Sparkles;
+              return Package;
+            })();
+
+            return (
+              <li
+                className="flex items-center justify-between gap-4 rounded-xl border border-[var(--border)] bg-[rgba(247,241,232,.55)] px-4 py-3.5"
+                key={`${item.quantity}-${item.label}`}
+              >
+                <span className="flex items-center gap-3">
+                  <span className="grid h-9 w-9 shrink-0 place-items-center text-[var(--gold)]">
+                    <ItemIcon aria-hidden="true" size={24} strokeWidth={1.6} />
+                  </span>
+                  <span className="buudy-mono text-[var(--gold)] font-bold">
+                    {item.quantity}×
+                  </span>
+                  <span className="text-sm font-semibold text-[var(--plum)]">
+                    {item.label}
+                  </span>
                 </span>
-              </span>
-              {item.tag ? (
-                <span className="buudy-mono rounded-full bg-[rgba(184,149,86,.18)] px-3 py-1 text-[var(--plum)]">
-                  {item.tag}
-                </span>
-              ) : null}
-            </li>
-          ))}
+                {item.tag ? (
+                  <span className="buudy-mono rounded-full bg-[rgba(184,149,86,.18)] px-3 py-1 text-[var(--plum)] text-xs">
+                    {item.tag}
+                  </span>
+                ) : null}
+              </li>
+            );
+          })}
         </ul>
       ),
     },

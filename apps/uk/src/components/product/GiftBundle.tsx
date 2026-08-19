@@ -59,9 +59,9 @@ function useDeliveryDate(daysFromToday: number) {
 
       const weekday = date.toLocaleString(market.locale, { weekday: "long" });
       const day = date.getDate();
-      const month = date.toLocaleString(market.locale, { month: "long" });
+      const month = date.toLocaleString(market.locale, { month: "short" });
 
-      setDateLabel(`${weekday} ${day} ${month}`);
+      setDateLabel(`${weekday}, ${day} ${month}`);
     }, 0);
 
     return () => window.clearTimeout(timeout);
@@ -70,13 +70,10 @@ function useDeliveryDate(daysFromToday: number) {
   return dateLabel;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function FaceNeckIcon({ size = 22 }: { size?: number }) {
+function NeckCoverageIcon() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      className="mx-auto h-12 w-12 text-[var(--gold)]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -138,65 +135,63 @@ function HairDryerBenefitStrip() {
       aria-label="Muuhu AirPro benefits"
       className="mt-7 grid grid-cols-4 border-b border-[rgba(58,31,61,.12)] pb-7 text-center sm:mt-8 sm:pb-8"
     >
-      {benefits.map((benefit) => {
-        const Icon = benefit.icon;
-
-        return (
-          <div
-            className="flex min-w-0 flex-col items-center px-1 sm:px-2"
-            key={benefit.label}
-          >
-            <div className="flex h-12 w-full items-center justify-center sm:h-16">
-              {Icon ? (
-                <Icon
-                  aria-hidden
-                  className="h-10 w-10 text-[var(--ink)] sm:h-12 sm:w-12"
-                  stroke={0.55}
-                />
-              ) : (
-                <Image
-                  alt=""
-                  aria-hidden
-                  className={benefit.imageClassName}
-                  height={60}
-                  src={benefit.image!}
-                  width={60}
-                />
-              )}
-            </div>
-            <p className="buudy-display mt-2 !text-[9px] font-semibold uppercase !leading-[1.2] tracking-[0.01em] text-[var(--plum)] sm:!text-[10px]">
-              {benefit.label}
-            </p>
+      {benefits.map((b, i) => (
+        <div className="flex flex-col items-center gap-1.5 sm:gap-2" key={i}>
+          <div className="flex h-11 w-11 items-center justify-center sm:h-14 sm:w-14">
+            {b.image ? (
+              <Image
+                alt={b.label}
+                className={
+                  b.imageClassName || "!h-11 !w-11 object-contain sm:!h-14 sm:!w-14"
+                }
+                height={56}
+                src={b.image}
+                width={56}
+              />
+            ) : b.icon ? (
+              <b.icon
+                className="text-[var(--gold)]"
+                size={34}
+                stroke={1.25}
+              />
+            ) : null}
           </div>
-        );
-      })}
+          <p className="buudy-display text-[9px] font-bold uppercase leading-tight tracking-wider text-[var(--plum-soft)] sm:text-[10.5px]">
+            {b.label}
+          </p>
+        </div>
+      ))}
     </div>
   );
 }
 
 export function GiftBundle({ product }: { product: Product }) {
-  const { addProduct } = useCart();
   const router = useRouter();
-  const timer = useCountdown(15 * 60 - 1);
-  const deliveryDate = useDeliveryDate(3);
-
-  const giftValue = product.gifts?.reduce(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (total: number, gift: any) => total + gift.valueCents,
+  const { addProduct } = useCart();
+  const timer = useCountdown(300);
+  const deliveryDate = useDeliveryDate(2);
+  const hasGifts = product.gifts.length > 0;
+  const giftValue = product.gifts.reduce(
+    (acc, gift) => acc + gift.valueCents,
     0,
   );
-  const hasGifts = product.gifts.length > 0;
+
   return (
     <div>
       <a
-        href="#reviews"
-        className="flex flex-wrap items-center gap-3 no-underline hover:no-underline cursor-pointer"
+        className="flex flex-wrap items-center gap-2 text-sm text-[var(--plum)] transition hover:opacity-80"
+        href="#reviews-section"
       >
-        <div
-          className="text-xl sm:text-2xl leading-none text-[var(--gold)]"
-          aria-hidden
-        >
-          ★★★★★
+        <div className="flex items-center gap-1 text-[var(--gold)]">
+          {[...Array(5)].map((_, i) => (
+            <svg
+              className="h-4 w-4 fill-current sm:h-5 sm:w-5"
+              key={i}
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
         </div>
         <span className="font-sans text-sm sm:text-base font-medium text-[var(--plum)] bg-[rgba(184,149,86,.18)] px-2.5 py-0.5 rounded-md">
           {product.rating} · TRUSTED BY {product.customerCount} CUSTOMERS
@@ -239,7 +234,7 @@ export function GiftBundle({ product }: { product: Product }) {
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
-            {product.id.includes("hair-dryer") || product.id.includes("comb")
+            {product.id.includes("hair-dryer") || product.id.includes("comb") || product.id.includes("scalppro")
               ? "Stylist Approved"
               : "Dermatologist Approved"}
           </span>
@@ -442,11 +437,7 @@ export function GiftBundle({ product }: { product: Product }) {
                       className="rounded-[20px] object-contain p-0.5 transition-transform duration-300 group-hover:scale-105 md:p-1"
                       fill
                       sizes="120px"
-                      src={
-                        product.id === "muuhu-hair-dryer" && gift.id === "muuhu-comb"
-                          ? "/images/products/muuhu-comb/muuhu-scalppro-bonus.webp"
-                          : gift.image
-                      }
+                      src={gift.image}
                     />
                   </div>
 
@@ -469,8 +460,9 @@ export function GiftBundle({ product }: { product: Product }) {
             50% off, free shipping, and a complete scalp-care kit.
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-            Includes Muuhu ScalpPro, USB charging cable, built-in serum
-            applicator, and user manual for a simple at-home scalp-care routine.
+            {product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
+              ? "Includes Muuhu ScalpPro White Main Unit, 8ml Detachable Liquid Tank, Precision Dropper, Type-C Charging Cable, and User Manual."
+              : "Includes Muuhu ScalpPro, USB charging cable, built-in serum applicator, and user manual for a simple at-home scalp-care routine."}
           </p>
         </section>
       )}

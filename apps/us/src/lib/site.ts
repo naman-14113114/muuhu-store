@@ -1,7 +1,7 @@
 import { market } from "@/lib/market";
 
 export const defaultSiteUrl = market.siteUrl;
-export const plusbaseStoreUrl = "https://muuhu.com";
+export const plusbaseStoreUrl = "https://buudy.com";
 
 const plusbaseBridgePath = "/pages/add-to-cart";
 
@@ -15,11 +15,9 @@ export function absoluteUrl(path = "/") {
 }
 
 export function getPlusbaseCheckoutBridgeUrl() {
-  const configured =
-    process.env.NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL ??
-    `${plusbaseStoreUrl}${plusbaseBridgePath}`;
+  const configured = process.env.NEXT_PUBLIC_PLUSBASE_ADD_TO_CART_URL?.trim();
 
-  return configured;
+  return configured || `${plusbaseStoreUrl}${plusbaseBridgePath}`;
 }
 
 export type CheckoutBridgeOptions = {
@@ -27,6 +25,7 @@ export type CheckoutBridgeOptions = {
   quantity?: number;
   giftQuantity?: number;
   productId?: string;
+  discountCode?: string;
   source?: string;
   utmSource?: string;
   utmMedium?: string;
@@ -35,7 +34,9 @@ export type CheckoutBridgeOptions = {
 };
 
 const PLUSBASE_PRODUCTS: Record<string, { productId: string; variantId: string }> = {
-  "muuhu-hair-dryer": { productId: "TBD", variantId: "TBD" },
+  "muuhu-hair-dryer": { productId: "1000000670522113", variantId: "1000020551282537" },
+  "muuhu-comb": { productId: "1000000670522361", variantId: "1000020551283771" },
+  "muuhu-scalppro": { productId: "1000000670522361", variantId: "1000020551283771" },
 };
 
 export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {
@@ -66,10 +67,16 @@ export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {
 
   // Gifts will be added here once we know what they are
   if (targetProductId === "muuhu-hair-dryer") {
-    // params.gift_variant_id = PLUSBASE_PRODUCTS["muuhu-gift"].variantId;
-    // params.gift_product_id = PLUSBASE_PRODUCTS["muuhu-gift"].productId;
-    // params.gift_quantity = String(giftQuantity);
-    // params.gift = "muuhu-gift";
+    // Premium Packaging (free gift)
+    // params["gift_product_id_1"] = "1000020384558655";
+    // params["gift_variant_id_1"] = "1000020384558655";
+    // params["gift_quantity_1"] = String(giftQuantity);
+
+    // E-book is digital (no variant needed on PlusBase)
+  }
+
+  if (options.discountCode) {
+    params.discount = options.discountCode;
   }
 
   if (options.checkoutRef) {
@@ -78,12 +85,6 @@ export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {
 
   Object.entries(params).forEach(([key, value]) => {
     url.searchParams.set(key, value);
-  });
-
-  Object.entries(options.extraParams ?? {}).forEach(([key, value]) => {
-    if (value != null && value !== "") {
-      url.searchParams.set(key, String(value));
-    }
   });
 
   return url.toString();

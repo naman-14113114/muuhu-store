@@ -10,6 +10,7 @@ const plusbaseOrigin = "https://buudy.com";
 const PLUSBASE_PRODUCTS: Record<string, { productId: number; variantId: number }> = {
   "muuhu-hair-dryer": { productId: 1000000670522113, variantId: 1000020551282537 },
   "muuhu-comb": { productId: 1000000670522361, variantId: 1000020551283771 },
+  "muuhu-scalppro": { productId: 1000000670522361, variantId: 1000020551283771 },
 };
 
 type CheckoutPrepareBody = {

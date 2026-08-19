@@ -1363,7 +1363,7 @@ export function ProductReviewsGrid({
                 <>
                   Muuhu Airpro <em className="buudy-italic">customer reviews</em>.
                 </>
-              ) : productHandle === "muuhu-comb" ? (
+              ) : productHandle === "muuhu-comb" || productHandle === "muuhu-scalppro" ? (
                 <>
                   Muuhu ScalpPro <em className="buudy-italic">customer reviews</em>.
                 </>
@@ -1378,7 +1378,7 @@ export function ProductReviewsGrid({
                 ? "Real feedback from customers who made the Buudy Red Torch part of their daily wellness ritual."
                 : productHandle === "muuhu-hair-dryer"
                 ? "Real feedback from customers who transformed their hair styling routine with the Muuhu Airpro."
-                : productHandle === "muuhu-comb"
+                : productHandle === "muuhu-comb" || productHandle === "muuhu-scalppro"
                 ? "Real feedback from customers who made Muuhu ScalpPro part of their at-home haircare ritual."
                 : "Real feedback from customers who made Buudy part of their at-home skincare ritual."
             }
@@ -1465,7 +1465,7 @@ export function ProductReviewsGrid({
         {hasMore ? (
           <Button
             aria-label={`Load 20 more ${
-              productHandle === "muuhu-comb"
+              productHandle === "muuhu-comb" || productHandle === "muuhu-scalppro"
                 ? "Muuhu ScalpPro"
                 : productHandle === "muuhu-hair-dryer"
                   ? "Muuhu Airpro"

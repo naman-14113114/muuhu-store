@@ -70,29 +70,77 @@ export const features: Feature[] = [
 
 export const combFeatures: Feature[] = [
   {
-    title: "Targeted Red Light Therapy",
-    kicker: "650nm Follicle Stimulation",
-    body: "Delivers medical-grade 650nm red light directly to the scalp, penetrating deep into the follicles to stimulate cellular energy, encourage hair growth, and combat thinning at the source.",
+    title: "Tri-Color Light Therapy Modes",
+    kicker: "Targeted Phototherapy Spectrum",
+    body: "Red light (650–680nm) strengthens hair roots, blue light (430–450nm) heals damaged follicles and balances scalp oil, and purple light (380–420nm) provides dual-wave scalp rejuvenation.",
   },
   {
-    title: "Micro-Vibration Massage",
-    kicker: "Deep Scalp Relaxation",
-    body: "Enjoy thousands of soothing micro-vibrations per minute. This gentle massage boosts blood circulation, relaxes tense scalp muscles, and prepares your roots for maximum nutrient absorption.",
+    title: "6 EMS Microcurrent Teeth",
+    kicker: "Secondary Muscle Activation",
+    body: "Generates gentle bio-electric microcurrents across 3 adjustable intensity levels to stimulate dermal papilla cells and enhance localized microcirculation.",
   },
   {
-    title: "Precision Liquid Applicator",
-    kicker: "Zero-Mess Essential Oil Infusion",
-    body: "Features an integrated 6ml liquid tank with specialized rolling ball teeth. It evenly distributes minoxidil, essential oils, or hair serums directly to the roots without leaving your hair greasy.",
+    title: "3 High-Frequency Vibration Speeds",
+    kicker: "10,000 ± 2,000 VPM Massage",
+    body: "Acoustic micro-vibration soothes daily scalp tension, stimulates cell metabolism, and prepares roots for optimal formula absorption.",
   },
   {
-    title: "100% Waterproof Design",
-    kicker: "IPX5 Certified",
-    body: "Designed for real life. The fully waterproof body means you can easily detach the tank and rinse the comb teeth directly under running water after your daily routine.",
+    title: "8ml Detachable Liquid Tank",
+    kicker: "Precision Dropper & Easy Rinse",
+    body: "Separate 8ml reservoir allows effortless filling with hair oils, minoxidil, or growth serums, and detaches for quick rinsing with water.",
   },
   {
-    title: "USB Rechargeable & Portable",
-    kicker: "Take Your Routine Anywhere",
-    body: "Features a long-lasting battery with fast Type-C charging. Its lightweight, travel-friendly design ensures you never have to skip a treatment, whether at home or on the go.",
+    title: "6 Elastic Rolling Beads Teeth",
+    kicker: "Targeted Zero-Mess Dispensing",
+    body: "Spring-loaded rollerball teeth part hair and release serum directly onto scalp roots upon gentle pressure without making hair greasy.",
+  },
+  {
+    title: "8 Soft Silicone Massage Points",
+    kicker: "Gentle Scratch-Free Care",
+    body: "Multi-contact silicone points provide a comforting, non-irritating acupoint massage for all scalp types.",
+  },
+  {
+    title: "Stand-Up Flat Bottom Design",
+    kicker: "Hygienic Countertop Storage",
+    body: "Thoughtful self-standing base keeps the comb upright on your vanity or bathroom counter, preventing spills and keeping your space tidy.",
+  },
+];
+
+export const scalpProFeatures: Feature[] = [
+  {
+    title: "Tri-Color Light Therapy Modes",
+    kicker: "Targeted Phototherapy Spectrum",
+    body: "Red light (650–680nm) strengthens hair roots, blue light (430–450nm) heals damaged follicles and balances scalp oil, and purple light (380–420nm) provides dual-wave scalp rejuvenation.",
+  },
+  {
+    title: "6 EMS Microcurrent Teeth",
+    kicker: "Secondary Muscle Activation",
+    body: "Generates gentle bio-electric microcurrents across 3 adjustable intensity levels to stimulate dermal papilla cells and enhance localized microcirculation.",
+  },
+  {
+    title: "3 High-Frequency Vibration Speeds",
+    kicker: "10,000 ± 2,000 VPM Massage",
+    body: "Acoustic micro-vibration soothes daily scalp tension, stimulates cell metabolism, and prepares roots for optimal formula absorption.",
+  },
+  {
+    title: "8ml Detachable Liquid Tank",
+    kicker: "Precision Dropper & Easy Rinse",
+    body: "Separate 8ml reservoir allows effortless filling with hair oils, minoxidil, or growth serums, and detaches for quick rinsing with water.",
+  },
+  {
+    title: "6 Elastic Rolling Beads Teeth",
+    kicker: "Targeted Zero-Mess Dispensing",
+    body: "Spring-loaded rollerball teeth part hair and release serum directly onto scalp roots upon gentle pressure without making hair greasy.",
+  },
+  {
+    title: "8 Soft Silicone Massage Points",
+    kicker: "Gentle Scratch-Free Care",
+    body: "Multi-contact silicone points provide a comforting, non-irritating acupoint massage for all scalp types.",
+  },
+  {
+    title: "Stand-Up Flat Bottom Design",
+    kicker: "Hygienic Countertop Storage",
+    body: "Thoughtful self-standing base keeps the comb upright on your vanity or bathroom counter, preventing spills and keeping your space tidy.",
   },
 ];
 
@@ -165,39 +213,26 @@ export const transformations: Transformation[] = [
     image: "/images/products/muuhu-hair-dryer/before-after-cards/image_7.webp",
     concern: "Symmetrical Styling",
     title: "Flawless uniform curls",
-    quote: '"Having both left and right barrels means my curls are perfectly balanced. The bounce is simply unreal."',
-    name: "Rachel W.",
-    fullName: "Rachel Williams",
+    quote: '"Having dedicated left and right barrels makes symmetrical styling so simple. My curls always look professional and balanced."',
+    name: "Hannah K.",
+    fullName: "Hannah Kelly",
     age: 31,
-    routine: "Right Curling Barrel for the right side to ensure outward flow.",
-    experience: "The transition from drying to curling is seamless. The right curling barrel finishes off my look, creating symmetrical, bouncy waves without heat damage.",
-    hairType: "Long & Fine"
+    routine: "Right Curling Barrel for the right side, Left for the left.",
+    experience: "Switching between directional barrels ensures both sides of my hair frame my face evenly. It is foolproof even if you are not great with curling irons.",
+    hairType: "Fine & Wavy"
   },
   {
     id: "result-06",
     image: "/images/products/muuhu-hair-dryer/before-after-cards/image_8.webp",
     concern: "Defined Natural Curls",
-    title: "Embraces my natural texture",
-    quote: '"This diffuser completely eliminated my frizz and defined my natural curl pattern beautifully without blowing it apart."',
-    name: "Maya L.",
-    fullName: "Maya Lewis",
-    age: 27,
-    routine: "Cup hair into the Diffuser on the lowest airflow and heat setting.",
-    experience: "It simulates natural air drying but is so much faster. My curls have never looked this defined, hydrated, and bouncy. An absolute essential.",
-    hairType: "Curly (3B)"
-  },
-  {
-    id: "result-07",
-    image: "/images/products/muuhu-hair-dryer/before-after-cards/image_9.webp",
-    concern: "Precision Styling",
-    title: "Smooth, controlled finish",
-    quote: '"The concentrator nozzle gives me total control over where the air goes. Perfect for finishing touches."',
-    name: "Olivia H.",
-    fullName: "Olivia Harris",
+    title: "Zero frizz, maximum definition",
+    quote: '"The diffuser attachment completely changed my curl routine. My natural curls are bouncy, defined, and completely frizz-free."',
+    name: "Maya P.",
+    fullName: "Maya Patel",
     age: 29,
-    routine: "Concentrator Nozzle pointed downwards over a round brush.",
-    experience: "When I want a truly sleek blowout, this nozzle is my go-to. It directs the high-velocity airflow exactly where I need it, leaving a glass-like shine.",
-    hairType: "Medium & Wavy"
+    routine: "Diffuser on low heat, cupping curls upwards towards scalp.",
+    experience: "Even heat distribution dries curls gently without disturbing the natural curl pattern. It cuts my routine in half without drying out my hair.",
+    hairType: "Curly / Type 3A"
   }
 ];
 
@@ -205,44 +240,45 @@ export const reviewVideos: ReviewVideo[] = [
   {
     id: "review-01",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-01-poster.jpg",
-    src: "/videos/hair-dryer/Hair Dryer video 1-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 1.mp4",
+    src: "/videos/hair-dryer/Hair Dryer 1-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 1.mp4",
   },
   {
     id: "review-02",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-02-poster.jpg",
-    src: "/videos/hair-dryer/Hair Dryer video 2-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 2.mp4",
+    src: "/videos/hair-dryer/Hair Dryer 2-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 2.mp4",
   },
   {
     id: "review-03",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-03-poster.jpg",
-    src: "/videos/hair-dryer/Hair Dryer video 3-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 3.mp4",
+    src: "/videos/hair-dryer/Hair Dryer 3-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 3.mp4",
   },
   {
     id: "review-04",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-04-poster.jpg",
-    src: "/videos/hair-dryer/Hair Dryer video 4-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 4.mp4",
+    src: "/videos/hair-dryer/Hair Dryer 4-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 4.mp4",
   },
   {
     id: "review-05",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-05-poster.jpg",
-    src: "/videos/hair-dryer/Hair Dryer video 5-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 5.mp4",
+    src: "/videos/hair-dryer/Hair Dryer 5-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 5.mp4",
   },
   {
     id: "review-06",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-06-poster.jpg",
     src: "/videos/hair-dryer/Hair Dryer 6-shorts.mp4",
-    fullSrc: "/videos/hair-dryer/Hair Dryer Reviews Video 6.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 6.mp4",
   },
-  // {
-  //   id: "review-07",
-  //   src: "/videos/hair-dryer/Hair Dryer video 7-shorts.mp4",
-  //   fullSrc: "/videos/hair-dryer/Hair Dryer Video 7.mp4",
-  // },
+  {
+    id: "review-07",
+    poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-07-poster.jpg",
+    src: "/videos/hair-dryer/Hair Dryer 7-shorts.mp4",
+    fullSrc: "/videos/hair-dryer/Hair Dryer Video 7.mp4",
+  },
   {
     id: "review-08",
     poster: "/videos/hair-dryer/posters/muuhu-airpro-review-video-08-poster.jpg",
@@ -263,7 +299,6 @@ export const reviewVideos: ReviewVideo[] = [
   },
 ];
 
-// Repurposed wavelengths as attachments
 export const wavelengths: Wavelength[] = [
   {
     nm: "Dry",
@@ -356,5 +391,3 @@ export const expertVideo = {
   poster: productAsset("02-new-year-new-hair.webp"),
   src: "/media/products/buudy-led-mask/videos/Buudy Dermatologists Video.webm",
 };
-
-

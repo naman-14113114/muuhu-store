@@ -23,12 +23,12 @@ export function ProductPage({ product, variant }: { product: Product; variant?: 
     return <HairDryerProductPage product={product} />;
   }
 
-  if (product.id === "muuhu-comb") {
+  if (product.id === "muuhu-comb" || product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro") {
     return (
       <>
         <ProductHero product={product} />
         <TrustBadges />
-        <CombFeatureSections />
+        <CombFeatureSections productHandle={product.slug} />
         <ProductReviewsSection productHandle={product.slug} />
         <FAQSection faqs={product.faqs} productHandle={product.id} />
         <GuaranteeSection productHandle={product.id} />

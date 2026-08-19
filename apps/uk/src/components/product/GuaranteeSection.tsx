@@ -1,5 +1,5 @@
 export function GuaranteeSection({ productHandle }: { productHandle?: string }) {
-  const isComb = productHandle === "muuhu-comb";
+  const isComb = productHandle === "muuhu-comb" || productHandle === "muuhu-scalppro";
   return (
     <section className={`buudy-section relative overflow-hidden py-14 pb-24 text-center md:py-24 md:pb-36 ${productHandle === "muuhu-hair-dryer" ? "bg-black" : "bg-[var(--plum)]"}`}>
       {productHandle === "muuhu-hair-dryer" && (

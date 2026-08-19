@@ -4,17 +4,19 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
-import Lottie from "lottie-react";
 import {
-  ShieldCheck,
-  Sparkles,
-  RotateCcw,
-  Timer,
-  Crown,
-  Leaf,
-  Heart,
-  Droplet,
-} from "lucide-react";
+  IconBrush,
+  IconCertificate,
+  IconDiamond,
+  IconDroplet,
+  IconHeartHandshake,
+  IconLeaf,
+  IconMist,
+  IconRotateClockwise2,
+  IconScissors,
+  IconWind,
+} from "@tabler/icons-react";
+import { Truck } from "lucide-react";
 import type { Product } from "@/data/products";
 import { market } from "@/lib/market";
 import { formatMoney } from "@/lib/money";
@@ -23,9 +25,12 @@ import {
   pickAttributionFromSearch,
 } from "@/lib/attribution";
 import { Button } from "@/components/ui/Button";
+import { DeferredLottie } from "@/components/ui/DeferredLottie";
 import { Price } from "@/components/ui/Price";
 import { useCart } from "@/components/cart/CartProvider";
 import { ProductDetailsAccordion } from "./ProductDetailsAccordion";
+
+type ProductIcon = typeof IconDiamond;
 
 function useCountdown(seconds: number) {
   const [remaining, setRemaining] = useState(seconds);
@@ -54,9 +59,9 @@ function useDeliveryDate(daysFromToday: number) {
 
       const weekday = date.toLocaleString(market.locale, { weekday: "long" });
       const day = date.getDate();
-      const month = date.toLocaleString(market.locale, { month: "long" });
+      const month = date.toLocaleString(market.locale, { month: "short" });
 
-      setDateLabel(`${weekday} ${day} ${month}`);
+      setDateLabel(`${weekday}, ${day} ${month}`);
     }, 0);
 
     return () => window.clearTimeout(timeout);
@@ -65,13 +70,10 @@ function useDeliveryDate(daysFromToday: number) {
   return dateLabel;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function FaceNeckIcon({ size = 22 }: { size?: number }) {
+function NeckCoverageIcon() {
   return (
     <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width={size}
-      height={size}
+      className="mx-auto h-12 w-12 text-[var(--gold)]"
       viewBox="0 0 24 24"
       fill="none"
       stroke="currentColor"
@@ -87,53 +89,109 @@ function FaceNeckIcon({ size = 22 }: { size?: number }) {
   );
 }
 
-function getHighlightIcon(text: string) {
+function getHighlightIcon(text: string): ProductIcon {
   const t = text.toLowerCase();
-  if (t.includes("time") || t.includes("dries")) return Timer;
-  if (t.includes("frizz") || t.includes("smooth")) return Sparkles;
-  if (t.includes("salon") || t.includes("blowout")) return Crown;
-  if (t.includes("follicle") || t.includes("thicker")) return Leaf;
-  if (t.includes("soothes") || t.includes("relaxing")) return Heart;
-  if (t.includes("serum") || t.includes("roots")) return Droplet;
-  return Sparkles;
+  if (t.includes("time") || t.includes("dries")) return IconWind;
+  if (t.includes("frizz") || t.includes("smooth")) return IconMist;
+  if (t.includes("salon") || t.includes("blowout")) return IconBrush;
+  if (t.includes("follicle") || t.includes("thicker")) return IconLeaf;
+  if (t.includes("soothes") || t.includes("relaxing"))
+    return IconHeartHandshake;
+  if (t.includes("serum") || t.includes("roots")) return IconDroplet;
+  return IconDiamond;
+}
+
+function HairDryerBenefitStrip() {
+  const benefits = [
+    {
+      label: "7-in-1 dry, curl & style",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/airpro-7-in-1.png",
+      imageClassName:
+        "!h-12 w-auto object-contain brightness-0 contrast-125 sm:!h-16",
+    },
+    {
+      label: "Fast drying with lower heat",
+      icon: IconWind,
+    },
+    {
+      label: "90-day money-back guarantee",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/90-day-guarantee.png",
+      imageClassName:
+        "!h-11 !w-11 object-contain contrast-150 sm:!h-14 sm:!w-14",
+    },
+    {
+      label: "Science-backed design",
+      image:
+        "/images/products/muuhu-hair-dryer/benefit-icons/science-backed-design.png",
+      imageClassName:
+        "!h-11 !w-11 object-contain contrast-150 sm:!h-14 sm:!w-14",
+    },
+  ];
+
+  return (
+    <div
+      aria-label="Muuhu AirPro benefits"
+      className="mt-7 grid grid-cols-4 border-b border-[rgba(58,31,61,.12)] pb-7 text-center sm:mt-8 sm:pb-8"
+    >
+      {benefits.map((b, i) => (
+        <div className="flex flex-col items-center gap-1.5 sm:gap-2" key={i}>
+          <div className="flex h-11 w-11 items-center justify-center sm:h-14 sm:w-14">
+            {b.image ? (
+              <Image
+                alt={b.label}
+                className={
+                  b.imageClassName || "!h-11 !w-11 object-contain sm:!h-14 sm:!w-14"
+                }
+                height={56}
+                src={b.image}
+                width={56}
+              />
+            ) : b.icon ? (
+              <b.icon
+                className="text-[var(--gold)]"
+                size={34}
+                stroke={1.25}
+              />
+            ) : null}
+          </div>
+          <p className="buudy-display text-[9px] font-bold uppercase leading-tight tracking-wider text-[var(--plum-soft)] sm:text-[10.5px]">
+            {b.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  );
 }
 
 export function GiftBundle({ product }: { product: Product }) {
-  const { addProduct } = useCart();
   const router = useRouter();
-  const timer = useCountdown(15 * 60 - 1);
-  const deliveryDate = useDeliveryDate(3);
-  const [deliveryIconData, setDeliveryIconData] = useState<Record<
-    string,
-    unknown
-  > | null>(null);
-
-  useEffect(() => {
-    fetch(
-      "/media/products/buudy-led-mask/images/lottieflow-ecommerce-14-19-aa8e50-easey.json",
-    )
-      .then((res) => res.json())
-      .then((data) => setDeliveryIconData(data))
-      .catch((err) => console.error("Error loading delivery lottie", err));
-  }, []);
-
-  const giftValue = product.gifts?.reduce(
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    (total: number, gift: any) => total + gift.valueCents,
+  const { addProduct } = useCart();
+  const timer = useCountdown(300);
+  const deliveryDate = useDeliveryDate(2);
+  const hasGifts = product.gifts.length > 0;
+  const giftValue = product.gifts.reduce(
+    (acc, gift) => acc + gift.valueCents,
     0,
   );
-  const hasGifts = product.gifts.length > 0;
+
   return (
     <div>
       <a
-        href="#reviews"
-        className="flex flex-wrap items-center gap-3 no-underline hover:no-underline cursor-pointer"
+        className="flex flex-wrap items-center gap-2 text-sm text-[var(--plum)] transition hover:opacity-80"
+        href="#reviews-section"
       >
-        <div
-          className="text-xl sm:text-2xl leading-none text-[var(--gold)]"
-          aria-hidden
-        >
-          ★★★★★
+        <div className="flex items-center gap-1 text-[var(--gold)]">
+          {[...Array(5)].map((_, i) => (
+            <svg
+              className="h-4 w-4 fill-current sm:h-5 sm:w-5"
+              key={i}
+              viewBox="0 0 20 20"
+            >
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+            </svg>
+          ))}
         </div>
         <span className="font-sans text-sm sm:text-base font-medium text-[var(--plum)] bg-[rgba(184,149,86,.18)] px-2.5 py-0.5 rounded-md">
           {product.rating} · TRUSTED BY {product.customerCount} CUSTOMERS
@@ -142,15 +200,17 @@ export function GiftBundle({ product }: { product: Product }) {
 
       <h1 className="font-playfair mt-3 whitespace-nowrap text-[2rem] leading-[1.02] text-[var(--plum)] sm:text-[2.55rem] md:text-[3.25rem] xl:text-[4rem] 2xl:text-[4.45rem]">
         {product.heroTitle}{" "}
-        <em className="italic text-[var(--gold)]">{product.heroEmphasis}</em>
+        <em className="italic text-[var(--gold-text)]">
+          {product.heroEmphasis}
+        </em>
       </h1>
 
       {/* Clinically Proven Badges */}
       <div className="mt-3 flex flex-nowrap items-center gap-1 sm:gap-2">
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <ShieldCheck
+          <IconCertificate
             size={14}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
@@ -158,9 +218,9 @@ export function GiftBundle({ product }: { product: Product }) {
           </span>
         </span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <RotateCcw
+          <IconRotateClockwise2
             size={13}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
@@ -168,13 +228,13 @@ export function GiftBundle({ product }: { product: Product }) {
           </span>
         </span>
         <span className="inline-flex items-center gap-1 sm:gap-1.5 rounded-full border border-[rgba(58,31,61,.15)] bg-[var(--card)] px-1.5 sm:px-3 py-1 sm:py-1.5">
-          <Sparkles
+          <IconScissors
             size={14}
-            strokeWidth={2}
+            stroke={1.7}
             className="hidden sm:block shrink-0 text-[var(--gold)]"
           />
           <span className="whitespace-nowrap buudy-display text-[8px] sm:text-[10.5px] font-bold uppercase tracking-[0.02em] sm:tracking-[0.05em] text-[var(--plum)]">
-            {product.id.includes("hair-dryer") || product.id.includes("comb")
+            {product.id.includes("hair-dryer") || product.id.includes("comb") || product.id.includes("scalppro")
               ? "Stylist Approved"
               : "Dermatologist Approved"}
           </span>
@@ -187,7 +247,7 @@ export function GiftBundle({ product }: { product: Product }) {
           currency={product.currency}
           priceCents={product.priceCents}
         />
-        <div className="flex flex-nowrap items-center gap-x-1 sm:gap-x-1.5 text-[9.5px] sm:text-[13px] text-[var(--muted)]">
+        <div className="flex flex-nowrap items-center gap-x-1 sm:gap-x-1.5 text-[9.5px] sm:text-[13px] text-[var(--plum)]">
           <span className="whitespace-nowrap tracking-tight sm:tracking-normal">
             or{" "}
             <strong className="buudy-display text-[10px] sm:text-[14px] font-medium text-[var(--plum)]">
@@ -212,8 +272,8 @@ export function GiftBundle({ product }: { product: Product }) {
                 className="flex items-center gap-3 text-[14.5px] font-normal leading-normal text-[var(--plum)] buudy-display"
                 key={benefit}
               >
-                <span className="flex h-5 w-5 shrink-0 items-center justify-center text-[var(--gold)]">
-                  <Icon size={18} strokeWidth={1.5} />
+                <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full border border-[rgba(184,149,86,.22)] bg-[rgba(184,149,86,.10)] text-[var(--gold)]">
+                  <Icon size={17} stroke={1.45} />
                 </span>
                 <span>{benefit}</span>
               </li>
@@ -226,11 +286,17 @@ export function GiftBundle({ product }: { product: Product }) {
         <div className="flex items-center justify-between gap-2 sm:gap-5">
           <div>
             <div className="flex items-center gap-1.5 sm:gap-2">
-              {deliveryIconData && (
-                <div className="w-5 h-5 sm:w-7 sm:h-7 flex-shrink-0 flex items-center justify-center">
-                  <Lottie animationData={deliveryIconData} loop={true} />
-                </div>
-              )}
+              <DeferredLottie
+                className="flex h-5 w-5 flex-shrink-0 items-center justify-center sm:h-7 sm:w-7"
+                fallback={
+                  <Truck
+                    aria-hidden="true"
+                    className="h-4 w-4 text-[var(--gold-text)] sm:h-5 sm:w-5"
+                    strokeWidth={1.5}
+                  />
+                }
+                src="/media/products/buudy-led-mask/images/lottieflow-ecommerce-14-19-aa8e50-easey.json"
+              />
               <p className="buudy-eyebrow text-[var(--gold)] m-0 leading-none flex items-center h-5 sm:h-7 font-bold text-[10px] sm:text-xs">
                 FREE DELIVERY
               </p>
@@ -269,6 +335,8 @@ export function GiftBundle({ product }: { product: Product }) {
             : "ADD TO CART + FREE SHIPPING"}
         </span>
       </Button>
+
+      {product.id === "muuhu-hair-dryer" && <HairDryerBenefitStrip />}
 
       {/* Benefits Grid Row (Mask Only) */}
       {product.id === "buudy-led-mask" && (
@@ -333,9 +401,9 @@ export function GiftBundle({ product }: { product: Product }) {
       {hasGifts ? (
         <section className="mt-8" id="free-gifts">
           <div className="text-center mb-8 flex flex-col items-center">
-            <h3 className="buudy-display text-3xl font-medium text-[var(--plum)]">
+            <h2 className="buudy-display text-3xl font-medium text-[var(--plum)]">
               Big Summer Savings
-            </h3>
+            </h2>
             <p className="buudy-mono mt-2 inline-flex items-center justify-center gap-1.5 flex-wrap rounded bg-[rgba(184,149,86,.15)] px-3 py-1 text-xs sm:text-sm font-bold tracking-widest text-[var(--plum)]">
               <span className="buudy-display text-sm sm:text-base font-extrabold normal-case text-[var(--plum)]">
                 {formatMoney(giftValue, product.currency)}
@@ -348,7 +416,6 @@ export function GiftBundle({ product }: { product: Product }) {
               // eslint-disable-next-line @typescript-eslint/no-explicit-any
               (gift: any) => (
                 <Link
-                  aria-label={`Learn more about ${gift.name}`}
                   className="group relative flex min-h-[180px] flex-col justify-start rounded-[24px] border border-[rgba(58,31,61,.18)] bg-[var(--card)] p-2 pt-5 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:border-[rgba(184,149,86,.72)] hover:shadow-[0_18px_32px_-24px_rgba(58,31,61,.62)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--gold)] md:min-h-[220px] md:p-3 md:pt-6"
                   href={gift.href || gift.link || "#"}
                   key={gift.id}
@@ -390,12 +457,12 @@ export function GiftBundle({ product }: { product: Product }) {
         >
           <p className="buudy-eyebrow">{product.promoLabel}</p>
           <p className="buudy-display mt-2 text-2xl text-[var(--plum)]">
-            60% off, free shipping, and a rechargeable wellness kit.
+            50% off, free shipping, and a complete scalp-care kit.
           </p>
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
-            Includes the torch, rechargeable battery, charger, USB cable,
-            glasses, and user manual for a complete targeted light therapy
-            routine.
+            {product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
+              ? "Includes Muuhu ScalpPro White Main Unit, 8ml Detachable Liquid Tank, Precision Dropper, Type-C Charging Cable, and User Manual."
+              : "Includes Muuhu ScalpPro, USB charging cable, built-in serum applicator, and user manual for a simple at-home scalp-care routine."}
           </p>
         </section>
       )}

@@ -3,7 +3,7 @@
 import { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 
-const steps = [
+const defaultSteps = [
   {
     step: "Step 1",
     title: "Prepare Your Scalp",
@@ -42,7 +42,50 @@ const steps = [
   }
 ];
 
-export function CombFeatureSections() {
+const scalpProSteps = [
+  {
+    step: "Step 1",
+    title: "Fill 8ml Tank",
+    desc: "Use the precision dropper to fill the detachable liquid tank with your favourite serum or hair oil.",
+    image: "/images/products/muuhu-scalppro/Step-1.webp",
+  },
+  {
+    step: "Step 2",
+    title: "Power On (Red Light)",
+    desc: "Press the center power button to activate 650nm Red LED therapy for follicle root revitalization.",
+    image: "/images/products/muuhu-scalppro/Step-2.webp",
+  },
+  {
+    step: "Step 3",
+    title: "Select Light Mode",
+    desc: "Cycle between Red (650nm), Blue (430nm), and Purple (380nm) modes for customized phototherapy care.",
+    image: "/images/products/muuhu-scalppro/Step-3.webp",
+  },
+  {
+    step: "Step 4",
+    title: "Glide Along Scalp",
+    desc: "Glide gently through parted hair. 6 elastic rolling beads deliver serum directly to roots with zero grease.",
+    image: "/images/products/muuhu-scalppro/Step-4.webp",
+  },
+  {
+    step: "Step 5",
+    title: "EMS & Vibration",
+    desc: "Enjoy 3 EMS microcurrent levels and 10,000 VPM acoustic vibration for deep tension relief.",
+    image: "/images/products/muuhu-scalppro/Step-5.webp",
+  },
+  {
+    step: "Step 6",
+    title: "Rinse & Stand Up",
+    desc: "Detach and rinse the 8ml tank under tap water. Rest the comb upright on its flat bottom base.",
+    image: "/images/products/muuhu-scalppro/Step-6.webp",
+  }
+];
+
+export function CombFeatureSections({ productHandle }: { productHandle?: string }) {
+  const isScalpPro = productHandle === "muuhu-scalppro";
+  const steps = isScalpPro ? scalpProSteps : defaultSteps;
+  const beforeAfterImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lifestyle.webp" : "/images/products/muuhu-comb/muuhu-comb-before-after-2.webp";
+  const ritualImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp" : "/images/products/muuhu-comb/muuhu_24.webp";
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -127,7 +170,7 @@ export function CombFeatureSections() {
         </div>
       </section>
 
-      <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
+      <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
         <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
           <div className="lg:order-last relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden rounded-[18px]">
             <Image
@@ -135,7 +178,7 @@ export function CombFeatureSections() {
               className="object-cover"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu-comb-before-after-2.webp"
+              src={beforeAfterImg}
             />
           </div>
           <div className="lg:order-first">
@@ -166,25 +209,37 @@ export function CombFeatureSections() {
         </div>
       </section>
 
-      <section className="buudy-section bg-[var(--cream)] md: md: py-14 md:py-24">
+      <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
         <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
           <div className="w-full overflow-hidden rounded-[18px] bg-[var(--blush)]">
             <Image
-              alt="Relaxing Micro-Vibrations"
-              className="w-full h-auto block"
+              alt={isScalpPro ? "Tri-Action Scalp & Follicle Rejuvenation" : "Relaxing Micro-Vibrations"}
+              className="w-full h-auto block object-cover"
               width={1000}
               height={1000}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src="/images/products/muuhu-comb/muuhu_24.webp"
+              src={isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp" : "/images/products/muuhu-comb/muuhu_24.webp"}
             />
           </div>
           <div>
-            <p className="buudy-mono text-[var(--gold)]">Daily Ritual</p>
+            <p className="buudy-mono text-[var(--gold)]">
+              {isScalpPro ? "Daily Scalp Ritual" : "Daily Ritual"}
+            </p>
             <h2 className="buudy-display mt-3 text-[2.5rem] leading-tight text-[var(--plum)] md:text-5xl">
-              Relaxing <em className="buudy-italic">Micro-Vibrations</em>.
+              {isScalpPro ? (
+                <>
+                  Tri-Color <em className="buudy-italic">Phototherapy & EMS</em>.
+                </>
+              ) : (
+                <>
+                  Relaxing <em className="buudy-italic">Micro-Vibrations</em>.
+                </>
+              )}
             </h2>
             <p className="mt-5 max-w-lg leading-7 text-[var(--muted)]">
-              Transform your hair care routine into a spa-like experience. Thousands of micro-vibrations per minute boost blood circulation, relax tense scalp muscles, and dramatically improve the absorption of your treatments.
+              {isScalpPro
+                ? "Transform your daily hair routine with targeted 650nm Red, 430nm Blue, and Purple light therapy. 3 adjustable EMS microcurrent levels and 10,000 VPM acoustic vibration deeply stimulate scalp follicles while 6 elastic rolling beads deliver nourishing serums directly to roots without any greasy mess."
+                : "Transform your hair care routine into a spa-like experience. Thousands of micro-vibrations per minute boost blood circulation, relax tense scalp muscles, and dramatically improve the absorption of your treatments."}
             </p>
           </div>
         </div>

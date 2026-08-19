@@ -1,16 +1,17 @@
 $ next build
 ▲ Next.js 16.2.6 (Turbopack)
+- Environments: .env.local
 
   Creating an optimized production build ...
-✓ Compiled successfully in 32.4s
+✓ Compiled successfully in 18.9s
   Running TypeScript ...
-  Finished TypeScript in 21.4s ...
+  Finished TypeScript in 21.0s ...
   Collecting page data using 7 workers ...
-  Generating static pages using 7 workers (0/31) ...
-  Generating static pages using 7 workers (7/31) 
-  Generating static pages using 7 workers (15/31) 
-  Generating static pages using 7 workers (23/31) 
-✓ Generating static pages using 7 workers (31/31) in 2.9s
+  Generating static pages using 7 workers (0/32) ...
+  Generating static pages using 7 workers (8/32) 
+  Generating static pages using 7 workers (16/32) 
+  Generating static pages using 7 workers (24/32) 
+✓ Generating static pages using 7 workers (32/32) in 3.6s
   Finalizing page optimization ...
 
 Route (app)                                   Revalidate  Expire
@@ -41,9 +42,9 @@ Route (app)                                   Revalidate  Expire
 ├ ƒ /order-history
 ├ ○ /order-tracking
 ├ ● /pages/[slug]
-│ ├ /pages/premium-travel-box
+│ ├ /pages/premium-packaging
 │ ├ /pages/muuhu-comb
-│ └ /pages/skincare-guide
+│ └ /pages/haircare-ebook
 ├ ○ /pages/about-us
 ├ ○ /pages/contact-us
 ├ ○ /pages/faqs
@@ -56,7 +57,8 @@ Route (app)                                   Revalidate  Expire
 ├ ○ /policies/terms-of-service
 ├ ● /products/[slug]                                  1d      1y
 │ ├ /products/muuhu-hair-dryer                        1d      1y
-│ └ /products/muuhu-comb                              1d      1y
+│ ├ /products/muuhu-comb                              1d      1y
+│ └ /products/muuhu-scalppro                          1d      1y
 ├ ○ /robots.txt
 ├ ƒ /sign-in
 ├ ƒ /sign-up

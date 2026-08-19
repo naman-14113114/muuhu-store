@@ -7,7 +7,8 @@ Muuhu UK sells professional high-speed hair styling devices designed for salon-q
 ## Primary Pages
 - [Home](${market.siteUrl}): UK storefront for Muuhu hair styling devices.
 - [Muuhu AirPro](${market.siteUrl}/products/muuhu-hair-dryer): Product page for the 7-in-1 high-speed hair dryer and styler.
-- [Muuhu ScalpPro](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu ScalpPro.
+- [Muuhu ScalpPro](${market.siteUrl}/products/muuhu-scalppro): Dedicated product page for the 5-in-1 EMS Tri-Light Scalp Care & Massage Comb.
+- [Muuhu Comb](${market.siteUrl}/products/muuhu-comb): Product page for the Muuhu Scalp Therapy Brush.
 - [Hair Quiz](${market.siteUrl}/pages/hair-quiz): Guided quiz for choosing the right hair styling routine.
 - [FAQs](${market.siteUrl}/pages/faqs): Common questions about shipping, returns, product use, and care.
 - [Shipping Policy](${market.siteUrl}/policies/shipping-policy): UK shipping timelines and tracking guidance.
@@ -45,7 +46,6 @@ Muuhu UK sells professional high-speed hair styling devices designed for salon-q
 ## Safety Note
 Muuhu is a consumer hair styling device, not a medical device. Users should follow the included safety instructions, keep the device away from water, and use appropriate heat protectant products.
 `;
-
 
 export function GET() {
   return new Response(body, {
