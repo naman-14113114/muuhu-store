@@ -362,11 +362,11 @@ export const muuhuScalpPro: Product = {
     "3-Color light therapy (Red, Blue, Purple) for root strength & follicle health",
     "3 EMS intensity levels & 3 vibration speeds (10,000 VPM) soothe scalp tension",
   ],
-  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
+  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
   gallery: [
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
-      alt: "Muuhu ScalpPro Electric Scalp Massager Comb with Box and Accessories",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
+      alt: "Muuhu ScalpPro Light Therapy Massager Comb Complete Vanity Set",
     },
     {
       src: "/images/products/muuhu-scalppro/muuhu_scalppro_features_callouts.webp",
@@ -436,7 +436,7 @@ export const muuhuScalpPro: Product = {
     {
       label: "Muuhu ScalpPro Main Unit (White)",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     },
     {
       label: "8ml Detachable Liquid Tank",
@@ -451,12 +451,12 @@ export const muuhuScalpPro: Product = {
     {
       label: "Type-C Charging Cable",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     },
     {
       label: "Instruction Manual",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     },
   ],
   badges: ["CE Certified", "Tri-Color Phototherapy", "EMS Microcurrent", "IPX5 Rinseable"],
