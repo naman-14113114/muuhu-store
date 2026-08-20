@@ -350,8 +350,8 @@ export const muuhuScalpPro: Product = {
   seoDescription:
     "Shop Muuhu ScalpPro in the UK. 5-in-1 hair growth comb featuring 3-mode LED light therapy, EMS microcurrent, vibration massage, and an 8ml detachable serum tank.",
   currency: market.currency,
-  priceCents: 7900,
-  compareAtCents: 15900,
+  priceCents: 5900,
+  compareAtCents: 11900,
   rating: 4.9,
   reviewCount: 16000,
   customerCount: "16,000+",
