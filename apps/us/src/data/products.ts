@@ -377,16 +377,8 @@ export const muuhuScalpPro: Product = {
       alt: "Muuhu ScalpPro Ergonomic Dimensions & Technical Specifications",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_handheld_red_light.webp",
-      alt: "Muuhu ScalpPro Handheld Red Light Phototherapy Treatment",
-    },
-    {
       src: "/images/products/muuhu-scalppro/muuhu_scalppro_laser_follicle_stimulation.webp",
       alt: "Muuhu ScalpPro 650nm Laser LLLT Follicle Stimulation Diagram",
-    },
-    {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_parting_serum_application.webp",
-      alt: "Muuhu ScalpPro Precision Hair Parting & Scalp Serum Application",
     },
     {
       src: "/images/products/muuhu-scalppro/muuhu_scalppro_vibration_massage_modes.webp",
