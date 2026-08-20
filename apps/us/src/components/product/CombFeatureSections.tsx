@@ -173,17 +173,35 @@ export function CombFeatureSections({ productHandle }: { productHandle?: string 
       )}
 
       <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
-        <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
-          <div className="lg:order-last relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden rounded-[18px]">
-            <Image
-              alt="Before and After Results"
-              className="object-cover"
-              fill
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              src={beforeAfterImg}
-            />
-          </div>
-          <div className="lg:order-first">
+        <div className={`buudy-wrap items-center gap-8 md:gap-12 lg:gap-14 ${isScalpPro ? "max-w-5xl mx-auto flex flex-col lg:grid lg:grid-cols-2" : "grid lg:grid-cols-2"}`}>
+          {isScalpPro ? (
+            <div className="order-first lg:order-last flex justify-center w-full">
+              <div className="relative aspect-[9/16] w-full max-w-[290px] sm:max-w-[320px] overflow-hidden rounded-[18px] shadow-lg bg-black/5">
+                <video
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  preload="metadata"
+                  poster="/videos/products/muuhu-scalppro/muuhu_scalppro_demo_poster.webp"
+                  className="w-full h-full object-cover rounded-[18px] block"
+                >
+                  <source src="/videos/products/muuhu-scalppro/muuhu_scalppro_demo.mp4" type="video/mp4" />
+                </video>
+              </div>
+            </div>
+          ) : (
+            <div className="lg:order-last relative aspect-[4/3] md:aspect-square lg:aspect-[4/3] overflow-hidden rounded-[18px]">
+              <Image
+                alt="Before and After Results"
+                className="object-cover"
+                fill
+                sizes="(min-width: 1024px) 50vw, 100vw"
+                src={beforeAfterImg}
+              />
+            </div>
+          )}
+          <div className={isScalpPro ? "order-last lg:order-first w-full max-w-md mx-auto lg:mx-0 flex flex-col justify-center" : "lg:order-first"}>
             <h2 className="buudy-display text-[3rem] leading-[1.1] text-[var(--plum)] md:text-6xl mb-12">
               Why People<br/>Love It
             </h2>
