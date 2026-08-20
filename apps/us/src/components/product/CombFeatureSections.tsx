@@ -85,7 +85,7 @@ export function CombFeatureSections({ productHandle }: { productHandle?: string 
   const isScalpPro = productHandle === "muuhu-scalppro";
   const steps = isScalpPro ? scalpProSteps : defaultSteps;
   const beforeAfterImg = "/images/products/muuhu-comb/muuhu-comb-before-after-2.webp";
-  const ritualImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_parting_application.webp" : "/images/products/muuhu-comb/muuhu_24.webp";
+  const ritualImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_parting_serum_application.webp" : "/images/products/muuhu-comb/muuhu_24.webp";
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);

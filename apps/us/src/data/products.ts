@@ -444,27 +444,27 @@ export const muuhuScalpPro: Product = {
     {
       label: "Muuhu ScalpPro Main Unit (White)",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
     },
     {
       label: "8ml Detachable Liquid Tank",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_detachable_liquid_container.webp",
     },
     {
       label: "Precision Dropper",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_detachable_liquid_container.webp",
     },
     {
       label: "Type-C Charging Cable",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
     },
     {
       label: "Instruction Manual",
       quantity: 1,
-      image: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
+      image: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
     },
   ],
   badges: ["CE Certified", "Tri-Color Phototherapy", "EMS Microcurrent", "IPX5 Rinseable"],
