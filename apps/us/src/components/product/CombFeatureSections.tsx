@@ -84,8 +84,8 @@ const scalpProSteps = [
 export function CombFeatureSections({ productHandle }: { productHandle?: string }) {
   const isScalpPro = productHandle === "muuhu-scalppro";
   const steps = isScalpPro ? scalpProSteps : defaultSteps;
-  const beforeAfterImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lifestyle.webp" : "/images/products/muuhu-comb/muuhu-comb-before-after-2.webp";
-  const ritualImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp" : "/images/products/muuhu-comb/muuhu_24.webp";
+  const beforeAfterImg = "/images/products/muuhu-comb/muuhu-comb-before-after-2.webp";
+  const ritualImg = isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_parting_application.webp" : "/images/products/muuhu-comb/muuhu_24.webp";
   const scrollRef = useRef<HTMLDivElement>(null);
   const [canScrollLeft, setCanScrollLeft] = useState(false);
   const [canScrollRight, setCanScrollRight] = useState(true);
@@ -113,62 +113,64 @@ export function CombFeatureSections({ productHandle }: { productHandle?: string 
 
   return (
     <>
-      <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
-        <div className="buudy-wrap">
-          <h2 className="buudy-display text-center text-[3rem] leading-tight text-[var(--plum)] md:text-6xl mb-12 md:mb-16">
-            How To <em className="buudy-italic text-[var(--gold)]">Use</em>
-          </h2>
-          
-          <div className="relative">
-            {canScrollLeft && (
-              <button
-                onClick={() => scroll("left")}
-                className="md:hidden absolute left-0 top-[35%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg"
-                aria-label="Scroll left"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-              </button>
-            )}
+      {!isScalpPro && (
+        <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
+          <div className="buudy-wrap">
+            <h2 className="buudy-display text-center text-[3rem] leading-tight text-[var(--plum)] md:text-6xl mb-12 md:mb-16">
+              How To <em className="buudy-italic text-[var(--gold)]">Use</em>
+            </h2>
+            
+            <div className="relative">
+              {canScrollLeft && (
+                <button
+                  onClick={() => scroll("left")}
+                  className="md:hidden absolute left-0 top-[35%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg"
+                  aria-label="Scroll left"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+                </button>
+              )}
 
-            {canScrollRight && (
-              <button
-                onClick={() => scroll("right")}
-                className="md:hidden absolute right-0 top-[35%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg"
-                aria-label="Scroll right"
-              >
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-              </button>
-            )}
+              {canScrollRight && (
+                <button
+                  onClick={() => scroll("right")}
+                  className="md:hidden absolute right-0 top-[35%] -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/60 backdrop-blur-sm text-white flex items-center justify-center hover:bg-black/80 transition-colors shadow-lg"
+                  aria-label="Scroll right"
+                >
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
+              )}
 
-            <div 
-              ref={scrollRef}
-              className="flex md:grid md:grid-cols-3 gap-5 md:gap-12 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0"
-              style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
-            >
-              {steps.map((s, i) => (
-                <div key={i} className="flex flex-col gap-4 md:gap-6 group flex-shrink-0 w-[85vw] sm:w-[45vw] md:w-auto snap-center md:snap-none">
-                  <div className="relative w-full overflow-hidden rounded-[18px] bg-[var(--cream)] md:bg-[var(--blush)] md:aspect-[4/3]">
-                    <Image
-                      src={s.image}
-                      alt={s.title}
-                      width={800}
-                      height={800}
-                      className="w-full h-auto md:h-full md:object-cover transition-transform duration-700 group-hover:scale-105"
-                      sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 85vw"
-                    />
+              <div 
+                ref={scrollRef}
+                className="flex md:grid md:grid-cols-3 gap-5 md:gap-12 overflow-x-auto snap-x snap-mandatory scrollbar-hide pb-4 -mx-4 px-4 md:overflow-visible md:snap-none md:pb-0 md:mx-0 md:px-0"
+                style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+              >
+                {steps.map((s, i) => (
+                  <div key={i} className="flex flex-col gap-4 md:gap-6 group flex-shrink-0 w-[85vw] sm:w-[45vw] md:w-auto snap-center md:snap-none">
+                    <div className="relative w-full overflow-hidden rounded-[18px] bg-[var(--cream)] md:bg-[var(--blush)] md:aspect-[4/3]">
+                      <Image
+                        src={s.image}
+                        alt={s.title}
+                        width={800}
+                        height={800}
+                        className="w-full h-auto md:h-full md:object-cover transition-transform duration-700 group-hover:scale-105"
+                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 85vw"
+                      />
+                    </div>
+                    <div>
+                      <h3 className="font-bold text-xl text-[var(--plum)] mb-2">{s.title}</h3>
+                      <p className="text-[var(--muted)] leading-relaxed text-sm md:text-base whitespace-normal">
+                        {s.desc}
+                      </p>
+                    </div>
                   </div>
-                  <div>
-                    <h3 className="font-bold text-xl text-[var(--plum)] mb-2">{s.title}</h3>
-                    <p className="text-[var(--muted)] leading-relaxed text-sm md:text-base whitespace-normal">
-                      {s.desc}
-                    </p>
-                  </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       <section className="buudy-section bg-[var(--cream)] py-14 md:py-24">
         <div className="buudy-wrap grid items-center gap-8 md:gap-14 lg:grid-cols-2">
@@ -218,7 +220,7 @@ export function CombFeatureSections({ productHandle }: { productHandle?: string 
               width={1000}
               height={1000}
               sizes="(min-width: 1024px) 50vw, 100vw"
-              src={isScalpPro ? "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp" : "/images/products/muuhu-comb/muuhu_24.webp"}
+              src={ritualImg}
             />
           </div>
           <div>

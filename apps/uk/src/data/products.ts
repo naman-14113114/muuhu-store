@@ -362,39 +362,51 @@ export const muuhuScalpPro: Product = {
     "3-Color light therapy (Red, Blue, Purple) for root strength & follicle health",
     "3 EMS intensity levels & 3 vibration speeds (10,000 VPM) soothe scalp tension",
   ],
-  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
+  cartImage: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
   gallery: [
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_hero.webp",
-      alt: "Muuhu ScalpPro Model F1 Main View",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_main.webp",
+      alt: "Muuhu ScalpPro Electric Scalp Massager Comb with Box and Accessories",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_lights.webp",
-      alt: "Tri-Color Light Therapy Spectrum (Red, Blue, Purple)",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_features_callouts.webp",
+      alt: "Muuhu ScalpPro Tri-Color Light, EMS & Vibration Feature Callouts",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_tank.webp",
-      alt: "8ml Detachable Liquid Reservoir & Precision Dropper",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_dimensions_specs.webp",
+      alt: "Muuhu ScalpPro Ergonomic Dimensions & Technical Specifications",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_ems.webp",
-      alt: "3 EMS Microcurrent Levels & 10,000 VPM Micro-Vibration",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_handheld_red_light.webp",
+      alt: "Muuhu ScalpPro Handheld Red Light Phototherapy Treatment",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_teeth.webp",
-      alt: "6 Elastic Rolling Beads & 8 Soft Silicone Massage Teeth",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_laser_follicle_stimulation.webp",
+      alt: "Muuhu ScalpPro 650nm Laser LLLT Follicle Stimulation Diagram",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_lifestyle.webp",
-      alt: "At-Home Scalp Care Routine with Model F1",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_parting_serum_application.webp",
+      alt: "Muuhu ScalpPro Precision Hair Parting & Scalp Serum Application",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_standup.webp",
-      alt: "Hygienic Stand-Up Flat Bottom Vanity Design",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_vibration_massage_modes.webp",
+      alt: "Muuhu ScalpPro Deep Frequency Vibration Massage & Multi-Spectrum Light Modes",
     },
     {
-      src: "/images/products/muuhu-scalppro/muuhu_scalppro_unboxing.webp",
-      alt: "Complete Package List & Accessories",
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_6point_roller_system.webp",
+      alt: "Muuhu ScalpPro 6 Point Roller System for Even Hair Oil Distribution",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_detachable_liquid_container.webp",
+      alt: "Muuhu ScalpPro Detachable Liquid Reservoir & Precision Dropper Refill",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_before_after_results.webp",
+      alt: "Muuhu ScalpPro Deep Massage Before and After Shiny Hair Results",
+    },
+    {
+      src: "/images/products/muuhu-scalppro/muuhu_scalppro_teeth_technology.webp",
+      alt: "Muuhu ScalpPro 6 EMS Teeth, 8 Soft Massage Tips & 6 Roller Balls",
     },
   ],
   specs: [
