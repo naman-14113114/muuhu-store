@@ -63,7 +63,7 @@ export const freeGiftDetails: FreeGiftDetail[] = [
         bullets: [
           "Cleaner storage at home",
           "Stronger unboxing value",
-          "Easier attachment organization",
+          "Easier attachment organisation",
           "A more polished ownership experience",
         ],
       },
@@ -78,10 +78,10 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     seoDescription:
       "Explore the Muuhu ScalpPro included as a free companion gift with the Muuhu Airpro offer for scalp care, massage, and haircare routines.",
     intro:
-      "The Muuhu ScalpPro adds focused scalp care to the main Hair Dryer offer. While the dryer helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
+      "The Muuhu ScalpPro adds focused scalp care to the main Muuhu Airpro offer. While Muuhu Airpro helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
     note:
       "The current Muuhu Airpro offer includes the Muuhu ScalpPro as a free bonus gift.",
-    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp",
+    image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     imageAlt: "Muuhu ScalpPro bonus gift",
     cardTitle: "Why customers love this bonus",
     cardBullets: [
@@ -120,9 +120,9 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     title: "Muuhu Haircare Masterclass E-book",
     seoTitle: "Muuhu Haircare Masterclass E-book Bonus",
     seoDescription:
-      "Discover the Muuhu Haircare Masterclass E-book included with your Hair Dryer purchase, with attachment guidance, styling routines, and scalp-care tips.",
+      "Discover the Muuhu Haircare Masterclass E-book included with your Muuhu Airpro purchase, with attachment guidance, styling routines, and scalp-care tips.",
     intro:
-      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Hair Dryer. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu ScalpPro.",
+      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Muuhu Airpro. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu ScalpPro.",
     note:
       "The guide is delivered after purchase and is not publicly published as a downloadable file on this page.",
     image: "/images/products/muuhu-hair-dryer/muuhu-haircare-ebook-gift.webp",

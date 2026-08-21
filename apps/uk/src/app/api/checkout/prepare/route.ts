@@ -11,7 +11,7 @@ const plusbaseOrigin = "https://muuhu.com";
 const PLUSBASE_PRODUCTS: Record<string, { productId: number; variantId: number }> = {
   "muuhu-hair-dryer": { productId: 1000000671699723, variantId: 1000020593292001 },
   "muuhu-comb": { productId: 1000000670522361, variantId: 1000020551283771 },
-  "muuhu-scalppro": { productId: 1000000670522361, variantId: 1000020551283771 },
+  "muuhu-scalppro": { productId: 1000000674498041, variantId: 1000020686680256 },
 };
 
 type CheckoutPrepareBody = {
@@ -82,7 +82,7 @@ function getManualPromoFromCart(cart: CheckoutPrepareBody["cart"]) {
   );
 }
 
-function appendDiscountCodeToUrl(href: string, discountCode: string) {
+function appendDiscountCodeToUrl(href: string, discountCode?: string | null) {
   if (!discountCode) {
     return href;
   }
@@ -256,7 +256,7 @@ export async function POST(request: NextRequest) {
       checkoutRef: token,
       quantity,
       giftQuantity: quantity,
-      discountCode: appliedManualPromoCode,
+      discountCode: appliedManualPromoCode || undefined,
       extraParams: bridgeParams(body.attribution),
     }),
   });

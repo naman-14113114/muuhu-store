@@ -1,6 +1,6 @@
 export const primaryNavigation = [
   { label: "Muuhu AirPro", href: "/products/muuhu-hair-dryer" },
-  { label: "Muuhu ScalpPro", href: "/products/muuhu-comb" },
+  { label: "Muuhu ScalpPro", href: "/products/muuhu-scalppro" },
   { label: "Hair Quiz", href: "/pages/hair-quiz" },
 ];
 

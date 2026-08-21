@@ -11,6 +11,7 @@ import {
 import { Button } from "@/components/ui/Button";
 import { useCart } from "./CartProvider";
 import { PromoCodeBox } from "./PromoCodeBox";
+import { getDisplayLines } from "@/lib/cart";
 
 type CartSummaryProps = {
   action?: "cart" | "summary";
@@ -19,12 +20,16 @@ type CartSummaryProps = {
 
 export function CartSummary({ action = "summary", children }: CartSummaryProps) {
   const router = useRouter();
-  const { lines, totals, closeCart } = useCart();
+  const { lines, totals, manualPromoCode, closeCart } = useCart();
   const [detailsOpen, setDetailsOpen] = useState(false);
-  const giftLines = lines.filter(
+  const displayLines = getDisplayLines(lines);
+  const giftLines = displayLines.filter(
     (line) => line.type === "gift" && line.quantity > 0 && (line.compareAtCents ?? 0) > 0,
   );
-  const giftOfferDiscountCents = giftLines.length > 0 ? 7900 : 0;
+  const giftOfferDiscountCents = giftLines.reduce(
+    (acc, line) => acc + (line.compareAtCents ?? 0) * line.quantity,
+    0,
+  );
   const totalSavingsCents = giftOfferDiscountCents + totals.promoDiscountCents;
 
   return (
@@ -78,7 +83,7 @@ export function CartSummary({ action = "summary", children }: CartSummaryProps) 
                   <div className="flex justify-between gap-4">
                     <span className="flex items-center gap-1.5 uppercase text-[var(--muted)]">
                       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-[var(--muted)]"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line></svg>
-                      MUUHU10
+                      {manualPromoCode || "MUUHU10"}
                     </span>
                     <span className="font-semibold text-[var(--muted)]">
                       -{formatMoney(totals.promoDiscountCents)}
@@ -91,19 +96,7 @@ export function CartSummary({ action = "summary", children }: CartSummaryProps) 
         </>
       ) : null}
 
-      {/* 2. Link */}
-      <div className="mb-6 mt-1 text-sm">
-        <button 
-          type="button"
-          onClick={() => {
-            const btn = document.querySelector('.proxy-bundle-btn') as HTMLButtonElement;
-            if (btn) btn.click();
-          }}
-          className="text-[var(--plum)] hover:underline font-medium transition-colors"
-        >
-          + Wanna add more discount? Move to checkout
-        </button>
-      </div>
+
 
       {action === "summary" ? (
         <div className="mt-4">

@@ -126,7 +126,7 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
           : buildPlusbaseCheckoutUrl({
               quantity: productQuantity,
               productId: primaryProductId,
-              discountCode: manualPromoCode,
+              discountCode: manualPromoCode || undefined,
               extraParams: attribution,
             }),
       );
@@ -139,7 +139,7 @@ export function CheckoutForm({ initialCustomer }: CheckoutFormProps) {
         buildPlusbaseCheckoutUrl({
           quantity: productQuantity,
           productId: primaryProductId,
-          discountCode: manualPromoCode,
+          discountCode: manualPromoCode || undefined,
           extraParams: attribution,
         }),
       );

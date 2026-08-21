@@ -36,7 +36,7 @@ export type CheckoutBridgeOptions = {
 const PLUSBASE_PRODUCTS: Record<string, { productId: string; variantId: string }> = {
   "muuhu-hair-dryer": { productId: "1000000671699723", variantId: "1000020593292001" },
   "muuhu-comb": { productId: "1000000670522361", variantId: "1000020551283771" },
-  "muuhu-scalppro": { productId: "1000000670522361", variantId: "1000020551283771" },
+  "muuhu-scalppro": { productId: "1000000674498041", variantId: "1000020686680256" },
 };
 
 export function buildPlusbaseCheckoutUrl(options: CheckoutBridgeOptions = {}) {

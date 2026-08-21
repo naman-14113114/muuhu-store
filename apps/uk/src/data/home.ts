@@ -1,5 +1,5 @@
 import { productAsset } from "@/lib/media";
-import { muuhuComb, muuhuHairDryer } from "./products";
+import { muuhuScalpPro, muuhuHairDryer } from "./products";
 
 export const homeHero = {
   eyebrow: "Next-generation hair styling",
@@ -96,12 +96,12 @@ export const homeTorchSpotlight = {
   title: "Targeted scalp care in your hand.",
   copy: "Muuhu ScalpPro combines red light therapy, micro-vibration massage, and a built-in serum applicator to support a calmer scalp and healthier-looking roots in one simple daily ritual.",
   ctaLabel: "Shop ScalpPro",
-  ctaHref: `/products/${muuhuComb.slug}`,
+  ctaHref: `/products/${muuhuScalpPro.slug}`,
   image: {
-    src: "/images/products/muuhu-comb/muuhu-scalppro-bonus.webp",
+    src: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     alt: "Muuhu ScalpPro product spotlight",
   },
-  product: muuhuComb,
+  product: muuhuScalpPro,
 };
 
 export const homeWavelengthMap = {
@@ -123,5 +123,5 @@ export const homeCustomerReviewsGrid = {
   copy: "Tons of glowing reviews from customers!",
   ctaLabel: "About Us",
   ctaHref: "/pages/about-us",
-  image: "/images/home/muuhu-airpro-customer-reviews.webp"
+  image: "/images/home/muuhu-airpro-customer-reviews.webp",
 };

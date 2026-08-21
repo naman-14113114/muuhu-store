@@ -20,16 +20,26 @@ export type CartLine = {
   locked?: boolean;
 };
 
+export type CartTotals = {
+  itemCount: number;
+  subtotalCents: number;
+  compareAtCents: number;
+  savingsCents: number;
+  giftValueCents: number;
+  promoDiscountCents: number;
+  totalDiscountCents: number;
+  shippingCents: number;
+  totalCents: number;
+};
+
 export type CartState = {
   lines: CartLine[];
   promoCode: string;
-  manualPromoCode: string;
+  manualPromoCode?: string | null;
   giftMessage: string;
 };
 
 export const promoCode = "AUTO";
-export const manualPromoCode = "MUUHU10";
-export const manualPromoDiscountCents = 1000;
 
 export const emptyCart: CartState = {
   lines: [],
@@ -38,27 +48,37 @@ export const emptyCart: CartState = {
   giftMessage: "",
 };
 
-export function normalizeManualPromoCode(code: string | null | undefined) {
-  return (code ?? "").trim().toUpperCase();
+export function isValidManualPromoCode(code?: string | null) {
+  const normalized = (code ?? "").trim().toUpperCase();
+  return normalized === "MUUHU10" || normalized === "SAVE10";
 }
 
-export function isValidManualPromoCode(code: string | null | undefined) {
-  return normalizeManualPromoCode(code) === manualPromoCode;
+export function getAppliedManualPromoCode(manualPromoCode?: string | null) {
+  const code = (manualPromoCode ?? "").trim().toUpperCase();
+  return isValidManualPromoCode(code) ? code : "";
 }
 
-export function getAppliedManualPromoCode(code: string | null | undefined) {
-  return isValidManualPromoCode(code) ? manualPromoCode : "";
+function getGiftSubtitle(giftId: string): string {
+  if (giftId.includes("scalppro")) {
+    return "5-in-1 Scalp Rejuvenation Comb with Tri-Color LED therapy, EMS microcurrent, soothing vibration, and an 8ml mess-free serum applicator.";
+  }
+  if (giftId.includes("comb")) {
+    return "3-in-1 Red Light Scalp Care & Massage Comb with micro-vibration, red light therapy, and integrated liquid serum applicator.";
+  }
+  if (giftId.includes("travel-case") || giftId.includes("packaging")) {
+    return "Luxury presentation case for safe storage, organisation, and gifting.";
+  }
+  if (giftId.includes("skincare-guide") || giftId.includes("ebook")) {
+    return "Exclusive digital styling guide & haircare masterclass.";
+  }
+  return "";
 }
 
 export function buildProductCartLines(
   product: Product,
   quantity = 1,
 ): CartLine[] {
-  const normalizedQuantity = Math.max(quantity, 0);
-
-  if (normalizedQuantity <= 0) {
-    return [];
-  }
+  const normalizedQuantity = Math.max(1, Math.round(quantity));
 
   const productLine: CartLine = {
     id: product.id,
@@ -79,7 +99,7 @@ export function buildProductCartLines(
     slug: product.slug,
     type: "gift",
     title: gift.name,
-    subtitle: `Revolutionary 3-in-1 Hair Growth Comb with targeted red light therapy, micro-vibration massage, and a built-in liquid applicator.`,
+    subtitle: getGiftSubtitle(gift.id),
     image: gift.image,
     unitPriceCents: 0,
     compareAtCents: gift.valueCents,
@@ -121,9 +141,14 @@ export function upsertProductCartLines(
   return [...withoutProduct, ...buildProductCartLines(product, quantity)];
 }
 
-export function calculateCartTotals(lines: CartLine[], appliedManualPromo = "") {
+export function calculateCartTotals(
+  lines: CartLine[],
+  manualPromoCode?: string | null,
+): CartTotals {
+  const displayLines = getDisplayLines(lines);
   const productLines = lines.filter((line) => line.type === "product");
-  const giftLines = lines.filter((line) => line.type === "gift");
+  const giftLines = displayLines.filter((line) => line.type === "gift");
+
   const subtotalCents = productLines.reduce(
     (total, line) => total + line.unitPriceCents * line.quantity,
     0,
@@ -138,38 +163,32 @@ export function calculateCartTotals(lines: CartLine[], appliedManualPromo = "") 
     0,
   );
   const savingsCents = Math.max(compareAtCents - subtotalCents, 0);
-  const promoDiscountCents = isValidManualPromoCode(appliedManualPromo)
-    ? Math.min(manualPromoDiscountCents, subtotalCents)
-    : 0;
+
+  const appliedManualCode = getAppliedManualPromoCode(manualPromoCode);
+  const promoDiscountCents = appliedManualCode ? 1000 : 0;
+  const totalDiscountCents = savingsCents + giftValueCents + promoDiscountCents;
+  const totalCents = Math.max(0, subtotalCents - promoDiscountCents);
 
   return {
     itemCount: productLines.reduce((total, line) => total + line.quantity, 0),
     subtotalCents,
     compareAtCents,
-    giftValueCents,
     savingsCents,
+    giftValueCents,
     promoDiscountCents,
-    shippingCents: subtotalCents > 0 ? 0 : 0,
-    totalCents: Math.max(subtotalCents - promoDiscountCents, 0),
+    totalDiscountCents,
+    shippingCents: 0,
+    totalCents,
   };
 }
 
-export function getDisplayLines(lines: CartLine[]): CartLine[] {
-  const hasHairDryer = lines.some(
-    (line) => line.productId === "muuhu-hair-dryer" && line.type === "product",
-  );
-
-  if (!hasHairDryer) {
-    return lines;
-  }
-
+export function getDisplayLines(lines: CartLine[]) {
   return lines
     .map((line) => {
       if (line.productId === "muuhu-hair-dryer" && line.type === "product") {
         return {
           ...line,
-          title: "Muuhu AirPro",
-          image: "/images/products/muuhu-hair-dryer/muuhu.jpg",
+          title: "Muuhu Airpro + Premium Packaging",
         };
       }
       return line;

@@ -81,7 +81,7 @@ export const freeGiftDetails: FreeGiftDetail[] = [
       "The Muuhu ScalpPro adds focused scalp care to the main Muuhu AirPro offer. While Muuhu AirPro helps create smooth blowouts, volume, curls, and polished finishes, the comb supports the root-care side of the routine.",
     note:
       "The current Muuhu AirPro offer includes the Muuhu ScalpPro as a free bonus gift.",
-    image: "/images/products/muuhu-comb/muuhu-hair-growth-therapy-comb-hero.webp",
+    image: "/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp",
     imageAlt: "Muuhu ScalpPro bonus gift",
     cardTitle: "Why customers love this bonus",
     cardBullets: [
@@ -122,7 +122,7 @@ export const freeGiftDetails: FreeGiftDetail[] = [
     seoDescription:
       "Discover the Muuhu Haircare Masterclass E-book included with your Muuhu AirPro purchase, with attachment guidance, styling routines, and scalp-care tips.",
     intro:
-      "The Muuhu Haircare Masterclass is a private buyer guide built for Muuhu AirPro. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu ScalpPro.",
+      "The Muuhu Haircare Masterclass is a private buyer guide built for the 7-in-1 Muuhu AirPro. It helps customers understand every attachment, choose the right heat and speed settings, and build routines for smooth blowouts, curl retention, frizz control, and scalp-care pairing with the Muuhu ScalpPro.",
     note:
       "The guide is delivered after purchase and is not publicly published as a downloadable file on this page.",
     image: "/images/products/muuhu-hair-dryer/muuhu-haircare-ebook-gift.webp",

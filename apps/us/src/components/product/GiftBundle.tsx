@@ -462,7 +462,7 @@ export function GiftBundle({ product }: { product: Product }) {
           <p className="mt-3 text-sm leading-6 text-[var(--muted)]">
             {product.id === "muuhu-scalppro" || product.slug === "muuhu-scalppro"
               ? "Includes Muuhu ScalpPro White Main Unit, 8ml Detachable Liquid Tank, Precision Dropper, Type-C Charging Cable, and User Manual."
-              : "Includes Muuhu ScalpPro, USB charging cable, built-in serum applicator, and user manual for a simple at-home scalp-care routine."}
+              : "Includes Muuhu Scalp Therapy Brush, USB charging cable, built-in serum applicator, and user manual for a simple at-home scalp-care routine."}
           </p>
         </section>
       )}

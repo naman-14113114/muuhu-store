@@ -70,39 +70,29 @@ export const features: Feature[] = [
 
 export const combFeatures: Feature[] = [
   {
-    title: "Tri-Color Light Therapy Modes",
-    kicker: "Targeted Phototherapy Spectrum",
-    body: "Red light (650–680nm) strengthens hair roots, blue light (430–450nm) heals damaged follicles and balances scalp oil, and purple light (380–420nm) provides dual-wave scalp rejuvenation.",
+    title: "650nm Red Light Therapy",
+    kicker: "Targeted Phototherapy",
+    body: "Targeted 650nm red light energises hair roots, activates dormant follicles, and supports natural scalp regeneration.",
   },
   {
-    title: "6 EMS Microcurrent Teeth",
-    kicker: "Secondary Muscle Activation",
-    body: "Generates gentle bio-electric microcurrents across 3 adjustable intensity levels to stimulate dermal papilla cells and enhance localized microcirculation.",
+    title: "High-Frequency Micro-Vibration",
+    kicker: "Therapeutic Scalp Massage",
+    body: "Gentle acoustic vibrations boost localized blood flow, relieve tension, and enhance nutrient absorption at the follicle level.",
   },
   {
-    title: "3 High-Frequency Vibration Speeds",
-    kicker: "10,000 ± 2,000 VPM Massage",
-    body: "Acoustic micro-vibration soothes daily scalp tension, stimulates cell metabolism, and prepares roots for optimal formula absorption.",
+    title: "Integrated Serum Applicator",
+    kicker: "Direct-to-Root Delivery",
+    body: "Built-in liquid tank dispenses serums and essential oils directly onto the scalp roots with zero mess or greasy hair shafts.",
   },
   {
-    title: "8ml Detachable Liquid Tank",
-    kicker: "Precision Dropper & Easy Rinse",
-    body: "Separate 8ml reservoir allows effortless filling with hair oils, minoxidil, or growth serums, and detaches for quick rinsing with water.",
+    title: "IPX5 Water Resistant",
+    kicker: "Hygienic & Easy Clean",
+    body: "Rinseable design allows quick cleanup under tap water after applying oils and serums.",
   },
   {
-    title: "6 Elastic Rolling Beads Teeth",
-    kicker: "Targeted Zero-Mess Dispensing",
-    body: "Spring-loaded rollerball teeth part hair and release serum directly onto scalp roots upon gentle pressure without making hair greasy.",
-  },
-  {
-    title: "8 Soft Silicone Massage Points",
-    kicker: "Gentle Scratch-Free Care",
-    body: "Multi-contact silicone points provide a comforting, non-irritating acupoint massage for all scalp types.",
-  },
-  {
-    title: "Stand-Up Flat Bottom Design",
-    kicker: "Hygienic Countertop Storage",
-    body: "Thoughtful self-standing base keeps the comb upright on your vanity or bathroom counter, preventing spills and keeping your space tidy.",
+    title: "Ergonomic & Portable",
+    kicker: "USB Rechargeable",
+    body: "Compact, cordless design with fast USB charging fits comfortably in your hand for daily at-home or travel scalp rituals.",
   },
 ];
 

@@ -221,7 +221,7 @@ function MuuhuCombGiftStrip() {
             height={620}
             loading="eager"
             sizes="(min-width: 1024px) 300px, (min-width: 768px) 280px, 92vw"
-            src="/images/products/muuhu-hair-dryer/muuhu-comb-free-gift.webp"
+            src="/images/products/muuhu-scalppro/muuhu_scalppro_hero_set.webp"
             width={620}
           />
         </div>
